@@ -1,18 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
+using DataTransferObjects.Requests;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
+using Models;
 using Swashbuckle.AspNetCore.Swagger;
+using Repository;
+using WebAPI.Services;
+using WebAPI.Services.Interfaces;
 
 namespace WebAPI
 {
@@ -28,13 +26,24 @@ namespace WebAPI
         // This method gets called by the runtime. Use this method to add services to the contastringer.
         public void ConfigureServices(IServiceCollection services)
         {
-            //Add Automapper service
+            // Add Automapper service
             services.AddAutoMapper();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
+            // Add DbContext from Repository layer
             services.AddDbContext<eTeatarContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Local")));
 
+            // Add Web API services
+              services
+                .AddScoped<ICrudService<DataTransferObjects.Teatar, TeatarSearchRequest, TeatarUpsertRequest,
+                    TeatarUpsertRequest>, TeatarService>();
+            
+            // Add Repository
+            services
+                .AddScoped<IRepository<Models.Teatar, TeatarSearchRequest>,
+                    TeatarRepository>();
+            
             // Register the Swagger generator, defstringstringg 1 or more Swagger documents
             services.AddSwaggerGen(c =>
             {

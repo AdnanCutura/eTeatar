@@ -1,0 +1,27 @@
+﻿using System.Collections.Generic;
+
+namespace Models
+{
+    public sealed class Kupac
+    {
+        public Kupac()
+        {
+            Komentari = new HashSet<Komentar>();
+            Narudzbe = new HashSet<Narudzba>();
+        }
+        public string Id { get; set; }
+
+        //Nalog
+        public string KorisnikId { get; set; }
+        public Korisnik Korisnik { get; set; }
+
+        //Tip korisnika (npr. Basic, Platstringum, Silver...)
+        public string TipKorisnikaId { get; set; }
+        public TipKorisnika TipKorisnika { get; set; }
+
+        //Svi komentari koje je korisnik ostavio
+        public ICollection<Komentar> Komentari { get; set; }
+        //Sve narudzbe koje je korisnik ostvario
+        public ICollection<Narudzba> Narudzbe { get; set; }
+    }
+}

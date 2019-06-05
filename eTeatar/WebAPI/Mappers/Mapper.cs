@@ -1,16 +1,12 @@
 ﻿using AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace WebAPI.Mappers
 {
-    public class Mapper:Profile
+    public class Mapper : Profile
     {
         public Mapper()
         {
-            //CreateMap<Class1,Class2>();
+            CreateMap<Models.Teatar,DataTransferObjects.Teatar>();
+            CreateMap<Models.Teatar,DataTransferObjects.Requests.TeatarUpsertRequest>().ReverseMap();
         }
     }
 }
