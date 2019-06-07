@@ -7,8 +7,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Models;
-using Swashbuckle.AspNetCore.Swagger;
 using Repository;
+using Swashbuckle.AspNetCore.Swagger;
 using WebAPI.Services;
 using WebAPI.Services.Interfaces;
 
@@ -35,16 +35,36 @@ namespace WebAPI
             services.AddDbContext<eTeatarContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Local")));
 
             // Add Web API services
-              services
-                .AddScoped<ICrudService<DataTransferObjects.Teatar, TeatarSearchRequest, TeatarUpsertRequest,
-                    TeatarUpsertRequest>, TeatarService>();
+            services.AddScoped(typeof(ICrudService<DataTransferObjects.Teatar, TeatarSearchRequest, TeatarUpsertRequest, TeatarUpsertRequest>),
+                typeof(TeatarService));
+            services.AddScoped(typeof(ICrudService<DataTransferObjects.Dvorana, DvoranaSearchRequest, DvoranaUpsertRequest, DvoranaUpsertRequest>),
+                typeof(DvoranaService));
+            services.AddScoped(typeof(ICrudService<DataTransferObjects.Obavijest, ObavijestSearchRequest, ObavijestUpsertRequest, ObavijestUpsertRequest>),
+                typeof(ObavijestService));
+            services.AddScoped(typeof(ICrudService<DataTransferObjects.Uloga, object, UlogaUpsertRequest, UlogaUpsertRequest>),
+                typeof(CrudService<DataTransferObjects.Uloga, object, Models.Uloga, UlogaUpsertRequest, UlogaUpsertRequest>));
+            services.AddScoped(typeof(ICrudService<DataTransferObjects.TipSjedista, object, TipSjedistaUpsertRequest, TipSjedistaUpsertRequest>),
+                typeof(CrudService<DataTransferObjects.TipSjedista, object, Models.TipSjedista, TipSjedistaUpsertRequest, TipSjedistaUpsertRequest>));
+            services.AddScoped(typeof(IBaseService<DataTransferObjects.Zanr, object>),
+                typeof(BaseService<DataTransferObjects.Zanr, object, Models.Zanr>));
+            services.AddScoped(typeof(IBaseService<DataTransferObjects.Drzava, object>),
+                typeof(BaseService<DataTransferObjects.Drzava, object, Models.Drzava>));
+            services.AddScoped(typeof(IBaseService<DataTransferObjects.Grad, object>),
+                typeof(BaseService<DataTransferObjects.Grad, object, Models.Grad>));
+            services.AddScoped(typeof(ICrudService<DataTransferObjects.Termin, object, TerminUpsertRequest, TerminUpsertRequest>),
+                typeof(CrudService<DataTransferObjects.Termin, object, Models.Termin, TerminUpsertRequest, TerminUpsertRequest>));
             
             // Add Repository
-            services
-                .AddScoped<IRepository<Models.Teatar, TeatarSearchRequest>,
-                    TeatarRepository>();
-            
-            // Register the Swagger generator, defstringstringg 1 or more Swagger documents
+            services.AddScoped(typeof(IRepository<Teatar, TeatarSearchRequest>), typeof(TeatarRepository));
+            services.AddScoped(typeof(IRepository<Dvorana, DvoranaSearchRequest>), typeof(DvoranaRepository));
+            services.AddScoped(typeof(IRepository<Obavijest, ObavijestSearchRequest>), typeof(ObavijestRepository));
+            services.AddScoped(typeof(IRepository<Uloga, object>), typeof(Repository<Uloga, object>));
+            services.AddScoped(typeof(IRepository<TipSjedista, object>), typeof(Repository<TipSjedista, object>));
+            services.AddScoped(typeof(IRepository<Zanr, object>), typeof(Repository<Zanr, object>));
+            services.AddScoped(typeof(IRepository<Grad, object>), typeof(Repository<Grad, object>));
+            services.AddScoped(typeof(IRepository<Termin, object>), typeof(Repository<Termin, object>));
+
+            // Register the Swagger generator, def 1 or more Swagger documents
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info { Title = "eTeatarAPI", Version = "v1" });

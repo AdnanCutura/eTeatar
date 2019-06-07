@@ -62,22 +62,22 @@ namespace Repository
         }
 
         //Soft Delete
-        //public override int SaveChanges()
-        //{
-        //    ChangeTracker.DetectChanges();
+        public override int SaveChanges()
+        {
+            ChangeTracker.DetectChanges();
 
-        //    var markedAsDeleted = ChangeTracker.Entries().Where(x => x.State == EntityState.Deleted);
+            var markedAsDeleted = ChangeTracker.Entries().Where(x => x.State == EntityState.Deleted);
 
-        //    foreach (var item in markedAsDeleted)
-        //    {
-        //        if (item.Entity is IIsDeleted entity)
-        //        {
-        //            item.State = EntityState.Unchanged;
-        //            entity.IsDeleted = true;
-        //        }
-        //    }
-        //    return base.SaveChanges();
-        //}
+            foreach (var item in markedAsDeleted)
+            {
+                if (item.Entity is IIsDeleted entity)
+                {
+                    item.State = EntityState.Unchanged;
+                    entity.IsDeleted = true;
+                }
+            }
+            return base.SaveChanges();
+        }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

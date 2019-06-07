@@ -2,10 +2,10 @@
 
 namespace WebAPI.Services.Interfaces
 {
-    public interface IBaseService<TEntity, in TSearch>
+    public interface IBaseService<TDataTransferObject, in TSearch>
     {
-        List<TEntity> Get(TSearch search);
+        List<TDataTransferObject> Get(TSearch search);
 
-        TEntity GetById(string id);
+        TDataTransferObject GetById(string id);
     }
 }

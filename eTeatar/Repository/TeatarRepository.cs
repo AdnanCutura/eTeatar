@@ -9,7 +9,6 @@ namespace Repository
     {
         public TeatarRepository(eTeatarContext context) : base(context)
         {
-
         }
 
         public override IEnumerable<Teatar> Get(TeatarSearchRequest search)
