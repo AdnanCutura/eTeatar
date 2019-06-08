@@ -61,6 +61,7 @@ namespace WebAPI
             services.AddScoped(typeof(IRepository<Uloga, object>), typeof(Repository<Uloga, object>));
             services.AddScoped(typeof(IRepository<TipSjedista, object>), typeof(Repository<TipSjedista, object>));
             services.AddScoped(typeof(IRepository<Zanr, object>), typeof(Repository<Zanr, object>));
+            services.AddScoped(typeof(IRepository<Drzava, object>), typeof(Repository<Drzava, object>));
             services.AddScoped(typeof(IRepository<Grad, object>), typeof(Repository<Grad, object>));
             services.AddScoped(typeof(IRepository<Termin, object>), typeof(Repository<Termin, object>));
 
