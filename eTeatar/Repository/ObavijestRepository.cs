@@ -5,6 +5,8 @@ using System.Text;
 using DataTransferObjects.Requests;
 using Models;
 
+//TODO: Dodati ulogovanog admina
+
 namespace Repository
 {
     public class ObavijestRepository : Repository<Models.Obavijest, ObavijestSearchRequest>

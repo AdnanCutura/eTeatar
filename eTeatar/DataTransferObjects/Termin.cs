@@ -8,6 +8,6 @@ namespace DataTransferObjects
         public DateTime DatumVrijeme { get; set; }
         public string PredstavaId { get; set; }
         public string DvoranaId { get; set; }
-        public string BaznaCijenaKarte { get; set; }
+        public double BaznaCijenaKarte { get; set; }
     }
 }
