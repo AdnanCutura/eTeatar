@@ -21,7 +21,7 @@ namespace Repository
             return DatabaseSet.AsEnumerable();
         }
 
-        public TEntity GetById(string id)
+        public virtual TEntity GetById(string id)
         {
             return DatabaseSet.Find(id);
         }

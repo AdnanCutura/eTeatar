@@ -346,7 +346,7 @@ namespace Repository
             Termin Termin5 = new Termin  { Predstava = Predstava5, Dvorana = Dvorana5, BaznaCijenaKarte = 10, DatumVrijeme = Danas.AddHours(19)};
             Termin Termin6 = new Termin  { Predstava = Predstava6, Dvorana = Dvorana6, BaznaCijenaKarte = 10, DatumVrijeme = Danas.AddHours(19)};
             Termin Termin7 = new Termin  { Predstava = Predstava7, Dvorana = Dvorana7, BaznaCijenaKarte = 10, DatumVrijeme = Danas.AddHours(17)};
-            Termin Termin8 = new Termin  { Predstava = Predstava8, Dvorana = Dvorana8, BaznaCijenaKarte = 10, DatumVrijeme = Danas.AddHours(18)};
+            Termin Termin8 = new Termin  { Predstava = Predstava8, Dvorana = Dvorana8, BaznaCijenaKarte = 10, DatumVrijeme = Sedam.AddHours(18)};
             Termin Termin9 = new Termin  { Predstava = Predstava1, Dvorana = Dvorana1, BaznaCijenaKarte = 10, DatumVrijeme = Danas.AddHours(18)};
             Termin Termin10 = new Termin { Predstava = Predstava1, Dvorana = Dvorana1, BaznaCijenaKarte = 10, DatumVrijeme = Sutra.AddHours(18)};
             Termin Termin11 = new Termin { Predstava = Predstava1, Dvorana = Dvorana1, BaznaCijenaKarte = 10, DatumVrijeme = Prekosutra.AddHours(18)};
@@ -354,7 +354,7 @@ namespace Repository
             Termin Termin13 = new Termin { Predstava = Predstava1, Dvorana = Dvorana1, BaznaCijenaKarte = 10, DatumVrijeme = Cetiri.AddHours(18)};
             Termin Termin14 = new Termin { Predstava = Predstava1, Dvorana = Dvorana1, BaznaCijenaKarte = 10, DatumVrijeme = Pet.AddHours(18)};
             Termin Termin15 = new Termin { Predstava = Predstava1, Dvorana = Dvorana1, BaznaCijenaKarte = 10, DatumVrijeme = Sest.AddHours(18)};
-            Termin Termin16 = new Termin { Predstava = Predstava1, Dvorana = Dvorana1, BaznaCijenaKarte = 10, DatumVrijeme = Sedam.AddHours(18)};
+            Termin Termin16 = new Termin { Predstava = Predstava2, Dvorana = Dvorana1, BaznaCijenaKarte = 10, DatumVrijeme = Sedam.AddHours(18)};
 
             context.Termin.AddRange(Termin1,
                                     Termin2,
