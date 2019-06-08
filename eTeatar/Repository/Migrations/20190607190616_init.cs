@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Repository.Migrations
 {
-    public partial class Initial : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -40,7 +40,7 @@ namespace Repository.Migrations
                     Id = table.Column<string>(nullable: false),
                     Ime = table.Column<string>(nullable: true),
                     Prezime = table.Column<string>(nullable: true),
-                    SlikaLstringk = table.Column<string>(nullable: true),
+                    SlikaLink = table.Column<string>(nullable: true),
                     Biografija = table.Column<string>(nullable: true),
                     IsDeleted = table.Column<bool>(nullable: false)
                 },
@@ -206,7 +206,7 @@ namespace Repository.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Korisnik",
+                name: "KorisnickiNalog",
                 columns: table => new
                 {
                     Id = table.Column<string>(nullable: false),
@@ -273,7 +273,7 @@ namespace Repository.Migrations
                     table.ForeignKey(
                         name: "FK_Administrator_Korisnik_KorisnikId",
                         column: x => x.KorisnikId,
-                        principalTable: "Korisnik",
+                        principalTable: "KorisnickiNalog",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -292,7 +292,7 @@ namespace Repository.Migrations
                     table.ForeignKey(
                         name: "FK_Kupac_Korisnik_KorisnikId",
                         column: x => x.KorisnikId,
-                        principalTable: "Korisnik",
+                        principalTable: "KorisnickiNalog",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
@@ -353,7 +353,7 @@ namespace Repository.Migrations
                     Id = table.Column<string>(nullable: false),
                     DvoranaId = table.Column<string>(nullable: true),
                     TipSjedistaId = table.Column<string>(nullable: true),
-                    BrojSjedista = table.Column<string>(nullable: true),
+                    BrojSjedista = table.Column<int>(nullable: false),
                     IsDeleted = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
@@ -509,12 +509,12 @@ namespace Repository.Migrations
 
             migrationBuilder.CreateIndex(
                 name: "IX_Korisnik_AvatarId",
-                table: "Korisnik",
+                table: "KorisnickiNalog",
                 column: "AvatarId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Korisnik_GradId",
-                table: "Korisnik",
+                table: "KorisnickiNalog",
                 column: "GradId");
 
             migrationBuilder.CreateIndex(
@@ -644,7 +644,7 @@ namespace Repository.Migrations
                 name: "Predstava");
 
             migrationBuilder.DropTable(
-                name: "Korisnik");
+                name: "KorisnickiNalog");
 
             migrationBuilder.DropTable(
                 name: "Teatar");

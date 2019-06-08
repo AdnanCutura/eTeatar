@@ -6,7 +6,7 @@ namespace Models
     {
         public Grad()
         {
-            Korisnici = new HashSet<Korisnik>();
+            Korisnici = new HashSet<KorisnickiNalog>();
             Teatri = new HashSet<Teatar>();
         }
 
@@ -19,7 +19,7 @@ namespace Models
         //Svi teatri koji se nalaze u gradu
         public virtual ICollection<Teatar> Teatri { get; set; }
         //Svi korisnici koji dolaze iz grada
-        public virtual ICollection<Korisnik> Korisnici { get; set; }
+        public virtual ICollection<KorisnickiNalog> Korisnici { get; set; }
         public bool IsDeleted { get; set; }
     }
 }

@@ -13,8 +13,8 @@ namespace Models
         public string Id { get; set; }
 
         //Nalog
-        public string KorisnikId { get; set; }
-        public virtual Korisnik Korisnik { get; set; }
+        public string KorisnickiNalogId { get; set; }
+        public virtual KorisnickiNalog KorisnickiNalog { get; set; }
 
         //Sve obavijesti koje je Admstringistrator objavio
         public virtual ICollection<Obavijest> Obavijesti { get; set; }

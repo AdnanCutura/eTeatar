@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System.Linq;
 using Models;
+using System.Linq;
 
 namespace Repository
 {
@@ -16,7 +16,7 @@ namespace Repository
         public DbSet<Glumac> Glumac { get; set; }
         public DbSet<Grad> Grad { get; set; }
         public DbSet<Komentar> Komentar { get; set; }
-        public DbSet<Korisnik> Korisnik { get; set; }
+        public DbSet<KorisnickiNalog> KorisnickiNalog { get; set; }
         public DbSet<Kupac> Kupac { get; set; }
         public DbSet<Narudzba> Narudzba { get; set; }
         public DbSet<Obavijest> Obavijest { get; set; }
@@ -29,6 +29,7 @@ namespace Repository
         public DbSet<TipSjedista> TipSjedista { get; set; }
         public DbSet<Uloga> Uloga { get; set; }
         public DbSet<Zanr> Zanr { get; set; }
+        public DbSet<KorisnickaUloga> KorisnickaUloga { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -46,7 +47,7 @@ namespace Repository
             modelBuilder.Entity<Glumac>().HasQueryFilter(p => !p.IsDeleted);
             modelBuilder.Entity<Grad>().HasQueryFilter(p => !p.IsDeleted);
             modelBuilder.Entity<Komentar>().HasQueryFilter(p => !p.IsDeleted);
-            modelBuilder.Entity<Korisnik>().HasQueryFilter(p => !p.IsDeleted);
+            modelBuilder.Entity<KorisnickiNalog>().HasQueryFilter(p => !p.IsDeleted);
             modelBuilder.Entity<Narudzba>().HasQueryFilter(p => !p.IsDeleted);
             modelBuilder.Entity<Obavijest>().HasQueryFilter(p => !p.IsDeleted);
             modelBuilder.Entity<Ocjena>().HasQueryFilter(p => !p.IsDeleted);

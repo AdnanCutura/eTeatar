@@ -53,7 +53,15 @@ namespace WebAPI
                 typeof(BaseService<DataTransferObjects.Grad, object, Models.Grad>));
             services.AddScoped(typeof(ICrudService<DataTransferObjects.Termin, object, TerminUpsertRequest, TerminUpsertRequest>),
                 typeof(CrudService<DataTransferObjects.Termin, object, Models.Termin, TerminUpsertRequest, TerminUpsertRequest>));
-            
+            services.AddScoped(typeof(ICrudService<DataTransferObjects.DvoranaTipSjedista, object, DvoranaTipSjedistaUpsertRequest, DvoranaTipSjedistaUpsertRequest>),
+                typeof(CrudService<DataTransferObjects.DvoranaTipSjedista, object, Models.DvoranaTipSjedista, DvoranaTipSjedistaUpsertRequest, DvoranaTipSjedistaUpsertRequest>));
+            services.AddScoped(typeof(ICrudService<DataTransferObjects.Glumac, GlumacSearchRequest, GlumacUpsertRequest, GlumacUpsertRequest>),
+                typeof(CrudService<DataTransferObjects.Glumac, GlumacSearchRequest, Models.Glumac, GlumacUpsertRequest, GlumacUpsertRequest>));
+            services.AddScoped(typeof(ICrudService<DataTransferObjects.Termin, TerminSearchRequest, TerminUpsertRequest, TerminUpsertRequest>),
+                typeof(TerminService));
+            services.AddScoped(typeof(ICrudService<DataTransferObjects.Komentar, object, KomentarInsertRequest, object>),
+              typeof(KomentarService));
+
             // Add Repository
             services.AddScoped(typeof(IRepository<Teatar, TeatarSearchRequest>), typeof(TeatarRepository));
             services.AddScoped(typeof(IRepository<Dvorana, DvoranaSearchRequest>), typeof(DvoranaRepository));
@@ -64,6 +72,10 @@ namespace WebAPI
             services.AddScoped(typeof(IRepository<Drzava, object>), typeof(Repository<Drzava, object>));
             services.AddScoped(typeof(IRepository<Grad, object>), typeof(Repository<Grad, object>));
             services.AddScoped(typeof(IRepository<Termin, object>), typeof(Repository<Termin, object>));
+            services.AddScoped(typeof(IRepository<DvoranaTipSjedista, object>), typeof(Repository<DvoranaTipSjedista, object>));
+            services.AddScoped(typeof(IRepository<Glumac, GlumacSearchRequest>), typeof(GlumacRepository));
+            services.AddScoped(typeof(IRepository<Termin, TerminSearchRequest>), typeof(TerminRepository));
+            services.AddScoped(typeof(IRepository<Komentar, object>), typeof(Repository<Komentar, object>));
 
             // Register the Swagger generator, def 1 or more Swagger documents
             services.AddSwaggerGen(c =>

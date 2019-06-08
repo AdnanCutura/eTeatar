@@ -11,13 +11,13 @@ namespace WebAPI.Services
 {
     public class DvoranaService : CrudService<DataTransferObjects.Dvorana, DvoranaSearchRequest, Models.Dvorana, DvoranaUpsertRequest, DvoranaUpsertRequest>
     {
+        public DvoranaService(IMapper mapper, IRepository<Dvorana, DvoranaSearchRequest> repository) : base(mapper, repository)
+        {
+        }
         public override List<DataTransferObjects.Dvorana> Get(DvoranaSearchRequest search)
         {
             IEnumerable<Dvorana> list = Repository.Get(search);
             return Mapper.Map<List<DataTransferObjects.Dvorana>>(list);
-        }
-        public DvoranaService(IMapper mapper, IRepository<Dvorana, DvoranaSearchRequest> repository) : base(mapper, repository)
-        {
         }
     }
 }

@@ -10,7 +10,7 @@ using Repository;
 namespace Repository.Migrations
 {
     [DbContext(typeof(eTeatarContext))]
-    [Migration("20190601231009_init")]
+    [Migration("20190607190616_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -86,7 +86,7 @@ namespace Repository.Migrations
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("BrojSjedista");
+                    b.Property<int>("BrojSjedista");
 
                     b.Property<string>("DvoranaId");
 
@@ -116,7 +116,7 @@ namespace Repository.Migrations
 
                     b.Property<string>("Prezime");
 
-                    b.Property<string>("SlikaLstringk");
+                    b.Property<string>("SlikaLink");
 
                     b.HasKey("Id");
 
@@ -165,7 +165,7 @@ namespace Repository.Migrations
                     b.ToTable("Komentar");
                 });
 
-            modelBuilder.Entity("Models.Korisnik", b =>
+            modelBuilder.Entity("Models.KorisnickiNalog", b =>
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
@@ -190,7 +190,7 @@ namespace Repository.Migrations
 
                     b.HasIndex("GradId");
 
-                    b.ToTable("Korisnik");
+                    b.ToTable("KorisnickiNalog");
                 });
 
             modelBuilder.Entity("Models.Kupac", b =>
@@ -461,7 +461,7 @@ namespace Repository.Migrations
 
             modelBuilder.Entity("Models.Administrator", b =>
                 {
-                    b.HasOne("Models.Korisnik", "Korisnik")
+                    b.HasOne("Models.KorisnickiNalog", "KorisnickiNalog")
                         .WithMany()
                         .HasForeignKey("KorisnikId")
                         .OnDelete(DeleteBehavior.Restrict);
@@ -509,7 +509,7 @@ namespace Repository.Migrations
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 
-            modelBuilder.Entity("Models.Korisnik", b =>
+            modelBuilder.Entity("Models.KorisnickiNalog", b =>
                 {
                     b.HasOne("Models.Avatar", "Avatar")
                         .WithMany()
@@ -524,7 +524,7 @@ namespace Repository.Migrations
 
             modelBuilder.Entity("Models.Kupac", b =>
                 {
-                    b.HasOne("Models.Korisnik", "Korisnik")
+                    b.HasOne("Models.KorisnickiNalog", "KorisnickiNalog")
                         .WithMany()
                         .HasForeignKey("KorisnikId")
                         .OnDelete(DeleteBehavior.Restrict);
