@@ -9,11 +9,27 @@ using Microsoft.Extensions.DependencyInjection;
 using Models;
 using Repository;
 using Swashbuckle.AspNetCore.Swagger;
+using Swashbuckle.AspNetCore.SwaggerGen;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Authentication;
+using WebAPI.Security;
 using WebAPI.Services;
 using WebAPI.Services.Interfaces;
 
 namespace WebAPI
 {
+    public class BasicAuthDocumentFilter : IDocumentFilter
+    {
+        public void Apply(SwaggerDocument swaggerDoc, DocumentFilterContext context)
+        {
+            var securityRequirements = new Dictionary<string, IEnumerable<string>>()
+            {
+                { "basic", new string[] { } }  // in swagger you specify empty list unless using OAuth2 scopes
+            };
+
+            swaggerDoc.Security = new[] { securityRequirements };
+        }
+    }
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -31,6 +47,9 @@ namespace WebAPI
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2).AddJsonOptions(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore); ;
 
+            services.AddAuthentication("BasicAuthentication")
+                .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
+            
             // Add DbContext from Repository layer
             services.AddDbContext<eTeatarContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Local")));
 
@@ -65,6 +84,7 @@ namespace WebAPI
                 typeof(TerminService));
             services.AddScoped(typeof(ICrudService<DataTransferObjects.Komentar, object, KomentarInsertRequest, object>),
               typeof(KomentarService));
+            services.AddScoped(typeof(IKorisnickiNalogService),typeof(KorisnickiNalogService));
 
             // Add Repository
             services.AddScoped(typeof(IRepository<Teatar, TeatarSearchRequest>), typeof(TeatarRepository));
@@ -81,11 +101,14 @@ namespace WebAPI
             services.AddScoped(typeof(IRepository<Glumac, GlumacSearchRequest>), typeof(GlumacRepository));
             services.AddScoped(typeof(IRepository<Termin, TerminSearchRequest>), typeof(TerminRepository));
             services.AddScoped(typeof(IRepository<Komentar, object>), typeof(Repository<Komentar, object>));
+            services.AddScoped(typeof(IKorisnickiNalogRepository), typeof(KorisnickiNalogRepository));
 
             // Register the Swagger generator, def 1 or more Swagger documents
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info { Title = "eTeatarAPI", Version = "v1" });
+                c.AddSecurityDefinition("basic", new BasicAuthScheme() { Type = "basic" });
+                c.DocumentFilter<BasicAuthDocumentFilter>();
             });
         }
 
@@ -114,6 +137,8 @@ namespace WebAPI
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "eTeatar API V1");
             });
+            app.UseAuthentication();
+
             app.UseMvc();
         }
     }

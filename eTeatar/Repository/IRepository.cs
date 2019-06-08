@@ -6,7 +6,7 @@ namespace Repository
     {
         IEnumerable<TEntity> Get(TSearch search);
         TEntity GetById(string id);
-        void Add(TEntity obj);
+        TEntity Add(TEntity obj);
         void Remove(string id);
         TEntity Update(TEntity obj);
     }

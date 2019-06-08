@@ -26,10 +26,11 @@ namespace Repository
             return DatabaseSet.Find(id);
         }
 
-        public virtual void Add(TEntity obj)
+        public virtual TEntity Add(TEntity obj)
         {
             DatabaseSet.Add(obj);
             Context.SaveChanges();
+            return obj;
         }
 
         public virtual TEntity Update(TEntity obj)

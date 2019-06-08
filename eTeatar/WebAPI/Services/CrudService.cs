@@ -18,8 +18,7 @@ namespace WebAPI.Services
         public virtual TTransferObject Insert(TInsert request)
         {
             var entity = Mapper.Map<TEntity>(request);
-            Repository.Add(entity);
-            return Mapper.Map<TTransferObject>(entity);
+            return Mapper.Map<TTransferObject>(Repository.Add(entity));
         }
 
         public virtual TTransferObject Update(string id, TUpdate request)

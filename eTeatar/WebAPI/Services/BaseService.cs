@@ -1,10 +1,12 @@
 ﻿using AutoMapper;
 using Repository;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Authorization;
 using WebAPI.Services.Interfaces;
 
 namespace WebAPI.Services
 {
+    
     public class BaseService<TTransferObject, TSearch, TEntity> : IBaseService<TTransferObject, TSearch> where TEntity : class
     {
         protected readonly IMapper Mapper;

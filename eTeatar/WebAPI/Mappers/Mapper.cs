@@ -56,7 +56,11 @@ namespace WebAPI.Mappers
 
             //Predstava
             CreateMap<Models.Predstava, DataTransferObjects.Predstava>();
+            CreateMap<Models.Predstava, DataTransferObjects.Requests.PredstavaUpsertRequest>().ReverseMap();
 
+            //Narudzba
+            CreateMap<Models.KorisnickiNalog, DataTransferObjects.KorisnickiNalog>();
+            CreateMap<Models.KorisnickiNalog, DataTransferObjects.Requests.KorisnickiNalogUpsertRequest>().ReverseMap();
 
 
 

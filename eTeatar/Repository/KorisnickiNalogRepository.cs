@@ -1,15 +1,14 @@
-﻿using System;
+﻿using DataTransferObjects.Requests;
+using Models;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using DataTransferObjects.Requests;
-using Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Repository
 {
-    public class KorisnikRepository : Repository<Models.KorisnickiNalog, KorisnickiNalogSearchRequest>
+    public class KorisnickiNalogRepository : Repository<Models.KorisnickiNalog, KorisnickiNalogSearchRequest>, IKorisnickiNalogRepository
     {
-        public KorisnikRepository(eTeatarContext context) : base(context)
+        public KorisnickiNalogRepository(eTeatarContext context) : base(context)
         {
         }
 
@@ -30,8 +29,10 @@ namespace Repository
 
             return list;
         }
-   
 
-
+        public KorisnickiNalog Autentificiraj(string korisnickoIme)
+        {
+            return Context.KorisnickiNalog.Where(k => k.KorisnickoIme == korisnickoIme).Include(k=>k.KorisnickaUloga).FirstOrDefault();
+        }
     }
 }
