@@ -411,15 +411,15 @@ namespace Repository
                                     Avatar11);
             context.SaveChanges();
 
-            Korisnik Korisnik1 = new Korisnik { KorisnickoIme = "Kupac", Email = "Kupac@Email.com", LozinkaHash = "", LozinkaSalt = "", Adresa = "Adresa 11", DatumKreiranja = DateTime.Now, Grad = Grad1, Ime = "KupacIme", Prezime = "KupacPrezime", Avatar=Avatar1};
-            Korisnik Korisnik2 = new Korisnik { KorisnickoIme = "Kupac2", Email = "Kupac2@Email.com", LozinkaHash = "", LozinkaSalt = "", Adresa = "Adresa 11", DatumKreiranja = DateTime.Now, Grad = Grad1, Ime = "KupacIme2", Prezime = "KupacPrezime2", Avatar=Avatar2};
-            Korisnik Korisnik3 = new Korisnik { KorisnickoIme = "Kupac3", Email = "Kupac3@Email.com", LozinkaHash = "", LozinkaSalt = "", Adresa = "Adresa 11", DatumKreiranja = DateTime.Now, Grad = Grad1, Ime = "KupacIme3", Prezime = "KupacPrezime3", Avatar=Avatar3};
-            Korisnik Korisnik4 = new Korisnik { KorisnickoIme = "Kupac4", Email = "Kupac4@Email.com", LozinkaHash = "", LozinkaSalt = "", Adresa = "Adresa 11", DatumKreiranja = DateTime.Now, Grad = Grad1, Ime = "KupacIme4", Prezime = "KupacPrezime4", Avatar=Avatar4};
-            Korisnik Korisnik5 = new Korisnik { KorisnickoIme = "Admin", Email = "Admin@Email.com", LozinkaHash = "", LozinkaSalt = "", Adresa = "Adresa 11", DatumKreiranja = DateTime.Now, Grad = Grad1, Ime = "AdminIme", Prezime = "AdminPrezime", Avatar=Avatar5};
-            Korisnik Korisnik6 = new Korisnik { KorisnickoIme = "Admin2", Email = "Admin2@Email.com", LozinkaHash = "", LozinkaSalt = "", Adresa = "Adresa 11", DatumKreiranja = DateTime.Now, Grad = Grad1, Ime = "AdminIme2", Prezime = "AdminPrezime2", Avatar=Avatar6};
-            Korisnik KorisnikAdi = new Korisnik { KorisnickoIme = "Adi", Email = "adi.sose@outlook.com", LozinkaHash = "", LozinkaSalt = "", Adresa = "Grbavicka 50", DatumKreiranja = DateTime.Now, Grad = Grad1, Ime = "Adi", Prezime = "Sose", Avatar=Avatar1};
+            KorisnickiNalog Korisnik1 = new KorisnickiNalog { KorisnickoIme = "Kupac", Email = "Kupac@Email.com", LozinkaHash = "", LozinkaSalt = "", Adresa = "Adresa 11", DatumKreiranja = DateTime.Now, Grad = Grad1, Ime = "KupacIme", Prezime = "KupacPrezime", Avatar=Avatar1};
+            KorisnickiNalog Korisnik2 = new KorisnickiNalog { KorisnickoIme = "Kupac2", Email = "Kupac2@Email.com", LozinkaHash = "", LozinkaSalt = "", Adresa = "Adresa 11", DatumKreiranja = DateTime.Now, Grad = Grad1, Ime = "KupacIme2", Prezime = "KupacPrezime2", Avatar=Avatar2};
+            KorisnickiNalog Korisnik3 = new KorisnickiNalog { KorisnickoIme = "Kupac3", Email = "Kupac3@Email.com", LozinkaHash = "", LozinkaSalt = "", Adresa = "Adresa 11", DatumKreiranja = DateTime.Now, Grad = Grad1, Ime = "KupacIme3", Prezime = "KupacPrezime3", Avatar=Avatar3};
+            KorisnickiNalog Korisnik4 = new KorisnickiNalog { KorisnickoIme = "Kupac4", Email = "Kupac4@Email.com", LozinkaHash = "", LozinkaSalt = "", Adresa = "Adresa 11", DatumKreiranja = DateTime.Now, Grad = Grad1, Ime = "KupacIme4", Prezime = "KupacPrezime4", Avatar=Avatar4};
+            KorisnickiNalog Korisnik5 = new KorisnickiNalog { KorisnickoIme = "Admin", Email = "Admin@Email.com", LozinkaHash = "", LozinkaSalt = "", Adresa = "Adresa 11", DatumKreiranja = DateTime.Now, Grad = Grad1, Ime = "AdminIme", Prezime = "AdminPrezime", Avatar=Avatar5};
+            KorisnickiNalog Korisnik6 = new KorisnickiNalog { KorisnickoIme = "Admin2", Email = "Admin2@Email.com", LozinkaHash = "", LozinkaSalt = "", Adresa = "Adresa 11", DatumKreiranja = DateTime.Now, Grad = Grad1, Ime = "AdminIme2", Prezime = "AdminPrezime2", Avatar=Avatar6};
+            KorisnickiNalog KorisnikAdi = new KorisnickiNalog { KorisnickoIme = "Adi", Email = "adi.sose@outlook.com", LozinkaHash = "", LozinkaSalt = "", Adresa = "Grbavicka 50", DatumKreiranja = DateTime.Now, Grad = Grad1, Ime = "Adi", Prezime = "Sose", Avatar=Avatar1};
 
-            context.Korisnik.AddRange(Korisnik1, 
+            context.KorisnickiNalog.AddRange(Korisnik1, 
                                       Korisnik2, 
                                       Korisnik3, 
                                       Korisnik4, 
@@ -432,11 +432,11 @@ namespace Repository
             //await roleManager.CreateAsync(new IdentityRole { Name = "Kupac", NormalizedName = "Kupac".ToUpper() });
             //await roleManager.CreateAsync(new IdentityRole { Name = "Admin", NormalizedName = "Admin".ToUpper() });
 
-            Kupac Kupac1 = new Kupac { TipKorisnika = TipKorisnika4, Korisnik = Korisnik1};
-            Kupac Kupac2 = new Kupac { TipKorisnika = TipKorisnika3, Korisnik = Korisnik2};
-            Kupac Kupac3 = new Kupac { TipKorisnika = TipKorisnika2, Korisnik = Korisnik3};
-            Kupac Kupac4 = new Kupac { TipKorisnika = TipKorisnika1, Korisnik = Korisnik4};
-            Kupac KupacAdi = new Kupac { TipKorisnika = TipKorisnika1, Korisnik = KorisnikAdi};
+            Kupac Kupac1 = new Kupac { TipKorisnika = TipKorisnika4, KorisnickiNalog = Korisnik1};
+            Kupac Kupac2 = new Kupac { TipKorisnika = TipKorisnika3, KorisnickiNalog = Korisnik2};
+            Kupac Kupac3 = new Kupac { TipKorisnika = TipKorisnika2, KorisnickiNalog = Korisnik3};
+            Kupac Kupac4 = new Kupac { TipKorisnika = TipKorisnika1, KorisnickiNalog = Korisnik4};
+            Kupac KupacAdi = new Kupac { TipKorisnika = TipKorisnika1, KorisnickiNalog = KorisnikAdi};
 
             context.Kupac.AddRange(Kupac1,
                                    Kupac2,
@@ -445,8 +445,8 @@ namespace Repository
                                    KupacAdi);
             context.SaveChanges();
 
-            Administrator Administrator1 = new Administrator { Korisnik = Korisnik5};
-            Administrator Administrator2 = new Administrator { Korisnik = Korisnik6};
+            Administrator Administrator1 = new Administrator { KorisnickiNalog = Korisnik5};
+            Administrator Administrator2 = new Administrator { KorisnickiNalog = Korisnik6};
 
             context.Administrator.AddRange(Administrator1,
                                            Administrator2);
