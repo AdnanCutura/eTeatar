@@ -36,8 +36,15 @@ namespace WebAPI.Mappers
 
             //Termin
             CreateMap<Models.Termin, DataTransferObjects.Termin>();
-            CreateMap<Models.Termin, DataTransferObjects.Requests.TerminUpsertRequest>().ReverseMap();
+            CreateMap<Models.Termin, DataTransferObjects.Requests.TerminUpsertRequest>().ReverseMap();            
+            
+            //Narudzba
+            CreateMap<Models.Narudzba, DataTransferObjects.Narudzba>();
+            CreateMap<Models.Narudzba, DataTransferObjects.Requests.NarudzbaInsertRequest>().ReverseMap();
 
+            //Predstava
+            CreateMap<Models.Predstava, DataTransferObjects.Predstava>();
+            CreateMap<Models.Predstava, DataTransferObjects.Requests.PredstavaUpsertRequest>().ReverseMap();
 
         }
     }
