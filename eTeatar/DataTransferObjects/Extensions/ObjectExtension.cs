@@ -25,10 +25,7 @@ namespace DataTransferObjects.Extensions
         public static IDictionary<string, string> ToKeyValue(this object metaToken)
         {
             if (metaToken == null)
-            {
                 return null;
-            }
-
 
             JToken token = metaToken as JToken;
             if (token == null)

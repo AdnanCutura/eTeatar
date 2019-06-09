@@ -68,8 +68,8 @@ namespace WebAPI
                 typeof(BaseService<DataTransferObjects.Zanr, object, Models.Zanr>));
             services.AddScoped(typeof(IBaseService<DataTransferObjects.Drzava, object>),
                 typeof(BaseService<DataTransferObjects.Drzava, object, Models.Drzava>));
-            services.AddScoped(typeof(IBaseService<DataTransferObjects.Grad, object>),
-                typeof(BaseService<DataTransferObjects.Grad, object, Models.Grad>));
+            services.AddScoped(typeof(IBaseService<DataTransferObjects.Grad, GradSearchRequest>),
+                typeof(BaseService<DataTransferObjects.Grad, GradSearchRequest, Models.Grad>));
             services.AddScoped(typeof(ICrudService<DataTransferObjects.Termin, object, TerminUpsertRequest, TerminUpsertRequest>),
                 typeof(CrudService<DataTransferObjects.Termin, object, Models.Termin, TerminUpsertRequest, TerminUpsertRequest>));
             services.AddScoped(typeof(ICrudService<DataTransferObjects.Narudzba, object, NarudzbaInsertRequest, object>),
@@ -103,7 +103,7 @@ namespace WebAPI
             services.AddScoped(typeof(IRepository<TipSjedista, object>), typeof(Repository<TipSjedista, object>));
             services.AddScoped(typeof(IRepository<Zanr, object>), typeof(Repository<Zanr, object>));
             services.AddScoped(typeof(IRepository<Drzava, object>), typeof(Repository<Drzava, object>));
-            services.AddScoped(typeof(IRepository<Grad, object>), typeof(Repository<Grad, object>));
+            services.AddScoped(typeof(IRepository<Grad, GradSearchRequest>), typeof(GradRepository));
             services.AddScoped(typeof(IRepository<Termin, object>), typeof(Repository<Termin, object>));
             services.AddScoped(typeof(IRepository<DvoranaTipSjedista, object>), typeof(Repository<DvoranaTipSjedista, object>));
             services.AddScoped(typeof(IRepository<Glumac, GlumacSearchRequest>), typeof(GlumacRepository));

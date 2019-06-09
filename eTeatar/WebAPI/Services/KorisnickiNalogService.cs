@@ -49,10 +49,7 @@ namespace WebAPI.Services
             var list = Repository.Get(search);
             return Mapper.Map<List<KorisnickiNalog>>(list);
         }
-
-
-
-
+        
         public KorisnickiNalog Update(string id, KorisnickiNalogUpsertRequest request)
         {
             var entity = Repository.GetById(id);

@@ -57,8 +57,6 @@ namespace WebAPI.Security
                 new Claim(ClaimTypes.Role, user.KorisnickaUloga.Naziv)
             };
 
-            //claims.Add(new Claim(ClaimTypes.Role, user.KorisnickaUloga.Naziv));
-
             var identity = new ClaimsIdentity(claims, Scheme.Name);
             var principal = new ClaimsPrincipal(identity);
             var ticket = new AuthenticationTicket(principal, Scheme.Name);

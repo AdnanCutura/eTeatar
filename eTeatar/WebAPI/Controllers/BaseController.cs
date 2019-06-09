@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Linq;
 using WebAPI.Services.Interfaces;
 
 namespace WebAPI.Controllers
@@ -19,7 +20,12 @@ namespace WebAPI.Controllers
         [HttpGet]
         public ActionResult<List<TDataTransferObject>> Get([FromQuery] TSearch search)
         {
-            return _service.Get(search);
+            List<TDataTransferObject> list = _service.Get(search); ;
+
+            if (!list.Any())
+                return NotFound();
+
+            return list;
         }
 
         [HttpGet("{id}")]
