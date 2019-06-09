@@ -16,9 +16,11 @@ namespace WebAPI.Services
     public class KorisnickiNalogService : BaseService<DataTransferObjects.KorisnickiNalog, KorisnickiNalogSearchRequest, Models.KorisnickiNalog>, IKorisnickiNalogService
     {
         private readonly IKorisnickiNalogRepository _nalogRepository;
-        public KorisnickiNalogService(IMapper mapper, IKorisnickiNalogRepository nalogRepository) : base(mapper, nalogRepository)
+        IBaseService<KorisnickaUloga, KorisnickaUlogaSearchRequest> _korisnickaUlogaService;
+        public KorisnickiNalogService(IMapper mapper, IKorisnickiNalogRepository nalogRepository, IBaseService<KorisnickaUloga, KorisnickaUlogaSearchRequest> korisnickaUlogaService) : base(mapper, nalogRepository)
         {
             _nalogRepository = nalogRepository;
+            _korisnickaUlogaService = korisnickaUlogaService;
         }
 
         public static string GenerateSalt()
@@ -49,21 +51,7 @@ namespace WebAPI.Services
         }
 
 
-        public KorisnickiNalog Insert(KorisnickiNalogUpsertRequest request)
-        {
-            var entity = Mapper.Map<Models.KorisnickiNalog>(request);
 
-            if (request.Password != request.PasswordPotvrda)
-            {
-                throw new Exception("Passwordi se ne slažu");
-            }
-
-            entity.LozinkaSalt = GenerateSalt();
-            entity.LozinkaHash = GenerateHash(entity.LozinkaSalt, request.Password);
-
-            return Mapper.Map<KorisnickiNalog>(Repository.Add(entity));
-
-        }
 
         public KorisnickiNalog Update(string id, KorisnickiNalogUpsertRequest request)
         {
@@ -75,7 +63,6 @@ namespace WebAPI.Services
 
             entity.LozinkaSalt = GenerateSalt();
             entity.LozinkaHash = GenerateHash(entity.LozinkaSalt, request.Password);
-
             Mapper.Map(request, entity);
 
             return Mapper.Map<KorisnickiNalog>(Repository.Update(entity));
@@ -95,5 +82,35 @@ namespace WebAPI.Services
             return GenerateHash(user.LozinkaSalt, pass) == user.LozinkaHash ? Mapper.Map<Models.KorisnickiNalog>(user) : null;
         }
 
+        public KorisnickiNalog Insert(KorisnickiNalogUpsertRequest request, DataTransferObjects.Enums.KorisnickeUloge uloga)
+        {
+            var entity = Mapper.Map<Models.KorisnickiNalog>(request);
+
+            if (request.Password != request.PasswordPotvrda)
+            {
+                throw new Exception("Passwordi se ne slažu");
+            }
+
+            entity.LozinkaSalt = GenerateSalt();
+            entity.LozinkaHash = GenerateHash(entity.LozinkaSalt, request.Password);
+            entity.KorisnickaUlogaId = _korisnickaUlogaService.Get(new KorisnickaUlogaSearchRequest { Naziv = uloga.ToString() }).FirstOrDefault().Id;
+            return Mapper.Map<KorisnickiNalog>(Repository.Add(entity));
+
+        }
+
+        public KorisnickiNalog Insert(KorisnickiNalogUpsertRequest request)
+        {
+            var entity = Mapper.Map<Models.KorisnickiNalog>(request);
+
+            if (request.Password != request.PasswordPotvrda)
+            {
+                throw new Exception("Passwordi se ne slažu");
+            }
+
+            entity.LozinkaSalt = GenerateSalt();
+            entity.LozinkaHash = GenerateHash(entity.LozinkaSalt, request.Password);
+
+            return Mapper.Map<KorisnickiNalog>(Repository.Add(entity));
+        }
     }
 }

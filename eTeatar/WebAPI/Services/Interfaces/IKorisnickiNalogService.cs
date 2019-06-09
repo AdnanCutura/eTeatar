@@ -8,5 +8,6 @@ namespace WebAPI.Services.Interfaces
     public interface IKorisnickiNalogService : ICrudService<DataTransferObjects.KorisnickiNalog, DataTransferObjects.Requests.KorisnickiNalogSearchRequest, DataTransferObjects.Requests.KorisnickiNalogUpsertRequest, DataTransferObjects.Requests.KorisnickiNalogUpsertRequest>
     {
         Models.KorisnickiNalog Autentificiraj(string username, string pass);
+        DataTransferObjects.KorisnickiNalog Insert(DataTransferObjects.Requests.KorisnickiNalogUpsertRequest request, DataTransferObjects.Enums.KorisnickeUloge Uloga);
     }
 }

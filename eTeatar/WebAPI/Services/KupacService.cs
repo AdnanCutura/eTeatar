@@ -16,21 +16,17 @@ namespace WebAPI.Services
     {
         private readonly IKorisnickiNalogService _korisnickiNalogService;
         private readonly IBaseService<DataTransferObjects.TipKorisnika, TipKorisnikaSearchRequest> _tipKorisnikaService;
-        private readonly IBaseService<DataTransferObjects.KorisnickaUloga, KorisnickaUlogaSearchRequest> _korisnickaUlogaService;
 
-        public KupacService(IMapper mapper, IRepository<Kupac, object> repository, IKorisnickiNalogService korisnickiNalogService, IBaseService<TipKorisnika, TipKorisnikaSearchRequest> tipKorisnikaService, IBaseService<KorisnickaUloga, KorisnickaUlogaSearchRequest> korisnickaUlogaService) : base(mapper, repository)
+        public KupacService(IMapper mapper, IRepository<Kupac, object> repository, IKorisnickiNalogService korisnickiNalogService, IBaseService<TipKorisnika, TipKorisnikaSearchRequest> tipKorisnikaService) : base(mapper, repository)
         {
             _tipKorisnikaService = tipKorisnikaService;
-            _korisnickaUlogaService = korisnickaUlogaService;
             _korisnickiNalogService = korisnickiNalogService;
         }
 
         public override DataTransferObjects.Kupac Insert(KupacKorisnickiNalogUpsertRequest request)
         {
             var nalog = Mapper.Map<KorisnickiNalogUpsertRequest>(request);
-            nalog.KorisnickaUlogaId = _korisnickaUlogaService.Get(new KorisnickaUlogaSearchRequest { Naziv = DataTransferObjects.Enums.KorisnickeUloge.Kupac.ToString() }).FirstOrDefault()?.Id;
-
-            var nalogResponse = _korisnickiNalogService.Insert(nalog);
+            var nalogResponse = _korisnickiNalogService.Insert(nalog, DataTransferObjects.Enums.KorisnickeUloge.Kupac);
 
             var kupac = new KupacUpsertRequest
             {
