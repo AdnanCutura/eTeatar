@@ -3,6 +3,8 @@
     public class DvoranaTipSjedista : IIsDeleted
     {
         public string Id { get; set; }
+
+        public string DvoranaId { get; set; }
         public virtual Dvorana Dvorana { get; set; }
 
         public string TipSjedistaId { get; set; }

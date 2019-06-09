@@ -3,7 +3,7 @@ using System;
 
 namespace Models
 {
-    public class Korisnik : /*TODO: IdentityUser,*/ IIsDeleted
+    public class KorisnickiNalog : IIsDeleted
     {
         public string Id { get; set; }
         public string Ime { get; set; }
@@ -15,8 +15,12 @@ namespace Models
         public string GradId { get; set; }
         public virtual Grad Grad { get; set; }
 
-        public string KorisnickoIme { get; set; }
+        public string KorisnickaUlogaId { get; set; }
+        public virtual KorisnickaUloga KorisnickaUloga { get; set; }
+
         public string Email { get; set; }
+        public string Telefon { get; set; }
+        public string KorisnickoIme { get; set; }
         public string LozinkaHash { get; set; }
         public string LozinkaSalt { get; set; }
 

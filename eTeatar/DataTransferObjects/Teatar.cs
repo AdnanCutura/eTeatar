@@ -4,6 +4,7 @@ namespace DataTransferObjects
 {
     public class Teatar
     {
+        public string Id { get; set; }
         public string Naziv { get; set; }
 
         public string Adresa { get; set; }

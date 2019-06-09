@@ -30,21 +30,35 @@ namespace WebAPI.Mappers
             //Grad
             CreateMap<Models.Grad, DataTransferObjects.Grad>();
 
-            //TipSjedista
+            //Tip sjedišta
             CreateMap<Models.TipSjedista, DataTransferObjects.TipSjedista>();
             CreateMap<Models.TipSjedista, DataTransferObjects.Requests.TipSjedistaUpsertRequest>().ReverseMap();
 
+            //Dvorana Tip sjedišta
+            CreateMap<Models.DvoranaTipSjedista, DataTransferObjects.DvoranaTipSjedista>();
+            CreateMap<Models.DvoranaTipSjedista, DataTransferObjects.Requests.DvoranaTipSjedistaUpsertRequest>().ReverseMap();
+
             //Termin
             CreateMap<Models.Termin, DataTransferObjects.Termin>();
-            CreateMap<Models.Termin, DataTransferObjects.Requests.TerminUpsertRequest>().ReverseMap();            
-            
+            CreateMap<Models.Termin, DataTransferObjects.Requests.TerminUpsertRequest>().ReverseMap();
+
+            //Glumac
+            CreateMap<Models.Glumac, DataTransferObjects.Glumac>();
+            CreateMap<Models.Glumac, DataTransferObjects.Requests.GlumacUpsertRequest>().ReverseMap();
+
+            //Komentar
+            CreateMap<Models.Komentar, DataTransferObjects.Komentar>();
+            CreateMap<Models.Komentar, DataTransferObjects.Requests.KomentarInsertRequest>().ReverseMap();
+
             //Narudzba
             CreateMap<Models.Narudzba, DataTransferObjects.Narudzba>();
             CreateMap<Models.Narudzba, DataTransferObjects.Requests.NarudzbaInsertRequest>().ReverseMap();
 
             //Predstava
             CreateMap<Models.Predstava, DataTransferObjects.Predstava>();
-            CreateMap<Models.Predstava, DataTransferObjects.Requests.PredstavaUpsertRequest>().ReverseMap();
+
+
+
 
         }
     }

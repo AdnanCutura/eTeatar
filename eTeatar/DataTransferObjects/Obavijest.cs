@@ -6,6 +6,7 @@ namespace DataTransferObjects
 {
     public class Obavijest
     {
+        public string Id { get; set; }
         public string Naslov { get; set; }
         public DateTime DatumVrijeme { get; set; }
 

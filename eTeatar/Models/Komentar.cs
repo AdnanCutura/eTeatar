@@ -11,7 +11,7 @@ namespace Models
 
         public string Sadrzaj { get; set; }
 
-        //Korisnik koji je ostavio komentar
+        //KorisnickiNalog koji je ostavio komentar
         public string KupacId { get; set; }
         public virtual Kupac Kupac { get; set; }
 
