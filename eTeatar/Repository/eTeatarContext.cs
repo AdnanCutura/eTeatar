@@ -34,6 +34,8 @@ namespace Repository
         {
             base.OnModelCreating(modelBuilder);
 
+            modelBuilder.Entity<Narudzba>().HasOne(e => e.Ocjena).WithOne(e => e.Narudzba).HasForeignKey<Ocjena>(e => e.NarudzbaId);
+
             //Iskljucenje restricted delete
             foreach (var relationship in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
                 relationship.DeleteBehavior = DeleteBehavior.Restrict;

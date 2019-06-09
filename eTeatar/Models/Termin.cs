@@ -1,9 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Models
 {
     public class Termin : IIsDeleted
     {
+        public Termin()
+        {
+            Narudzbe = new HashSet<Narudzba>();
+        }
+
         public string Id { get; set; }
 
         public DateTime DatumVrijeme { get; set; }
@@ -17,7 +23,9 @@ namespace Models
         public virtual Dvorana Dvorana { get; set; }
 
         //Cijena koja se mnozi sa TipSjedista.CijenaKarteMultiplier i TipKorstringika.CijenaKartePopust
-        public string BaznaCijenaKarte { get; set; }
+        public double BaznaCijenaKarte { get; set; }
+
+        public virtual ICollection<Narudzba> Narudzbe { get; set; }
 
         public bool IsDeleted { get; set; }
     }

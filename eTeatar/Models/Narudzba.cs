@@ -20,9 +20,9 @@ namespace Models
         //Cijena koju je kupac platio za kartu
         public double CijenaKarte { get; set; }
         //Broj karata koje je su kupljene
-        public string Kolicstringa { get; set; }
+        public int Kolicina { get; set; }
 
-        public DateTime DatumKupovstringe { get; set; }
+        public DateTime DatumKupovine { get; set; }
 
         //Ocjena koju je kupac ostavio za predstavu
         public string OcjenaId { get; set; }

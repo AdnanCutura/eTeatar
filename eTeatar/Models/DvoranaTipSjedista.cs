@@ -8,7 +8,7 @@
         public string TipSjedistaId { get; set; }
         public virtual TipSjedista TipSjedista { get; set; }
 
-        public string BrojSjedista { get; set; }
+        public int BrojSjedista { get; set; }
 
         public bool IsDeleted { get; set; }
     }

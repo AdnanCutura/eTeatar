@@ -10,8 +10,8 @@ using Repository;
 namespace Repository.Migrations
 {
     [DbContext(typeof(eTeatarContext))]
-    [Migration("20190601231009_init")]
-    partial class init
+    [Migration("20190609080445_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -86,7 +86,7 @@ namespace Repository.Migrations
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("BrojSjedista");
+                    b.Property<int>("BrojSjedista");
 
                     b.Property<string>("DvoranaId");
 
@@ -116,7 +116,7 @@ namespace Repository.Migrations
 
                     b.Property<string>("Prezime");
 
-                    b.Property<string>("SlikaLstringk");
+                    b.Property<string>("SlikaLink");
 
                     b.HasKey("Id");
 
@@ -176,11 +176,19 @@ namespace Repository.Migrations
 
                     b.Property<DateTime>("DatumKreiranja");
 
+                    b.Property<string>("Email");
+
                     b.Property<string>("GradId");
 
                     b.Property<string>("Ime");
 
                     b.Property<bool>("IsDeleted");
+
+                    b.Property<string>("KorisnickoIme");
+
+                    b.Property<string>("LozinkaHash");
+
+                    b.Property<string>("LozinkaSalt");
 
                     b.Property<string>("Prezime");
 
@@ -218,11 +226,11 @@ namespace Repository.Migrations
 
                     b.Property<double>("CijenaKarte");
 
-                    b.Property<DateTime>("DatumKupovstringe");
+                    b.Property<DateTime>("DatumKupovine");
 
                     b.Property<bool>("IsDeleted");
 
-                    b.Property<string>("Kolicstringa");
+                    b.Property<string>("Kolicina");
 
                     b.Property<string>("KupacId");
 
@@ -235,8 +243,6 @@ namespace Repository.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("KupacId");
-
-                    b.HasIndex("OcjenaId");
 
                     b.HasIndex("TerminId");
 
@@ -276,11 +282,17 @@ namespace Repository.Migrations
 
                     b.Property<bool>("IsDeleted");
 
+                    b.Property<string>("NarudzbaId");
+
                     b.Property<string>("Review");
 
                     b.Property<int>("Vrijednost");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("NarudzbaId")
+                        .IsUnique()
+                        .HasFilter("[NarudzbaId] IS NOT NULL");
 
                     b.ToTable("Ocjena");
                 });
@@ -362,7 +374,7 @@ namespace Repository.Migrations
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("BaznaCijenaKarte");
+                    b.Property<double>("BaznaCijenaKarte");
 
                     b.Property<DateTime>("DatumVrijeme");
 
@@ -542,13 +554,8 @@ namespace Repository.Migrations
                         .HasForeignKey("KupacId")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("Models.Ocjena", "Ocjena")
-                        .WithMany()
-                        .HasForeignKey("OcjenaId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
                     b.HasOne("Models.Termin", "Termin")
-                        .WithMany()
+                        .WithMany("Narudzbe")
                         .HasForeignKey("TerminId")
                         .OnDelete(DeleteBehavior.Restrict);
 
@@ -563,6 +570,14 @@ namespace Repository.Migrations
                     b.HasOne("Models.Administrator", "Administrator")
                         .WithMany("Obavijesti")
                         .HasForeignKey("AdministratorId")
+                        .OnDelete(DeleteBehavior.Restrict);
+                });
+
+            modelBuilder.Entity("Models.Ocjena", b =>
+                {
+                    b.HasOne("Models.Narudzba", "Narudzba")
+                        .WithOne("Ocjena")
+                        .HasForeignKey("Models.Ocjena", "NarudzbaId")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 

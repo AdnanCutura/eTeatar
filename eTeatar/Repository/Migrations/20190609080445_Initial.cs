@@ -40,27 +40,13 @@ namespace Repository.Migrations
                     Id = table.Column<string>(nullable: false),
                     Ime = table.Column<string>(nullable: true),
                     Prezime = table.Column<string>(nullable: true),
-                    SlikaLstringk = table.Column<string>(nullable: true),
+                    SlikaLink = table.Column<string>(nullable: true),
                     Biografija = table.Column<string>(nullable: true),
                     IsDeleted = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Glumac", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Ocjena",
-                columns: table => new
-                {
-                    Id = table.Column<string>(nullable: false),
-                    Vrijednost = table.Column<int>(nullable: false),
-                    Review = table.Column<string>(nullable: true),
-                    IsDeleted = table.Column<bool>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Ocjena", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -215,6 +201,10 @@ namespace Repository.Migrations
                     AvatarId = table.Column<string>(nullable: true),
                     Adresa = table.Column<string>(nullable: true),
                     GradId = table.Column<string>(nullable: true),
+                    KorisnickoIme = table.Column<string>(nullable: true),
+                    Email = table.Column<string>(nullable: true),
+                    LozinkaHash = table.Column<string>(nullable: true),
+                    LozinkaSalt = table.Column<string>(nullable: true),
                     DatumKreiranja = table.Column<DateTime>(nullable: false),
                     IsDeleted = table.Column<bool>(nullable: false)
                 },
@@ -353,7 +343,7 @@ namespace Repository.Migrations
                     Id = table.Column<string>(nullable: false),
                     DvoranaId = table.Column<string>(nullable: true),
                     TipSjedistaId = table.Column<string>(nullable: true),
-                    BrojSjedista = table.Column<string>(nullable: true),
+                    BrojSjedista = table.Column<int>(nullable: false),
                     IsDeleted = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
@@ -381,7 +371,7 @@ namespace Repository.Migrations
                     DatumVrijeme = table.Column<DateTime>(nullable: false),
                     PredstavaId = table.Column<string>(nullable: true),
                     DvoranaId = table.Column<string>(nullable: true),
-                    BaznaCijenaKarte = table.Column<string>(nullable: true),
+                    BaznaCijenaKarte = table.Column<double>(nullable: false),
                     IsDeleted = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
@@ -438,8 +428,8 @@ namespace Repository.Migrations
                     TerminId = table.Column<string>(nullable: true),
                     TipSjedistaId = table.Column<string>(nullable: true),
                     CijenaKarte = table.Column<double>(nullable: false),
-                    Kolicstringa = table.Column<string>(nullable: true),
-                    DatumKupovstringe = table.Column<DateTime>(nullable: false),
+                    Kolicina = table.Column<string>(nullable: true),
+                    DatumKupovine = table.Column<DateTime>(nullable: false),
                     OcjenaId = table.Column<string>(nullable: true),
                     IsDeleted = table.Column<bool>(nullable: false)
                 },
@@ -453,12 +443,6 @@ namespace Repository.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Narudzba_Ocjena_OcjenaId",
-                        column: x => x.OcjenaId,
-                        principalTable: "Ocjena",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
                         name: "FK_Narudzba_Termin_TerminId",
                         column: x => x.TerminId,
                         principalTable: "Termin",
@@ -468,6 +452,27 @@ namespace Repository.Migrations
                         name: "FK_Narudzba_TipSjedista_TipSjedistaId",
                         column: x => x.TipSjedistaId,
                         principalTable: "TipSjedista",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Ocjena",
+                columns: table => new
+                {
+                    Id = table.Column<string>(nullable: false),
+                    Vrijednost = table.Column<int>(nullable: false),
+                    Review = table.Column<string>(nullable: true),
+                    NarudzbaId = table.Column<string>(nullable: true),
+                    IsDeleted = table.Column<bool>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Ocjena", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Ocjena_Narudzba_NarudzbaId",
+                        column: x => x.NarudzbaId,
+                        principalTable: "Narudzba",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -533,11 +538,6 @@ namespace Repository.Migrations
                 column: "KupacId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Narudzba_OcjenaId",
-                table: "Narudzba",
-                column: "OcjenaId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Narudzba_TerminId",
                 table: "Narudzba",
                 column: "TerminId");
@@ -551,6 +551,13 @@ namespace Repository.Migrations
                 name: "IX_Obavijest_AdministratorId",
                 table: "Obavijest",
                 column: "AdministratorId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Ocjena_NarudzbaId",
+                table: "Ocjena",
+                column: "NarudzbaId",
+                unique: true,
+                filter: "[NarudzbaId] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
                 name: "IX_PredstavaZanr_PredstavaId",
@@ -602,7 +609,7 @@ namespace Repository.Migrations
                 name: "Komentar");
 
             migrationBuilder.DropTable(
-                name: "Narudzba");
+                name: "Ocjena");
 
             migrationBuilder.DropTable(
                 name: "PredstavaZanr");
@@ -614,16 +621,7 @@ namespace Repository.Migrations
                 name: "Obavijest");
 
             migrationBuilder.DropTable(
-                name: "Kupac");
-
-            migrationBuilder.DropTable(
-                name: "Ocjena");
-
-            migrationBuilder.DropTable(
-                name: "Termin");
-
-            migrationBuilder.DropTable(
-                name: "TipSjedista");
+                name: "Narudzba");
 
             migrationBuilder.DropTable(
                 name: "Zanr");
@@ -635,6 +633,18 @@ namespace Repository.Migrations
                 name: "Administrator");
 
             migrationBuilder.DropTable(
+                name: "Kupac");
+
+            migrationBuilder.DropTable(
+                name: "Termin");
+
+            migrationBuilder.DropTable(
+                name: "TipSjedista");
+
+            migrationBuilder.DropTable(
+                name: "Korisnik");
+
+            migrationBuilder.DropTable(
                 name: "TipKorisnika");
 
             migrationBuilder.DropTable(
@@ -644,13 +654,10 @@ namespace Repository.Migrations
                 name: "Predstava");
 
             migrationBuilder.DropTable(
-                name: "Korisnik");
+                name: "Avatar");
 
             migrationBuilder.DropTable(
                 name: "Teatar");
-
-            migrationBuilder.DropTable(
-                name: "Avatar");
 
             migrationBuilder.DropTable(
                 name: "Grad");
