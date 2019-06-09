@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Models;
+using System;
 using System.Linq;
-using Models;
 
 namespace Repository
 {
@@ -14,14 +14,14 @@ namespace Repository
             Drzava Drzava1 = new Drzava { Naziv = "Bosna i Hercegovina" };
             Drzava Drzava2 = new Drzava { Naziv = "Drzava" };
 
-            context.Drzava.AddRange(Drzava1, 
+            context.Drzava.AddRange(Drzava1,
                                     Drzava2);
             context.SaveChanges();
 
-            Grad Grad1 = new Grad {Naziv = "Sarajevo", Drzava = Drzava1 };
-            Grad Grad2 = new Grad {Naziv = "Mostar", Drzava = Drzava1 };
-            Grad Grad3 = new Grad {Naziv = "Grad3", Drzava = Drzava2 };
-            Grad Grad4 = new Grad {Naziv = "Grad4", Drzava = Drzava2 };
+            Grad Grad1 = new Grad { Naziv = "Sarajevo", Drzava = Drzava1 };
+            Grad Grad2 = new Grad { Naziv = "Mostar", Drzava = Drzava1 };
+            Grad Grad3 = new Grad { Naziv = "Grad3", Drzava = Drzava2 };
+            Grad Grad4 = new Grad { Naziv = "Grad4", Drzava = Drzava2 };
 
             context.Grad.AddRange(Grad1,
                                   Grad2,
@@ -29,10 +29,10 @@ namespace Repository
                                   Grad4);
             context.SaveChanges();
 
-            Teatar Teatar1 = new Teatar {Grad = Grad1, Naziv = "Narodno pozoriste", Adresa = "Adresa 51", BrojTelefona ="061/091-741", Email ="SarajevNPo@eteatar.com", VrijemeOtvaranja=DateTime.Now, VrijemeZatvaranja = DateTime.Now.AddHours(8)};
-            Teatar Teatar2 = new Teatar {Grad = Grad1, Naziv = "Kamerni Teatar 55", Adresa = "Adresa 52", BrojTelefona = "061/091-742", Email = "SarajevoKT@eteatar.com", VrijemeOtvaranja = DateTime.Now, VrijemeZatvaranja = DateTime.Now.AddHours(8) };
-            Teatar Teatar3 = new Teatar {Grad = Grad2, Naziv = "Narodno Pozoriste", Adresa = "Adresa 53", BrojTelefona = "061/091-743", Email = "MostarNP@eteatar.com", VrijemeOtvaranja = DateTime.Now, VrijemeZatvaranja = DateTime.Now.AddHours(8) };
-            Teatar Teatar4 = new Teatar {Grad = Grad2, Naziv = "Pozoriste Mladih", Adresa = "Adresa 54", BrojTelefona = "061/091-744", Email = "MostarPM@eteatar.com", VrijemeOtvaranja = DateTime.Now, VrijemeZatvaranja = DateTime.Now.AddHours(8) };
+            Teatar Teatar1 = new Teatar { Grad = Grad1, Naziv = "Narodno pozoriste", Adresa = "Adresa 51", BrojTelefona = "061/091-741", Email = "SarajevNPo@eteatar.com", VrijemeOtvaranja = DateTime.Now, VrijemeZatvaranja = DateTime.Now.AddHours(8) };
+            Teatar Teatar2 = new Teatar { Grad = Grad1, Naziv = "Kamerni Teatar 55", Adresa = "Adresa 52", BrojTelefona = "061/091-742", Email = "SarajevoKT@eteatar.com", VrijemeOtvaranja = DateTime.Now, VrijemeZatvaranja = DateTime.Now.AddHours(8) };
+            Teatar Teatar3 = new Teatar { Grad = Grad2, Naziv = "Narodno Pozoriste", Adresa = "Adresa 53", BrojTelefona = "061/091-743", Email = "MostarNP@eteatar.com", VrijemeOtvaranja = DateTime.Now, VrijemeZatvaranja = DateTime.Now.AddHours(8) };
+            Teatar Teatar4 = new Teatar { Grad = Grad2, Naziv = "Pozoriste Mladih", Adresa = "Adresa 54", BrojTelefona = "061/091-744", Email = "MostarPM@eteatar.com", VrijemeOtvaranja = DateTime.Now, VrijemeZatvaranja = DateTime.Now.AddHours(8) };
 
             context.Teatar.AddRange(Teatar1,
                                     Teatar2,
@@ -62,10 +62,10 @@ namespace Repository
 
 
             TipSjedista TipSjedista1 = new TipSjedista { Naziv = "Galerija", CijenaKarteMultiplier = 1.0f };
-            TipSjedista TipSjedista2 = new TipSjedista { Naziv = "Balkon"  , CijenaKarteMultiplier = 2.0f };
-            TipSjedista TipSjedista3 = new TipSjedista { Naziv = "Parter"  , CijenaKarteMultiplier = 3.0f };
-            TipSjedista TipSjedista4 = new TipSjedista { Naziv = "Loža I"  , CijenaKarteMultiplier = 4.0f };
-            TipSjedista TipSjedista5 = new TipSjedista { Naziv = "VIP Loža" , CijenaKarteMultiplier = 5.0f };
+            TipSjedista TipSjedista2 = new TipSjedista { Naziv = "Balkon", CijenaKarteMultiplier = 2.0f };
+            TipSjedista TipSjedista3 = new TipSjedista { Naziv = "Parter", CijenaKarteMultiplier = 3.0f };
+            TipSjedista TipSjedista4 = new TipSjedista { Naziv = "Loža I", CijenaKarteMultiplier = 4.0f };
+            TipSjedista TipSjedista5 = new TipSjedista { Naziv = "VIP Loža", CijenaKarteMultiplier = 5.0f };
 
             context.TipSjedista.AddRange(TipSjedista1,
                                          TipSjedista2,
@@ -75,15 +75,15 @@ namespace Repository
             context.SaveChanges();
 
 
-            DvoranaTipSjedista DvoranaTipSjedista1 = new DvoranaTipSjedista  { Dvorana = Dvorana1, TipSjedista = TipSjedista1, BrojSjedista = 15 };
-            DvoranaTipSjedista DvoranaTipSjedista2 = new DvoranaTipSjedista  { Dvorana = Dvorana2, TipSjedista = TipSjedista1, BrojSjedista = 25 };
-            DvoranaTipSjedista DvoranaTipSjedista3 = new DvoranaTipSjedista  { Dvorana = Dvorana3, TipSjedista = TipSjedista1, BrojSjedista = 20 };
-            DvoranaTipSjedista DvoranaTipSjedista4 = new DvoranaTipSjedista  { Dvorana = Dvorana4, TipSjedista = TipSjedista1, BrojSjedista = 20 };
-            DvoranaTipSjedista DvoranaTipSjedista5 = new DvoranaTipSjedista  { Dvorana = Dvorana5, TipSjedista = TipSjedista1, BrojSjedista = 15 };
-            DvoranaTipSjedista DvoranaTipSjedista6 = new DvoranaTipSjedista  { Dvorana = Dvorana6, TipSjedista = TipSjedista1, BrojSjedista = 15 };
-            DvoranaTipSjedista DvoranaTipSjedista7 = new DvoranaTipSjedista  { Dvorana = Dvorana7, TipSjedista = TipSjedista1, BrojSjedista = 25 };
-            DvoranaTipSjedista DvoranaTipSjedista8 = new DvoranaTipSjedista  { Dvorana = Dvorana8, TipSjedista = TipSjedista1, BrojSjedista = 20 };
-            DvoranaTipSjedista DvoranaTipSjedista9 = new DvoranaTipSjedista  { Dvorana = Dvorana1, TipSjedista = TipSjedista2, BrojSjedista = 20 };
+            DvoranaTipSjedista DvoranaTipSjedista1 = new DvoranaTipSjedista { Dvorana = Dvorana1, TipSjedista = TipSjedista1, BrojSjedista = 15 };
+            DvoranaTipSjedista DvoranaTipSjedista2 = new DvoranaTipSjedista { Dvorana = Dvorana2, TipSjedista = TipSjedista1, BrojSjedista = 25 };
+            DvoranaTipSjedista DvoranaTipSjedista3 = new DvoranaTipSjedista { Dvorana = Dvorana3, TipSjedista = TipSjedista1, BrojSjedista = 20 };
+            DvoranaTipSjedista DvoranaTipSjedista4 = new DvoranaTipSjedista { Dvorana = Dvorana4, TipSjedista = TipSjedista1, BrojSjedista = 20 };
+            DvoranaTipSjedista DvoranaTipSjedista5 = new DvoranaTipSjedista { Dvorana = Dvorana5, TipSjedista = TipSjedista1, BrojSjedista = 15 };
+            DvoranaTipSjedista DvoranaTipSjedista6 = new DvoranaTipSjedista { Dvorana = Dvorana6, TipSjedista = TipSjedista1, BrojSjedista = 15 };
+            DvoranaTipSjedista DvoranaTipSjedista7 = new DvoranaTipSjedista { Dvorana = Dvorana7, TipSjedista = TipSjedista1, BrojSjedista = 25 };
+            DvoranaTipSjedista DvoranaTipSjedista8 = new DvoranaTipSjedista { Dvorana = Dvorana8, TipSjedista = TipSjedista1, BrojSjedista = 20 };
+            DvoranaTipSjedista DvoranaTipSjedista9 = new DvoranaTipSjedista { Dvorana = Dvorana1, TipSjedista = TipSjedista2, BrojSjedista = 20 };
             DvoranaTipSjedista DvoranaTipSjedista10 = new DvoranaTipSjedista { Dvorana = Dvorana2, TipSjedista = TipSjedista2, BrojSjedista = 15 };
             DvoranaTipSjedista DvoranaTipSjedista11 = new DvoranaTipSjedista { Dvorana = Dvorana3, TipSjedista = TipSjedista2, BrojSjedista = 25 };
             DvoranaTipSjedista DvoranaTipSjedista12 = new DvoranaTipSjedista { Dvorana = Dvorana4, TipSjedista = TipSjedista2, BrojSjedista = 20 };
@@ -216,15 +216,15 @@ namespace Repository
             context.SaveChanges();
 
 
-            Glumac Glumac1 = new Glumac  { Ime = "GlumacIme1", Prezime = "GlumacPrezime1", Biografija = "Opako dobra biografija", SlikaLink = ""};
-            Glumac Glumac2 = new Glumac  { Ime = "GlumacIme2", Prezime = "GlumacPrezime2", Biografija = "Opako dobra biografija", SlikaLink = "" };
-            Glumac Glumac3 = new Glumac  { Ime = "GlumacIme3", Prezime = "GlumacPrezime3", Biografija = "Opako dobra biografija", SlikaLink = "" };
-            Glumac Glumac4 = new Glumac  { Ime = "GlumacIme4", Prezime = "GlumacPrezime4", Biografija = "Opako dobra biografija", SlikaLink = "" };
-            Glumac Glumac5 = new Glumac  { Ime = "GlumacIme5", Prezime = "GlumacPrezime5", Biografija = "Opako dobra biografija", SlikaLink = "" };
-            Glumac Glumac6 = new Glumac  { Ime = "GlumacIme6", Prezime = "GlumacPrezime6", Biografija = "Opako dobra biografija", SlikaLink = "" };
-            Glumac Glumac7 = new Glumac  { Ime = "GlumacIme7", Prezime = "GlumacPrezime7", Biografija = "Opako dobra biografija", SlikaLink = "" };
-            Glumac Glumac8 = new Glumac  { Ime = "GlumacIme8", Prezime = "GlumacPrezime8", Biografija = "Opako dobra biografija", SlikaLink = "" };
-            Glumac Glumac9 = new Glumac  { Ime = "GlumacIme9", Prezime = "GlumacPrezime8", Biografija = "Opako dobra biografija", SlikaLink = "" };
+            Glumac Glumac1 = new Glumac { Ime = "GlumacIme1", Prezime = "GlumacPrezime1", Biografija = "Opako dobra biografija", SlikaLink = "" };
+            Glumac Glumac2 = new Glumac { Ime = "GlumacIme2", Prezime = "GlumacPrezime2", Biografija = "Opako dobra biografija", SlikaLink = "" };
+            Glumac Glumac3 = new Glumac { Ime = "GlumacIme3", Prezime = "GlumacPrezime3", Biografija = "Opako dobra biografija", SlikaLink = "" };
+            Glumac Glumac4 = new Glumac { Ime = "GlumacIme4", Prezime = "GlumacPrezime4", Biografija = "Opako dobra biografija", SlikaLink = "" };
+            Glumac Glumac5 = new Glumac { Ime = "GlumacIme5", Prezime = "GlumacPrezime5", Biografija = "Opako dobra biografija", SlikaLink = "" };
+            Glumac Glumac6 = new Glumac { Ime = "GlumacIme6", Prezime = "GlumacPrezime6", Biografija = "Opako dobra biografija", SlikaLink = "" };
+            Glumac Glumac7 = new Glumac { Ime = "GlumacIme7", Prezime = "GlumacPrezime7", Biografija = "Opako dobra biografija", SlikaLink = "" };
+            Glumac Glumac8 = new Glumac { Ime = "GlumacIme8", Prezime = "GlumacPrezime8", Biografija = "Opako dobra biografija", SlikaLink = "" };
+            Glumac Glumac9 = new Glumac { Ime = "GlumacIme9", Prezime = "GlumacPrezime8", Biografija = "Opako dobra biografija", SlikaLink = "" };
             Glumac Glumac10 = new Glumac { Ime = "GlumacIme10", Prezime = "GlumacPrezime10", Biografija = "Opako dobra biografija", SlikaLink = "" };
 
             context.Glumac.AddRange(Glumac1,
@@ -240,15 +240,15 @@ namespace Repository
             context.SaveChanges();
 
 
-            PredstavaZanr PredstavaZanr1 = new PredstavaZanr  { Predstava = Predstava1, Zanr = Zanr1 };
-            PredstavaZanr PredstavaZanr2 = new PredstavaZanr  { Predstava = Predstava1, Zanr = Zanr2 };
-            PredstavaZanr PredstavaZanr3 = new PredstavaZanr  { Predstava = Predstava1, Zanr = Zanr3 };
-            PredstavaZanr PredstavaZanr4 = new PredstavaZanr  { Predstava = Predstava2, Zanr = Zanr4 };
-            PredstavaZanr PredstavaZanr5 = new PredstavaZanr  { Predstava = Predstava2, Zanr = Zanr5 };
-            PredstavaZanr PredstavaZanr6 = new PredstavaZanr  { Predstava = Predstava2, Zanr = Zanr6 };
-            PredstavaZanr PredstavaZanr7 = new PredstavaZanr  { Predstava = Predstava3, Zanr = Zanr7 };
-            PredstavaZanr PredstavaZanr8 = new PredstavaZanr  { Predstava = Predstava3, Zanr = Zanr8 };
-            PredstavaZanr PredstavaZanr9 = new PredstavaZanr  { Predstava = Predstava4, Zanr = Zanr1 };
+            PredstavaZanr PredstavaZanr1 = new PredstavaZanr { Predstava = Predstava1, Zanr = Zanr1 };
+            PredstavaZanr PredstavaZanr2 = new PredstavaZanr { Predstava = Predstava1, Zanr = Zanr2 };
+            PredstavaZanr PredstavaZanr3 = new PredstavaZanr { Predstava = Predstava1, Zanr = Zanr3 };
+            PredstavaZanr PredstavaZanr4 = new PredstavaZanr { Predstava = Predstava2, Zanr = Zanr4 };
+            PredstavaZanr PredstavaZanr5 = new PredstavaZanr { Predstava = Predstava2, Zanr = Zanr5 };
+            PredstavaZanr PredstavaZanr6 = new PredstavaZanr { Predstava = Predstava2, Zanr = Zanr6 };
+            PredstavaZanr PredstavaZanr7 = new PredstavaZanr { Predstava = Predstava3, Zanr = Zanr7 };
+            PredstavaZanr PredstavaZanr8 = new PredstavaZanr { Predstava = Predstava3, Zanr = Zanr8 };
+            PredstavaZanr PredstavaZanr9 = new PredstavaZanr { Predstava = Predstava4, Zanr = Zanr1 };
             PredstavaZanr PredstavaZanr10 = new PredstavaZanr { Predstava = Predstava4, Zanr = Zanr2 };
             PredstavaZanr PredstavaZanr11 = new PredstavaZanr { Predstava = Predstava5, Zanr = Zanr1 };
             PredstavaZanr PredstavaZanr12 = new PredstavaZanr { Predstava = Predstava5, Zanr = Zanr2 };
@@ -284,15 +284,15 @@ namespace Repository
             context.SaveChanges();
 
 
-            Uloga Uloga1 = new Uloga  { Naziv = "Uloga1", Predstava = Predstava1, Glumac = Glumac1, IsGlavnaUloga = true };
-            Uloga Uloga2 = new Uloga  { Naziv = "Uloga2", Predstava = Predstava1, Glumac = Glumac2, IsGlavnaUloga = false };
-            Uloga Uloga3 = new Uloga  { Naziv = "Uloga3", Predstava = Predstava1, Glumac = Glumac3, IsGlavnaUloga = false };
-            Uloga Uloga4 = new Uloga  { Naziv = "Uloga4", Predstava = Predstava1, Glumac = Glumac4, IsGlavnaUloga = false };
-            Uloga Uloga5 = new Uloga  { Naziv = "Uloga1", Predstava = Predstava2, Glumac = Glumac5, IsGlavnaUloga = true };
-            Uloga Uloga6 = new Uloga  { Naziv = "Uloga2", Predstava = Predstava2, Glumac = Glumac6, IsGlavnaUloga = false };
-            Uloga Uloga7 = new Uloga  { Naziv = "Uloga1", Predstava = Predstava3, Glumac = Glumac7, IsGlavnaUloga = true };
-            Uloga Uloga8 = new Uloga  { Naziv = "Uloga1", Predstava = Predstava4, Glumac = Glumac8, IsGlavnaUloga = true };
-            Uloga Uloga9 = new Uloga  { Naziv = "Uloga2", Predstava = Predstava4, Glumac = Glumac9, IsGlavnaUloga = false };
+            Uloga Uloga1 = new Uloga { Naziv = "Uloga1", Predstava = Predstava1, Glumac = Glumac1, IsGlavnaUloga = true };
+            Uloga Uloga2 = new Uloga { Naziv = "Uloga2", Predstava = Predstava1, Glumac = Glumac2, IsGlavnaUloga = false };
+            Uloga Uloga3 = new Uloga { Naziv = "Uloga3", Predstava = Predstava1, Glumac = Glumac3, IsGlavnaUloga = false };
+            Uloga Uloga4 = new Uloga { Naziv = "Uloga4", Predstava = Predstava1, Glumac = Glumac4, IsGlavnaUloga = false };
+            Uloga Uloga5 = new Uloga { Naziv = "Uloga1", Predstava = Predstava2, Glumac = Glumac5, IsGlavnaUloga = true };
+            Uloga Uloga6 = new Uloga { Naziv = "Uloga2", Predstava = Predstava2, Glumac = Glumac6, IsGlavnaUloga = false };
+            Uloga Uloga7 = new Uloga { Naziv = "Uloga1", Predstava = Predstava3, Glumac = Glumac7, IsGlavnaUloga = true };
+            Uloga Uloga8 = new Uloga { Naziv = "Uloga1", Predstava = Predstava4, Glumac = Glumac8, IsGlavnaUloga = true };
+            Uloga Uloga9 = new Uloga { Naziv = "Uloga2", Predstava = Predstava4, Glumac = Glumac9, IsGlavnaUloga = false };
             Uloga Uloga10 = new Uloga { Naziv = "Uloga1", Predstava = Predstava5, Glumac = Glumac10, IsGlavnaUloga = true };
             Uloga Uloga11 = new Uloga { Naziv = "Uloga1", Predstava = Predstava6, Glumac = Glumac1, IsGlavnaUloga = true };
             Uloga Uloga12 = new Uloga { Naziv = "Uloga2", Predstava = Predstava6, Glumac = Glumac1, IsGlavnaUloga = false };
@@ -339,22 +339,22 @@ namespace Repository
             DateTime Sest = DateTime.Today.AddDays(6);
             DateTime Sedam = DateTime.Today.AddDays(7);
 
-            Termin Termin1 = new Termin  { Predstava = Predstava1, Dvorana = Dvorana1, BaznaCijenaKarte = 10, DatumVrijeme = Danas.AddHours(18)};
-            Termin Termin2 = new Termin  { Predstava = Predstava2, Dvorana = Dvorana2, BaznaCijenaKarte = 10, DatumVrijeme = Danas.AddHours(18)};
-            Termin Termin3 = new Termin  { Predstava = Predstava3, Dvorana = Dvorana3, BaznaCijenaKarte = 10, DatumVrijeme = Danas.AddHours(20)};
-            Termin Termin4 = new Termin  { Predstava = Predstava4, Dvorana = Dvorana4, BaznaCijenaKarte = 10, DatumVrijeme = Danas.AddHours(20)};
-            Termin Termin5 = new Termin  { Predstava = Predstava5, Dvorana = Dvorana5, BaznaCijenaKarte = 10, DatumVrijeme = Danas.AddHours(19)};
-            Termin Termin6 = new Termin  { Predstava = Predstava6, Dvorana = Dvorana6, BaznaCijenaKarte = 10, DatumVrijeme = Danas.AddHours(19)};
-            Termin Termin7 = new Termin  { Predstava = Predstava7, Dvorana = Dvorana7, BaznaCijenaKarte = 10, DatumVrijeme = Danas.AddHours(17)};
-            Termin Termin8 = new Termin  { Predstava = Predstava8, Dvorana = Dvorana8, BaznaCijenaKarte = 10, DatumVrijeme = Sedam.AddHours(18)};
-            Termin Termin9 = new Termin  { Predstava = Predstava1, Dvorana = Dvorana1, BaznaCijenaKarte = 10, DatumVrijeme = Danas.AddHours(18)};
-            Termin Termin10 = new Termin { Predstava = Predstava1, Dvorana = Dvorana1, BaznaCijenaKarte = 10, DatumVrijeme = Sutra.AddHours(18)};
-            Termin Termin11 = new Termin { Predstava = Predstava1, Dvorana = Dvorana1, BaznaCijenaKarte = 10, DatumVrijeme = Prekosutra.AddHours(18)};
-            Termin Termin12 = new Termin { Predstava = Predstava1, Dvorana = Dvorana1, BaznaCijenaKarte = 10, DatumVrijeme = Tri.AddHours(18)};
-            Termin Termin13 = new Termin { Predstava = Predstava1, Dvorana = Dvorana1, BaznaCijenaKarte = 10, DatumVrijeme = Cetiri.AddHours(18)};
-            Termin Termin14 = new Termin { Predstava = Predstava1, Dvorana = Dvorana1, BaznaCijenaKarte = 10, DatumVrijeme = Pet.AddHours(18)};
-            Termin Termin15 = new Termin { Predstava = Predstava1, Dvorana = Dvorana1, BaznaCijenaKarte = 10, DatumVrijeme = Sest.AddHours(18)};
-            Termin Termin16 = new Termin { Predstava = Predstava2, Dvorana = Dvorana1, BaznaCijenaKarte = 10, DatumVrijeme = Sedam.AddHours(18)};
+            Termin Termin1 = new Termin { Predstava = Predstava1, Dvorana = Dvorana1, BaznaCijenaKarte = 10, DatumVrijeme = Danas.AddHours(18) };
+            Termin Termin2 = new Termin { Predstava = Predstava2, Dvorana = Dvorana2, BaznaCijenaKarte = 10, DatumVrijeme = Danas.AddHours(18) };
+            Termin Termin3 = new Termin { Predstava = Predstava3, Dvorana = Dvorana3, BaznaCijenaKarte = 10, DatumVrijeme = Danas.AddHours(20) };
+            Termin Termin4 = new Termin { Predstava = Predstava4, Dvorana = Dvorana4, BaznaCijenaKarte = 10, DatumVrijeme = Danas.AddHours(20) };
+            Termin Termin5 = new Termin { Predstava = Predstava5, Dvorana = Dvorana5, BaznaCijenaKarte = 10, DatumVrijeme = Danas.AddHours(19) };
+            Termin Termin6 = new Termin { Predstava = Predstava6, Dvorana = Dvorana6, BaznaCijenaKarte = 10, DatumVrijeme = Danas.AddHours(19) };
+            Termin Termin7 = new Termin { Predstava = Predstava7, Dvorana = Dvorana7, BaznaCijenaKarte = 10, DatumVrijeme = Danas.AddHours(17) };
+            Termin Termin8 = new Termin { Predstava = Predstava8, Dvorana = Dvorana8, BaznaCijenaKarte = 10, DatumVrijeme = Sedam.AddHours(18) };
+            Termin Termin9 = new Termin { Predstava = Predstava1, Dvorana = Dvorana1, BaznaCijenaKarte = 10, DatumVrijeme = Danas.AddHours(18) };
+            Termin Termin10 = new Termin { Predstava = Predstava1, Dvorana = Dvorana1, BaznaCijenaKarte = 10, DatumVrijeme = Sutra.AddHours(18) };
+            Termin Termin11 = new Termin { Predstava = Predstava1, Dvorana = Dvorana1, BaznaCijenaKarte = 10, DatumVrijeme = Prekosutra.AddHours(18) };
+            Termin Termin12 = new Termin { Predstava = Predstava1, Dvorana = Dvorana1, BaznaCijenaKarte = 10, DatumVrijeme = Tri.AddHours(18) };
+            Termin Termin13 = new Termin { Predstava = Predstava1, Dvorana = Dvorana1, BaznaCijenaKarte = 10, DatumVrijeme = Cetiri.AddHours(18) };
+            Termin Termin14 = new Termin { Predstava = Predstava1, Dvorana = Dvorana1, BaznaCijenaKarte = 10, DatumVrijeme = Pet.AddHours(18) };
+            Termin Termin15 = new Termin { Predstava = Predstava1, Dvorana = Dvorana1, BaznaCijenaKarte = 10, DatumVrijeme = Sest.AddHours(18) };
+            Termin Termin16 = new Termin { Predstava = Predstava2, Dvorana = Dvorana1, BaznaCijenaKarte = 10, DatumVrijeme = Sedam.AddHours(18) };
 
             context.Termin.AddRange(Termin1,
                                     Termin2,
@@ -375,7 +375,7 @@ namespace Repository
             context.SaveChanges();
 
 
-            TipKorisnika TipKorisnika4 = new TipKorisnika { Naziv = "Gold", Cijena = 50, CijenaKartePopust = 0.5f, IduciTipKorisnika = null};
+            TipKorisnika TipKorisnika4 = new TipKorisnika { Naziv = "Gold", Cijena = 50, CijenaKartePopust = 0.5f, IduciTipKorisnika = null };
             TipKorisnika TipKorisnika3 = new TipKorisnika { Naziv = "Platinum", Cijena = 30, CijenaKartePopust = 0.3f, IduciTipKorisnika = TipKorisnika4 };
             TipKorisnika TipKorisnika2 = new TipKorisnika { Naziv = "Silver", Cijena = 10, CijenaKartePopust = 0.1f, IduciTipKorisnika = TipKorisnika3 };
             TipKorisnika TipKorisnika1 = new TipKorisnika { Naziv = "Standard", Cijena = 00, CijenaKartePopust = 0.0f, IduciTipKorisnika = TipKorisnika2, IsOsnovni = true };
@@ -411,32 +411,39 @@ namespace Repository
                                     Avatar11);
             context.SaveChanges();
 
-            KorisnickiNalog Korisnik1 = new KorisnickiNalog { KorisnickoIme = "Kupac", Email = "Kupac@Email.com", LozinkaHash = "", LozinkaSalt = "", Adresa = "Adresa 11", DatumKreiranja = DateTime.Now, Grad = Grad1, Ime = "KupacIme", Prezime = "KupacPrezime", Avatar=Avatar1};
-            KorisnickiNalog Korisnik2 = new KorisnickiNalog { KorisnickoIme = "Kupac2", Email = "Kupac2@Email.com", LozinkaHash = "", LozinkaSalt = "", Adresa = "Adresa 11", DatumKreiranja = DateTime.Now, Grad = Grad1, Ime = "KupacIme2", Prezime = "KupacPrezime2", Avatar=Avatar2};
-            KorisnickiNalog Korisnik3 = new KorisnickiNalog { KorisnickoIme = "Kupac3", Email = "Kupac3@Email.com", LozinkaHash = "", LozinkaSalt = "", Adresa = "Adresa 11", DatumKreiranja = DateTime.Now, Grad = Grad1, Ime = "KupacIme3", Prezime = "KupacPrezime3", Avatar=Avatar3};
-            KorisnickiNalog Korisnik4 = new KorisnickiNalog { KorisnickoIme = "Kupac4", Email = "Kupac4@Email.com", LozinkaHash = "", LozinkaSalt = "", Adresa = "Adresa 11", DatumKreiranja = DateTime.Now, Grad = Grad1, Ime = "KupacIme4", Prezime = "KupacPrezime4", Avatar=Avatar4};
-            KorisnickiNalog Korisnik5 = new KorisnickiNalog { KorisnickoIme = "Admin", Email = "Admin@Email.com", LozinkaHash = "", LozinkaSalt = "", Adresa = "Adresa 11", DatumKreiranja = DateTime.Now, Grad = Grad1, Ime = "AdminIme", Prezime = "AdminPrezime", Avatar=Avatar5};
-            KorisnickiNalog Korisnik6 = new KorisnickiNalog { KorisnickoIme = "Admin2", Email = "Admin2@Email.com", LozinkaHash = "", LozinkaSalt = "", Adresa = "Adresa 11", DatumKreiranja = DateTime.Now, Grad = Grad1, Ime = "AdminIme2", Prezime = "AdminPrezime2", Avatar=Avatar6};
-            KorisnickiNalog KorisnikAdi = new KorisnickiNalog { KorisnickoIme = "Adi", Email = "adi.sose@outlook.com", LozinkaHash = "", LozinkaSalt = "", Adresa = "Grbavicka 50", DatumKreiranja = DateTime.Now, Grad = Grad1, Ime = "Adi", Prezime = "Sose", Avatar=Avatar1};
+            KorisnickaUloga KorisnickaUloga1 = new KorisnickaUloga { Naziv = "Administrator" };
+            KorisnickaUloga KorisnickaUloga2 = new KorisnickaUloga { Naziv = "Kupac" };
 
-            context.KorisnickiNalog.AddRange(Korisnik1, 
-                                      Korisnik2, 
-                                      Korisnik3, 
-                                      Korisnik4, 
-                                      Korisnik5, 
-                                      Korisnik6,
-                                      KorisnikAdi);
+            context.KorisnickaUloga.AddRange(KorisnickaUloga1,
+                                             KorisnickaUloga2);
 
             context.SaveChanges();
 
-            //await roleManager.CreateAsync(new IdentityRole { Name = "Kupac", NormalizedName = "Kupac".ToUpper() });
-            //await roleManager.CreateAsync(new IdentityRole { Name = "Admin", NormalizedName = "Admin".ToUpper() });
+            KorisnickiNalog Korisnik1 = new KorisnickiNalog { KorisnickoIme = "Kupac", Email = "Kupac@Email.com", LozinkaHash = "j7+6UDUsnJcVogyMj2kZsLhfrgY=", LozinkaSalt = "yHXtkSuamKxmhzbWfbDKIg==", Adresa = "Adresa 11", DatumKreiranja = DateTime.Now, Grad = Grad1, Ime = "KupacIme", Prezime = "KupacPrezime", Avatar = Avatar1 , KorisnickaUloga = KorisnickaUloga2 };
+            KorisnickiNalog Korisnik2 = new KorisnickiNalog { KorisnickoIme = "Kupac2", Email = "Kupac2@Email.com", LozinkaHash = "j7+6UDUsnJcVogyMj2kZsLhfrgY=", LozinkaSalt = "yHXtkSuamKxmhzbWfbDKIg==", Adresa = "Adresa 11", DatumKreiranja = DateTime.Now, Grad = Grad1, Ime = "KupacIme2", Prezime = "KupacPrezime2", Avatar = Avatar2, KorisnickaUloga = KorisnickaUloga2 };
+            KorisnickiNalog Korisnik3 = new KorisnickiNalog { KorisnickoIme = "Kupac3", Email = "Kupac3@Email.com", LozinkaHash = "j7+6UDUsnJcVogyMj2kZsLhfrgY=", LozinkaSalt = "yHXtkSuamKxmhzbWfbDKIg==", Adresa = "Adresa 11", DatumKreiranja = DateTime.Now, Grad = Grad1, Ime = "KupacIme3", Prezime = "KupacPrezime3", Avatar = Avatar3, KorisnickaUloga = KorisnickaUloga2 };
+            KorisnickiNalog Korisnik4 = new KorisnickiNalog { KorisnickoIme = "Kupac4", Email = "Kupac4@Email.com", LozinkaHash = "j7+6UDUsnJcVogyMj2kZsLhfrgY=", LozinkaSalt = "yHXtkSuamKxmhzbWfbDKIg==", Adresa = "Adresa 11", DatumKreiranja = DateTime.Now, Grad = Grad1, Ime = "KupacIme4", Prezime = "KupacPrezime4", Avatar = Avatar4, KorisnickaUloga = KorisnickaUloga2 };
+            KorisnickiNalog Korisnik5 = new KorisnickiNalog { KorisnickoIme = "Admin", Email = "Admin@Email.com", LozinkaHash = "j7+6UDUsnJcVogyMj2kZsLhfrgY=", LozinkaSalt = "yHXtkSuamKxmhzbWfbDKIg==", Adresa = "Adresa 11", DatumKreiranja = DateTime.Now, Grad = Grad1, Ime = "AdminIme", Prezime = "AdminPrezime", Avatar = Avatar5, KorisnickaUloga = KorisnickaUloga1 };
+            KorisnickiNalog Korisnik6 = new KorisnickiNalog { KorisnickoIme = "Admin2", Email = "Admin2@Email.com", LozinkaHash = "j7+6UDUsnJcVogyMj2kZsLhfrgY=", LozinkaSalt = "yHXtkSuamKxmhzbWfbDKIg==", Adresa = "Adresa 11", DatumKreiranja = DateTime.Now, Grad = Grad1, Ime = "AdminIme2", Prezime = "AdminPrezime2", Avatar = Avatar6, KorisnickaUloga = KorisnickaUloga1 };
+            KorisnickiNalog KorisnikAdi = new KorisnickiNalog { KorisnickoIme = "Adi", Email = "adi.sose@outlook.com", LozinkaHash = "j7+6UDUsnJcVogyMj2kZsLhfrgY=", LozinkaSalt = "yHXtkSuamKxmhzbWfbDKIg==", Adresa = "Grbavicka 50", DatumKreiranja = DateTime.Now, Grad = Grad1, Ime = "Adi", Prezime = "Sose", Avatar = Avatar1, KorisnickaUloga = KorisnickaUloga2 };
+            KorisnickiNalog KorisnikAdnan = new KorisnickiNalog { KorisnickoIme = "Adnan", Email = "adnan.cutura@outlook.com", LozinkaHash = "j7+6UDUsnJcVogyMj2kZsLhfrgY=", LozinkaSalt = "yHXtkSuamKxmhzbWfbDKIg==", Adresa = "Adresa 50", DatumKreiranja = DateTime.Now, Grad = Grad1, Ime = "Adnan", Prezime = "Cutura", Avatar = Avatar1, KorisnickaUloga = KorisnickaUloga2 };
 
-            Kupac Kupac1 = new Kupac { TipKorisnika = TipKorisnika4, KorisnickiNalog = Korisnik1};
-            Kupac Kupac2 = new Kupac { TipKorisnika = TipKorisnika3, KorisnickiNalog = Korisnik2};
-            Kupac Kupac3 = new Kupac { TipKorisnika = TipKorisnika2, KorisnickiNalog = Korisnik3};
-            Kupac Kupac4 = new Kupac { TipKorisnika = TipKorisnika1, KorisnickiNalog = Korisnik4};
-            Kupac KupacAdi = new Kupac { TipKorisnika = TipKorisnika1, KorisnickiNalog = KorisnikAdi};
+            context.KorisnickiNalog.AddRange(Korisnik1,
+                                      Korisnik2,
+                                      Korisnik3,
+                                      Korisnik4,
+                                      Korisnik5,
+                                      Korisnik6,
+                                      KorisnikAdi,
+                                      KorisnikAdnan);
+
+            context.SaveChanges();
+
+            Kupac Kupac1 = new Kupac { TipKorisnika = TipKorisnika4, KorisnickiNalog = Korisnik1 };
+            Kupac Kupac2 = new Kupac { TipKorisnika = TipKorisnika3, KorisnickiNalog = Korisnik2 };
+            Kupac Kupac3 = new Kupac { TipKorisnika = TipKorisnika2, KorisnickiNalog = Korisnik3 };
+            Kupac Kupac4 = new Kupac { TipKorisnika = TipKorisnika1, KorisnickiNalog = Korisnik4 };
+            Kupac KupacAdi = new Kupac { TipKorisnika = TipKorisnika1, KorisnickiNalog = KorisnikAdi };
 
             context.Kupac.AddRange(Kupac1,
                                    Kupac2,
@@ -445,8 +452,8 @@ namespace Repository
                                    KupacAdi);
             context.SaveChanges();
 
-            Administrator Administrator1 = new Administrator { KorisnickiNalog = Korisnik5};
-            Administrator Administrator2 = new Administrator { KorisnickiNalog = Korisnik6};
+            Administrator Administrator1 = new Administrator { KorisnickiNalog = Korisnik5 };
+            Administrator Administrator2 = new Administrator { KorisnickiNalog = Korisnik6 };
 
             context.Administrator.AddRange(Administrator1,
                                            Administrator2);
@@ -497,9 +504,9 @@ namespace Repository
             Komentar Komentar1 = new Komentar { Sadrzaj = "Sadrzaj prvog komentara", Kupac = Kupac1, Obavijest = Obavijest1, DatumVrijeme = Danas.AddDays(-1).AddHours(14) };
             Komentar Komentar2 = new Komentar { Sadrzaj = "Sadrzaj drugog komentara", Kupac = Kupac2, Obavijest = Obavijest1, DatumVrijeme = Danas.AddDays(-1).AddHours(15) };
 
-            context.Komentar.AddRange(Komentar1, 
+            context.Komentar.AddRange(Komentar1,
                                       Komentar2);
-            
+
             context.Komentar.AddRange(Komentar1, Komentar2);
             context.SaveChanges();
         }

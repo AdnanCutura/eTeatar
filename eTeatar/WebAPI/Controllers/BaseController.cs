@@ -7,7 +7,6 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = "Administrator")]
     public class BaseController<TDataTransferObject, TSearch> : ControllerBase where TDataTransferObject : class
     {
         private readonly IBaseService<TDataTransferObject, TSearch> _service;

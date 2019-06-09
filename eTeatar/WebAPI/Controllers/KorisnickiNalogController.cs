@@ -8,7 +8,7 @@ using WebAPI.Services.Interfaces;
 
 namespace WebAPI.Controllers
 {
-    public class KorisnickiNalogController : CrudController<DataTransferObjects.KorisnickiNalog,DataTransferObjects.Requests.KorisnickiNalogSearchRequest, DataTransferObjects.Requests.KorisnickiNalogUpsertRequest, DataTransferObjects.Requests.KorisnickiNalogUpsertRequest>
+    public class KorisnickiNalogController : BaseController<DataTransferObjects.KorisnickiNalog,DataTransferObjects.Requests.KorisnickiNalogSearchRequest>
     {
         public KorisnickiNalogController(IKorisnickiNalogService service) : base(service)
         {

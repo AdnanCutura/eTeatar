@@ -85,6 +85,11 @@ namespace WebAPI
             services.AddScoped(typeof(ICrudService<DataTransferObjects.Komentar, object, KomentarInsertRequest, object>),
               typeof(KomentarService));
             services.AddScoped(typeof(IKorisnickiNalogService),typeof(KorisnickiNalogService));
+            services.AddScoped(typeof(ICrudService<DataTransferObjects.Kupac, object, KupacUpsertRequest, KupacUpsertRequest>),
+              typeof(KupacService));
+            services.AddScoped(typeof(ICrudService<DataTransferObjects.Administrator, object, AdministratorUpsertRequest, AdministratorUpsertRequest>),
+              typeof(AdministratorService));
+
 
             // Add Repository
             services.AddScoped(typeof(IRepository<Teatar, TeatarSearchRequest>), typeof(TeatarRepository));
@@ -102,6 +107,8 @@ namespace WebAPI
             services.AddScoped(typeof(IRepository<Termin, TerminSearchRequest>), typeof(TerminRepository));
             services.AddScoped(typeof(IRepository<Komentar, object>), typeof(Repository<Komentar, object>));
             services.AddScoped(typeof(IKorisnickiNalogRepository), typeof(KorisnickiNalogRepository));
+            services.AddScoped(typeof(IRepository<Kupac, object>), typeof(Repository<Kupac, object>));
+            services.AddScoped(typeof(IRepository<Administrator, object>), typeof(Repository<Administrator, object>));
 
             // Register the Swagger generator, def 1 or more Swagger documents
             services.AddSwaggerGen(c =>

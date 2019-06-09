@@ -12,7 +12,7 @@ namespace DataTransferObjects
 
         public virtual string AvatarId { get; set; }
         public string GradId { get; set; }
-        public int KorisnickaUlogaId { get; set; }
+        public string KorisnickaUlogaId { get; set; }
 
         public string KorisnickoIme { get; set; }
         public string Email { get; set; }
