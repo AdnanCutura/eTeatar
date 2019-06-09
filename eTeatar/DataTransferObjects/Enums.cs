@@ -16,4 +16,10 @@ namespace DataTransferObjects.Enums
         Ocjena,
     }
 
+    public enum KorisnickeUloge
+    {
+        Administrator,
+        Kupac
+    }
+
 }

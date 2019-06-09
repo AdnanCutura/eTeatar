@@ -64,17 +64,23 @@ namespace WebAPI.Mappers
             
             //Kupac
             CreateMap<Models.Kupac, DataTransferObjects.Kupac>();
+            CreateMap<DataTransferObjects.Requests.KupacUpsertRequest, Models.Kupac>();
             CreateMap<DataTransferObjects.Kupac, DataTransferObjects.KorisnickiNalog>().ReverseMap();
-            CreateMap<Models.Kupac, DataTransferObjects.Requests.KupacUpsertRequest>().ReverseMap();
-            CreateMap<DataTransferObjects.Requests.KupacUpsertRequest, DataTransferObjects.Requests.KorisnickiNalogUpsertRequest>().ReverseMap();
-                        
+            CreateMap<Models.Kupac, DataTransferObjects.Requests.KupacKorisnickiNalogUpsertRequest>().ReverseMap();
+            CreateMap<DataTransferObjects.Requests.KupacKorisnickiNalogUpsertRequest, DataTransferObjects.Requests.KorisnickiNalogUpsertRequest>().ReverseMap();
+
             //Administrator
             CreateMap<Models.Administrator, DataTransferObjects.Administrator>();
+            CreateMap<DataTransferObjects.Requests.AdministratorUpsertRequest, Models.Administrator>();
             CreateMap<DataTransferObjects.Administrator, DataTransferObjects.KorisnickiNalog>().ReverseMap();
-            CreateMap<Models.Administrator, DataTransferObjects.Requests.AdministratorUpsertRequest>().ReverseMap();
-            CreateMap<DataTransferObjects.Requests.AdministratorUpsertRequest, DataTransferObjects.Requests.KorisnickiNalogUpsertRequest>().ReverseMap();
+            CreateMap<Models.Administrator, DataTransferObjects.Requests.AdministratorKorisnickiNalogUpsertRequest>().ReverseMap();
+            CreateMap<DataTransferObjects.Requests.AdministratorKorisnickiNalogUpsertRequest, DataTransferObjects.Requests.KorisnickiNalogUpsertRequest>().ReverseMap();
 
+            //Korisnicka uloga
+            CreateMap<Models.KorisnickaUloga, DataTransferObjects.KorisnickaUloga>();
 
+            //Tip korisnika
+            CreateMap<Models.TipKorisnika, DataTransferObjects.TipKorisnika>();
 
         }
     }

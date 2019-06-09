@@ -48,5 +48,6 @@ namespace Repository
             DatabaseSet.Remove(entity);
             Context.SaveChanges();
         }
+        
     }
 }

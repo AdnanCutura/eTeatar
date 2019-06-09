@@ -10,9 +10,9 @@ using WebAPI.Services.Interfaces;
 namespace WebAPI.Controllers
 {
     [Authorize(Roles = "Administrator")]
-    public class AdministratorController : CrudController<DataTransferObjects.Administrator, object, DataTransferObjects.Requests.AdministratorUpsertRequest, DataTransferObjects.Requests.AdministratorUpsertRequest>
+    public class AdministratorController : CrudController<DataTransferObjects.Administrator, object, DataTransferObjects.Requests.AdministratorKorisnickiNalogUpsertRequest, DataTransferObjects.Requests.AdministratorKorisnickiNalogUpsertRequest>
     {
-        public AdministratorController(ICrudService<Administrator, object, AdministratorUpsertRequest, AdministratorUpsertRequest> service) : base(service)
+        public AdministratorController(ICrudService<Administrator, object, AdministratorKorisnickiNalogUpsertRequest, AdministratorKorisnickiNalogUpsertRequest> service) : base(service)
         {
         }
     }

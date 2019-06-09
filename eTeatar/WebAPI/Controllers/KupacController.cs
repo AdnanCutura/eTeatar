@@ -8,9 +8,9 @@ using WebAPI.Services.Interfaces;
 
 namespace WebAPI.Controllers
 {
-    public class KupacController : CrudController<DataTransferObjects.Kupac, object, DataTransferObjects.Requests.KupacUpsertRequest, DataTransferObjects.Requests.KupacUpsertRequest>
+    public class KupacController : CrudController<DataTransferObjects.Kupac, object, DataTransferObjects.Requests.KupacKorisnickiNalogUpsertRequest, DataTransferObjects.Requests.KupacKorisnickiNalogUpsertRequest>
     {
-        public KupacController(ICrudService<Kupac, object, KupacUpsertRequest, KupacUpsertRequest> service) : base(service)
+        public KupacController(ICrudService<Kupac, object, KupacKorisnickiNalogUpsertRequest, KupacKorisnickiNalogUpsertRequest> service) : base(service)
         {
         }
     }

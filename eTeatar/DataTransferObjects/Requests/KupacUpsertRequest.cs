@@ -4,8 +4,9 @@ using System.Text;
 
 namespace DataTransferObjects.Requests
 {
-    public class KupacUpsertRequest : KorisnickiNalogUpsertRequest
+    public class KupacUpsertRequest
     {
-         public string KorisnickiNalogId { get; set; }
+        public string TipKorisnikaId { get; set; }
+        public string KorisnickiNalogId { get; set; }
     }
 }

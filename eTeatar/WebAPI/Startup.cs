@@ -49,7 +49,7 @@ namespace WebAPI
 
             services.AddAuthentication("BasicAuthentication")
                 .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
-            
+
             // Add DbContext from Repository layer
             services.AddDbContext<eTeatarContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Local")));
 
@@ -84,13 +84,16 @@ namespace WebAPI
                 typeof(TerminService));
             services.AddScoped(typeof(ICrudService<DataTransferObjects.Komentar, object, KomentarInsertRequest, object>),
               typeof(KomentarService));
-            services.AddScoped(typeof(IKorisnickiNalogService),typeof(KorisnickiNalogService));
-            services.AddScoped(typeof(ICrudService<DataTransferObjects.Kupac, object, KupacUpsertRequest, KupacUpsertRequest>),
+            services.AddScoped(typeof(IKorisnickiNalogService), typeof(KorisnickiNalogService));
+            services.AddScoped(typeof(ICrudService<DataTransferObjects.Kupac, object, KupacKorisnickiNalogUpsertRequest, KupacKorisnickiNalogUpsertRequest>),
               typeof(KupacService));
-            services.AddScoped(typeof(ICrudService<DataTransferObjects.Administrator, object, AdministratorUpsertRequest, AdministratorUpsertRequest>),
+            services.AddScoped(typeof(ICrudService<DataTransferObjects.Administrator, object, AdministratorKorisnickiNalogUpsertRequest, AdministratorKorisnickiNalogUpsertRequest>),
               typeof(AdministratorService));
-
-
+            services.AddScoped(typeof(IBaseService<DataTransferObjects.KorisnickaUloga, KorisnickaUlogaSearchRequest>),
+              typeof(BaseService<DataTransferObjects.KorisnickaUloga, KorisnickaUlogaSearchRequest, KorisnickaUloga>));
+            services.AddScoped(typeof(IBaseService<DataTransferObjects.TipKorisnika, TipKorisnikaSearchRequest>),
+              typeof(BaseService<DataTransferObjects.TipKorisnika, TipKorisnikaSearchRequest, TipKorisnika>));
+            
             // Add Repository
             services.AddScoped(typeof(IRepository<Teatar, TeatarSearchRequest>), typeof(TeatarRepository));
             services.AddScoped(typeof(IRepository<Dvorana, DvoranaSearchRequest>), typeof(DvoranaRepository));
@@ -109,6 +112,8 @@ namespace WebAPI
             services.AddScoped(typeof(IKorisnickiNalogRepository), typeof(KorisnickiNalogRepository));
             services.AddScoped(typeof(IRepository<Kupac, object>), typeof(Repository<Kupac, object>));
             services.AddScoped(typeof(IRepository<Administrator, object>), typeof(Repository<Administrator, object>));
+            services.AddScoped(typeof(IRepository<KorisnickaUloga, KorisnickaUlogaSearchRequest>), typeof(KorisnickeUlogeRepository));
+            services.AddScoped(typeof(IRepository<TipKorisnika, TipKorisnikaSearchRequest>), typeof(TipKorisnikaRepository));
 
             // Register the Swagger generator, def 1 or more Swagger documents
             services.AddSwaggerGen(c =>
