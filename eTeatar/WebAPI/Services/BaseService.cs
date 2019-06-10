@@ -24,7 +24,7 @@ namespace WebAPI.Services
             return Mapper.Map<List<TTransferObject>>(list);
         }
 
-        public TTransferObject GetById(string id)
+        public virtual TTransferObject GetById(string id)
         {
            TEntity entity = Repository.GetById(id);
            return Mapper.Map<TTransferObject>(entity);

@@ -16,7 +16,6 @@ namespace Repository
         public override IEnumerable<Models.Predstava> Get(DataTransferObjects.Requests.PredstavaSearchRequest search)
         {
             IQueryable<Models.Predstava> query = Context.Set<Models.Predstava>().AsQueryable();
-
             //Samo predstave koje igraju u buducnosti
             query = query.Where(w => w.Termini.Where(q => q.DatumVrijeme > DateTime.Now).Any());
 
@@ -30,6 +29,10 @@ namespace Repository
 
             //Filter po ocjeni
             query = query.Where(w=> (Context.Narudzba.Where(q=>q.Termin.PredstavaId == w.Id).Average(a=> (double?) a.Ocjena.Vrijednost) ?? 0) >= (search.Ocjena ?? 0));
+
+            //Filter po zanru
+            if (search.Zanrovi.Any())
+                query = query.Where(w => Context.PredstavaZanr.Where(q=>q.PredstavaId == w.Id).Select(s => s.ZanrId).Intersect(search.Zanrovi).Any());
 
             //Sortiranje
             switch (search?.OrderBy)
@@ -61,6 +64,7 @@ namespace Repository
         {
             var query = Context.Set<Predstava>().AsQueryable();
             query = query.Where(w => w.Id == id);
+
             query = query.Include(i => i.Uloge);
             query = query.Include(i => i.Termini);
 

@@ -17,7 +17,5 @@ namespace DataTransferObjects.Requests
         public virtual List<string> Uloge { get; set; }
 
         public virtual List<string> Zanrovi { get; set; }
-
-        public virtual List<string> Termini { get; set; }
     }
 }
