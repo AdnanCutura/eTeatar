@@ -39,6 +39,24 @@ namespace WebAPI.Services
             return returnmodel;
         }
 
-       
+        public override List<DataTransferObjects.Administrator> Get(object search)
+        {
+            var returnmodel = base.Get(search);
+            foreach (var model in returnmodel)
+            {
+                var id = model.Id;
+                Mapper.Map(_korisnickiNalogService.GetById(model.KorisnickiNalogId), model);
+                model.Id = id;
+            }
+            return returnmodel;
+        }
+
+        public override DataTransferObjects.Administrator GetById(string id)
+        {
+            var returnmodel = base.GetById(id);
+            Mapper.Map(_korisnickiNalogService.GetById(returnmodel.KorisnickiNalogId), returnmodel);
+            returnmodel.Id = id;
+            return returnmodel;
+        }
     }
 }

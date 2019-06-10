@@ -375,10 +375,10 @@ namespace Repository
             context.SaveChanges();
 
 
-            TipKorisnika TipKorisnika4 = new TipKorisnika { Naziv = "Gold", Cijena = 50, CijenaKartePopust = 0.5f, IduciTipKorisnika = null };
-            TipKorisnika TipKorisnika3 = new TipKorisnika { Naziv = "Platinum", Cijena = 30, CijenaKartePopust = 0.3f, IduciTipKorisnika = TipKorisnika4 };
-            TipKorisnika TipKorisnika2 = new TipKorisnika { Naziv = "Silver", Cijena = 10, CijenaKartePopust = 0.1f, IduciTipKorisnika = TipKorisnika3 };
-            TipKorisnika TipKorisnika1 = new TipKorisnika { Naziv = "Standard", Cijena = 00, CijenaKartePopust = 0.0f, IduciTipKorisnika = TipKorisnika2, IsOsnovni = true };
+            TipKorisnika TipKorisnika4 = new TipKorisnika { Naziv = "Gold", Cijena = 50, CijenaKartePopust = 0.5, IduciTipKorisnika = null };
+            TipKorisnika TipKorisnika3 = new TipKorisnika { Naziv = "Platinum", Cijena = 30, CijenaKartePopust = 0.3, IduciTipKorisnika = TipKorisnika4 };
+            TipKorisnika TipKorisnika2 = new TipKorisnika { Naziv = "Silver", Cijena = 10, CijenaKartePopust = 0.1, IduciTipKorisnika = TipKorisnika3 };
+            TipKorisnika TipKorisnika1 = new TipKorisnika { Naziv = "Standard", Cijena = 00, CijenaKartePopust = 0.0, IduciTipKorisnika = TipKorisnika2, IsOsnovni = true };
 
             context.TipKorisnika.AddRange(TipKorisnika1,
                                           TipKorisnika2,

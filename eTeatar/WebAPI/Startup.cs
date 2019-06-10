@@ -101,6 +101,7 @@ namespace WebAPI
             services.AddScoped(typeof(IRepository<Obavijest, ObavijestSearchRequest>), typeof(ObavijestRepository));
             services.AddScoped(typeof(IRepository<Predstava, PredstavaSearchRequest>), typeof(PredstavaRepository));
             services.AddScoped(typeof(IRepository<Uloga, object>), typeof(Repository<Uloga, object>));
+            services.AddScoped(typeof(IRepository<Narudzba, object>), typeof(Repository<Narudzba, object>));
             services.AddScoped(typeof(IRepository<TipSjedista, object>), typeof(Repository<TipSjedista, object>));
             services.AddScoped(typeof(IRepository<Drzava, object>), typeof(Repository<Drzava, object>));
             services.AddScoped(typeof(IRepository<Grad, GradSearchRequest>), typeof(GradRepository));
@@ -110,7 +111,7 @@ namespace WebAPI
             services.AddScoped(typeof(IRepository<Termin, TerminSearchRequest>), typeof(TerminRepository));
             services.AddScoped(typeof(IRepository<Komentar, object>), typeof(Repository<Komentar, object>));
             services.AddScoped(typeof(IKorisnickiNalogRepository), typeof(KorisnickiNalogRepository));
-            services.AddScoped(typeof(IRepository<Kupac, object>), typeof(Repository<Kupac, object>));
+            services.AddScoped(typeof(IRepository<Kupac, object>), typeof(KupacRepository));
             services.AddScoped(typeof(IRepository<Administrator, object>), typeof(Repository<Administrator, object>));
             services.AddScoped(typeof(IRepository<KorisnickaUloga, KorisnickaUlogaSearchRequest>), typeof(KorisnickeUlogeRepository));
             services.AddScoped(typeof(IRepository<TipKorisnika, TipKorisnikaSearchRequest>), typeof(TipKorisnikaRepository));

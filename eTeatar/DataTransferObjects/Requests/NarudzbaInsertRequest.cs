@@ -17,9 +17,6 @@ namespace DataTransferObjects.Requests
         public string TipSjedistaId { get; set; }
 
         [Required]
-        public double CijenaKarte { get; set; }
-
-        [Required]
-        public string Kolicina { get; set; }
+        public int Kolicina { get; set; }
     }
 }

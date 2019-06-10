@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using DataTransferObjects;
 using DataTransferObjects.Requests;
 using Models;
 using Repository;
@@ -17,7 +18,7 @@ namespace WebAPI.Services
         private readonly IKorisnickiNalogService _korisnickiNalogService;
         private readonly IBaseService<DataTransferObjects.TipKorisnika, TipKorisnikaSearchRequest> _tipKorisnikaService;
 
-        public KupacService(IMapper mapper, IRepository<Kupac, object> repository, IKorisnickiNalogService korisnickiNalogService, IBaseService<TipKorisnika, TipKorisnikaSearchRequest> tipKorisnikaService) : base(mapper, repository)
+        public KupacService(IMapper mapper, IRepository<Models.Kupac,object> repository, IKorisnickiNalogService korisnickiNalogService, IBaseService<TipKorisnika, TipKorisnikaSearchRequest> tipKorisnikaService) : base(mapper, repository)
         {
             _tipKorisnikaService = tipKorisnikaService;
             _korisnickiNalogService = korisnickiNalogService;
@@ -37,6 +38,25 @@ namespace WebAPI.Services
             DataTransferObjects.Kupac returnmodel = Mapper.Map<DataTransferObjects.Kupac>(Repository.Add(Mapper.Map<Models.Kupac>(kupac)));
             string id = returnmodel.Id;
             Mapper.Map(nalogResponse, returnmodel);
+            returnmodel.Id = id;
+            return returnmodel;
+        }
+
+        public override List<DataTransferObjects.Kupac> Get(object search)
+        {
+            var returnmodel = base.Get(search);
+            foreach (var model in returnmodel) {
+                var id = model.Id;
+                Mapper.Map(_korisnickiNalogService.GetById(model.KorisnickiNalogId), model);
+                model.Id = id;
+            }
+            return returnmodel;
+        }
+
+        public override DataTransferObjects.Kupac GetById(string id)
+        {
+            var returnmodel = base.GetById(id);
+            Mapper.Map(_korisnickiNalogService.GetById(returnmodel.KorisnickiNalogId), returnmodel);
             returnmodel.Id = id;
             return returnmodel;
         }
