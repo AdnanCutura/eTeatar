@@ -21,6 +21,7 @@ namespace WebAPI.Services
         {
             var queryresult = base.Get(search);
 
+            //Dodavanje zanrova u model
             foreach (var result in queryresult)
                 result.Zanrovi = _zanrService.Get(new DataTransferObjects.Requests.ZanrSearchRequest { PredstavaId = result.Id });
 

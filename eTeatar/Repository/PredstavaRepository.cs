@@ -31,7 +31,7 @@ namespace Repository
             query = query.Where(w=> (Context.Narudzba.Where(q=>q.Termin.PredstavaId == w.Id).Average(a=> (double?) a.Ocjena.Vrijednost) ?? 0) >= (search.Ocjena ?? 0));
 
             //Filter po zanru
-            if (search.Zanrovi.Any())
+            if (search.Zanrovi?.Any() ?? false)
                 query = query.Where(w => Context.PredstavaZanr.Where(q=>q.PredstavaId == w.Id).Select(s => s.ZanrId).Intersect(search.Zanrovi).Any());
 
             //Sortiranje
