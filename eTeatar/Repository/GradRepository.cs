@@ -26,5 +26,17 @@ namespace Repository
                 .ToList();
             return list;
         }
+
+        public override Grad GetById(string Id)
+        {
+            var query = Context.Grad.AsQueryable();
+
+            query = query.Where(g => g.Id == Id);
+
+            var item = query
+                .Include(g => g.Drzava)
+                .ToList();
+            return item.FirstOrDefault();
+        }
     }
 }

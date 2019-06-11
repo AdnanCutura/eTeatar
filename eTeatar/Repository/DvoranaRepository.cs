@@ -28,6 +28,9 @@ namespace Repository
                 .ThenInclude(g => g.Drzava)
                 .ToList();
 
+            foreach (var item in list)
+                item.Teatar.Dvorane = null;
+
             return list;
         }
     }

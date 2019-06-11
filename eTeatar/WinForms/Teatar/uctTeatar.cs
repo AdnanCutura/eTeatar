@@ -54,14 +54,7 @@ namespace WinForms.Teatar
 
         private void BtnDodajTeatar_Click(object sender, EventArgs e)
         {
-            ////user control dodaj teatar
-            //if (!frmETeatar.pnlUserControl.Controls.Contains(uctTeatar.Instance))
-            //{
-            //    frmETeatar.pnlUserControl.Controls.Add(uctTeatar.Instance);
-            //    uctTeatar.Instance.Dock = DockStyle.Fill;
-            //}
-
-            //uctTeatar.Instance.BringToFront();
+            PanelSwitcher.setToTop(uctDodajTeatar.Instance);
         }
     }
 }

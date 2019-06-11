@@ -53,11 +53,12 @@
             // 
             this.btnDodajTeatar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(69)))), ((int)(((byte)(64)))));
             this.btnDodajTeatar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnDodajTeatar.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDodajTeatar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDodajTeatar.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnDodajTeatar.Location = new System.Drawing.Point(28, 476);
+            this.btnDodajTeatar.Location = new System.Drawing.Point(37, 586);
+            this.btnDodajTeatar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDodajTeatar.Name = "btnDodajTeatar";
-            this.btnDodajTeatar.Size = new System.Drawing.Size(197, 38);
+            this.btnDodajTeatar.Size = new System.Drawing.Size(263, 47);
             this.btnDodajTeatar.TabIndex = 25;
             this.btnDodajTeatar.Text = "Dodaj novi teatar";
             this.btnDodajTeatar.UseVisualStyleBackColor = false;
@@ -71,7 +72,7 @@
             this.dgvTeatar.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -91,17 +92,19 @@
             this.dgvTeatar.DataSource = this.teatarBindingSource;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvTeatar.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvTeatar.GridColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dgvTeatar.Location = new System.Drawing.Point(28, 77);
+            this.dgvTeatar.Location = new System.Drawing.Point(37, 95);
+            this.dgvTeatar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvTeatar.Name = "dgvTeatar";
             this.dgvTeatar.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dgvTeatar.Size = new System.Drawing.Size(849, 393);
+            this.dgvTeatar.RowHeadersWidth = 51;
+            this.dgvTeatar.Size = new System.Drawing.Size(1132, 484);
             this.dgvTeatar.TabIndex = 24;
             this.dgvTeatar.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvTeatar_CellContentClick);
             // 
@@ -109,58 +112,76 @@
             // 
             this.Id.DataPropertyName = "Id";
             this.Id.HeaderText = "Id";
+            this.Id.MinimumWidth = 6;
             this.Id.Name = "Id";
             this.Id.Visible = false;
+            this.Id.Width = 125;
             // 
             // nazivDataGridViewTextBoxColumn
             // 
             this.nazivDataGridViewTextBoxColumn.DataPropertyName = "Naziv";
             this.nazivDataGridViewTextBoxColumn.HeaderText = "Naziv";
+            this.nazivDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.nazivDataGridViewTextBoxColumn.Name = "nazivDataGridViewTextBoxColumn";
+            this.nazivDataGridViewTextBoxColumn.Width = 125;
             // 
             // adresaDataGridViewTextBoxColumn
             // 
             this.adresaDataGridViewTextBoxColumn.DataPropertyName = "Adresa";
             this.adresaDataGridViewTextBoxColumn.HeaderText = "Adresa";
+            this.adresaDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.adresaDataGridViewTextBoxColumn.Name = "adresaDataGridViewTextBoxColumn";
+            this.adresaDataGridViewTextBoxColumn.Width = 125;
             // 
             // telefonDataGridViewTextBoxColumn
             // 
             this.telefonDataGridViewTextBoxColumn.DataPropertyName = "BrojTelefona";
             this.telefonDataGridViewTextBoxColumn.HeaderText = "Broj telefona";
+            this.telefonDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.telefonDataGridViewTextBoxColumn.Name = "telefonDataGridViewTextBoxColumn";
+            this.telefonDataGridViewTextBoxColumn.Width = 125;
             // 
             // emailDataGridViewTextBoxColumn
             // 
             this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
             this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
+            this.emailDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            this.emailDataGridViewTextBoxColumn.Width = 125;
             // 
             // vrijemeOtvaranjaDataGridViewTextBoxColumn
             // 
             this.vrijemeOtvaranjaDataGridViewTextBoxColumn.DataPropertyName = "VrijemeOtvaranja";
             this.vrijemeOtvaranjaDataGridViewTextBoxColumn.HeaderText = "R.v. Od";
+            this.vrijemeOtvaranjaDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.vrijemeOtvaranjaDataGridViewTextBoxColumn.Name = "vrijemeOtvaranjaDataGridViewTextBoxColumn";
+            this.vrijemeOtvaranjaDataGridViewTextBoxColumn.Width = 125;
             // 
             // vrijemeZatvaranjaDataGridViewTextBoxColumn
             // 
             this.vrijemeZatvaranjaDataGridViewTextBoxColumn.DataPropertyName = "VrijemeZatvaranja";
             this.vrijemeZatvaranjaDataGridViewTextBoxColumn.HeaderText = "R.v. Do";
+            this.vrijemeZatvaranjaDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.vrijemeZatvaranjaDataGridViewTextBoxColumn.Name = "vrijemeZatvaranjaDataGridViewTextBoxColumn";
+            this.vrijemeZatvaranjaDataGridViewTextBoxColumn.Width = 125;
             // 
             // BrojDvorana
             // 
             this.BrojDvorana.DataPropertyName = "BrojDvorana";
             this.BrojDvorana.HeaderText = "Broj dvorana";
+            this.BrojDvorana.MinimumWidth = 6;
             this.BrojDvorana.Name = "BrojDvorana";
+            this.BrojDvorana.Width = 125;
             // 
             // Izbrisi
             // 
             this.Izbrisi.HeaderText = "Akcija";
+            this.Izbrisi.MinimumWidth = 6;
             this.Izbrisi.Name = "Izbrisi";
             this.Izbrisi.Text = "Izbriši";
             this.Izbrisi.ToolTipText = "Izbriši";
             this.Izbrisi.UseColumnTextForButtonValue = true;
+            this.Izbrisi.Width = 125;
             // 
             // teatarBindingSource
             // 
@@ -169,23 +190,25 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Raleway", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(23, 25);
+            this.label1.Location = new System.Drawing.Point(31, 31);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(212, 29);
+            this.label1.Size = new System.Drawing.Size(258, 36);
             this.label1.TabIndex = 26;
             this.label1.Text = "Prikaz svih teatara";
             // 
             // uctTeatar
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnDodajTeatar);
             this.Controls.Add(this.dgvTeatar);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "uctTeatar";
-            this.Size = new System.Drawing.Size(913, 562);
+            this.Size = new System.Drawing.Size(1217, 692);
             this.Load += new System.EventHandler(this.UctTeatar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTeatar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teatarBindingSource)).EndInit();

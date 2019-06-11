@@ -27,17 +27,11 @@ namespace WinForms.Teatar
         public frmETeatar()
         {
             InitializeComponent();
+            Factory.SetPanel(ref pnlUserControl);
+            //Default on top
+            PanelSwitcher.setToTop(uctTeatar.Instance);
         }
 
-        private void LblClose_Click(object sender, EventArgs e)
-        {
-            Environment.Exit(0);
-        }
-
-        private void LblMinimize_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
-        }
 
         private void PnlHeader_MouseDown(object sender, MouseEventArgs e)
         {
@@ -56,14 +50,17 @@ namespace WinForms.Teatar
         private void BtnTeatarMeni_Click(object sender, EventArgs e)
         {
             //user control lista teatara
-            if (!pnlUserControl.Controls.Contains(uctTeatar.Instance))
-            {
-                pnlUserControl.Controls.Add(uctTeatar.Instance);
-                uctTeatar.Instance.Dock = DockStyle.Fill;
-            }
+            PanelSwitcher.setToTop(uctTeatar.Instance);
+        }
 
-            uctTeatar.Instance.BringToFront();
+        private void LblWinDown_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
 
+        private void LblClose_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }
