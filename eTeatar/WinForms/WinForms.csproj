@@ -62,6 +62,12 @@
     <Compile Include="APIService.cs" />
     <Compile Include="DataValidation.cs" />
     <Compile Include="Factory.cs" />
+    <Compile Include="Login\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="PanelSwitcher.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -70,6 +76,11 @@
     </Compile>
     <Compile Include="frmETeatar.Designer.cs">
       <DependentUpon>frmETeatar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Teatar\uctTeatar.cs">
       <SubType>UserControl</SubType>
@@ -83,16 +94,14 @@
     <Compile Include="Teatar\uctDodajTeatar.Designer.cs">
       <DependentUpon>uctDodajTeatar.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Login\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="frmETeatar.resx">
       <DependentUpon>frmETeatar.cs</DependentUpon>
     </EmbeddedResource>
@@ -122,6 +131,10 @@
       <Project>{30A9B8C3-F86B-4455-AC04-72DA1F14B52C}</Project>
       <Name>DataTransferObjects</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\ezgif.com-gif-maker.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
