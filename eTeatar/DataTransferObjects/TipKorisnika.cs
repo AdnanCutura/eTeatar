@@ -10,7 +10,7 @@ namespace DataTransferObjects
 
         public string Naziv { get; set; }
 
-        public int Cijena { get; set; }
+        public double Cijena { get; set; }
 
         public double CijenaKartePopust { get; set; }
         public string IduciTipKorisnikaId { get; set; }

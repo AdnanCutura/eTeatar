@@ -11,9 +11,9 @@ using Zanr = DataTransferObjects.Zanr;
 
 namespace WebAPI.Controllers
 {
-    public class ZanrController : BaseController<DataTransferObjects.Zanr,object>
+    public class ZanrController : BaseController<DataTransferObjects.Zanr,ZanrSearchRequest>
     {
-        public ZanrController(IBaseService<Zanr, object> service) : base(service)
+        public ZanrController(IBaseService<Zanr, ZanrSearchRequest> service) : base(service)
         {
         }
     }

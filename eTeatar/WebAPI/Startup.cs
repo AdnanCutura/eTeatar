@@ -64,8 +64,6 @@ namespace WebAPI
                 typeof(CrudService<DataTransferObjects.Uloga, object, Models.Uloga, UlogaUpsertRequest, UlogaUpsertRequest>));
             services.AddScoped(typeof(ICrudService<DataTransferObjects.TipSjedista, object, TipSjedistaUpsertRequest, TipSjedistaUpsertRequest>),
                 typeof(CrudService<DataTransferObjects.TipSjedista, object, Models.TipSjedista, TipSjedistaUpsertRequest, TipSjedistaUpsertRequest>));
-            services.AddScoped(typeof(IBaseService<DataTransferObjects.Zanr, object>),
-                typeof(BaseService<DataTransferObjects.Zanr, object, Models.Zanr>));
             services.AddScoped(typeof(IBaseService<DataTransferObjects.Drzava, object>),
                 typeof(BaseService<DataTransferObjects.Drzava, object, Models.Drzava>));
             services.AddScoped(typeof(IBaseService<DataTransferObjects.Grad, GradSearchRequest>),
@@ -93,15 +91,18 @@ namespace WebAPI
               typeof(BaseService<DataTransferObjects.KorisnickaUloga, KorisnickaUlogaSearchRequest, KorisnickaUloga>));
             services.AddScoped(typeof(IBaseService<DataTransferObjects.TipKorisnika, TipKorisnikaSearchRequest>),
               typeof(BaseService<DataTransferObjects.TipKorisnika, TipKorisnikaSearchRequest, TipKorisnika>));
-            
+            services.AddScoped(typeof(IBaseService<DataTransferObjects.Zanr, ZanrSearchRequest>),
+                typeof(BaseService<DataTransferObjects.Zanr, ZanrSearchRequest, Models.Zanr>));
+            services.AddScoped(typeof(ICrudService<DataTransferObjects.PredstavaZanr, object, DataTransferObjects.Requests.PredstavaZanrUpsertRequest, DataTransferObjects.Requests.PredstavaZanrUpsertRequest>),
+                typeof(CrudService<DataTransferObjects.PredstavaZanr, object, Models.PredstavaZanr, DataTransferObjects.Requests.PredstavaZanrUpsertRequest, DataTransferObjects.Requests.PredstavaZanrUpsertRequest>));
             // Add Repository
             services.AddScoped(typeof(IRepository<Teatar, TeatarSearchRequest>), typeof(TeatarRepository));
             services.AddScoped(typeof(IRepository<Dvorana, DvoranaSearchRequest>), typeof(DvoranaRepository));
             services.AddScoped(typeof(IRepository<Obavijest, ObavijestSearchRequest>), typeof(ObavijestRepository));
             services.AddScoped(typeof(IRepository<Predstava, PredstavaSearchRequest>), typeof(PredstavaRepository));
             services.AddScoped(typeof(IRepository<Uloga, object>), typeof(Repository<Uloga, object>));
+            services.AddScoped(typeof(IRepository<Narudzba, object>), typeof(Repository<Narudzba, object>));
             services.AddScoped(typeof(IRepository<TipSjedista, object>), typeof(Repository<TipSjedista, object>));
-            services.AddScoped(typeof(IRepository<Zanr, object>), typeof(Repository<Zanr, object>));
             services.AddScoped(typeof(IRepository<Drzava, object>), typeof(Repository<Drzava, object>));
             services.AddScoped(typeof(IRepository<Grad, GradSearchRequest>), typeof(GradRepository));
             services.AddScoped(typeof(IRepository<Termin, object>), typeof(Repository<Termin, object>));
@@ -110,10 +111,12 @@ namespace WebAPI
             services.AddScoped(typeof(IRepository<Termin, TerminSearchRequest>), typeof(TerminRepository));
             services.AddScoped(typeof(IRepository<Komentar, object>), typeof(Repository<Komentar, object>));
             services.AddScoped(typeof(IKorisnickiNalogRepository), typeof(KorisnickiNalogRepository));
-            services.AddScoped(typeof(IRepository<Kupac, object>), typeof(Repository<Kupac, object>));
+            services.AddScoped(typeof(IRepository<Kupac, object>), typeof(KupacRepository));
             services.AddScoped(typeof(IRepository<Administrator, object>), typeof(Repository<Administrator, object>));
             services.AddScoped(typeof(IRepository<KorisnickaUloga, KorisnickaUlogaSearchRequest>), typeof(KorisnickeUlogeRepository));
             services.AddScoped(typeof(IRepository<TipKorisnika, TipKorisnikaSearchRequest>), typeof(TipKorisnikaRepository));
+            services.AddScoped(typeof(IRepository<Zanr, ZanrSearchRequest>), typeof(ZanrRepository));
+            services.AddScoped(typeof(IRepository<PredstavaZanr, object>), typeof(Repository<PredstavaZanr,object>));
 
             // Register the Swagger generator, def 1 or more Swagger documents
             services.AddSwaggerGen(c =>
