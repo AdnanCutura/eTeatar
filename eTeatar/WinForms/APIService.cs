@@ -32,7 +32,7 @@ namespace WinForms
             }
             catch (FlurlHttpException err)
             {
-                if (err.Call.HttpStatus == System.Net.HttpStatusCode.Unauthorized)
+                if (err.Call.HttpStatus == System.Net.HttpStatusCode.Unauthorized || err.Call.HttpStatus == System.Net.HttpStatusCode.Forbidden)
                     MessageBox.Show(Resources.APIService___401_Status_code, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 throw;
