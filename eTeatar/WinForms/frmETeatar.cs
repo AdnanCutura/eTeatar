@@ -27,7 +27,7 @@ namespace WinForms.Teatar
         public frmETeatar()
         {
             InitializeComponent();
-            Factory.SetPanel(ref pnlUserControl);
+            PanelSwitcher.SetPanel(ref pnlUserControl);
             //Default on top
             PanelSwitcher.setToTop(uctTeatar.Instance);
         }
