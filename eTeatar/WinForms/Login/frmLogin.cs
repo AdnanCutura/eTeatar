@@ -62,9 +62,19 @@ namespace WinForms.Login
 
                 await _adminService.Get<dynamic>(null);
 
-                this.Hide();
-                Teatar.frmETeatar frm = new Teatar.frmETeatar();
-                frm.Show();
+                bool formOpen = false;
+
+                foreach(Form form in Application.OpenForms)
+                    if (form.Name == "frmETeatar")
+                        formOpen = true;
+
+                if (!formOpen)
+                {
+                    this.Hide();
+                    Teatar.frmETeatar frm = new Teatar.frmETeatar();
+                    frm.Show();
+                }
+
             }
             catch
             {/*Exception handeled*/}
