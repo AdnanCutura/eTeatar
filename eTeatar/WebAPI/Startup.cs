@@ -76,8 +76,8 @@ namespace WebAPI
                 typeof(NarudzbaService));
             services.AddScoped(typeof(ICrudService<DataTransferObjects.Predstava, PredstavaSearchRequest, PredstavaUpsertRequest, PredstavaUpsertRequest>),
                 typeof(CrudService<DataTransferObjects.Predstava, PredstavaSearchRequest, Models.Predstava, PredstavaUpsertRequest, PredstavaUpsertRequest>));
-            services.AddScoped(typeof(ICrudService<DataTransferObjects.DvoranaTipSjedista, object, DvoranaTipSjedistaUpsertRequest, DvoranaTipSjedistaUpsertRequest>),
-                typeof(CrudService<DataTransferObjects.DvoranaTipSjedista, object, Models.DvoranaTipSjedista, DvoranaTipSjedistaUpsertRequest, DvoranaTipSjedistaUpsertRequest>));
+            services.AddScoped(typeof(ICrudService<DataTransferObjects.DvoranaTipSjedista, DvoranaTipSjedistaSearchRequest, DvoranaTipSjedistaUpsertRequest, DvoranaTipSjedistaUpsertRequest>),
+                typeof(CrudService<DataTransferObjects.DvoranaTipSjedista, DvoranaTipSjedistaSearchRequest, Models.DvoranaTipSjedista, DvoranaTipSjedistaUpsertRequest, DvoranaTipSjedistaUpsertRequest>));
             services.AddScoped(typeof(ICrudService<DataTransferObjects.Glumac, GlumacSearchRequest, GlumacUpsertRequest, GlumacUpsertRequest>),
                 typeof(CrudService<DataTransferObjects.Glumac, GlumacSearchRequest, Models.Glumac, GlumacUpsertRequest, GlumacUpsertRequest>));
             services.AddScoped(typeof(ICrudService<DataTransferObjects.Termin, TerminSearchRequest, TerminUpsertRequest, TerminUpsertRequest>),
@@ -105,7 +105,7 @@ namespace WebAPI
             services.AddScoped(typeof(IRepository<Drzava, object>), typeof(Repository<Drzava, object>));
             services.AddScoped(typeof(IRepository<Grad, GradSearchRequest>), typeof(GradRepository));
             services.AddScoped(typeof(IRepository<Termin, object>), typeof(Repository<Termin, object>));
-            services.AddScoped(typeof(IRepository<DvoranaTipSjedista, object>), typeof(Repository<DvoranaTipSjedista, object>));
+            services.AddScoped(typeof(IRepository<DvoranaTipSjedista, DvoranaTipSjedistaSearchRequest>), typeof(DvoranaTipSjedistaRepository));
             services.AddScoped(typeof(IRepository<Glumac, GlumacSearchRequest>), typeof(GlumacRepository));
             services.AddScoped(typeof(IRepository<Termin, TerminSearchRequest>), typeof(TerminRepository));
             services.AddScoped(typeof(IRepository<Komentar, object>), typeof(Repository<Komentar, object>));

@@ -17,7 +17,7 @@ namespace WinForms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Teatar.frmTeatar());
+            Application.Run(new Teatar.frmETeatar());
         }
     }
 }

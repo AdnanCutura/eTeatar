@@ -29,6 +29,7 @@ namespace WebAPI.Mappers
 
             //Grad
             CreateMap<Models.Grad, DataTransferObjects.Grad>();
+            CreateMap<Models.Grad, DataTransferObjects.Requests.GradSearchRequest>();
 
             //Tip sjedišta
             CreateMap<Models.TipSjedista, DataTransferObjects.TipSjedista>();

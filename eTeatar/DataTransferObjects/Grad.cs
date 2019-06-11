@@ -10,6 +10,6 @@ namespace DataTransferObjects
 
         public string Naziv { get; set; }
 
-        public string DrzavaId { get; set; }
+        public Drzava Drzava { get; set; }
     }
 }

@@ -2,6 +2,7 @@
 using Models;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace Repository
 {
@@ -21,7 +22,11 @@ namespace Repository
             }
 
             query = query.OrderBy(x => x.Naziv);
-            IEnumerable<Dvorana> list = query.ToList();
+            IEnumerable<Dvorana> list = query
+                .Include(d=>d.Teatar)
+                .ThenInclude(t => t.Grad)
+                .ThenInclude(g => g.Drzava)
+                .ToList();
 
             return list;
         }

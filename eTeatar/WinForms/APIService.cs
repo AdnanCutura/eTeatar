@@ -1,6 +1,7 @@
 ﻿using DataTransferObjects.Extensions;
 using Flurl.Http;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -38,7 +39,7 @@ namespace WinForms
             }
         }
 
-        public async Task<T> GetById<T>(object id)
+        public async Task<T> GetById<T>(string id)
         {
             var url = $"{Settings.Default.APIUrl}/{_route}/{id}";
 
@@ -68,7 +69,7 @@ namespace WinForms
 
         }
 
-        public async Task<T> Update<T>(int id, object request)
+        public async Task<T> Update<T>(string id, object request)
         {
             var url = $"{Settings.Default.APIUrl}/{_route}/{id}";
 
@@ -89,5 +90,12 @@ namespace WinForms
                 return default;
             }
         }
+
+        public async Task<HttpResponseMessage> Delete<T>(object id)
+        {
+            var url = $"{Settings.Default.APIUrl}/{_route}/{id}";
+            return await url.WithBasicAuth(Username, Password).DeleteAsync();
+        }
+
     }
 }

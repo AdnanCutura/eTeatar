@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using DataTransferObjects.Requests;
+using Microsoft.EntityFrameworkCore;
 using Models;
 
 namespace Repository
@@ -20,7 +21,9 @@ namespace Repository
             if (!string.IsNullOrEmpty(search.DrzavaId))
                 query = query.Where(g => g.DrzavaId == search.DrzavaId);
 
-            var list = query.ToList();
+            var list = query
+                .Include(g => g.Drzava)
+                .ToList();
             return list;
         }
     }

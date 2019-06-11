@@ -10,6 +10,12 @@ namespace DataTransferObjects
 
         public string Naziv { get; set; }
 
-        public string TeatarId { get; set; }
+        public Teatar Teatar { get; set; }
+
+        //Sjedista u dvorani
+        public virtual ICollection<DvoranaTipSjedista> TipoviSjedista { get; set; }
+
+        //Svi Termini u dvorani
+        public virtual ICollection<Termin> Termini { get; set; }
     }
 }

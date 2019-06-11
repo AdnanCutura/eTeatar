@@ -68,5 +68,14 @@ namespace WinForms.Properties {
                 return ResourceManager.GetString("APIService - 401 Status code", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Obavezno polje..
+        /// </summary>
+        internal static string Validation___Required_field {
+            get {
+                return ResourceManager.GetString("Validation - Required field", resourceCulture);
+            }
+        }
     }
 }
