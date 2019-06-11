@@ -9,7 +9,8 @@ namespace DataTransferObjects
         public string Id { get; set; }
         public string Ime { get; set; }
         public string Prezime { get; set; }
-        public string SlikaLink { get; set; }
+        public byte[] Slika { get; set; }
         public string Biografija { get; set; }
+        public Spol Spol { get; set; }
     }
 }

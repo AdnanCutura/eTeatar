@@ -215,17 +215,22 @@ namespace Repository
                                   Zanr8);
             context.SaveChanges();
 
+            Spol Musko = new Spol { Naziv = "Musko" };
+            Spol Zensko = new Spol { Naziv = "Zensko" };
 
-            Glumac Glumac1 = new Glumac { Ime = "GlumacIme1", Prezime = "GlumacPrezime1", Biografija = "Opako dobra biografija", SlikaLink = "" };
-            Glumac Glumac2 = new Glumac { Ime = "GlumacIme2", Prezime = "GlumacPrezime2", Biografija = "Opako dobra biografija", SlikaLink = "" };
-            Glumac Glumac3 = new Glumac { Ime = "GlumacIme3", Prezime = "GlumacPrezime3", Biografija = "Opako dobra biografija", SlikaLink = "" };
-            Glumac Glumac4 = new Glumac { Ime = "GlumacIme4", Prezime = "GlumacPrezime4", Biografija = "Opako dobra biografija", SlikaLink = "" };
-            Glumac Glumac5 = new Glumac { Ime = "GlumacIme5", Prezime = "GlumacPrezime5", Biografija = "Opako dobra biografija", SlikaLink = "" };
-            Glumac Glumac6 = new Glumac { Ime = "GlumacIme6", Prezime = "GlumacPrezime6", Biografija = "Opako dobra biografija", SlikaLink = "" };
-            Glumac Glumac7 = new Glumac { Ime = "GlumacIme7", Prezime = "GlumacPrezime7", Biografija = "Opako dobra biografija", SlikaLink = "" };
-            Glumac Glumac8 = new Glumac { Ime = "GlumacIme8", Prezime = "GlumacPrezime8", Biografija = "Opako dobra biografija", SlikaLink = "" };
-            Glumac Glumac9 = new Glumac { Ime = "GlumacIme9", Prezime = "GlumacPrezime8", Biografija = "Opako dobra biografija", SlikaLink = "" };
-            Glumac Glumac10 = new Glumac { Ime = "GlumacIme10", Prezime = "GlumacPrezime10", Biografija = "Opako dobra biografija", SlikaLink = "" };
+            context.Spol.AddRange(Musko, Zensko);
+            context.SaveChanges();
+
+            Glumac Glumac1 = new Glumac { Ime = "GlumacIme1", Prezime = "GlumacPrezime1", Biografija = "Opako dobra biografija", Spol = Musko};
+            Glumac Glumac2 = new Glumac { Ime = "GlumacIme2", Prezime = "GlumacPrezime2", Biografija = "Opako dobra biografija", Spol = Musko};
+            Glumac Glumac3 = new Glumac { Ime = "GlumacIme3", Prezime = "GlumacPrezime3", Biografija = "Opako dobra biografija", Spol = Musko};
+            Glumac Glumac4 = new Glumac { Ime = "GlumacIme4", Prezime = "GlumacPrezime4", Biografija = "Opako dobra biografija", Spol = Musko};
+            Glumac Glumac5 = new Glumac { Ime = "GlumacIme5", Prezime = "GlumacPrezime5", Biografija = "Opako dobra biografija", Spol = Zensko};
+            Glumac Glumac6 = new Glumac { Ime = "GlumacIme6", Prezime = "GlumacPrezime6", Biografija = "Opako dobra biografija", Spol = Zensko};
+            Glumac Glumac7 = new Glumac { Ime = "GlumacIme7", Prezime = "GlumacPrezime7", Biografija = "Opako dobra biografija", Spol = Zensko};
+            Glumac Glumac8 = new Glumac { Ime = "GlumacIme8", Prezime = "GlumacPrezime8", Biografija = "Opako dobra biografija", Spol = Zensko};
+            Glumac Glumac9 = new Glumac { Ime = "GlumacIme9", Prezime = "GlumacPrezime8", Biografija = "Opako dobra biografija", Spol = Zensko};
+            Glumac Glumac10 = new Glumac { Ime = "GlumacIme10", Prezime = "GlumacPrezime10", Biografija = "Opako dobra biografija", Spol = Musko };
 
             context.Glumac.AddRange(Glumac1,
                                     Glumac2,

@@ -64,8 +64,11 @@ namespace WebAPI.Mappers
 
             //Narudzba
             CreateMap<Models.KorisnickiNalog, DataTransferObjects.KorisnickiNalog>();
-            CreateMap<Models.KorisnickiNalog, DataTransferObjects.Requests.KorisnickiNalogUpsertRequest>().ReverseMap();         
-            
+            CreateMap<Models.KorisnickiNalog, DataTransferObjects.Requests.KorisnickiNalogUpsertRequest>().ReverseMap();
+
+            //Spol
+            CreateMap<Models.Spol, DataTransferObjects.Spol>();
+
             //Kupac
             CreateMap<Models.Kupac, DataTransferObjects.Kupac>();
             CreateMap<DataTransferObjects.Requests.KupacUpsertRequest, Models.Kupac>();
