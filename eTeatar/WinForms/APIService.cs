@@ -42,10 +42,12 @@ namespace WinForms
                     case System.Net.HttpStatusCode.Forbidden:
                         MessageBox.Show(Resources.APIService___403_Status_code, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         break;
+                    case System.Net.HttpStatusCode.NotFound:
+                        MessageBox.Show("Nije pronadjen nijedan rezultat", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        break;
                     default:
                         throw new ArgumentOutOfRangeException();
                 }
-
                 throw;
             }
         }

@@ -62,6 +62,18 @@
   <ItemGroup>
     <Compile Include="APIService.cs" />
     <Compile Include="DataValidation.cs" />
+    <Compile Include="Dvorane\uctDodajDvorana.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dvorane\uctDodajDvorana.Designer.cs">
+      <DependentUpon>uctDodajDvorana.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dvorane\uctDvorana.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dvorane\uctDvorana.Designer.cs">
+      <DependentUpon>uctDvorana.cs</DependentUpon>
+    </Compile>
     <Compile Include="Factory.cs" />
     <Compile Include="Glumac\uctDodajGlumac.cs">
       <SubType>UserControl</SubType>
@@ -127,6 +139,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="Teatar\uctTeatar.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -139,6 +156,12 @@
     <Compile Include="Teatar\uctDodajTeatar.Designer.cs">
       <DependentUpon>uctDodajTeatar.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Dvorane\uctDodajDvorana.resx">
+      <DependentUpon>uctDodajDvorana.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dvorane\uctDvorana.resx">
+      <DependentUpon>uctDvorana.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Glumac\uctDodajGlumac.resx">
       <DependentUpon>uctDodajGlumac.cs</DependentUpon>
     </EmbeddedResource>
@@ -179,17 +202,23 @@
       <DependentUpon>uctTeatar.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\DataTransferObjects.Dvorana.datasource" />
     <None Include="Properties\DataSources\DataTransferObjects.Obavijest.datasource" />
     <None Include="Properties\DataSources\DataTransferObjects.Glumac.datasource" />
     <None Include="Properties\DataSources\DataTransferObjects.KorisnickiNalog.datasource" />
     <None Include="Properties\DataSources\DataTransferObjects.Teatar.datasource" />
+    <None Include="Properties\DataSources\DataTransferObjects.TipSjedista.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Compile Include="Properties\Settings.Designer.cs">
+    <None Include="Properties\Settings1.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings1.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings1.Designer.cs">
       <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
+      <DependentUpon>Settings1.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>

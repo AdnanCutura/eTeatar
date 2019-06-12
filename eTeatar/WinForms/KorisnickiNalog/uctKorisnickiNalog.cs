@@ -34,12 +34,17 @@ namespace WinForms.KorisnickiNalog
                 KorisnickoIme = txbKorisnickoIme.Text
             };
 
+            try { 
             var list = await _korisnickiNalogService.Get<List<DataTransferObjects.KorisnickiNalog>>(search);
             dgvKorisnici.AutoGenerateColumns = false;
             dgvKorisnici.DataSource = list;
-
             for (int i = 0; i < list.Count(); i++)
                 dgvKorisnici.Rows[i].Cells["Uloga"].Value = list[i].KorisnickaUloga.Naziv;
+            }
+            catch {
+                dgvKorisnici.DataSource = null;
+            }
+
         }
 
         private async void Search_Click(object sender, EventArgs e)

@@ -32,16 +32,21 @@ namespace WinForms.Glumac
                 Ime = txbIme.Text,
                 Prezime = txbPrezime.Text
             };
+            try
+            {
+                var list = await _glumacService.Get<List<DataTransferObjects.Glumac>>(search);
 
-            var list = await _glumacService.Get<List<DataTransferObjects.Glumac>>(search);
+                dgvGlumac.AutoGenerateColumns = false;
 
-            dgvGlumac.AutoGenerateColumns = false;
+                dgvGlumac.DataSource = list;
 
-            dgvGlumac.DataSource = list;
-
-            for (int i = 0; i < list.Count(); i++)
-                dgvGlumac.Rows[i].Cells["Spol"].Value = list[i].Spol.Naziv;
-
+                for (int i = 0; i < list.Count(); i++)
+                    dgvGlumac.Rows[i].Cells["Spol"].Value = list[i].Spol.Naziv;
+            }
+            catch
+            {
+                dgvGlumac.DataSource = null;
+            }
         }
 
         private void BtnDodajTeatar_Click(object sender, EventArgs e)

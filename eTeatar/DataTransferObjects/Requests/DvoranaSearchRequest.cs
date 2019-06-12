@@ -7,5 +7,6 @@ namespace DataTransferObjects.Requests
     public class DvoranaSearchRequest
     {
         public string TeatarId { get; set; }
+        public string Naziv { get; set; }
     }
 }
