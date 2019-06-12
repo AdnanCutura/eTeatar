@@ -30,5 +30,17 @@ namespace Repository
 
             return list;
         }
+
+        public override Teatar GetById(string id)
+        {
+            var query = Context.Set<Teatar>().AsQueryable();
+            query = query.Where(w => w.Id == id);
+
+            query = query
+                .Include(i => i.Grad)
+                .ThenInclude(g=>g.Drzava);
+
+            return query.FirstOrDefault();
+        }
     }
 }
