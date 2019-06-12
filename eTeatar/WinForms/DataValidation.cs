@@ -15,7 +15,7 @@ namespace WinForms
 
         #region Null checking
 
-        public void NullCheckTxb(TextBox attribute, CancelEventArgs e)
+        public void NullCheck(Control attribute, CancelEventArgs e)
         {
             if (string.IsNullOrEmpty(attribute.Text))
             {
@@ -26,6 +26,18 @@ namespace WinForms
                 _errorProvider.SetError(attribute, null);
         }
 
+
+        public void NullCheckTxb(TextBox attribute, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(attribute.Text))
+            {
+                e.Cancel = true;
+                _errorProvider.SetError(attribute, Resources.Validation___Required_field);
+            }
+            else
+                _errorProvider.SetError(attribute, null);
+        }
+        
         public void NullCheckCmb(ComboBox attribute, CancelEventArgs e)
         {
             if (string.IsNullOrEmpty(attribute.Text))
@@ -36,6 +48,7 @@ namespace WinForms
             else
                 _errorProvider.SetError(attribute, null);
         }
+
 
         public void NullCheckMaskBox(MaskedTextBox attribute, CancelEventArgs e)
         {

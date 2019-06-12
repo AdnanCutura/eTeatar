@@ -15,7 +15,7 @@ namespace Models
         public DateTime DatumVrijeme { get; set; }
 
         public string Sadrzaj { get; set; }
-        public string SlikaLink { get; set; }
+        public byte[] Slika { get; set; }
 
 
         //Administrator koji je kreirao obavijest

@@ -49,7 +49,7 @@ namespace WinForms.Teatar
             this.txbAdresa = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txbNaziv = new System.Windows.Forms.TextBox();
-            this.lblTeatarHeading = new System.Windows.Forms.Label();
+            this.lblHeading = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
@@ -253,16 +253,16 @@ namespace WinForms.Teatar
             this.txbNaziv.TabIndex = 25;
             this.txbNaziv.Validating += new System.ComponentModel.CancelEventHandler(this.TxbNaziv_Validating);
             // 
-            // lblTeatarHeading
+            // lblHeading
             // 
-            this.lblTeatarHeading.AutoSize = true;
-            this.lblTeatarHeading.Font = new System.Drawing.Font("Raleway", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTeatarHeading.ForeColor = System.Drawing.Color.White;
-            this.lblTeatarHeading.Location = new System.Drawing.Point(31, 38);
-            this.lblTeatarHeading.Name = "lblTeatarHeading";
-            this.lblTeatarHeading.Size = new System.Drawing.Size(201, 29);
-            this.lblTeatarHeading.TabIndex = 24;
-            this.lblTeatarHeading.Text = "Dodavanje teatra";
+            this.lblHeading.AutoSize = true;
+            this.lblHeading.Font = new System.Drawing.Font("Raleway", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHeading.ForeColor = System.Drawing.Color.White;
+            this.lblHeading.Location = new System.Drawing.Point(31, 38);
+            this.lblHeading.Name = "lblHeading";
+            this.lblHeading.Size = new System.Drawing.Size(201, 29);
+            this.lblHeading.TabIndex = 24;
+            this.lblHeading.Text = "Dodavanje teatra";
             // 
             // uctDodajTeatar
             // 
@@ -286,7 +286,7 @@ namespace WinForms.Teatar
             this.Controls.Add(this.txbAdresa);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txbNaziv);
-            this.Controls.Add(this.lblTeatarHeading);
+            this.Controls.Add(this.lblHeading);
             this.ForeColor = System.Drawing.Color.White;
             this.Name = "uctDodajTeatar";
             this.Size = new System.Drawing.Size(913, 562);
@@ -317,6 +317,6 @@ namespace WinForms.Teatar
         private System.Windows.Forms.TextBox txbAdresa;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txbNaziv;
-        private System.Windows.Forms.Label lblTeatarHeading;
+        private System.Windows.Forms.Label lblHeading;
     }
 }

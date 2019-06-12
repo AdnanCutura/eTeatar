@@ -32,11 +32,12 @@ namespace WinForms.Teatar
             //Učitavanje podataka za combobox-ove
             await LoadDrzave();
             await LoadGradovi(null);
-            var entity = await _teatarService.GetById<DataTransferObjects.Teatar>(_teatarId);
 
             if (!string.IsNullOrEmpty(_teatarId))
             {
-                lblTeatarHeading.Text = "Izmjena podataka za teatar";
+                var entity = await _teatarService.GetById<DataTransferObjects.Teatar>(_teatarId);
+           
+                lblHeading.Text = "Izmjena podataka za teatar";
                 txbBrojTelefona.Text = entity.BrojTelefona;
                 txbAdresa.Text = entity.Adresa;
                 txbEmail.Text = entity.Email;
@@ -47,7 +48,7 @@ namespace WinForms.Teatar
                 cmbGrad.SelectedValue = entity.Grad.Id;
             }
             else
-                lblTeatarHeading.Text = "Dodavanje teatra";
+                lblHeading.Text = "Dodavanje teatra";
         }
 
         private async void BtnSacuvaj_Click(object sender, EventArgs e)
@@ -144,22 +145,22 @@ namespace WinForms.Teatar
 
         private void TxbNaziv_Validating(object sender, CancelEventArgs e)
         {
-            _dataValidation.NullCheckTxb(txbNaziv, e);
+            _dataValidation.NullCheck(txbNaziv, e);
         }
 
         private void TxbAdresa_Validating(object sender, CancelEventArgs e)
         {
-            _dataValidation.NullCheckTxb(txbAdresa, e);
+            _dataValidation.NullCheck(txbAdresa, e);
         }
 
         private void TxbBrojTelefona_Validating(object sender, CancelEventArgs e)
         {
-            _dataValidation.NullCheckTxb(txbBrojTelefona, e);
+            _dataValidation.NullCheck(txbBrojTelefona, e);
         }
 
         private void CmbDrzava_Validating(object sender, CancelEventArgs e)
         {
-            _dataValidation.NullCheckCmb(cmbDrzava, e);
+            _dataValidation.NullCheck(cmbDrzava, e);
         }
 
         private void CmbGrad_Validating(object sender, CancelEventArgs e)
@@ -169,13 +170,13 @@ namespace WinForms.Teatar
 
         private void TxbEmail_Validating(object sender, CancelEventArgs e)
         {
-            _dataValidation.NullCheckTxb(txbEmail, e);
+            _dataValidation.NullCheck(txbEmail, e);
             _dataValidation.EmailRegexCheck(txbEmail, e);
         }
 
         private void TxbVrijemeOtvaranja_Validating(object sender, CancelEventArgs e)
         {
-            _dataValidation.NullCheckMaskBox(txbVrijemeOtvaranja, e);
+            _dataValidation.NullCheck(txbVrijemeOtvaranja, e);
             _dataValidation.TimeRegexCheck(txbVrijemeOtvaranja, e);
         }
 

@@ -6,7 +6,6 @@ using DataTransferObjects.Requests;
 using Microsoft.EntityFrameworkCore;
 using Models;
 
-//TODO: Dodati ulogovanog admina
 
 namespace Repository
 {
@@ -25,12 +24,11 @@ namespace Repository
 
             query = query.OrderBy(x => x.DatumVrijeme);
             IEnumerable<Obavijest> list = query
-                //.Include(o => o.Administrator)
-                //.ThenInclude(a => a.KorisnickiNalog)
+                .Include(o => o.Administrator)
                 .ToList();
-            
-            //foreach (var item in list)
-            //    item.Administrator.Obavijesti = null;
+
+            foreach (var item in list)
+                item.Administrator.Obavijesti = null;
 
             return list;
         }

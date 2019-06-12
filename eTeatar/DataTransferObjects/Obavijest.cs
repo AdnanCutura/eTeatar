@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace DataTransferObjects
 {
@@ -11,13 +12,11 @@ namespace DataTransferObjects
         public DateTime DatumVrijeme { get; set; }
 
         public string Sadrzaj { get; set; }
-        public string SlikaLink { get; set; }
+        public byte[] Slika { get; set; }
 
+        public Administrator Administrator { get; set; }
+
+        [JsonIgnore]
         public string AdministratorId { get; set; }
-
-        //public Administrator Administrator { get; set; }
-
-        //public DateTime MinDate { get; set; };
-        //public DateTime MaxDate { get; set; };
     }
 }

@@ -1,15 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using WinForms.Obavijest;
 using WinForms.Helpers;
+using WinForms.Obavijest;
+using WinForms.Predstava;
 
 namespace WinForms.Teatar
 {
@@ -31,18 +25,9 @@ namespace WinForms.Teatar
             PanelSwitcher.SetPanel(ref pnlUserControl);
             AdminData.SetObjects(imgAvatar, lblImePrezime);
             AdminData.Set(admin);
+
             //Default on top
             PanelSwitcher.setToTop(new uctTeatar());
-        }
-
-
-        private void PnlHeader_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReleaseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HTCAPTION, 0);
-            }
         }
 
         private void FrmTeatar_Load(object sender, EventArgs e)
@@ -50,10 +35,14 @@ namespace WinForms.Teatar
             this.MouseDown += new MouseEventHandler(PnlHeader_MouseDown);
         }
 
-        private void BtnTeatarMeni_Click(object sender, EventArgs e)
+        #region Header
+        private void PnlHeader_MouseDown(object sender, MouseEventArgs e)
         {
-            //user control lista teatara
-            PanelSwitcher.setToTop(new uctTeatar());
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HTCAPTION, 0);
+            }
         }
 
         private void LblWinDown_Click(object sender, EventArgs e)
@@ -64,6 +53,13 @@ namespace WinForms.Teatar
         private void LblClose_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);
+        }
+        #endregion
+
+        #region Sidebar menu
+        private void BtnTeatarMeni_Click(object sender, EventArgs e)
+        {
+            PanelSwitcher.setToTop(new uctTeatar());
         }
 
         private void BtnGlumac_Click(object sender, EventArgs e)
@@ -85,5 +81,12 @@ namespace WinForms.Teatar
         {
             PanelSwitcher.setToTop(new uctObavijest());
         }
+
+        private void BtnPredstave_Click(object sender, EventArgs e)
+        {
+            PanelSwitcher.setToTop(new uctPredstava());
+        }
+
+        #endregion
     }
 }

@@ -41,16 +41,16 @@
             this.searchIcon = new System.Windows.Forms.PictureBox();
             this.srchDateFrom = new System.Windows.Forms.DateTimePicker();
             this.srchDateTo = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.teatarBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AdministratorId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.naslovDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.datumVrijemeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sadrzajDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.slikaLinkDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AdministratorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Izbrisi = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvObavijest)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.obavijestBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchIcon)).BeginInit();
@@ -80,6 +80,7 @@
             this.btnDodajObavijest.TabIndex = 41;
             this.btnDodajObavijest.Text = "Dodaj novu obavijest";
             this.btnDodajObavijest.UseVisualStyleBackColor = false;
+            this.btnDodajObavijest.Click += new System.EventHandler(this.BtnDodajObavijest_Click);
             // 
             // dgvObavijest
             // 
@@ -97,12 +98,12 @@
             this.dgvObavijest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvObavijest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvObavijest.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
+            this.Id,
+            this.AdministratorId,
             this.naslovDataGridViewTextBoxColumn,
             this.datumVrijemeDataGridViewTextBoxColumn,
             this.sadrzajDataGridViewTextBoxColumn,
-            this.dataGridViewTextBoxColumn1,
-            this.slikaLinkDataGridViewTextBoxColumn,
+            this.AdministratorName,
             this.Izbrisi});
             this.dgvObavijest.DataSource = this.obavijestBindingSource;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -120,6 +121,7 @@
             this.dgvObavijest.RowHeadersWidth = 51;
             this.dgvObavijest.Size = new System.Drawing.Size(849, 377);
             this.dgvObavijest.TabIndex = 40;
+            this.dgvObavijest.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvObavijest_CellContentClick);
             // 
             // obavijestBindingSource
             // 
@@ -172,57 +174,6 @@
             this.srchDateTo.TabIndex = 47;
             this.srchDateTo.Value = new System.DateTime(2019, 6, 12, 15, 33, 36, 0);
             // 
-            // teatarBindingSource
-            // 
-            this.teatarBindingSource.DataSource = typeof(DataTransferObjects.Teatar);
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // naslovDataGridViewTextBoxColumn
-            // 
-            this.naslovDataGridViewTextBoxColumn.DataPropertyName = "Naslov";
-            this.naslovDataGridViewTextBoxColumn.HeaderText = "Naslov";
-            this.naslovDataGridViewTextBoxColumn.Name = "naslovDataGridViewTextBoxColumn";
-            // 
-            // datumVrijemeDataGridViewTextBoxColumn
-            // 
-            this.datumVrijemeDataGridViewTextBoxColumn.DataPropertyName = "DatumVrijeme";
-            this.datumVrijemeDataGridViewTextBoxColumn.HeaderText = "DatumVrijeme";
-            this.datumVrijemeDataGridViewTextBoxColumn.Name = "datumVrijemeDataGridViewTextBoxColumn";
-            // 
-            // sadrzajDataGridViewTextBoxColumn
-            // 
-            this.sadrzajDataGridViewTextBoxColumn.DataPropertyName = "Sadrzaj";
-            this.sadrzajDataGridViewTextBoxColumn.HeaderText = "Sadrzaj";
-            this.sadrzajDataGridViewTextBoxColumn.Name = "sadrzajDataGridViewTextBoxColumn";
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "AdministratorId";
-            this.dataGridViewTextBoxColumn1.HeaderText = "AdministratorId";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // slikaLinkDataGridViewTextBoxColumn
-            // 
-            this.slikaLinkDataGridViewTextBoxColumn.DataPropertyName = "SlikaLink";
-            this.slikaLinkDataGridViewTextBoxColumn.HeaderText = "SlikaLink";
-            this.slikaLinkDataGridViewTextBoxColumn.Name = "slikaLinkDataGridViewTextBoxColumn";
-            // 
-            // Izbrisi
-            // 
-            this.Izbrisi.HeaderText = "Akcija";
-            this.Izbrisi.MinimumWidth = 6;
-            this.Izbrisi.Name = "Izbrisi";
-            this.Izbrisi.Text = "Izbriši";
-            this.Izbrisi.ToolTipText = "Izbriši";
-            this.Izbrisi.UseColumnTextForButtonValue = true;
-            this.Izbrisi.Width = 125;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -244,6 +195,56 @@
             this.label4.Size = new System.Drawing.Size(30, 19);
             this.label4.TabIndex = 49;
             this.label4.Text = "Do";
+            // 
+            // teatarBindingSource
+            // 
+            this.teatarBindingSource.DataSource = typeof(DataTransferObjects.Teatar);
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.Visible = false;
+            // 
+            // AdministratorId
+            // 
+            this.AdministratorId.HeaderText = "AdministratorId";
+            this.AdministratorId.Name = "AdministratorId";
+            this.AdministratorId.Visible = false;
+            // 
+            // naslovDataGridViewTextBoxColumn
+            // 
+            this.naslovDataGridViewTextBoxColumn.DataPropertyName = "Naslov";
+            this.naslovDataGridViewTextBoxColumn.HeaderText = "Naslov";
+            this.naslovDataGridViewTextBoxColumn.Name = "naslovDataGridViewTextBoxColumn";
+            // 
+            // datumVrijemeDataGridViewTextBoxColumn
+            // 
+            this.datumVrijemeDataGridViewTextBoxColumn.DataPropertyName = "DatumVrijeme";
+            this.datumVrijemeDataGridViewTextBoxColumn.HeaderText = "DatumVrijeme";
+            this.datumVrijemeDataGridViewTextBoxColumn.Name = "datumVrijemeDataGridViewTextBoxColumn";
+            // 
+            // sadrzajDataGridViewTextBoxColumn
+            // 
+            this.sadrzajDataGridViewTextBoxColumn.DataPropertyName = "Sadrzaj";
+            this.sadrzajDataGridViewTextBoxColumn.HeaderText = "Sadrzaj";
+            this.sadrzajDataGridViewTextBoxColumn.Name = "sadrzajDataGridViewTextBoxColumn";
+            // 
+            // AdministratorName
+            // 
+            this.AdministratorName.HeaderText = "Administrator";
+            this.AdministratorName.Name = "AdministratorName";
+            // 
+            // Izbrisi
+            // 
+            this.Izbrisi.HeaderText = "Akcija";
+            this.Izbrisi.MinimumWidth = 6;
+            this.Izbrisi.Name = "Izbrisi";
+            this.Izbrisi.Text = "Izbriši";
+            this.Izbrisi.ToolTipText = "Izbriši";
+            this.Izbrisi.UseColumnTextForButtonValue = true;
+            this.Izbrisi.Width = 125;
             // 
             // uctObavijest
             // 
@@ -283,14 +284,15 @@
         private System.Windows.Forms.DateTimePicker srchDateTo;
         private System.Windows.Forms.BindingSource obavijestBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn administratorIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn slikaLinkDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AdministratorId;
         private System.Windows.Forms.DataGridViewTextBoxColumn naslovDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn datumVrijemeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sadrzajDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn slikaLinkDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AdministratorName;
         private System.Windows.Forms.DataGridViewButtonColumn Izbrisi;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
     }
 }
