@@ -102,11 +102,11 @@ namespace WinForms.KorisnickiNalog
             if (_request.Slika == null)
                 _request.Slika = Converters.SystemDrawingToByteArray(imgAvatar.Image);
 
-            try
-            {
-                await _korisnickiNalogService.Update<DataTransferObjects.Administrator>(_admin.Id,_request);
-            }
-            catch { }
+
+            var entity = await _korisnickiNalogService.Update<DataTransferObjects.Administrator>(_admin.Id,_request);
+
+            if (entity != null)
+                MessageBox.Show("Uspješno izvršeno");
 
             _admin.Telefon = txbBrojTelefona.Text;
             _admin.Email = txbEmail.Text;
