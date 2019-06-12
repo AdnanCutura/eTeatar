@@ -44,6 +44,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.pnlUserControl = new System.Windows.Forms.Panel();
+            this.btnDvorane = new System.Windows.Forms.Button();
             this.pnlSidebarTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgAvatar)).BeginInit();
             this.pnlSidebarMenu.SuspendLayout();
@@ -85,6 +86,7 @@
             // 
             this.pnlSidebarMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(20)))), ((int)(((byte)(44)))));
             this.pnlSidebarMenu.Controls.Add(this.btnPredstave);
+            this.pnlSidebarMenu.Controls.Add(this.btnDvorane);
             this.pnlSidebarMenu.Controls.Add(this.btnObavijesti);
             this.pnlSidebarMenu.Controls.Add(this.btnKorisnici);
             this.pnlSidebarMenu.Controls.Add(this.btnPostavke);
@@ -240,6 +242,20 @@
             this.pnlUserControl.Size = new System.Drawing.Size(1127, 566);
             this.pnlUserControl.TabIndex = 25;
             // 
+            // btnDvorane
+            // 
+            this.btnDvorane.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(10)))), ((int)(((byte)(50)))));
+            this.btnDvorane.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnDvorane.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDvorane.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnDvorane.Location = new System.Drawing.Point(0, 229);
+            this.btnDvorane.Name = "btnDvorane";
+            this.btnDvorane.Size = new System.Drawing.Size(197, 38);
+            this.btnDvorane.TabIndex = 26;
+            this.btnDvorane.Text = "Dvorane";
+            this.btnDvorane.UseVisualStyleBackColor = false;
+            this.btnDvorane.Click += new System.EventHandler(this.BtnDvorane_Click);
+            // 
             // frmETeatar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -279,5 +295,6 @@
         private System.Windows.Forms.Button btnPostavke;
         private System.Windows.Forms.Button btnKorisnici;
         private System.Windows.Forms.Button btnPredstave;
+        private System.Windows.Forms.Button btnDvorane;
     }
 }
