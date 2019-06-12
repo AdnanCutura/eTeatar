@@ -69,6 +69,18 @@
     <Compile Include="Login\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Obavijest\uctDodajObavijest.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Obavijest\uctDodajObavijest.Designer.cs">
+      <DependentUpon>uctDodajObavijest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Obavijest\uctObavijest.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Obavijest\uctObavijest.Designer.cs">
+      <DependentUpon>uctObavijest.cs</DependentUpon>
+    </Compile>
     <Compile Include="PanelSwitcher.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -98,6 +110,12 @@
     <EmbeddedResource Include="Login\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Obavijest\uctDodajObavijest.resx">
+      <DependentUpon>uctDodajObavijest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Obavijest\uctObavijest.resx">
+      <DependentUpon>uctObavijest.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -113,6 +131,7 @@
       <DependentUpon>uctTeatar.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\DataTransferObjects.Obavijest.datasource" />
     <None Include="Properties\DataSources\DataTransferObjects.Teatar.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

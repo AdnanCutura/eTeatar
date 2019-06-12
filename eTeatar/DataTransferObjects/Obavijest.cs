@@ -14,5 +14,10 @@ namespace DataTransferObjects
         public string SlikaLink { get; set; }
 
         public string AdministratorId { get; set; }
+
+        //public Administrator Administrator { get; set; }
+
+        //public DateTime MinDate { get; set; };
+        //public DateTime MaxDate { get; set; };
     }
 }

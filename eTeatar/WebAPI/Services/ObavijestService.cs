@@ -14,11 +14,5 @@ namespace WebAPI.Services
         public ObavijestService(IMapper mapper, IRepository<Obavijest, ObavijestSearchRequest> repository) : base(mapper, repository)
         {
         }
-
-        public override List<DataTransferObjects.Obavijest> Get(ObavijestSearchRequest search)
-        {
-            IEnumerable<Obavijest> list = Repository.Get(search);
-            return Mapper.Map<List<DataTransferObjects.Obavijest>>(list);
-        }
     }
 }

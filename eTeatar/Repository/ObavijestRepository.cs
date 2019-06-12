@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using DataTransferObjects.Requests;
+using Microsoft.EntityFrameworkCore;
 using Models;
 
 //TODO: Dodati ulogovanog admina
@@ -21,9 +22,15 @@ namespace Repository
 
             query = query.Where(x => x.DatumVrijeme >= (search.DatumOd ?? DateTime.MinValue));
             query = query.Where(x => x.DatumVrijeme <= (search.DatumDo ?? DateTime.MaxValue));
+
+            query = query.OrderBy(x => x.DatumVrijeme);
+            IEnumerable<Obavijest> list = query
+                //.Include(o => o.Administrator)
+                //.ThenInclude(a => a.KorisnickiNalog)
+                .ToList();
             
-            query = query.OrderBy(x => x.Naslov);
-            IEnumerable<Obavijest> list = query.ToList();
+            //foreach (var item in list)
+            //    item.Administrator.Obavijesti = null;
 
             return list;
         }

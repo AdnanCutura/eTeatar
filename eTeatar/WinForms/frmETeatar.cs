@@ -8,6 +8,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinForms.Obavijest;
 
 namespace WinForms.Teatar
 {
@@ -61,6 +62,11 @@ namespace WinForms.Teatar
         private void LblClose_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);
+        }
+
+        private void BtnObavijesti_Click(object sender, EventArgs e)
+        {
+            PanelSwitcher.setToTop(new uctObavijest());
         }
     }
 }
