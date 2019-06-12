@@ -8,7 +8,8 @@ namespace DataTransferObjects.Requests
     {
         public string Ime { get; set; }
         public string Prezime { get; set; }
-        public string SlikaLink { get; set; }
+        public byte[] Slika{ get; set; }
         public string Biografija { get; set; }
+        public string SpolId { get; set; }
     }
 }

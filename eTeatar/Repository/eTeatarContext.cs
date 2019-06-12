@@ -30,6 +30,7 @@ namespace Repository
         public DbSet<Uloga> Uloga { get; set; }
         public DbSet<Zanr> Zanr { get; set; }
         public DbSet<KorisnickaUloga> KorisnickaUloga { get; set; }
+        public DbSet<Spol> Spol { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

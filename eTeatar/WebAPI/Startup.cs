@@ -89,6 +89,8 @@ namespace WebAPI
               typeof(AdministratorService));
             services.AddScoped(typeof(IBaseService<DataTransferObjects.KorisnickaUloga, KorisnickaUlogaSearchRequest>),
               typeof(BaseService<DataTransferObjects.KorisnickaUloga, KorisnickaUlogaSearchRequest, KorisnickaUloga>));
+            services.AddScoped(typeof(IBaseService<DataTransferObjects.Spol, object>),
+             typeof(BaseService<DataTransferObjects.Spol, object, Spol>));
             services.AddScoped(typeof(IBaseService<DataTransferObjects.TipKorisnika, TipKorisnikaSearchRequest>),
               typeof(BaseService<DataTransferObjects.TipKorisnika, TipKorisnikaSearchRequest, TipKorisnika>));
             services.AddScoped(typeof(IBaseService<DataTransferObjects.Zanr, ZanrSearchRequest>),
@@ -117,6 +119,7 @@ namespace WebAPI
             services.AddScoped(typeof(IRepository<TipKorisnika, TipKorisnikaSearchRequest>), typeof(TipKorisnikaRepository));
             services.AddScoped(typeof(IRepository<Zanr, ZanrSearchRequest>), typeof(ZanrRepository));
             services.AddScoped(typeof(IRepository<PredstavaZanr, object>), typeof(Repository<PredstavaZanr,object>));
+            services.AddScoped(typeof(IRepository<Spol, object>), typeof(Repository<Spol,object>));
 
             // Register the Swagger generator, def 1 or more Swagger documents
             services.AddSwaggerGen(c =>
