@@ -8,6 +8,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinForms.Helpers;
 
 namespace WinForms.Teatar
 {
@@ -23,13 +24,20 @@ namespace WinForms.Teatar
         [DllImport("User32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
+        private readonly DataTransferObjects.KorisnickiNalog _admin;
+
         private readonly APIService _teatarService = new APIService("Teatar");
-        public frmETeatar()
+        public frmETeatar(DataTransferObjects.KorisnickiNalog admin)
         {
             InitializeComponent();
             PanelSwitcher.SetPanel(ref pnlUserControl);
             //Default on top
             PanelSwitcher.setToTop(new uctTeatar());
+            _admin = admin;
+            lblImePrezime.Text = $"{admin.Ime} {admin.Prezime}";
+
+            if (admin.Slika.Length!=0)
+                imgAvatar.Image = Converters.ByteArrayToSystemDrawing(admin.Slika);
         }
 
 

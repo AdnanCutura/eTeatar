@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DataTransferObjects;
 using DataTransferObjects.Requests;
 using System.IO;
+using WinForms.Helpers;
 
 namespace WinForms.Glumac
 {
@@ -43,14 +44,7 @@ namespace WinForms.Glumac
                 cmbSpol.SelectedValue = glumac.Spol.Id;
 
                 if (glumac.Slika.Length!=0)
-                { 
-                MemoryStream mStream = new MemoryStream();
-                byte[] pData = glumac.Slika;
-                mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
-                Bitmap bm = new Bitmap(mStream, false);
-                mStream.Dispose();
-                pictureBox1.Image = bm;
-                }
+                    pictureBox1.Image = Converters.ByteArrayToSystemDrawing(glumac.Slika);
             }
         }
 

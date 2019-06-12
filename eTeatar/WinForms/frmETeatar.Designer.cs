@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             this.pnlSidebarTop = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblImePrezime = new System.Windows.Forms.Label();
             this.imgAvatar = new System.Windows.Forms.PictureBox();
             this.pnlSidebarMenu = new System.Windows.Forms.Panel();
+            this.btnGlumac = new System.Windows.Forms.Button();
             this.btnTeatarMeni = new System.Windows.Forms.Button();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.lblWinDown = new System.Windows.Forms.Label();
@@ -39,7 +40,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.pnlUserControl = new System.Windows.Forms.Panel();
-            this.btnGlumac = new System.Windows.Forms.Button();
             this.pnlSidebarTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgAvatar)).BeginInit();
             this.pnlSidebarMenu.SuspendLayout();
@@ -49,29 +49,31 @@
             // pnlSidebarTop
             // 
             this.pnlSidebarTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(10)))), ((int)(((byte)(50)))));
-            this.pnlSidebarTop.Controls.Add(this.label2);
+            this.pnlSidebarTop.Controls.Add(this.lblImePrezime);
             this.pnlSidebarTop.Controls.Add(this.imgAvatar);
             this.pnlSidebarTop.Location = new System.Drawing.Point(-2, 0);
             this.pnlSidebarTop.Name = "pnlSidebarTop";
             this.pnlSidebarTop.Size = new System.Drawing.Size(197, 223);
             this.pnlSidebarTop.TabIndex = 3;
             // 
-            // label2
+            // lblImePrezime
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(54, 157);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 20);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Ime prezime";
+            this.lblImePrezime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblImePrezime.ForeColor = System.Drawing.Color.White;
+            this.lblImePrezime.Location = new System.Drawing.Point(14, 157);
+            this.lblImePrezime.Name = "lblImePrezime";
+            this.lblImePrezime.Size = new System.Drawing.Size(165, 59);
+            this.lblImePrezime.TabIndex = 4;
+            this.lblImePrezime.Text = "Ime prezime";
+            this.lblImePrezime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // imgAvatar
             // 
+            this.imgAvatar.Image = global::WinForms.Properties.Resources.avatar_1577909_640;
             this.imgAvatar.Location = new System.Drawing.Point(27, 19);
             this.imgAvatar.Name = "imgAvatar";
             this.imgAvatar.Size = new System.Drawing.Size(139, 125);
+            this.imgAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imgAvatar.TabIndex = 25;
             this.imgAvatar.TabStop = false;
             // 
@@ -84,6 +86,20 @@
             this.pnlSidebarMenu.Name = "pnlSidebarMenu";
             this.pnlSidebarMenu.Size = new System.Drawing.Size(197, 409);
             this.pnlSidebarMenu.TabIndex = 4;
+            // 
+            // btnGlumac
+            // 
+            this.btnGlumac.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(10)))), ((int)(((byte)(50)))));
+            this.btnGlumac.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnGlumac.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGlumac.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnGlumac.Location = new System.Drawing.Point(0, 145);
+            this.btnGlumac.Name = "btnGlumac";
+            this.btnGlumac.Size = new System.Drawing.Size(197, 38);
+            this.btnGlumac.TabIndex = 23;
+            this.btnGlumac.Text = "Glumac";
+            this.btnGlumac.UseVisualStyleBackColor = false;
+            this.btnGlumac.Click += new System.EventHandler(this.BtnGlumac_Click);
             // 
             // btnTeatarMeni
             // 
@@ -155,24 +171,10 @@
             // 
             this.pnlUserControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(19)))), ((int)(((byte)(54)))));
             this.pnlUserControl.Location = new System.Drawing.Point(194, 62);
-            this.pnlUserControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlUserControl.Margin = new System.Windows.Forms.Padding(2);
             this.pnlUserControl.Name = "pnlUserControl";
             this.pnlUserControl.Size = new System.Drawing.Size(1127, 566);
             this.pnlUserControl.TabIndex = 25;
-            // 
-            // btnGlumac
-            // 
-            this.btnGlumac.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(10)))), ((int)(((byte)(50)))));
-            this.btnGlumac.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnGlumac.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGlumac.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnGlumac.Location = new System.Drawing.Point(0, 145);
-            this.btnGlumac.Name = "btnGlumac";
-            this.btnGlumac.Size = new System.Drawing.Size(197, 38);
-            this.btnGlumac.TabIndex = 23;
-            this.btnGlumac.Text = "Glumac";
-            this.btnGlumac.UseVisualStyleBackColor = false;
-            this.btnGlumac.Click += new System.EventHandler(this.BtnGlumac_Click);
             // 
             // frmETeatar
             // 
@@ -188,7 +190,6 @@
             this.Text = "frmETeatar";
             this.Load += new System.EventHandler(this.FrmTeatar_Load);
             this.pnlSidebarTop.ResumeLayout(false);
-            this.pnlSidebarTop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgAvatar)).EndInit();
             this.pnlSidebarMenu.ResumeLayout(false);
             this.pnlHeader.ResumeLayout(false);
@@ -203,7 +204,7 @@
         private System.Windows.Forms.Button btnTeatarMeni;
         private System.Windows.Forms.Panel pnlHeader;
         private System.Windows.Forms.PictureBox imgAvatar;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblImePrezime;
         private System.ComponentModel.BackgroundWorker backgroundWorker;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel pnlUserControl;

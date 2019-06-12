@@ -75,10 +75,11 @@
     <Compile Include="Glumac\uctGlumac.Designer.cs">
       <DependentUpon>uctGlumac.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login\frmLogin.cs">
+    <Compile Include="Helpers\Converters.cs" />
+    <Compile Include="Korisnicki nalog\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login\frmLogin.Designer.cs">
+    <Compile Include="Korisnicki nalog\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="PanelSwitcher.cs" />
@@ -113,7 +114,7 @@
     <EmbeddedResource Include="Glumac\uctGlumac.resx">
       <DependentUpon>uctGlumac.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login\frmLogin.resx">
+    <EmbeddedResource Include="Korisnicki nalog\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -159,5 +160,6 @@
   <ItemGroup>
     <None Include="Resources\ezgif.com-gif-maker.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

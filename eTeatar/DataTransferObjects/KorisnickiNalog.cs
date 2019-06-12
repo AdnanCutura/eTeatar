@@ -10,7 +10,7 @@ namespace DataTransferObjects
 
         public string Adresa { get; set; }
 
-        public virtual string AvatarId { get; set; }
+        public byte[] Slika { get; set; }
         public string GradId { get; set; }
         public string KorisnickaUlogaId { get; set; }
 

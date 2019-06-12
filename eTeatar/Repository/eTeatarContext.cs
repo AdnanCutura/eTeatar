@@ -9,7 +9,6 @@ namespace Repository
         public eTeatarContext(DbContextOptions options) : base(options) { }
 
         public DbSet<Administrator> Administrator { get; set; }
-        public DbSet<Avatar> Avatar { get; set; }
         public DbSet<Drzava> Drzava { get; set; }
         public DbSet<Dvorana> Dvorana { get; set; }
         public DbSet<DvoranaTipSjedista> DvoranaTipSjedista { get; set; }
@@ -43,7 +42,6 @@ namespace Repository
                 relationship.DeleteBehavior = DeleteBehavior.Restrict;
 
             #region Soft delete
-            modelBuilder.Entity<Avatar>().HasQueryFilter(p => !p.IsDeleted);
             modelBuilder.Entity<Drzava>().HasQueryFilter(p => !p.IsDeleted);
             modelBuilder.Entity<Dvorana>().HasQueryFilter(p => !p.IsDeleted);
             modelBuilder.Entity<DvoranaTipSjedista>().HasQueryFilter(p => !p.IsDeleted);
