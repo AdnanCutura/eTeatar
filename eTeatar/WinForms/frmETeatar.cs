@@ -62,5 +62,10 @@ namespace WinForms.Teatar
         {
             Environment.Exit(0);
         }
+
+        private void BtnGlumac_Click(object sender, EventArgs e)
+        {
+            PanelSwitcher.setToTop(new Glumac.uctGlumac());
+        }
     }
 }

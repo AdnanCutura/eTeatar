@@ -34,12 +34,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnDodajTeatar = new System.Windows.Forms.Button();
             this.dgvGlumac = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.imeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prezimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.biografijaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Spol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Izbrisi = new System.Windows.Forms.DataGridViewButtonColumn();
             this.glumacBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.txbIme = new System.Windows.Forms.TextBox();
@@ -47,6 +41,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.Search = new System.Windows.Forms.Button();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.imeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prezimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.biografijaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Spol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Izbrisi = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGlumac)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.glumacBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -104,55 +104,6 @@
             this.dgvGlumac.Size = new System.Drawing.Size(849, 393);
             this.dgvGlumac.TabIndex = 24;
             this.dgvGlumac.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvGlumac_CellContentClick_1);
-            // 
-            // Id
-            // 
-            this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "Id";
-            this.Id.MinimumWidth = 6;
-            this.Id.Name = "Id";
-            this.Id.Visible = false;
-            this.Id.Width = 125;
-            // 
-            // imeDataGridViewTextBoxColumn
-            // 
-            this.imeDataGridViewTextBoxColumn.DataPropertyName = "Ime";
-            this.imeDataGridViewTextBoxColumn.HeaderText = "Ime";
-            this.imeDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.imeDataGridViewTextBoxColumn.Name = "imeDataGridViewTextBoxColumn";
-            this.imeDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // prezimeDataGridViewTextBoxColumn
-            // 
-            this.prezimeDataGridViewTextBoxColumn.DataPropertyName = "Prezime";
-            this.prezimeDataGridViewTextBoxColumn.HeaderText = "Prezime";
-            this.prezimeDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.prezimeDataGridViewTextBoxColumn.Name = "prezimeDataGridViewTextBoxColumn";
-            this.prezimeDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // biografijaDataGridViewTextBoxColumn
-            // 
-            this.biografijaDataGridViewTextBoxColumn.DataPropertyName = "Biografija";
-            this.biografijaDataGridViewTextBoxColumn.HeaderText = "Biografija";
-            this.biografijaDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.biografijaDataGridViewTextBoxColumn.Name = "biografijaDataGridViewTextBoxColumn";
-            this.biografijaDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // Spol
-            // 
-            this.Spol.HeaderText = "Spol";
-            this.Spol.MinimumWidth = 6;
-            this.Spol.Name = "Spol";
-            this.Spol.Width = 125;
-            // 
-            // Izbrisi
-            // 
-            this.Izbrisi.DataPropertyName = "Izbrisi";
-            this.Izbrisi.HeaderText = "Akcija";
-            this.Izbrisi.MinimumWidth = 6;
-            this.Izbrisi.Name = "Izbrisi";
-            this.Izbrisi.Text = "Izbrisi";
-            this.Izbrisi.Width = 125;
             // 
             // glumacBindingSource
             // 
@@ -227,6 +178,57 @@
             this.Search.UseVisualStyleBackColor = false;
             this.Search.Click += new System.EventHandler(this.Search_Click);
             // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.MinimumWidth = 6;
+            this.Id.Name = "Id";
+            this.Id.Visible = false;
+            this.Id.Width = 125;
+            // 
+            // imeDataGridViewTextBoxColumn
+            // 
+            this.imeDataGridViewTextBoxColumn.DataPropertyName = "Ime";
+            this.imeDataGridViewTextBoxColumn.HeaderText = "Ime";
+            this.imeDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.imeDataGridViewTextBoxColumn.Name = "imeDataGridViewTextBoxColumn";
+            this.imeDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // prezimeDataGridViewTextBoxColumn
+            // 
+            this.prezimeDataGridViewTextBoxColumn.DataPropertyName = "Prezime";
+            this.prezimeDataGridViewTextBoxColumn.HeaderText = "Prezime";
+            this.prezimeDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.prezimeDataGridViewTextBoxColumn.Name = "prezimeDataGridViewTextBoxColumn";
+            this.prezimeDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // biografijaDataGridViewTextBoxColumn
+            // 
+            this.biografijaDataGridViewTextBoxColumn.DataPropertyName = "Biografija";
+            this.biografijaDataGridViewTextBoxColumn.HeaderText = "Biografija";
+            this.biografijaDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.biografijaDataGridViewTextBoxColumn.Name = "biografijaDataGridViewTextBoxColumn";
+            this.biografijaDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // Spol
+            // 
+            this.Spol.HeaderText = "Spol";
+            this.Spol.MinimumWidth = 6;
+            this.Spol.Name = "Spol";
+            this.Spol.Width = 125;
+            // 
+            // Izbrisi
+            // 
+            this.Izbrisi.DataPropertyName = "Izbrisi";
+            this.Izbrisi.HeaderText = "Akcija";
+            this.Izbrisi.MinimumWidth = 6;
+            this.Izbrisi.Name = "Izbrisi";
+            this.Izbrisi.Text = "Izbrisi";
+            this.Izbrisi.ToolTipText = "Izbrisi";
+            this.Izbrisi.UseColumnTextForButtonValue = true;
+            this.Izbrisi.Width = 125;
+            // 
             // uctGlumac
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -255,16 +257,16 @@
         private System.Windows.Forms.DataGridView dgvGlumac;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.BindingSource glumacBindingSource;
+        private System.Windows.Forms.TextBox txbIme;
+        private System.Windows.Forms.TextBox txbPrezime;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button Search;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn imeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn prezimeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn biografijaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Spol;
         private System.Windows.Forms.DataGridViewButtonColumn Izbrisi;
-        private System.Windows.Forms.TextBox txbIme;
-        private System.Windows.Forms.TextBox txbPrezime;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button Search;
     }
 }
