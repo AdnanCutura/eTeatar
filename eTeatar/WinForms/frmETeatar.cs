@@ -74,5 +74,10 @@ namespace WinForms.Teatar
         {
             PanelSwitcher.setToTop(new KorisnickiNalog.uctPostavke());
         }
+
+        private void BtnKorisnici_Click(object sender, EventArgs e)
+        {
+            PanelSwitcher.setToTop(new KorisnickiNalog.uctKorisnickiNalog());
+        }
     }
 }

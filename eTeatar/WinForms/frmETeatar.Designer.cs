@@ -32,6 +32,7 @@
             this.lblImePrezime = new System.Windows.Forms.Label();
             this.imgAvatar = new System.Windows.Forms.PictureBox();
             this.pnlSidebarMenu = new System.Windows.Forms.Panel();
+            this.btnPostavke = new System.Windows.Forms.Button();
             this.btnGlumac = new System.Windows.Forms.Button();
             this.btnTeatarMeni = new System.Windows.Forms.Button();
             this.pnlHeader = new System.Windows.Forms.Panel();
@@ -40,7 +41,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.pnlUserControl = new System.Windows.Forms.Panel();
-            this.btnPostavke = new System.Windows.Forms.Button();
+            this.btnKorisnici = new System.Windows.Forms.Button();
             this.pnlSidebarTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgAvatar)).BeginInit();
             this.pnlSidebarMenu.SuspendLayout();
@@ -81,6 +82,7 @@
             // pnlSidebarMenu
             // 
             this.pnlSidebarMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(20)))), ((int)(((byte)(44)))));
+            this.pnlSidebarMenu.Controls.Add(this.btnKorisnici);
             this.pnlSidebarMenu.Controls.Add(this.btnPostavke);
             this.pnlSidebarMenu.Controls.Add(this.btnGlumac);
             this.pnlSidebarMenu.Controls.Add(this.btnTeatarMeni);
@@ -89,17 +91,31 @@
             this.pnlSidebarMenu.Size = new System.Drawing.Size(197, 409);
             this.pnlSidebarMenu.TabIndex = 4;
             // 
+            // btnPostavke
+            // 
+            this.btnPostavke.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(10)))), ((int)(((byte)(50)))));
+            this.btnPostavke.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnPostavke.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPostavke.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnPostavke.Location = new System.Drawing.Point(0, 185);
+            this.btnPostavke.Name = "btnPostavke";
+            this.btnPostavke.Size = new System.Drawing.Size(197, 38);
+            this.btnPostavke.TabIndex = 24;
+            this.btnPostavke.Text = "Postavke";
+            this.btnPostavke.UseVisualStyleBackColor = false;
+            this.btnPostavke.Click += new System.EventHandler(this.BtnPostavke_Click);
+            // 
             // btnGlumac
             // 
             this.btnGlumac.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(10)))), ((int)(((byte)(50)))));
             this.btnGlumac.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnGlumac.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGlumac.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnGlumac.Location = new System.Drawing.Point(0, 145);
+            this.btnGlumac.Location = new System.Drawing.Point(0, 103);
             this.btnGlumac.Name = "btnGlumac";
             this.btnGlumac.Size = new System.Drawing.Size(197, 38);
             this.btnGlumac.TabIndex = 23;
-            this.btnGlumac.Text = "Glumac";
+            this.btnGlumac.Text = "Glumci";
             this.btnGlumac.UseVisualStyleBackColor = false;
             this.btnGlumac.Click += new System.EventHandler(this.BtnGlumac_Click);
             // 
@@ -178,19 +194,19 @@
             this.pnlUserControl.Size = new System.Drawing.Size(1127, 566);
             this.pnlUserControl.TabIndex = 25;
             // 
-            // btnPostavke
+            // btnKorisnici
             // 
-            this.btnPostavke.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(10)))), ((int)(((byte)(50)))));
-            this.btnPostavke.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnPostavke.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPostavke.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnPostavke.Location = new System.Drawing.Point(0, 185);
-            this.btnPostavke.Name = "btnPostavke";
-            this.btnPostavke.Size = new System.Drawing.Size(197, 38);
-            this.btnPostavke.TabIndex = 24;
-            this.btnPostavke.Text = "Postavke";
-            this.btnPostavke.UseVisualStyleBackColor = false;
-            this.btnPostavke.Click += new System.EventHandler(this.BtnPostavke_Click);
+            this.btnKorisnici.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(10)))), ((int)(((byte)(50)))));
+            this.btnKorisnici.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnKorisnici.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnKorisnici.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnKorisnici.Location = new System.Drawing.Point(0, 144);
+            this.btnKorisnici.Name = "btnKorisnici";
+            this.btnKorisnici.Size = new System.Drawing.Size(197, 38);
+            this.btnKorisnici.TabIndex = 25;
+            this.btnKorisnici.Text = "Korisnicki";
+            this.btnKorisnici.UseVisualStyleBackColor = false;
+            this.btnKorisnici.Click += new System.EventHandler(this.BtnKorisnici_Click);
             // 
             // frmETeatar
             // 
@@ -228,5 +244,6 @@
         private System.Windows.Forms.Label lblWinDown;
         private System.Windows.Forms.Button btnGlumac;
         private System.Windows.Forms.Button btnPostavke;
+        private System.Windows.Forms.Button btnKorisnici;
     }
 }

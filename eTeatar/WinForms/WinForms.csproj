@@ -83,6 +83,18 @@
     <Compile Include="KorisnickiNalog\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="KorisnickiNalog\uctKorisnickiNalog.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="KorisnickiNalog\uctKorisnickiNalog.Designer.cs">
+      <DependentUpon>uctKorisnickiNalog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KorisnickiNalog\uctDodajAdmin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="KorisnickiNalog\uctDodajAdmin.Designer.cs">
+      <DependentUpon>uctDodajAdmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="KorisnickiNalog\uctPostavke.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -124,6 +136,12 @@
     <EmbeddedResource Include="KorisnickiNalog\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="KorisnickiNalog\uctKorisnickiNalog.resx">
+      <DependentUpon>uctKorisnickiNalog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KorisnickiNalog\uctDodajAdmin.resx">
+      <DependentUpon>uctDodajAdmin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="KorisnickiNalog\uctPostavke.resx">
       <DependentUpon>uctPostavke.cs</DependentUpon>
     </EmbeddedResource>
@@ -144,6 +162,7 @@
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\DataTransferObjects.Glumac.datasource" />
+    <None Include="Properties\DataSources\DataTransferObjects.KorisnickiNalog.datasource" />
     <None Include="Properties\DataSources\DataTransferObjects.Teatar.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

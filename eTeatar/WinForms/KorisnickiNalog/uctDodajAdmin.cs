@@ -6,33 +6,22 @@ using WinForms.Helpers;
 
 namespace WinForms.KorisnickiNalog
 {
-    public partial class uctPostavke : UserControl
+    public partial class uctDodajAdmin : UserControl
     {
-        private DataTransferObjects.Administrator _admin;
         private DataTransferObjects.Requests.AdministratorKorisnickiNalogUpsertRequest _request;
         private readonly DataValidation _validator;
         private readonly APIService _korisnickiNalogService;
 
-        public uctPostavke()
+        public uctDodajAdmin()
         {
             InitializeComponent();
-            _admin = AdminData.Get();
             _request = new DataTransferObjects.Requests.AdministratorKorisnickiNalogUpsertRequest();
             _validator = Factory.GetValidator(errorProvider1);
             _korisnickiNalogService = new APIService("Administrator");
         }
 
         private void UctPostavke_Load(object sender, EventArgs e)
-        {
-            txbBrojTelefona.Text = _admin.Telefon;
-            txbEmail.Text = _admin.Email;
-            txbIme.Text = _admin.Ime;
-            txbPrezime.Text = _admin.Prezime;
-            if (_admin.Slika.Length != 0)
-            {
-                imgAvatar.Image = Converters.ByteArrayToSystemDrawing(_admin.Slika);
-            }
-        }
+        {}
 
         private void BtnDodajSliku_Click(object sender, EventArgs e)
         {
@@ -58,23 +47,21 @@ namespace WinForms.KorisnickiNalog
 
         private void TxbNovaSifra_Validating(object sender, CancelEventArgs e)
         {
-
+            _validator.NullCheckTxb(txbSifra, e);
         }
 
         private void TxbNovaSifraPotvrda_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrEmpty(txbNovaSifra.Text))
-            {
+            if (string.IsNullOrEmpty(txbSifra.Text))
                 return;
-            }
 
-            _validator.NullCheckTxb(txbNovaSifraPotvrda, e);
-            if (txbNovaSifraPotvrda.Text != txbNovaSifra.Text)
+            _validator.NullCheckTxb(txbSifraPotvrda, e);
+
+            if (txbSifraPotvrda.Text != txbSifra.Text)
             {
                 e.Cancel = true;
-                errorProvider1.SetError(txbNovaSifraPotvrda, "Pasvordi se ne slazu");
+                errorProvider1.SetError(txbSifraPotvrda, "Pasvordi se ne slazu");
             }
-
         }
 
         private void TxbBrojTelefona_Validating(object sender, CancelEventArgs e)
@@ -87,6 +74,12 @@ namespace WinForms.KorisnickiNalog
             _validator.NullCheckTxb(txbEmail, e);
         }
 
+        private void TxbKorisnickoIme_Validating_1(object sender, CancelEventArgs e)
+        {
+            _validator.NullCheckTxb(txbKorisnickoIme, e);
+
+        }
+
         private async void BtnSacuvaj_Click(object sender, EventArgs e)
         {
             if (!ValidateChildren())
@@ -96,25 +89,22 @@ namespace WinForms.KorisnickiNalog
             _request.Email = txbEmail.Text;
             _request.Ime = txbIme.Text;
             _request.Prezime = txbPrezime.Text;
-            _request.Password = txbNovaSifra.Text;
-            _request.PasswordPotvrda = txbNovaSifraPotvrda.Text;
+            _request.Password = txbSifra.Text;
+            _request.PasswordPotvrda = txbSifraPotvrda.Text;
+            _request.KorisnickoIme = txbKorisnickoIme.Text;
 
             if (_request.Slika == null)
                 _request.Slika = Converters.SystemDrawingToByteArray(imgAvatar.Image);
 
-            var entity = await _korisnickiNalogService.Update<DataTransferObjects.Administrator>(_admin.Id,_request);
+            var entity = await _korisnickiNalogService.Insert<DataTransferObjects.Administrator>(_request);
 
             if (entity != null)
+            {
                 MessageBox.Show("Uspješno izvršeno");
-
-            _admin.Telefon = txbBrojTelefona.Text;
-            _admin.Email = txbEmail.Text;
-            _admin.Ime = txbIme.Text;
-            _admin.Prezime = txbPrezime.Text;
-            if (_request.Slika?.Length>0)
-                _admin.Slika = _request.Slika;
-
-            AdminData.Set(_admin);
+                PanelSwitcher.RemoveControl(this);
+                PanelSwitcher.setToTop(new uctKorisnickiNalog());
+            }
         }
+
     }
 }

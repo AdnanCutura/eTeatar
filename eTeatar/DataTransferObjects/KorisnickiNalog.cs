@@ -9,7 +9,7 @@ namespace DataTransferObjects
         public string Prezime { get; set; }
         
         public byte[] Slika { get; set; }
-        public string KorisnickaUlogaId { get; set; }
+        public KorisnickaUloga KorisnickaUloga { get; set; }
 
         public string KorisnickoIme { get; set; }
         public string Email { get; set; }
