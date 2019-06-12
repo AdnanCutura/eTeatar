@@ -61,11 +61,20 @@ namespace WinForms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Greška! Niste autorizirani..
+        ///   Looks up a localized string similar to Pristup odbijen! Niste autentificirani da pristupite traženom resursu..
         /// </summary>
         internal static string APIService___401_Status_code {
             get {
                 return ResourceManager.GetString("APIService - 401 Status code", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pristup odbijen! Niste autorizirani da pristupite traženom resursu..
+        /// </summary>
+        internal static string APIService___403_Status_code {
+            get {
+                return ResourceManager.GetString("APIService___403_Status_code", resourceCulture);
             }
         }
         

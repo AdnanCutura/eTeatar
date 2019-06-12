@@ -19,11 +19,10 @@ namespace WinForms.Teatar
         private readonly APIService _gradService = new APIService("Grad");
         private readonly DataValidation _dataValidation;
 
-        private static uctDodajTeatar _instance;
-        public static uctDodajTeatar Instance => _instance ?? (_instance = new uctDodajTeatar());
-
-        public uctDodajTeatar()
+        private readonly string _teatarId;
+        public uctDodajTeatar(string teatarId = null)
         {
+            _teatarId = teatarId;
             InitializeComponent();
             _dataValidation = Factory.GetValidator(errorProvider);
         }
@@ -33,6 +32,22 @@ namespace WinForms.Teatar
             //Učitavanje podataka za combobox-ove
             await LoadDrzave();
             await LoadGradovi(null);
+            var entity = await _teatarService.GetById<DataTransferObjects.Teatar>(_teatarId);
+
+            if (!string.IsNullOrEmpty(_teatarId))
+            {
+                lblTeatarHeading.Text = "Izmjena podataka za teatar";
+                txbBrojTelefona.Text = entity.BrojTelefona;
+                txbAdresa.Text = entity.Adresa;
+                txbEmail.Text = entity.Email;
+                txbNaziv.Text = entity.Naziv;
+                txbVrijemeOtvaranja.Text = entity.VrijemeOtvaranja.ToShortTimeString();
+                txbVrijemeZatvaranja.Text = entity.VrijemeZatvaranja.ToShortTimeString();
+                cmbDrzava.SelectedValue = entity.Grad.Drzava.Id;
+                cmbGrad.SelectedValue = entity.Grad.Id;
+            }
+            else
+                lblTeatarHeading.Text = "Dodavanje teatra";
         }
 
         private async void BtnSacuvaj_Click(object sender, EventArgs e)
@@ -52,11 +67,17 @@ namespace WinForms.Teatar
                     VrijemeZatvaranja = Convert.ToDateTime(txbVrijemeZatvaranja.Text)
                 };
 
-                DataTransferObjects.Teatar entity = await _teatarService.Insert<DataTransferObjects.Teatar>(request);
+                DataTransferObjects.Teatar entity;
+
+                if (string.IsNullOrEmpty(_teatarId))
+                    entity = await _teatarService.Insert<DataTransferObjects.Teatar>(request);
+                else
+                    entity = await _teatarService.Update<DataTransferObjects.Teatar>(_teatarId, request);
 
                 if (entity != null)
                     MessageBox.Show("Uspješno izvršeno");
 
+                PanelSwitcher.RemoveControl(this);
             }
 
             //pokreni user control lista teatara
@@ -145,7 +166,7 @@ namespace WinForms.Teatar
         {
             _dataValidation.NullCheckCmb(cmbGrad, e);
         }
-        
+
         private void TxbEmail_Validating(object sender, CancelEventArgs e)
         {
             _dataValidation.NullCheckTxb(txbEmail, e);
@@ -166,6 +187,6 @@ namespace WinForms.Teatar
 
         #endregion
 
-    
+
     }
 }

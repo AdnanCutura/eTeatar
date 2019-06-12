@@ -1,6 +1,8 @@
-﻿using DataTransferObjects.Extensions;
+﻿using System;
+using DataTransferObjects.Extensions;
 using Flurl.Http;
 using System.Collections.Generic;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,8 +34,17 @@ namespace WinForms
             }
             catch (FlurlHttpException err)
             {
-                if (err.Call.HttpStatus == System.Net.HttpStatusCode.Unauthorized || err.Call.HttpStatus == System.Net.HttpStatusCode.Forbidden)
-                    MessageBox.Show(Resources.APIService___401_Status_code, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                switch (err.Call.HttpStatus)
+                {
+                    case System.Net.HttpStatusCode.Unauthorized:
+                        MessageBox.Show(Resources.APIService___401_Status_code, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
+                    case System.Net.HttpStatusCode.Forbidden:
+                        MessageBox.Show(Resources.APIService___403_Status_code, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
 
                 throw;
             }

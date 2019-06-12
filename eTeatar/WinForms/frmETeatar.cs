@@ -29,7 +29,7 @@ namespace WinForms.Teatar
             InitializeComponent();
             PanelSwitcher.SetPanel(ref pnlUserControl);
             //Default on top
-            PanelSwitcher.setToTop(uctTeatar.Instance);
+            PanelSwitcher.setToTop(new uctTeatar());
         }
 
 
@@ -50,7 +50,7 @@ namespace WinForms.Teatar
         private void BtnTeatarMeni_Click(object sender, EventArgs e)
         {
             //user control lista teatara
-            PanelSwitcher.setToTop(uctTeatar.Instance);
+            PanelSwitcher.setToTop(new uctTeatar());
         }
 
         private void LblWinDown_Click(object sender, EventArgs e)
