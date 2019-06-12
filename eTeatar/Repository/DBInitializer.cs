@@ -9,7 +9,9 @@ namespace Repository
         public static void Initialize(eTeatarContext context)
         {
             if (context.Drzava.Any())
+            {
                 return;
+            }
 
             Drzava Drzava1 = new Drzava { Naziv = "Bosna i Hercegovina" };
             Drzava Drzava2 = new Drzava { Naziv = "Drzava" };
@@ -221,15 +223,15 @@ namespace Repository
             context.Spol.AddRange(Musko, Zensko);
             context.SaveChanges();
 
-            Glumac Glumac1 = new Glumac { Ime = "GlumacIme1", Prezime = "GlumacPrezime1", Biografija = "Opako dobra biografija", Spol = Musko};
-            Glumac Glumac2 = new Glumac { Ime = "GlumacIme2", Prezime = "GlumacPrezime2", Biografija = "Opako dobra biografija", Spol = Musko};
-            Glumac Glumac3 = new Glumac { Ime = "GlumacIme3", Prezime = "GlumacPrezime3", Biografija = "Opako dobra biografija", Spol = Musko};
-            Glumac Glumac4 = new Glumac { Ime = "GlumacIme4", Prezime = "GlumacPrezime4", Biografija = "Opako dobra biografija", Spol = Musko};
-            Glumac Glumac5 = new Glumac { Ime = "GlumacIme5", Prezime = "GlumacPrezime5", Biografija = "Opako dobra biografija", Spol = Zensko};
-            Glumac Glumac6 = new Glumac { Ime = "GlumacIme6", Prezime = "GlumacPrezime6", Biografija = "Opako dobra biografija", Spol = Zensko};
-            Glumac Glumac7 = new Glumac { Ime = "GlumacIme7", Prezime = "GlumacPrezime7", Biografija = "Opako dobra biografija", Spol = Zensko};
-            Glumac Glumac8 = new Glumac { Ime = "GlumacIme8", Prezime = "GlumacPrezime8", Biografija = "Opako dobra biografija", Spol = Zensko};
-            Glumac Glumac9 = new Glumac { Ime = "GlumacIme9", Prezime = "GlumacPrezime8", Biografija = "Opako dobra biografija", Spol = Zensko};
+            Glumac Glumac1 = new Glumac { Ime = "GlumacIme1", Prezime = "GlumacPrezime1", Biografija = "Opako dobra biografija", Spol = Musko };
+            Glumac Glumac2 = new Glumac { Ime = "GlumacIme2", Prezime = "GlumacPrezime2", Biografija = "Opako dobra biografija", Spol = Musko };
+            Glumac Glumac3 = new Glumac { Ime = "GlumacIme3", Prezime = "GlumacPrezime3", Biografija = "Opako dobra biografija", Spol = Musko };
+            Glumac Glumac4 = new Glumac { Ime = "GlumacIme4", Prezime = "GlumacPrezime4", Biografija = "Opako dobra biografija", Spol = Musko };
+            Glumac Glumac5 = new Glumac { Ime = "GlumacIme5", Prezime = "GlumacPrezime5", Biografija = "Opako dobra biografija", Spol = Zensko };
+            Glumac Glumac6 = new Glumac { Ime = "GlumacIme6", Prezime = "GlumacPrezime6", Biografija = "Opako dobra biografija", Spol = Zensko };
+            Glumac Glumac7 = new Glumac { Ime = "GlumacIme7", Prezime = "GlumacPrezime7", Biografija = "Opako dobra biografija", Spol = Zensko };
+            Glumac Glumac8 = new Glumac { Ime = "GlumacIme8", Prezime = "GlumacPrezime8", Biografija = "Opako dobra biografija", Spol = Zensko };
+            Glumac Glumac9 = new Glumac { Ime = "GlumacIme9", Prezime = "GlumacPrezime8", Biografija = "Opako dobra biografija", Spol = Zensko };
             Glumac Glumac10 = new Glumac { Ime = "GlumacIme10", Prezime = "GlumacPrezime10", Biografija = "Opako dobra biografija", Spol = Musko };
 
             context.Glumac.AddRange(Glumac1,
@@ -391,30 +393,6 @@ namespace Repository
                                           TipKorisnika4);
             context.SaveChanges();
 
-            Avatar Avatar1 = new Avatar { Link = "/images/Avatars/Avatar1.png" };
-            Avatar Avatar2 = new Avatar { Link = "/images/Avatars/Avatar2.png" };
-            Avatar Avatar3 = new Avatar { Link = "/images/Avatars/Avatar3.png" };
-            Avatar Avatar4 = new Avatar { Link = "/images/Avatars/Avatar4.png" };
-            Avatar Avatar5 = new Avatar { Link = "/images/Avatars/Avatar5.png" };
-            Avatar Avatar6 = new Avatar { Link = "/images/Avatars/Avatar6.png" };
-            Avatar Avatar7 = new Avatar { Link = "/images/Avatars/Avatar7.png" };
-            Avatar Avatar8 = new Avatar { Link = "/images/Avatars/Avatar8.png" };
-            Avatar Avatar9 = new Avatar { Link = "/images/Avatars/Avatar9.png" };
-            Avatar Avatar10 = new Avatar { Link = "/images/Avatars/Avatar10.png" };
-            Avatar Avatar11 = new Avatar { Link = "/images/Avatars/Avatar11.png" };
-
-            context.Avatar.AddRange(Avatar1,
-                                    Avatar2,
-                                    Avatar3,
-                                    Avatar4,
-                                    Avatar5,
-                                    Avatar6,
-                                    Avatar7,
-                                    Avatar8,
-                                    Avatar9,
-                                    Avatar10,
-                                    Avatar11);
-            context.SaveChanges();
 
             KorisnickaUloga KorisnickaUloga1 = new KorisnickaUloga { Naziv = "Administrator" };
             KorisnickaUloga KorisnickaUloga2 = new KorisnickaUloga { Naziv = "Kupac" };
@@ -424,14 +402,14 @@ namespace Repository
 
             context.SaveChanges();
 
-            KorisnickiNalog Korisnik1 = new KorisnickiNalog { KorisnickoIme = "Kupac", Email = "Kupac@Email.com", LozinkaHash = "j7+6UDUsnJcVogyMj2kZsLhfrgY=", LozinkaSalt = "yHXtkSuamKxmhzbWfbDKIg==", Adresa = "Adresa 11", DatumKreiranja = DateTime.Now, Grad = Grad1, Ime = "KupacIme", Prezime = "KupacPrezime", Avatar = Avatar1 , KorisnickaUloga = KorisnickaUloga2 };
-            KorisnickiNalog Korisnik2 = new KorisnickiNalog { KorisnickoIme = "Kupac2", Email = "Kupac2@Email.com", LozinkaHash = "j7+6UDUsnJcVogyMj2kZsLhfrgY=", LozinkaSalt = "yHXtkSuamKxmhzbWfbDKIg==", Adresa = "Adresa 11", DatumKreiranja = DateTime.Now, Grad = Grad1, Ime = "KupacIme2", Prezime = "KupacPrezime2", Avatar = Avatar2, KorisnickaUloga = KorisnickaUloga2 };
-            KorisnickiNalog Korisnik3 = new KorisnickiNalog { KorisnickoIme = "Kupac3", Email = "Kupac3@Email.com", LozinkaHash = "j7+6UDUsnJcVogyMj2kZsLhfrgY=", LozinkaSalt = "yHXtkSuamKxmhzbWfbDKIg==", Adresa = "Adresa 11", DatumKreiranja = DateTime.Now, Grad = Grad1, Ime = "KupacIme3", Prezime = "KupacPrezime3", Avatar = Avatar3, KorisnickaUloga = KorisnickaUloga2 };
-            KorisnickiNalog Korisnik4 = new KorisnickiNalog { KorisnickoIme = "Kupac4", Email = "Kupac4@Email.com", LozinkaHash = "j7+6UDUsnJcVogyMj2kZsLhfrgY=", LozinkaSalt = "yHXtkSuamKxmhzbWfbDKIg==", Adresa = "Adresa 11", DatumKreiranja = DateTime.Now, Grad = Grad1, Ime = "KupacIme4", Prezime = "KupacPrezime4", Avatar = Avatar4, KorisnickaUloga = KorisnickaUloga2 };
-            KorisnickiNalog Korisnik5 = new KorisnickiNalog { KorisnickoIme = "Admin", Email = "Admin@Email.com", LozinkaHash = "j7+6UDUsnJcVogyMj2kZsLhfrgY=", LozinkaSalt = "yHXtkSuamKxmhzbWfbDKIg==", Adresa = "Adresa 11", DatumKreiranja = DateTime.Now, Grad = Grad1, Ime = "AdminIme", Prezime = "AdminPrezime", Avatar = Avatar5, KorisnickaUloga = KorisnickaUloga1 };
-            KorisnickiNalog Korisnik6 = new KorisnickiNalog { KorisnickoIme = "Admin2", Email = "Admin2@Email.com", LozinkaHash = "j7+6UDUsnJcVogyMj2kZsLhfrgY=", LozinkaSalt = "yHXtkSuamKxmhzbWfbDKIg==", Adresa = "Adresa 11", DatumKreiranja = DateTime.Now, Grad = Grad1, Ime = "AdminIme2", Prezime = "AdminPrezime2", Avatar = Avatar6, KorisnickaUloga = KorisnickaUloga1 };
-            KorisnickiNalog KorisnikAdi = new KorisnickiNalog { KorisnickoIme = "Adi", Email = "adi.sose@outlook.com", LozinkaHash = "j7+6UDUsnJcVogyMj2kZsLhfrgY=", LozinkaSalt = "yHXtkSuamKxmhzbWfbDKIg==", Adresa = "Grbavicka 50", DatumKreiranja = DateTime.Now, Grad = Grad1, Ime = "Adi", Prezime = "Sose", Avatar = Avatar1, KorisnickaUloga = KorisnickaUloga2 };
-            KorisnickiNalog KorisnikAdnan = new KorisnickiNalog { KorisnickoIme = "Adnan", Email = "adnan.cutura@outlook.com", LozinkaHash = "j7+6UDUsnJcVogyMj2kZsLhfrgY=", LozinkaSalt = "yHXtkSuamKxmhzbWfbDKIg==", Adresa = "Adresa 50", DatumKreiranja = DateTime.Now, Grad = Grad1, Ime = "Adnan", Prezime = "Cutura", Avatar = Avatar1, KorisnickaUloga = KorisnickaUloga2 };
+            KorisnickiNalog Korisnik1 = new KorisnickiNalog { KorisnickoIme = "Kupac", Email = "Kupac@Email.com", LozinkaHash = "j7+6UDUsnJcVogyMj2kZsLhfrgY=", LozinkaSalt = "yHXtkSuamKxmhzbWfbDKIg==", DatumKreiranja = DateTime.Now, Ime = "KupacIme", Prezime = "KupacPrezime", KorisnickaUloga = KorisnickaUloga2, Telefon = "061093743" };
+            KorisnickiNalog Korisnik2 = new KorisnickiNalog { KorisnickoIme = "Kupac2", Email = "Kupac2@Email.com", LozinkaHash = "j7+6UDUsnJcVogyMj2kZsLhfrgY=", LozinkaSalt = "yHXtkSuamKxmhzbWfbDKIg==", DatumKreiranja = DateTime.Now, Ime = "KupacIme2", Prezime = "KupacPrezime2", KorisnickaUloga = KorisnickaUloga2, Telefon = "061093743" };
+            KorisnickiNalog Korisnik3 = new KorisnickiNalog { KorisnickoIme = "Kupac3", Email = "Kupac3@Email.com", LozinkaHash = "j7+6UDUsnJcVogyMj2kZsLhfrgY=", LozinkaSalt = "yHXtkSuamKxmhzbWfbDKIg==", DatumKreiranja = DateTime.Now, Ime = "KupacIme3", Prezime = "KupacPrezime3", KorisnickaUloga = KorisnickaUloga2, Telefon = "061093743" };
+            KorisnickiNalog Korisnik4 = new KorisnickiNalog { KorisnickoIme = "Kupac4", Email = "Kupac4@Email.com", LozinkaHash = "j7+6UDUsnJcVogyMj2kZsLhfrgY=", LozinkaSalt = "yHXtkSuamKxmhzbWfbDKIg==", DatumKreiranja = DateTime.Now, Ime = "KupacIme4", Prezime = "KupacPrezime4", KorisnickaUloga = KorisnickaUloga2, Telefon = "061093743" };
+            KorisnickiNalog Korisnik5 = new KorisnickiNalog { KorisnickoIme = "Admin", Email = "Admin@Email.com", LozinkaHash = "j7+6UDUsnJcVogyMj2kZsLhfrgY=", LozinkaSalt = "yHXtkSuamKxmhzbWfbDKIg==", DatumKreiranja = DateTime.Now, Ime = "AdminIme", Prezime = "AdminPrezime", KorisnickaUloga = KorisnickaUloga1, Telefon = "061093743" };
+            KorisnickiNalog Korisnik6 = new KorisnickiNalog { KorisnickoIme = "Admin2", Email = "Admin2@Email.com", LozinkaHash = "j7+6UDUsnJcVogyMj2kZsLhfrgY=", LozinkaSalt = "yHXtkSuamKxmhzbWfbDKIg==", DatumKreiranja = DateTime.Now, Ime = "AdminIme2", Prezime = "AdminPrezime2", KorisnickaUloga = KorisnickaUloga1, Telefon = "061093743" };
+            KorisnickiNalog KorisnikAdi = new KorisnickiNalog { KorisnickoIme = "Adi", Email = "adi.sose@outlook.com", LozinkaHash = "j7+6UDUsnJcVogyMj2kZsLhfrgY=", LozinkaSalt = "yHXtkSuamKxmhzbWfbDKIg==", DatumKreiranja = DateTime.Now, Ime = "Adi", Prezime = "Sose", KorisnickaUloga = KorisnickaUloga2, Telefon = "061093743" };
+            KorisnickiNalog KorisnikAdnan = new KorisnickiNalog { KorisnickoIme = "Adnan", Email = "adnan.cutura@outlook.com", LozinkaHash = "j7+6UDUsnJcVogyMj2kZsLhfrgY=", LozinkaSalt = "yHXtkSuamKxmhzbWfbDKIg==", DatumKreiranja = DateTime.Now, Ime = "Adnan", Prezime = "Cutura", KorisnickaUloga = KorisnickaUloga2, Telefon = "061093743" };
 
             context.KorisnickiNalog.AddRange(Korisnik1,
                                       Korisnik2,

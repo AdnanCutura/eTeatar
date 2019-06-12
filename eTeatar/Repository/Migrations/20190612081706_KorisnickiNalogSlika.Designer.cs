@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Repository;
 
 namespace Repository.Migrations
 {
     [DbContext(typeof(eTeatarContext))]
-    partial class eTeatarContextModelSnapshot : ModelSnapshot
+    [Migration("20190612081706_KorisnickiNalogSlika")]
+    partial class KorisnickiNalogSlika
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -169,6 +171,8 @@ namespace Repository.Migrations
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Adresa");
 
                     b.Property<DateTime>("DatumKreiranja");
 
@@ -547,7 +551,7 @@ namespace Repository.Migrations
 
             modelBuilder.Entity("Models.KorisnickiNalog", b =>
                 {
-                    b.HasOne("Models.Grad")
+                    b.HasOne("Models.Grad", "Grad")
                         .WithMany("Korisnici")
                         .HasForeignKey("GradId")
                         .OnDelete(DeleteBehavior.Restrict);

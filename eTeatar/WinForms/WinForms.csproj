@@ -63,11 +63,43 @@
     <Compile Include="APIService.cs" />
     <Compile Include="DataValidation.cs" />
     <Compile Include="Factory.cs" />
-    <Compile Include="Login\frmLogin.cs">
+    <Compile Include="Glumac\uctDodajGlumac.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Glumac\uctDodajGlumac.Designer.cs">
+      <DependentUpon>uctDodajGlumac.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Glumac\uctGlumac.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Glumac\uctGlumac.Designer.cs">
+      <DependentUpon>uctGlumac.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\AdminData.cs" />
+    <Compile Include="Helpers\Converters.cs" />
+    <Compile Include="KorisnickiNalog\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login\frmLogin.Designer.cs">
+    <Compile Include="KorisnickiNalog\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KorisnickiNalog\uctKorisnickiNalog.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="KorisnickiNalog\uctKorisnickiNalog.Designer.cs">
+      <DependentUpon>uctKorisnickiNalog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KorisnickiNalog\uctDodajAdmin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="KorisnickiNalog\uctDodajAdmin.Designer.cs">
+      <DependentUpon>uctDodajAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KorisnickiNalog\uctPostavke.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="KorisnickiNalog\uctPostavke.Designer.cs">
+      <DependentUpon>uctPostavke.cs</DependentUpon>
     </Compile>
     <Compile Include="Obavijest\uctDodajObavijest.cs">
       <SubType>UserControl</SubType>
@@ -107,7 +139,13 @@
     <Compile Include="Teatar\uctDodajTeatar.Designer.cs">
       <DependentUpon>uctDodajTeatar.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Login\frmLogin.resx">
+    <EmbeddedResource Include="Glumac\uctDodajGlumac.resx">
+      <DependentUpon>uctDodajGlumac.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Glumac\uctGlumac.resx">
+      <DependentUpon>uctGlumac.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KorisnickiNalog\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Obavijest\uctDodajObavijest.resx">
@@ -116,6 +154,15 @@
     <EmbeddedResource Include="Obavijest\uctObavijest.resx">
       <DependentUpon>uctObavijest.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="KorisnickiNalog\uctKorisnickiNalog.resx">
+      <DependentUpon>uctKorisnickiNalog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KorisnickiNalog\uctDodajAdmin.resx">
+      <DependentUpon>uctDodajAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KorisnickiNalog\uctPostavke.resx">
+      <DependentUpon>uctPostavke.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -123,6 +170,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmETeatar.resx">
       <DependentUpon>frmETeatar.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Teatar\uctDodajTeatar.resx">
       <DependentUpon>uctDodajTeatar.cs</DependentUpon>
@@ -132,6 +180,8 @@
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\DataTransferObjects.Obavijest.datasource" />
+    <None Include="Properties\DataSources\DataTransferObjects.Glumac.datasource" />
+    <None Include="Properties\DataSources\DataTransferObjects.KorisnickiNalog.datasource" />
     <None Include="Properties\DataSources\DataTransferObjects.Teatar.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -152,9 +202,12 @@
       <Name>DataTransferObjects</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\avatar-1577909_640.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ezgif.com-gif-maker.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

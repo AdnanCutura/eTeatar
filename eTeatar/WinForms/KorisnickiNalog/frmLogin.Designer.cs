@@ -1,4 +1,4 @@
-﻿namespace WinForms.Login
+﻿namespace WinForms.KorisnickiNalog
 {
     partial class frmLogin
     {

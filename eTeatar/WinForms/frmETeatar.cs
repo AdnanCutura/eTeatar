@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinForms.Obavijest;
+using WinForms.Helpers;
 
 namespace WinForms.Teatar
 {
@@ -24,11 +25,12 @@ namespace WinForms.Teatar
         [DllImport("User32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
-        private readonly APIService _teatarService = new APIService("Teatar");
-        public frmETeatar()
+        public frmETeatar(DataTransferObjects.Administrator admin)
         {
             InitializeComponent();
             PanelSwitcher.SetPanel(ref pnlUserControl);
+            AdminData.SetObjects(imgAvatar, lblImePrezime);
+            AdminData.Set(admin);
             //Default on top
             PanelSwitcher.setToTop(new uctTeatar());
         }
@@ -62,6 +64,21 @@ namespace WinForms.Teatar
         private void LblClose_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);
+        }
+
+        private void BtnGlumac_Click(object sender, EventArgs e)
+        {
+            PanelSwitcher.setToTop(new Glumac.uctGlumac());
+        }
+
+        private void BtnPostavke_Click(object sender, EventArgs e)
+        {
+            PanelSwitcher.setToTop(new KorisnickiNalog.uctPostavke());
+        }
+
+        private void BtnKorisnici_Click(object sender, EventArgs e)
+        {
+            PanelSwitcher.setToTop(new KorisnickiNalog.uctKorisnickiNalog());
         }
 
         private void BtnObavijesti_Click(object sender, EventArgs e)

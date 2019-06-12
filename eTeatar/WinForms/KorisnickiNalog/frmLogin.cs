@@ -9,11 +9,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WinForms.Login
+namespace WinForms.KorisnickiNalog
 {
     public partial class frmLogin : Form
     {
         private readonly APIService _adminService = new APIService("Administrator");
+        private readonly APIService _korisnickiNalogService = new APIService("KorisnickiNalog");
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HTCAPTION = 0x2;
@@ -60,7 +61,9 @@ namespace WinForms.Login
                 APIService.Username = txbUsername.Text;
                 APIService.Password = txbPassword.Text;
 
-                await _adminService.Get<dynamic>(null);
+                var admins = await _adminService.Get<List<DataTransferObjects.Administrator>>(null);
+
+                var admin = admins.FirstOrDefault(w => w.KorisnickoIme == APIService.Username);
 
                 bool formOpen = false;
 
@@ -70,8 +73,8 @@ namespace WinForms.Login
 
                 if (!formOpen)
                 {
-                    this.Hide();
-                    Teatar.frmETeatar frm = new Teatar.frmETeatar();
+                    Hide();
+                    Teatar.frmETeatar frm = new Teatar.frmETeatar(admin);
                     frm.Show();
                 }
 

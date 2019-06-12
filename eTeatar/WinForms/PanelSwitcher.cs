@@ -18,6 +18,7 @@ namespace WinForms
 
         public static void setToTop(UserControl userControl)
         {
+            _pnlUserControl.Controls.Clear();
             if (!_pnlUserControl.Controls.Contains(userControl))
             {
                 _pnlUserControl.Controls.Add(userControl);
@@ -31,6 +32,10 @@ namespace WinForms
         {
             if (_pnlUserControl.Controls.Contains(userControl))
                 _pnlUserControl.Controls.Remove(userControl);
+        }
+
+        public static void RemoveAll()
+        {
         }
     }
 }
