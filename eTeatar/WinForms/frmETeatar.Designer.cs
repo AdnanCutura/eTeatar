@@ -40,6 +40,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.pnlUserControl = new System.Windows.Forms.Panel();
+            this.btnPostavke = new System.Windows.Forms.Button();
             this.pnlSidebarTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgAvatar)).BeginInit();
             this.pnlSidebarMenu.SuspendLayout();
@@ -80,6 +81,7 @@
             // pnlSidebarMenu
             // 
             this.pnlSidebarMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(20)))), ((int)(((byte)(44)))));
+            this.pnlSidebarMenu.Controls.Add(this.btnPostavke);
             this.pnlSidebarMenu.Controls.Add(this.btnGlumac);
             this.pnlSidebarMenu.Controls.Add(this.btnTeatarMeni);
             this.pnlSidebarMenu.Location = new System.Drawing.Point(-2, 219);
@@ -176,6 +178,20 @@
             this.pnlUserControl.Size = new System.Drawing.Size(1127, 566);
             this.pnlUserControl.TabIndex = 25;
             // 
+            // btnPostavke
+            // 
+            this.btnPostavke.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(10)))), ((int)(((byte)(50)))));
+            this.btnPostavke.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnPostavke.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPostavke.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnPostavke.Location = new System.Drawing.Point(0, 185);
+            this.btnPostavke.Name = "btnPostavke";
+            this.btnPostavke.Size = new System.Drawing.Size(197, 38);
+            this.btnPostavke.TabIndex = 24;
+            this.btnPostavke.Text = "Postavke";
+            this.btnPostavke.UseVisualStyleBackColor = false;
+            this.btnPostavke.Click += new System.EventHandler(this.BtnPostavke_Click);
+            // 
             // frmETeatar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -211,5 +227,6 @@
         private System.Windows.Forms.Label lblClose;
         private System.Windows.Forms.Label lblWinDown;
         private System.Windows.Forms.Button btnGlumac;
+        private System.Windows.Forms.Button btnPostavke;
     }
 }

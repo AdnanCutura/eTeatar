@@ -63,7 +63,7 @@ namespace WinForms.KorisnickiNalog
 
                 var admins = await _adminService.Get<List<DataTransferObjects.Administrator>>(null);
 
-                var admin = await _korisnickiNalogService.GetById<DataTransferObjects.KorisnickiNalog>(admins.FirstOrDefault().KorisnickiNalogId);
+                var admin = admins.FirstOrDefault(w => w.KorisnickoIme == APIService.Username);
 
                 bool formOpen = false;
 

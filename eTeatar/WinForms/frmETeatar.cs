@@ -24,20 +24,14 @@ namespace WinForms.Teatar
         [DllImport("User32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
-        private readonly DataTransferObjects.KorisnickiNalog _admin;
-
-        private readonly APIService _teatarService = new APIService("Teatar");
-        public frmETeatar(DataTransferObjects.KorisnickiNalog admin)
+        public frmETeatar(DataTransferObjects.Administrator admin)
         {
             InitializeComponent();
             PanelSwitcher.SetPanel(ref pnlUserControl);
+            AdminData.SetObjects(imgAvatar, lblImePrezime);
+            AdminData.Set(admin);
             //Default on top
             PanelSwitcher.setToTop(new uctTeatar());
-            _admin = admin;
-            lblImePrezime.Text = $"{admin.Ime} {admin.Prezime}";
-
-            if (admin.Slika.Length!=0)
-                imgAvatar.Image = Converters.ByteArrayToSystemDrawing(admin.Slika);
         }
 
 
@@ -74,6 +68,11 @@ namespace WinForms.Teatar
         private void BtnGlumac_Click(object sender, EventArgs e)
         {
             PanelSwitcher.setToTop(new Glumac.uctGlumac());
+        }
+
+        private void BtnPostavke_Click(object sender, EventArgs e)
+        {
+            PanelSwitcher.setToTop(new KorisnickiNalog.uctPostavke());
         }
     }
 }

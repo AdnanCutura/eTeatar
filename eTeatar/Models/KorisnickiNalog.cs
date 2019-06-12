@@ -10,10 +10,6 @@ namespace Models
         public string Prezime { get; set; }
         public byte[] Slika { get; set; }
 
-        public string Adresa { get; set; }
-        public string GradId { get; set; }
-        public virtual Grad Grad { get; set; }
-
         public string KorisnickaUlogaId { get; set; }
         public virtual KorisnickaUloga KorisnickaUloga { get; set; }
 

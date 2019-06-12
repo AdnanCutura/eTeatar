@@ -14,7 +14,14 @@ namespace WinForms.Helpers
         {
             MemoryStream ms = new MemoryStream(byteArrayIn, 0, byteArrayIn.Length);
             ms.Write(byteArrayIn, 0, byteArrayIn.Length);
-            return Image.FromStream(ms, true);//Exception occurs here
+            return Image.FromStream(ms, true);
+        }
+
+        public static byte[] SystemDrawingToByteArray(System.Drawing.Image img)
+        {
+            MemoryStream stream = new MemoryStream();
+            img.Save(stream, img.RawFormat);
+            return stream.ToArray();
         }
     }
 }

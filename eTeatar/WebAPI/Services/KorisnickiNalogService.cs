@@ -58,8 +58,11 @@ namespace WebAPI.Services
                 throw new Exception("Passwordi se ne slažu");
             }
 
-            entity.LozinkaSalt = GenerateSalt();
-            entity.LozinkaHash = GenerateHash(entity.LozinkaSalt, request.Password);
+            if (!string.IsNullOrEmpty(request.Password)){
+                entity.LozinkaSalt = GenerateSalt();
+                entity.LozinkaHash = GenerateHash(entity.LozinkaSalt, request.Password);
+            }
+
             Mapper.Map(request, entity);
 
             return Mapper.Map<KorisnickiNalog>(Repository.Update(entity));

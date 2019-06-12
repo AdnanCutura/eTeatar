@@ -57,6 +57,9 @@ namespace WinForms.Glumac
                 request.Prezime = txbPrezime.Text;
                 request.SpolId = cmbSpol.SelectedValue.ToString();
 
+                if (request.Slika == null)
+                    request.Slika = Converters.SystemDrawingToByteArray(pictureBox1.Image);
+
                 DataTransferObjects.Glumac entity;
 
                 if (!string.IsNullOrEmpty(_id))
@@ -85,8 +88,12 @@ namespace WinForms.Glumac
 
         private void BtnDodajSliku_Click(object sender, EventArgs e)
         {
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-                request.Slika = File.ReadAllBytes(openFileDialog1.FileName);
+            if (openFileDialog1.ShowDialog() != DialogResult.OK)
+                return;
+
+            byte[] v = File.ReadAllBytes(openFileDialog1.FileName);
+            request.Slika = v;
+            pictureBox1.Image = Converters.ByteArrayToSystemDrawing(File.ReadAllBytes(openFileDialog1.FileName));
         }
 
         private void TxbIme_Validating(object sender, CancelEventArgs e)

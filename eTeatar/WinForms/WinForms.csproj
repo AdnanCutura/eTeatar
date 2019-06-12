@@ -75,12 +75,19 @@
     <Compile Include="Glumac\uctGlumac.Designer.cs">
       <DependentUpon>uctGlumac.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\AdminData.cs" />
     <Compile Include="Helpers\Converters.cs" />
-    <Compile Include="Korisnicki nalog\frmLogin.cs">
+    <Compile Include="KorisnickiNalog\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Korisnicki nalog\frmLogin.Designer.cs">
+    <Compile Include="KorisnickiNalog\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KorisnickiNalog\uctPostavke.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="KorisnickiNalog\uctPostavke.Designer.cs">
+      <DependentUpon>uctPostavke.cs</DependentUpon>
     </Compile>
     <Compile Include="PanelSwitcher.cs" />
     <Compile Include="Program.cs" />
@@ -114,8 +121,11 @@
     <EmbeddedResource Include="Glumac\uctGlumac.resx">
       <DependentUpon>uctGlumac.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Korisnicki nalog\frmLogin.resx">
+    <EmbeddedResource Include="KorisnickiNalog\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KorisnickiNalog\uctPostavke.resx">
+      <DependentUpon>uctPostavke.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
