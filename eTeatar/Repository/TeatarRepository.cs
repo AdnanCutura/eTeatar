@@ -17,9 +17,8 @@ namespace Repository
             IQueryable<Teatar> query = Context.Set<Teatar>().AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(search.GradId))
-            {
                 query = query.Where(x => x.GradId == search.GradId);
-            }
+            
 
             query = query.OrderBy(x => x.Naziv);
             IEnumerable<Teatar> list = query

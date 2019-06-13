@@ -10,8 +10,8 @@ using Repository;
 namespace Repository.Migrations
 {
     [DbContext(typeof(eTeatarContext))]
-    [Migration("20190611122110_spol")]
-    partial class spol
+    [Migration("20190612211951_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -33,20 +33,6 @@ namespace Repository.Migrations
                     b.HasIndex("KorisnickiNalogId");
 
                     b.ToTable("Administrator");
-                });
-
-            modelBuilder.Entity("Models.Avatar", b =>
-                {
-                    b.Property<string>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<bool>("IsDeleted");
-
-                    b.Property<string>("Link");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Avatar");
                 });
 
             modelBuilder.Entity("Models.Drzava", b =>
@@ -116,7 +102,7 @@ namespace Repository.Migrations
 
                     b.Property<string>("Prezime");
 
-                    b.Property<string>("SlikaLink");
+                    b.Property<byte[]>("Slika");
 
                     b.Property<string>("SpolId");
 
@@ -186,10 +172,6 @@ namespace Repository.Migrations
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Adresa");
-
-                    b.Property<string>("AvatarId");
-
                     b.Property<DateTime>("DatumKreiranja");
 
                     b.Property<string>("Email");
@@ -210,11 +192,11 @@ namespace Repository.Migrations
 
                     b.Property<string>("Prezime");
 
+                    b.Property<byte[]>("Slika");
+
                     b.Property<string>("Telefon");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AvatarId");
 
                     b.HasIndex("GradId");
 
@@ -288,7 +270,7 @@ namespace Repository.Migrations
 
                     b.Property<string>("Sadrzaj");
 
-                    b.Property<string>("SlikaLink");
+                    b.Property<byte[]>("Slika");
 
                     b.HasKey("Id");
 
@@ -332,9 +314,11 @@ namespace Repository.Migrations
 
                     b.Property<string>("Opis");
 
+                    b.Property<string>("PisacIzvornogDjela");
+
                     b.Property<string>("ReziserImePrezime");
 
-                    b.Property<string>("SlikaLink");
+                    b.Property<byte[]>("Slika");
 
                     b.Property<string>("Trajanje");
 
@@ -567,12 +551,7 @@ namespace Repository.Migrations
 
             modelBuilder.Entity("Models.KorisnickiNalog", b =>
                 {
-                    b.HasOne("Models.Avatar", "Avatar")
-                        .WithMany()
-                        .HasForeignKey("AvatarId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("Models.Grad", "Grad")
+                    b.HasOne("Models.Grad")
                         .WithMany("Korisnici")
                         .HasForeignKey("GradId")
                         .OnDelete(DeleteBehavior.Restrict);

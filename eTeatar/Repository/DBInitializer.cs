@@ -161,14 +161,14 @@ namespace Repository
             context.SaveChanges();
 
 
-            Predstava Predstava1 = new Predstava { Naziv = "Waitress", Trajanje = "120min", ReziserImePrezime = "ReziserIme ReziserPrezime", NazivIzvornogDjela = "Naziv Izvornog Djela", SlikaLink = "/images/Predstave/Waitress.jpg" };
-            Predstava Predstava2 = new Predstava { Naziv = "Wicked", Trajanje = "130min", ReziserImePrezime = "ReziserIme ReziserPrezime", NazivIzvornogDjela = "Naziv Izvornog Djela", SlikaLink = "/images/Predstave/Wicked.jpg" };
-            Predstava Predstava3 = new Predstava { Naziv = "Aint Too Proud", Trajanje = "115min", ReziserImePrezime = "ReziserIme ReziserPrezime", NazivIzvornogDjela = "Naziv Izvornog Djela", SlikaLink = "/images/Predstave/AintTooProud.jpg" };
-            Predstava Predstava4 = new Predstava { Naziv = "Be More Chill", Trajanje = "100min", ReziserImePrezime = "ReziserIme ReziserPrezime", NazivIzvornogDjela = "Naziv Izvornog Djela", SlikaLink = "/images/Predstave/BeMoreChill.jpg" };
-            Predstava Predstava5 = new Predstava { Naziv = "The Lion King", Trajanje = "145min", ReziserImePrezime = "ReziserIme ReziserPrezime", NazivIzvornogDjela = "Naziv Izvornog Djela", SlikaLink = "/images/Predstave/TheLionKing.jpg" };
-            Predstava Predstava6 = new Predstava { Naziv = "Pretty Woman", Trajanje = "120min", ReziserImePrezime = "ReziserIme ReziserPrezime", NazivIzvornogDjela = "Naziv Izvornog Djela", SlikaLink = "/images/Predstave/PrettyWoman.jpg" };
-            Predstava Predstava7 = new Predstava { Naziv = "Little Mermaid", Trajanje = "100min", ReziserImePrezime = "ReziserIme ReziserPrezime", NazivIzvornogDjela = "Naziv Izvornog Djela", SlikaLink = "/images/Predstave/LittleMermaid.jpg" };
-            Predstava Predstava8 = new Predstava { Naziv = "The Wizard of OZ", Trajanje = "100min", ReziserImePrezime = "ReziserIme ReziserPrezime", NazivIzvornogDjela = "Naziv Izvornog Djela", SlikaLink = "/images/Predstave/TheWizardOfOz.jpg" };
+            Predstava Predstava1 = new Predstava { Naziv = "Waitress", Trajanje = "120min", ReziserImePrezime = "ReziserIme ReziserPrezime", NazivIzvornogDjela = "Naziv Izvornog Djela", PisacIzvornogDjela = "Pisac1" };
+            Predstava Predstava2 = new Predstava { Naziv = "Wicked", Trajanje = "130min", ReziserImePrezime = "ReziserIme ReziserPrezime", NazivIzvornogDjela = "Naziv Izvornog Djela", PisacIzvornogDjela = "Pisac1",  };
+            Predstava Predstava3 = new Predstava { Naziv = "Aint Too Proud", Trajanje = "115min", ReziserImePrezime = "ReziserIme ReziserPrezime", NazivIzvornogDjela = "Naziv Izvornog Djela", PisacIzvornogDjela = "Pisac1" };
+            Predstava Predstava4 = new Predstava { Naziv = "Be More Chill", Trajanje = "100min", ReziserImePrezime = "ReziserIme ReziserPrezime", NazivIzvornogDjela = "Naziv Izvornog Djela", PisacIzvornogDjela = "Pisac1"};
+            Predstava Predstava5 = new Predstava { Naziv = "The Lion King", Trajanje = "145min", ReziserImePrezime = "ReziserIme ReziserPrezime", NazivIzvornogDjela = "Naziv Izvornog Djela", PisacIzvornogDjela = "Pisac1"};
+            Predstava Predstava6 = new Predstava { Naziv = "Pretty Woman", Trajanje = "120min", ReziserImePrezime = "ReziserIme ReziserPrezime", NazivIzvornogDjela = "Naziv Izvornog Djela", PisacIzvornogDjela = "Pisac1"};
+            Predstava Predstava7 = new Predstava { Naziv = "Little Mermaid", Trajanje = "100min", ReziserImePrezime = "ReziserIme ReziserPrezime", NazivIzvornogDjela = "Naziv Izvornog Djela", PisacIzvornogDjela = "Pisac1"};
+            Predstava Predstava8 = new Predstava { Naziv = "The Wizard of OZ", Trajanje = "100min", ReziserImePrezime = "ReziserIme ReziserPrezime", NazivIzvornogDjela = "Naziv Izvornog Djela", PisacIzvornogDjela = "Pisac1"};
 
             Predstava1.Opis = Predstava2.Opis = Predstava3.Opis = Predstava4.Opis = Predstava5.Opis = Predstava6.Opis = Predstava7.Opis = Predstava8.Opis =
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " +

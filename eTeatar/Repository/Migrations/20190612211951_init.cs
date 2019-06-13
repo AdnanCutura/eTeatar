@@ -8,19 +8,6 @@ namespace Repository.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Avatar",
-                columns: table => new
-                {
-                    Id = table.Column<string>(nullable: false),
-                    Link = table.Column<string>(nullable: true),
-                    IsDeleted = table.Column<bool>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Avatar", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Drzava",
                 columns: table => new
                 {
@@ -31,22 +18,6 @@ namespace Repository.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Drzava", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Glumac",
-                columns: table => new
-                {
-                    Id = table.Column<string>(nullable: false),
-                    Ime = table.Column<string>(nullable: true),
-                    Prezime = table.Column<string>(nullable: true),
-                    SlikaLink = table.Column<string>(nullable: true),
-                    Biografija = table.Column<string>(nullable: true),
-                    IsDeleted = table.Column<bool>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Glumac", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -67,16 +38,30 @@ namespace Repository.Migrations
                 {
                     Id = table.Column<string>(nullable: false),
                     Naziv = table.Column<string>(nullable: true),
-                    SlikaLink = table.Column<string>(nullable: true),
+                    Slika = table.Column<byte[]>(nullable: true),
                     Trajanje = table.Column<string>(nullable: true),
                     Opis = table.Column<string>(nullable: true),
                     ReziserImePrezime = table.Column<string>(nullable: true),
                     NazivIzvornogDjela = table.Column<string>(nullable: true),
+                    PisacIzvornogDjela = table.Column<string>(nullable: true),
                     IsDeleted = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Predstava", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Spol",
+                columns: table => new
+                {
+                    Id = table.Column<string>(nullable: false),
+                    Naziv = table.Column<string>(nullable: true),
+                    IsDeleted = table.Column<bool>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Spol", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -150,29 +135,24 @@ namespace Repository.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Uloga",
+                name: "Glumac",
                 columns: table => new
                 {
                     Id = table.Column<string>(nullable: false),
-                    Naziv = table.Column<string>(nullable: true),
-                    IsGlavnaUloga = table.Column<bool>(nullable: false),
-                    PredstavaId = table.Column<string>(nullable: true),
-                    GlumacId = table.Column<string>(nullable: true),
+                    Ime = table.Column<string>(nullable: true),
+                    Prezime = table.Column<string>(nullable: true),
+                    Slika = table.Column<byte[]>(nullable: true),
+                    Biografija = table.Column<string>(nullable: true),
+                    SpolId = table.Column<string>(nullable: true),
                     IsDeleted = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Uloga", x => x.Id);
+                    table.PrimaryKey("PK_Glumac", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Uloga_Glumac_GlumacId",
-                        column: x => x.GlumacId,
-                        principalTable: "Glumac",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Uloga_Predstava_PredstavaId",
-                        column: x => x.PredstavaId,
-                        principalTable: "Predstava",
+                        name: "FK_Glumac_Spol_SpolId",
+                        column: x => x.SpolId,
+                        principalTable: "Spol",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -210,9 +190,7 @@ namespace Repository.Migrations
                     Id = table.Column<string>(nullable: false),
                     Ime = table.Column<string>(nullable: true),
                     Prezime = table.Column<string>(nullable: true),
-                    AvatarId = table.Column<string>(nullable: true),
-                    Adresa = table.Column<string>(nullable: true),
-                    GradId = table.Column<string>(nullable: true),
+                    Slika = table.Column<byte[]>(nullable: true),
                     KorisnickaUlogaId = table.Column<string>(nullable: true),
                     Email = table.Column<string>(nullable: true),
                     Telefon = table.Column<string>(nullable: true),
@@ -220,17 +198,12 @@ namespace Repository.Migrations
                     LozinkaHash = table.Column<string>(nullable: true),
                     LozinkaSalt = table.Column<string>(nullable: true),
                     DatumKreiranja = table.Column<DateTime>(nullable: false),
-                    IsDeleted = table.Column<bool>(nullable: false)
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    GradId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_KorisnickiNalog", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_KorisnickiNalog_Avatar_AvatarId",
-                        column: x => x.AvatarId,
-                        principalTable: "Avatar",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_KorisnickiNalog_Grad_GradId",
                         column: x => x.GradId,
@@ -266,6 +239,34 @@ namespace Repository.Migrations
                         name: "FK_Teatar_Grad_GradId",
                         column: x => x.GradId,
                         principalTable: "Grad",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Uloga",
+                columns: table => new
+                {
+                    Id = table.Column<string>(nullable: false),
+                    Naziv = table.Column<string>(nullable: true),
+                    IsGlavnaUloga = table.Column<bool>(nullable: false),
+                    PredstavaId = table.Column<string>(nullable: true),
+                    GlumacId = table.Column<string>(nullable: true),
+                    IsDeleted = table.Column<bool>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Uloga", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Uloga_Glumac_GlumacId",
+                        column: x => x.GlumacId,
+                        principalTable: "Glumac",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Uloga_Predstava_PredstavaId",
+                        column: x => x.PredstavaId,
+                        principalTable: "Predstava",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -341,7 +342,7 @@ namespace Repository.Migrations
                     Naslov = table.Column<string>(nullable: true),
                     DatumVrijeme = table.Column<DateTime>(nullable: false),
                     Sadrzaj = table.Column<string>(nullable: true),
-                    SlikaLink = table.Column<string>(nullable: true),
+                    Slika = table.Column<byte[]>(nullable: true),
                     AdministratorId = table.Column<string>(nullable: true),
                     IsDeleted = table.Column<bool>(nullable: false)
                 },
@@ -518,6 +519,11 @@ namespace Repository.Migrations
                 column: "TipSjedistaId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Glumac_SpolId",
+                table: "Glumac",
+                column: "SpolId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Grad_DrzavaId",
                 table: "Grad",
                 column: "DrzavaId");
@@ -531,11 +537,6 @@ namespace Repository.Migrations
                 name: "IX_Komentar_ObavijestId",
                 table: "Komentar",
                 column: "ObavijestId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_KorisnickiNalog_AvatarId",
-                table: "KorisnickiNalog",
-                column: "AvatarId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_KorisnickiNalog_GradId",
@@ -667,6 +668,9 @@ namespace Repository.Migrations
                 name: "TipSjedista");
 
             migrationBuilder.DropTable(
+                name: "Spol");
+
+            migrationBuilder.DropTable(
                 name: "KorisnickiNalog");
 
             migrationBuilder.DropTable(
@@ -677,9 +681,6 @@ namespace Repository.Migrations
 
             migrationBuilder.DropTable(
                 name: "Predstava");
-
-            migrationBuilder.DropTable(
-                name: "Avatar");
 
             migrationBuilder.DropTable(
                 name: "KorisnickaUloga");

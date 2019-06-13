@@ -7,6 +7,8 @@ namespace DataTransferObjects.Requests
     {
         public string Naziv { get; set; }
 
+        public string TeatarId { get; set; }
+
         public DateTime? DatumOd { get; set; }
         public DateTime? DatumDo { get; set; }
 
@@ -15,6 +17,7 @@ namespace DataTransferObjects.Requests
         public Enums.OrderBy Order { get; set; }
         public Enums.PredstavaOrderBy OrderBy { get; set; }
 
+        public bool AreAktualnePredstave { get; set; }
         public virtual List<string> Zanrovi { get; set; }
     }
 }

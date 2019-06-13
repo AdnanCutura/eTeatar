@@ -268,7 +268,7 @@ namespace Repository.Migrations
 
                     b.Property<string>("Sadrzaj");
 
-                    b.Property<string>("SlikaLink");
+                    b.Property<byte[]>("Slika");
 
                     b.HasKey("Id");
 
@@ -312,9 +312,11 @@ namespace Repository.Migrations
 
                     b.Property<string>("Opis");
 
+                    b.Property<string>("PisacIzvornogDjela");
+
                     b.Property<string>("ReziserImePrezime");
 
-                    b.Property<string>("SlikaLink");
+                    b.Property<byte[]>("Slika");
 
                     b.Property<string>("Trajanje");
 

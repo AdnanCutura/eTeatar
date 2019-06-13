@@ -25,7 +25,7 @@ namespace WebAPI.Services
             foreach (var result in queryresult)
                 result.Zanrovi = _zanrService.Get(new DataTransferObjects.Requests.ZanrSearchRequest { PredstavaId = result.Id });
 
-            return queryresult;
+           return queryresult;
         }
 
         public override Predstava GetById(string id)
