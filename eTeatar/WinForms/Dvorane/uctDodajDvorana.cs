@@ -108,13 +108,13 @@ namespace WinForms.Dvorane
 
                 if (!updated && brojSjedista !=0)
                     await _dvoranaTipSjedistaService.Insert<DataTransferObjects.DvoranaTipSjedista>(new DataTransferObjects.Requests.DvoranaTipSjedistaUpsertRequest {BrojSjedista = brojSjedista, DvoranaId = response.Id, TipSjedistaId = id});
+            }
 
-                if (response != null)
-                {
-                    MessageBox.Show("Uspješno izvršeno");
-                    PanelSwitcher.RemoveControl(this);
-                    PanelSwitcher.setToTop(new uctDvorana());
-                }
+            if (response != null)
+            {
+                MessageBox.Show("Uspješno izvršeno");
+                PanelSwitcher.RemoveControl(this);
+                PanelSwitcher.setToTop(new uctDvorana());
             }
         }
 
