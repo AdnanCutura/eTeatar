@@ -8,9 +8,9 @@ using WebAPI.Services.Interfaces;
 
 namespace WebAPI.Controllers
 {
-    public class PredstavaZanrController : CrudController<DataTransferObjects.PredstavaZanr, object, DataTransferObjects.Requests.PredstavaZanrUpsertRequest, DataTransferObjects.Requests.PredstavaZanrUpsertRequest>
+    public class PredstavaZanrController : CrudController<DataTransferObjects.PredstavaZanr, PredstavaZanrSearchRequest, DataTransferObjects.Requests.PredstavaZanrUpsertRequest, DataTransferObjects.Requests.PredstavaZanrUpsertRequest>
     {
-        public PredstavaZanrController(ICrudService<PredstavaZanr, object, PredstavaZanrUpsertRequest, PredstavaZanrUpsertRequest> service) : base(service)
+        public PredstavaZanrController(ICrudService<PredstavaZanr, PredstavaZanrSearchRequest, PredstavaZanrUpsertRequest, PredstavaZanrUpsertRequest> service) : base(service)
         {
         }
     }

@@ -10,9 +10,9 @@ using WebAPI.Services.Interfaces;
 
 namespace WebAPI.Controllers
 {
-    public class UlogaController : CrudController<DataTransferObjects.Uloga,object, UlogaUpsertRequest, UlogaUpsertRequest>
+    public class UlogaController : CrudController<DataTransferObjects.Uloga,UlogaSearchRequest, UlogaUpsertRequest, UlogaUpsertRequest>
     {
-        public UlogaController(ICrudService<Uloga, object, UlogaUpsertRequest, UlogaUpsertRequest> service) : base(service)
+        public UlogaController(ICrudService<Uloga, UlogaSearchRequest, UlogaUpsertRequest, UlogaUpsertRequest> service) : base(service)
         {
         }
     }

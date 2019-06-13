@@ -60,8 +60,8 @@ namespace WebAPI
                 typeof(DvoranaService));
             services.AddScoped(typeof(ICrudService<DataTransferObjects.Obavijest, ObavijestSearchRequest, ObavijestUpsertRequest, ObavijestUpsertRequest>),
                 typeof(ObavijestService));
-            services.AddScoped(typeof(ICrudService<DataTransferObjects.Uloga, object, UlogaUpsertRequest, UlogaUpsertRequest>),
-                typeof(CrudService<DataTransferObjects.Uloga, object, Models.Uloga, UlogaUpsertRequest, UlogaUpsertRequest>));
+            services.AddScoped(typeof(ICrudService<DataTransferObjects.Uloga, UlogaSearchRequest, UlogaUpsertRequest, UlogaUpsertRequest>),
+                typeof(CrudService<DataTransferObjects.Uloga, UlogaSearchRequest, Models.Uloga, UlogaUpsertRequest, UlogaUpsertRequest>));
             services.AddScoped(typeof(ICrudService<DataTransferObjects.TipSjedista, object, TipSjedistaUpsertRequest, TipSjedistaUpsertRequest>),
                 typeof(CrudService<DataTransferObjects.TipSjedista, object, Models.TipSjedista, TipSjedistaUpsertRequest, TipSjedistaUpsertRequest>));
             services.AddScoped(typeof(IBaseService<DataTransferObjects.Drzava, object>),
@@ -70,10 +70,10 @@ namespace WebAPI
                 typeof(BaseService<DataTransferObjects.Grad, GradSearchRequest, Models.Grad>));
             services.AddScoped(typeof(ICrudService<DataTransferObjects.Termin, object, TerminUpsertRequest, TerminUpsertRequest>),
                 typeof(CrudService<DataTransferObjects.Termin, object, Models.Termin, TerminUpsertRequest, TerminUpsertRequest>));
-            services.AddScoped(typeof(ICrudService<DataTransferObjects.Narudzba, object, NarudzbaInsertRequest, object>),
+            services.AddScoped(typeof(ICrudService<DataTransferObjects.Narudzba, NarudzbaSearchRequest, NarudzbaInsertRequest, object>),
                 typeof(NarudzbaService));
             services.AddScoped(typeof(ICrudService<DataTransferObjects.Predstava, PredstavaSearchRequest, PredstavaUpsertRequest, PredstavaUpsertRequest>),
-                typeof(CrudService<DataTransferObjects.Predstava, PredstavaSearchRequest, Models.Predstava, PredstavaUpsertRequest, PredstavaUpsertRequest>));
+                typeof(PredstavaService));
             services.AddScoped(typeof(ICrudService<DataTransferObjects.DvoranaTipSjedista, DvoranaTipSjedistaSearchRequest, DvoranaTipSjedistaUpsertRequest, DvoranaTipSjedistaUpsertRequest>),
                 typeof(CrudService<DataTransferObjects.DvoranaTipSjedista, DvoranaTipSjedistaSearchRequest, Models.DvoranaTipSjedista, DvoranaTipSjedistaUpsertRequest, DvoranaTipSjedistaUpsertRequest>));
             services.AddScoped(typeof(ICrudService<DataTransferObjects.Glumac, GlumacSearchRequest, GlumacUpsertRequest, GlumacUpsertRequest>),
@@ -95,15 +95,15 @@ namespace WebAPI
               typeof(BaseService<DataTransferObjects.TipKorisnika, TipKorisnikaSearchRequest, TipKorisnika>));
             services.AddScoped(typeof(IBaseService<DataTransferObjects.Zanr, ZanrSearchRequest>),
                 typeof(BaseService<DataTransferObjects.Zanr, ZanrSearchRequest, Models.Zanr>));
-            services.AddScoped(typeof(ICrudService<DataTransferObjects.PredstavaZanr, object, DataTransferObjects.Requests.PredstavaZanrUpsertRequest, DataTransferObjects.Requests.PredstavaZanrUpsertRequest>),
-                typeof(CrudService<DataTransferObjects.PredstavaZanr, object, Models.PredstavaZanr, DataTransferObjects.Requests.PredstavaZanrUpsertRequest, DataTransferObjects.Requests.PredstavaZanrUpsertRequest>));
+            services.AddScoped(typeof(ICrudService<DataTransferObjects.PredstavaZanr, PredstavaZanrSearchRequest, DataTransferObjects.Requests.PredstavaZanrUpsertRequest, DataTransferObjects.Requests.PredstavaZanrUpsertRequest>),
+                typeof(CrudService<DataTransferObjects.PredstavaZanr, DataTransferObjects.Requests.PredstavaZanrSearchRequest, Models.PredstavaZanr, DataTransferObjects.Requests.PredstavaZanrUpsertRequest, DataTransferObjects.Requests.PredstavaZanrUpsertRequest>));
             // Add Repository
             services.AddScoped(typeof(IRepository<Teatar, TeatarSearchRequest>), typeof(TeatarRepository));
             services.AddScoped(typeof(IRepository<Dvorana, DvoranaSearchRequest>), typeof(DvoranaRepository));
             services.AddScoped(typeof(IRepository<Obavijest, ObavijestSearchRequest>), typeof(ObavijestRepository));
             services.AddScoped(typeof(IRepository<Predstava, PredstavaSearchRequest>), typeof(PredstavaRepository));
-            services.AddScoped(typeof(IRepository<Uloga, object>), typeof(Repository<Uloga, object>));
-            services.AddScoped(typeof(IRepository<Narudzba, object>), typeof(Repository<Narudzba, object>));
+            services.AddScoped(typeof(IRepository<Uloga, UlogaSearchRequest>), typeof(UlogaRepository));
+            services.AddScoped(typeof(IRepository<Narudzba, NarudzbaSearchRequest>), typeof(NarudzbaRepository));
             services.AddScoped(typeof(IRepository<TipSjedista, object>), typeof(Repository<TipSjedista, object>));
             services.AddScoped(typeof(IRepository<Drzava, object>), typeof(Repository<Drzava, object>));
             services.AddScoped(typeof(IRepository<Grad, GradSearchRequest>), typeof(GradRepository));
@@ -118,7 +118,7 @@ namespace WebAPI
             services.AddScoped(typeof(IRepository<KorisnickaUloga, KorisnickaUlogaSearchRequest>), typeof(KorisnickeUlogeRepository));
             services.AddScoped(typeof(IRepository<TipKorisnika, TipKorisnikaSearchRequest>), typeof(TipKorisnikaRepository));
             services.AddScoped(typeof(IRepository<Zanr, ZanrSearchRequest>), typeof(ZanrRepository));
-            services.AddScoped(typeof(IRepository<PredstavaZanr, object>), typeof(Repository<PredstavaZanr,object>));
+            services.AddScoped(typeof(IRepository<PredstavaZanr, PredstavaZanrSearchRequest>), typeof(PredstavaZanrRepository));
             services.AddScoped(typeof(IRepository<Spol, object>), typeof(Repository<Spol,object>));
 
             // Register the Swagger generator, def 1 or more Swagger documents

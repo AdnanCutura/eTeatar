@@ -11,7 +11,7 @@ namespace DataTransferObjects
 
         public bool IsGlavnaUloga { get; set; }
 
-        public string PredstavaId { get; set; }
-        public string GlumacId { get; set; }
+        public Glumac Glumac { get; set; }
+        public Predstava Predstava { get; set; }
     }
 }

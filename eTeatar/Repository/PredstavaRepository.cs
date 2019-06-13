@@ -18,16 +18,18 @@ namespace Repository
         {
             IQueryable<Models.Predstava> query = Context.Set<Models.Predstava>().AsQueryable();
             //Samo predstave koje igraju u buducnosti
-            if (search.AreAktualnePredstave)
-                query = query.Where(w => w.Termini.Any(q => q.DatumVrijeme > DateTime.Now));
+            //if (search.AreAktualnePredstave)
+            //    query = query.Where(w => w.Termini.Any(q => q.DatumVrijeme > DateTime.Now));
 
             //Filter po nazivu
             if (!string.IsNullOrWhiteSpace(search?.Naziv))
                 query = query.Where(w => w.Naziv.ToUpper().Contains(search.Naziv.ToUpper()));
 
             //Filter po datumu
-            query = query.Where(w => Context.Termin.Any(q => q.PredstavaId == w.Id && q.DatumVrijeme >= (search.DatumOd ?? DateTime.MinValue)));
-            query = query.Where(w => Context.Termin.Any(q => q.PredstavaId == w.Id && q.DatumVrijeme <= (search.DatumDo ?? DateTime.MaxValue)));
+            if (search?.DatumOd != null)
+                query = query.Where(w => Context.Termin.Any(q => q.PredstavaId == w.Id && q.DatumVrijeme >= (search.DatumOd ?? DateTime.MinValue)));
+            if (search?.DatumDo != null)
+                query = query.Where(w => Context.Termin.Any(q => q.PredstavaId == w.Id && q.DatumVrijeme <= (search.DatumDo ?? DateTime.MaxValue)));
 
             //Filter po ocjeni
             query = query.Where(w => (Context.Narudzba.Where(q => q.Termin.PredstavaId == w.Id).Average(a => (double?)a.Ocjena.Vrijednost) ?? 0) >= (search.Ocjena ?? 0));
@@ -62,9 +64,13 @@ namespace Repository
                     break;
             }
 
-            IEnumerable<Models.Predstava> list = query
-                .Include(p => p.Uloge)
-                .ToList();
+            query = query.Include(p => p.Uloge);
+
+            foreach (var item in query)
+                foreach (var uloga in item.Uloge)
+                    uloga.Glumac = Context.Uloga.Where(w => w.Id == uloga.Id).Select(s => s.Glumac).FirstOrDefault();
+
+            IEnumerable<Models.Predstava> list = query.ToList();
 
             return list;
         }
@@ -76,6 +82,10 @@ namespace Repository
 
             query = query.Include(i => i.Uloge);
             query = query.Include(i => i.Termini);
+
+            foreach (var item in query)
+                foreach (var uloga in item.Uloge)
+                    uloga.Glumac = Context.Uloga.Where(w => w.Id == uloga.Id).Select(s => s.Glumac).FirstOrDefault();
 
             return query.FirstOrDefault();
         }

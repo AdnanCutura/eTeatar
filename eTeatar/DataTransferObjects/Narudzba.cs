@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -8,18 +9,20 @@ namespace DataTransferObjects
     {
         public string Id { get; set; }
 
+        [JsonIgnore]
         public string KupacId { get; set; }
+        public Kupac Kupac { get; set; }
 
-        public string TerminId { get; set; }
+        public Termin Termin { get; set; }
 
-        public string TipSjedistaId { get; set; }
+        public TipSjedista TipSjedista { get; set; }
 
         public double CijenaKarte { get; set; }
 
-        public string Kolicina { get; set; }
+        public int Kolicina { get; set; }
 
         public DateTime DatumKupovine { get; set; }
 
-        public string OcjenaId { get; set; }
+        public Ocjena Ocjena { get; set; }
     }
 }

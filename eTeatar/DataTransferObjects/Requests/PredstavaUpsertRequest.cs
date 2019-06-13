@@ -14,9 +14,5 @@ namespace DataTransferObjects.Requests
         public string NazivIzvornogDjela { get; set; }
         public string PisacIzvornogDjela { get; set; }
 
-
-        public virtual List<string> Uloge { get; set; }
-
-        public virtual List<string> Zanrovi { get; set; }
     }
 }
