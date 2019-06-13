@@ -101,9 +101,14 @@ namespace WinForms.Dvorane
 
                 foreach (var tipsjedista in response.TipoviSjedista)
                 {
-                    if (tipsjedista.TipSjedistaId == row.Cells["idDataGridViewTextBoxColumn"].Value.ToString() && brojSjedista!=0)
-                        await _dvoranaTipSjedistaService.Update<DataTransferObjects.DvoranaTipSjedista>(tipsjedista.Id, new DataTransferObjects.Requests.DvoranaTipSjedistaUpsertRequest { BrojSjedista = brojSjedista, DvoranaId = response.Id, TipSjedistaId = id });
-                    updated = true;
+                    if (tipsjedista.TipSjedistaId == row.Cells["idDataGridViewTextBoxColumn"].Value.ToString())
+                    {
+                        if (brojSjedista != 0)
+                            await _dvoranaTipSjedistaService.Update<DataTransferObjects.DvoranaTipSjedista>(tipsjedista.Id, new DataTransferObjects.Requests.DvoranaTipSjedistaUpsertRequest { BrojSjedista = brojSjedista, DvoranaId = response.Id, TipSjedistaId = id });
+                        else
+                            await _dvoranaTipSjedistaService.Delete<dynamic>(tipsjedista.Id);
+                        updated = true;
+                    }
                 }
 
                 if (!updated && brojSjedista !=0)

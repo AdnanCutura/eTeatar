@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using DataTransferObjects;
 using DataTransferObjects.Requests;
 using Models;
 using Repository;
@@ -17,7 +18,7 @@ namespace WebAPI.Services
         private readonly ICrudService<Termin, TerminSearchRequest, TerminUpsertRequest, TerminUpsertRequest> _terminiService;
         private readonly ICrudService<DvoranaTipSjedista, DvoranaTipSjedistaSearchRequest, DvoranaTipSjedistaUpsertRequest, DvoranaTipSjedistaUpsertRequest> _dvoranaTipSjedistaService;
 
-        public DvoranaService(IMapper mapper, IRepository<Dvorana, DvoranaSearchRequest> repository, ICrudService<Termin, TerminSearchRequest, TerminUpsertRequest, TerminUpsertRequest> terminiService, ICrudService<DvoranaTipSjedista, DvoranaTipSjedistaSearchRequest, DvoranaTipSjedistaUpsertRequest, DvoranaTipSjedistaUpsertRequest> dvoranaTipSjedistaService) : base(mapper, repository)
+        public DvoranaService(IMapper mapper, IRepository<Models.Dvorana, DvoranaSearchRequest> repository, ICrudService<Termin, TerminSearchRequest, TerminUpsertRequest, TerminUpsertRequest> terminiService, ICrudService<DvoranaTipSjedista, DvoranaTipSjedistaSearchRequest, DvoranaTipSjedistaUpsertRequest, DvoranaTipSjedistaUpsertRequest> dvoranaTipSjedistaService) : base(mapper, repository)
         {
             _terminiService = terminiService;
             _dvoranaTipSjedistaService = dvoranaTipSjedistaService;
@@ -54,6 +55,12 @@ namespace WebAPI.Services
             });
 
             return dvorana;
+        }
+
+        public override DataTransferObjects.Dvorana Update(string id, DvoranaUpsertRequest request)
+        {
+            base.Update(id, request);
+            return GetById(id);
         }
     }
 }
