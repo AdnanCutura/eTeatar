@@ -91,6 +91,9 @@ namespace WebAPI.Mappers
             //Tip korisnika
             CreateMap<Models.TipKorisnika, DataTransferObjects.TipKorisnika>();
 
+            // Ocjena
+            CreateMap<Models.Ocjena, DataTransferObjects.Ocjena>();
+
         }
     }
 }
