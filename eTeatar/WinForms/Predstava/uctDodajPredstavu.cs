@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 using DataTransferObjects.Requests;
 using WinForms.Helpers;
 
@@ -16,7 +17,11 @@ namespace WinForms.Predstava
     public partial class uctDodajPredstavu : UserControl
     {
         private readonly APIService _predstavaService = new APIService("Predstava");
-        private readonly APIService _teatarService = new APIService("Teatar");
+        private readonly APIService _zanrService = new APIService("Zanr");
+        private readonly APIService _glumacService = new APIService("Glumac");
+        private readonly APIService _predstavaZanrService = new APIService("PredstavaZanr");
+        private readonly APIService _ulogaService = new APIService("Uloga");
+
         private readonly PredstavaUpsertRequest _request;
         private readonly DataValidation _dataValidation;
         private readonly string _predstavaId;
@@ -31,6 +36,8 @@ namespace WinForms.Predstava
 
         private async void UctDodajPredstavu_Load(object sender, EventArgs e)
         {
+            await LoadZanr();
+            await LoadGlumac();
 
             if (!string.IsNullOrEmpty(_predstavaId))
             {
@@ -41,12 +48,10 @@ namespace WinForms.Predstava
                 txbPisacIzvornogDjela.Text = entity.PisacIzvornogDjela;
                 txbReziser.Text = entity.ReziserImePrezime;
                 txbTrajanje.Text = entity.Trajanje;
-
-
-
             }
             else
                 lblHeading.Text = "Dodavanje teatra";
+
         }
 
         private async void BtnSacuvaj_Click(object sender, EventArgs e)
@@ -76,9 +81,8 @@ namespace WinForms.Predstava
                     PanelSwitcher.setToTop(new uctPredstava());
                 }
             }
-        }
 
-        #region Validacija
+        }
 
         private void BtnDodajSliku_Click(object sender, EventArgs e)
         {
@@ -89,6 +93,26 @@ namespace WinForms.Predstava
             _request.Slika = slika;
             imgPredstava.Image = Converters.ByteArrayToSystemDrawing(slika);
         }
+
+        #region Učitavanje podataka
+        private async Task LoadZanr()
+        {
+            var list = await _zanrService.Get<List<DataTransferObjects.Zanr>>(null);
+
+            dgvZanr.AutoGenerateColumns = false;
+            dgvZanr.DataSource = list;
+        }
+
+        private async Task LoadGlumac()
+        {
+            var list = await _glumacService.Get<List<DataTransferObjects.Glumac>>(null);
+
+            DataGridViewComboBoxColumn colGlumac = (DataGridViewComboBoxColumn)dgvGlumac.Columns["Glumac"];
+            colGlumac.DataSource = await _glumacService.Get<List<DataTransferObjects.Glumac>>(null);
+        }
+        #endregion
+
+        #region Validacija
 
         private void TxbNaziv_Validating(object sender, CancelEventArgs e)
         {
@@ -121,5 +145,7 @@ namespace WinForms.Predstava
         }
 
         #endregion
+
     }
+
 }

@@ -47,8 +47,25 @@
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnSacuvaj = new System.Windows.Forms.Button();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.dgvZanr = new System.Windows.Forms.DataGridView();
+            this.dgvGlumac = new System.Windows.Forms.DataGridView();
+            this.NazivUloge = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Glumac = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.glumacBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.imeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prezimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.slikaDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.biografijaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.spolDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Zanr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Odabir = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.imgPredstava)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvZanr)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGlumac)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.glumacBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label3
@@ -234,7 +251,7 @@
             this.btnSacuvaj.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSacuvaj.Font = new System.Drawing.Font("Raleway", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSacuvaj.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnSacuvaj.Location = new System.Drawing.Point(40, 232);
+            this.btnSacuvaj.Location = new System.Drawing.Point(39, 702);
             this.btnSacuvaj.Name = "btnSacuvaj";
             this.btnSacuvaj.Size = new System.Drawing.Size(191, 38);
             this.btnSacuvaj.TabIndex = 72;
@@ -246,11 +263,119 @@
             // 
             this.openFileDialog.FileName = "openFileDialog1";
             // 
+            // dgvZanr
+            // 
+            this.dgvZanr.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvZanr.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Zanr,
+            this.Id,
+            this.Odabir});
+            this.dgvZanr.Location = new System.Drawing.Point(42, 504);
+            this.dgvZanr.Name = "dgvZanr";
+            this.dgvZanr.Size = new System.Drawing.Size(323, 167);
+            this.dgvZanr.TabIndex = 73;
+            // 
+            // dgvGlumac
+            // 
+            this.dgvGlumac.AllowUserToOrderColumns = true;
+            this.dgvGlumac.AutoGenerateColumns = false;
+            this.dgvGlumac.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvGlumac.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.NazivUloge,
+            this.Glumac,
+            this.idDataGridViewTextBoxColumn,
+            this.imeDataGridViewTextBoxColumn,
+            this.prezimeDataGridViewTextBoxColumn,
+            this.slikaDataGridViewImageColumn,
+            this.biografijaDataGridViewTextBoxColumn,
+            this.spolDataGridViewTextBoxColumn});
+            this.dgvGlumac.DataSource = this.glumacBindingSource;
+            this.dgvGlumac.Location = new System.Drawing.Point(438, 504);
+            this.dgvGlumac.Name = "dgvGlumac";
+            this.dgvGlumac.Size = new System.Drawing.Size(437, 167);
+            this.dgvGlumac.TabIndex = 74;
+            // 
+            // NazivUloge
+            // 
+            this.NazivUloge.HeaderText = "NazivUloge";
+            this.NazivUloge.Name = "NazivUloge";
+            // 
+            // Glumac
+            // 
+            this.Glumac.DataPropertyName = "Ime";
+            this.Glumac.DataSource = this.glumacBindingSource;
+            this.Glumac.DisplayMember = "Ime";
+            this.Glumac.HeaderText = "Glumac";
+            this.Glumac.Name = "Glumac";
+            this.Glumac.ToolTipText = "Glumac";
+            this.Glumac.ValueMember = "Id";
+            // 
+            // glumacBindingSource
+            // 
+            this.glumacBindingSource.DataSource = typeof(DataTransferObjects.Glumac);
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            // 
+            // imeDataGridViewTextBoxColumn
+            // 
+            this.imeDataGridViewTextBoxColumn.DataPropertyName = "Ime";
+            this.imeDataGridViewTextBoxColumn.HeaderText = "Ime";
+            this.imeDataGridViewTextBoxColumn.Name = "imeDataGridViewTextBoxColumn";
+            // 
+            // prezimeDataGridViewTextBoxColumn
+            // 
+            this.prezimeDataGridViewTextBoxColumn.DataPropertyName = "Prezime";
+            this.prezimeDataGridViewTextBoxColumn.HeaderText = "Prezime";
+            this.prezimeDataGridViewTextBoxColumn.Name = "prezimeDataGridViewTextBoxColumn";
+            // 
+            // slikaDataGridViewImageColumn
+            // 
+            this.slikaDataGridViewImageColumn.DataPropertyName = "Slika";
+            this.slikaDataGridViewImageColumn.HeaderText = "Slika";
+            this.slikaDataGridViewImageColumn.Name = "slikaDataGridViewImageColumn";
+            // 
+            // biografijaDataGridViewTextBoxColumn
+            // 
+            this.biografijaDataGridViewTextBoxColumn.DataPropertyName = "Biografija";
+            this.biografijaDataGridViewTextBoxColumn.HeaderText = "Biografija";
+            this.biografijaDataGridViewTextBoxColumn.Name = "biografijaDataGridViewTextBoxColumn";
+            // 
+            // spolDataGridViewTextBoxColumn
+            // 
+            this.spolDataGridViewTextBoxColumn.DataPropertyName = "Spol";
+            this.spolDataGridViewTextBoxColumn.HeaderText = "Spol";
+            this.spolDataGridViewTextBoxColumn.Name = "spolDataGridViewTextBoxColumn";
+            // 
+            // Zanr
+            // 
+            this.Zanr.DataPropertyName = "Naziv";
+            this.Zanr.HeaderText = "Žanr";
+            this.Zanr.Name = "Zanr";
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "ZanrId";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Visible = false;
+            // 
+            // Odabir
+            // 
+            this.Odabir.HeaderText = "Odabir";
+            this.Odabir.Name = "Odabir";
+            // 
             // uctDodajPredstavu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(19)))), ((int)(((byte)(54)))));
+            this.Controls.Add(this.dgvGlumac);
+            this.Controls.Add(this.dgvZanr);
             this.Controls.Add(this.btnSacuvaj);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txbNazivIzvornogDjela);
@@ -272,6 +397,9 @@
             this.Load += new System.EventHandler(this.UctDodajPredstavu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.imgPredstava)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvZanr)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGlumac)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.glumacBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -296,5 +424,19 @@
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.Button btnSacuvaj;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.DataGridView dgvZanr;
+        private System.Windows.Forms.DataGridView dgvGlumac;
+        private System.Windows.Forms.BindingSource glumacBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NazivUloge;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Glumac;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn imeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn prezimeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewImageColumn slikaDataGridViewImageColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn biografijaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn spolDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Zanr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Odabir;
     }
 }

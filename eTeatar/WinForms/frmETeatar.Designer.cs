@@ -33,6 +33,7 @@
             this.imgAvatar = new System.Windows.Forms.PictureBox();
             this.pnlSidebarMenu = new System.Windows.Forms.Panel();
             this.btnPredstave = new System.Windows.Forms.Button();
+            this.btnDvorane = new System.Windows.Forms.Button();
             this.btnObavijesti = new System.Windows.Forms.Button();
             this.btnKorisnici = new System.Windows.Forms.Button();
             this.btnPostavke = new System.Windows.Forms.Button();
@@ -44,7 +45,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.pnlUserControl = new System.Windows.Forms.Panel();
-            this.btnDvorane = new System.Windows.Forms.Button();
             this.pnlSidebarTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgAvatar)).BeginInit();
             this.pnlSidebarMenu.SuspendLayout();
@@ -94,7 +94,7 @@
             this.pnlSidebarMenu.Controls.Add(this.btnTeatarMeni);
             this.pnlSidebarMenu.Location = new System.Drawing.Point(-2, 219);
             this.pnlSidebarMenu.Name = "pnlSidebarMenu";
-            this.pnlSidebarMenu.Size = new System.Drawing.Size(197, 409);
+            this.pnlSidebarMenu.Size = new System.Drawing.Size(197, 599);
             this.pnlSidebarMenu.TabIndex = 4;
             // 
             // btnPredstave
@@ -110,6 +110,20 @@
             this.btnPredstave.Text = "Predstave";
             this.btnPredstave.UseVisualStyleBackColor = false;
             this.btnPredstave.Click += new System.EventHandler(this.BtnPredstave_Click);
+            // 
+            // btnDvorane
+            // 
+            this.btnDvorane.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(10)))), ((int)(((byte)(50)))));
+            this.btnDvorane.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnDvorane.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDvorane.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnDvorane.Location = new System.Drawing.Point(0, 229);
+            this.btnDvorane.Name = "btnDvorane";
+            this.btnDvorane.Size = new System.Drawing.Size(197, 38);
+            this.btnDvorane.TabIndex = 26;
+            this.btnDvorane.Text = "Dvorane";
+            this.btnDvorane.UseVisualStyleBackColor = false;
+            this.btnDvorane.Click += new System.EventHandler(this.BtnDvorane_Click);
             // 
             // btnObavijesti
             // 
@@ -239,28 +253,14 @@
             this.pnlUserControl.Location = new System.Drawing.Point(194, 62);
             this.pnlUserControl.Margin = new System.Windows.Forms.Padding(2);
             this.pnlUserControl.Name = "pnlUserControl";
-            this.pnlUserControl.Size = new System.Drawing.Size(1127, 566);
+            this.pnlUserControl.Size = new System.Drawing.Size(1127, 756);
             this.pnlUserControl.TabIndex = 25;
-            // 
-            // btnDvorane
-            // 
-            this.btnDvorane.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(10)))), ((int)(((byte)(50)))));
-            this.btnDvorane.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnDvorane.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDvorane.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnDvorane.Location = new System.Drawing.Point(0, 229);
-            this.btnDvorane.Name = "btnDvorane";
-            this.btnDvorane.Size = new System.Drawing.Size(197, 38);
-            this.btnDvorane.TabIndex = 26;
-            this.btnDvorane.Text = "Dvorane";
-            this.btnDvorane.UseVisualStyleBackColor = false;
-            this.btnDvorane.Click += new System.EventHandler(this.BtnDvorane_Click);
             // 
             // frmETeatar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1321, 626);
+            this.ClientSize = new System.Drawing.Size(1321, 818);
             this.Controls.Add(this.pnlUserControl);
             this.Controls.Add(this.pnlHeader);
             this.Controls.Add(this.pnlSidebarMenu);
