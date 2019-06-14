@@ -1,14 +1,10 @@
-﻿using System;
+﻿using DataTransferObjects;
+using DataTransferObjects.Requests;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DataTransferObjects;
-using DataTransferObjects.Requests;
 
 namespace WinForms.Teatar
 {
@@ -16,6 +12,7 @@ namespace WinForms.Teatar
     {
         private readonly APIService _teatarService = new APIService("Teatar");
         private readonly APIService _gradService = new APIService("Grad");
+
         public uctTeatar()
         {
             InitializeComponent();
@@ -43,24 +40,38 @@ namespace WinForms.Teatar
             PanelSwitcher.setToTop(new uctDodajTeatar(id.ToString()));
         }
 
+        private void BtnDodajTeatar_Click(object sender, EventArgs e)
+        {
+            PanelSwitcher.setToTop(new uctDodajTeatar());
+        }
+
+        #region Učitavanje podataka
+
         private async Task LoadTeatri(string gradId = null)
         {
-            List<DataTransferObjects.Teatar> list = new List<DataTransferObjects.Teatar>();
-
-            if (gradId != null) 
-                list = await _teatarService.Get<List<DataTransferObjects.Teatar>>(new TeatarSearchRequest { GradId = gradId });
-            else
-                list = await _teatarService.Get<List<DataTransferObjects.Teatar>>(null);
-
-            dgvTeatar.AutoGenerateColumns = false;
-            dgvTeatar.DataSource = list;
-            for (int i = 0; i < list.Count(); i++)
+            var search = new TeatarSearchRequest
             {
-                dgvTeatar.Rows[i].Cells["BrojDvorana"].Value = list[i].Dvorane.Count;
-            }
+                GradId = gradId
+            };
 
+            try
+            {
+                var list = await _teatarService.Get<List<DataTransferObjects.Teatar>>(search);
+
+                dgvTeatar.AutoGenerateColumns = false;
+                dgvTeatar.DataSource = list;
+
+                for (int i = 0; i < list.Count(); i++)
+                {
+                    dgvTeatar.Rows[i].Cells["BrojDvorana"].Value = list[i].Dvorane.Count;
+                }
+            }
+            catch
+            {
+                // ignored
+            }
         }
-        //srchGrad
+
         private async Task LoadGradovi()
         {
             List<Grad> result = new List<Grad>();
@@ -72,14 +83,13 @@ namespace WinForms.Teatar
             srchGrad.DataSource = result;
         }
 
-        private void BtnDodajTeatar_Click(object sender, EventArgs e)
-        {
-            PanelSwitcher.setToTop(new uctDodajTeatar());
-        }
+        #endregion
 
+        #region Pretraga
         private async void SrchGrad_SelectedIndexChanged(object sender, EventArgs e)
         {
             await LoadTeatri(srchGrad.SelectedValue?.ToString());
-        }
+        } 
+        #endregion
     }
 }

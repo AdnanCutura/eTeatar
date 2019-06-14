@@ -144,11 +144,23 @@
     <Compile Include="Predstava\uctDodajPredstavu.Designer.cs">
       <DependentUpon>uctDodajPredstavu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Predstava\uctDodajTermin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Predstava\uctDodajTermin.Designer.cs">
+      <DependentUpon>uctDodajTermin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Predstava\uctPredstava.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Predstava\uctPredstava.Designer.cs">
       <DependentUpon>uctPredstava.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Predstava\uctTerminiPredstave.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Predstava\uctTerminiPredstave.Designer.cs">
+      <DependentUpon>uctTerminiPredstave.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -219,8 +231,14 @@
     <EmbeddedResource Include="Predstava\uctDodajPredstavu.resx">
       <DependentUpon>uctDodajPredstavu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Predstava\uctDodajTermin.resx">
+      <DependentUpon>uctDodajTermin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Predstava\uctPredstava.resx">
       <DependentUpon>uctPredstava.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Predstava\uctTerminiPredstave.resx">
+      <DependentUpon>uctTerminiPredstave.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

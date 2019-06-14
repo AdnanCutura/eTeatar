@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DataTransferObjects.Requests;
@@ -15,6 +11,8 @@ namespace WinForms.Predstava
     {
         private readonly APIService _predstavaService = new APIService("Predstava");
         private readonly APIService _teatarService = new APIService("Teatar");
+        private readonly APIService _zanrPredstavaService = new APIService("PredstavaZanr");
+        private readonly APIService _ulogePredstavaService = new APIService("Uloga");
 
         public uctPredstava()
         {
@@ -25,6 +23,55 @@ namespace WinForms.Predstava
         {
             await LoadPredstava();
             await LoadTeatar();
+        }
+
+        private void BtnDodajPredstavu_Click(object sender, EventArgs e)
+        {
+            PanelSwitcher.setToTop(new uctDodajPredstavu());
+        }
+
+        private async void DgvPredstava_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var id = dgvPredstava.Rows[e.RowIndex].Cells["id"].Value.ToString();
+            var predstava = await _predstavaService.GetById<DataTransferObjects.Predstava>(id);
+            //Todo: ako postoje termini nije moguce obrisati
+            if (dgvPredstava.Columns[e.ColumnIndex].Name == "Izbrisi")
+            {
+                if (predstava.Termini.Any())
+                {
+                    MessageBox.Show("Ne možete izbrisati predstavu ako postoje termini predstave", "Zahtjev odbijen!",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (MessageBox.Show("Jeste li sigurni", "Poruka", MessageBoxButtons.YesNo, MessageBoxIcon.Question) ==
+                    DialogResult.Yes)
+                {
+                    await _predstavaService.Delete<DataTransferObjects.Predstava>(id);
+                    foreach (var zanr in predstava.Zanrovi)
+                    {
+                        var predstavaZanrovi = await _zanrPredstavaService.Get<List<DataTransferObjects.Predstava>>(new PredstavaZanrSearchRequest { ZanrId = zanr.Id });
+
+                        foreach (var predstavaZanr in predstavaZanrovi)
+                            await _zanrPredstavaService.Delete<DataTransferObjects.PredstavaZanr>(predstavaZanr.Id);
+                    }
+                    foreach (var uloga in predstava.Uloge)
+                        await _ulogePredstavaService.Delete<DataTransferObjects.Uloga>(uloga.Id);
+
+                    await LoadPredstava();
+                    return;
+                }
+                return;
+            }
+
+            if (dgvPredstava.Columns[e.ColumnIndex].Name == "Termin")
+            {
+                PanelSwitcher.setToTop(new uctTerminiPredstave(id.ToString()));
+                return;
+            }
+
+
+            PanelSwitcher.setToTop(new uctDodajPredstavu(id.ToString()));
         }
 
         #region Učitavanje podataka
@@ -43,7 +90,7 @@ namespace WinForms.Predstava
                 };
 
                 list = await _predstavaService.Get<List<DataTransferObjects.Predstava>>(search);
-                
+
                 dgvPredstava.AutoGenerateColumns = false;
                 dgvPredstava.DataSource = list;
 
@@ -52,12 +99,13 @@ namespace WinForms.Predstava
                     dgvPredstava.Rows[i].Cells["BrojUloga"].Value = list[i].Uloge.Count;
                 }
             }
-            catch 
+            catch
             {
-                
+
             }
 
         }
+
         private async Task LoadTeatar()
         {
             var list = await _teatarService.Get<List<DataTransferObjects.Teatar>>(null);
@@ -79,7 +127,6 @@ namespace WinForms.Predstava
             await LoadPredstava(srchNaziv?.Text, teatarId);
 
         }
-        #endregion
 
         private async void SrchNaziv_TextChanged(object sender, EventArgs e)
         {
@@ -87,27 +134,7 @@ namespace WinForms.Predstava
             await LoadPredstava(srchNaziv?.Text, teatarId);
         }
 
-        private void BtnDodajPredstavu_Click(object sender, EventArgs e)
-        {
-            PanelSwitcher.setToTop(new uctDodajPredstavu());
-        }
+        #endregion
 
-        private async void DgvPredstava_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            var id = dgvPredstava.Rows[e.RowIndex].Cells["id"].Value;
-
-            //Todo: ako postoje termini nije moguce obrisati
-            if (dgvPredstava.Columns[e.ColumnIndex].Name == "Izbrisi")
-            {
-                if (MessageBox.Show("Jeste li sigurni", "Poruka", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    await _predstavaService.Delete<DataTransferObjects.Predstava>(id);
-                    await LoadPredstava();
-                    return;
-                }
-            }
-
-            PanelSwitcher.setToTop(new uctDodajPredstavu(id.ToString()));
-        }
     }
 }
