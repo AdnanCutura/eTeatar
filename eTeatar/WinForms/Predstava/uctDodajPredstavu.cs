@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 using DataTransferObjects.Requests;
 using WinForms.Helpers;
 
@@ -73,41 +74,6 @@ namespace WinForms.Predstava
                 else
                     entity = await _predstavaService.Insert<DataTransferObjects.Predstava>(_request);
 
-                //Unos zanrova za predstavu
-                foreach (DataGridViewRow row in dgvZanr.Rows)
-                {
-                    var zanrId = row.Cells["Id"].Value.ToString();
-
-                    var isOdabran = (bool?)row.Cells["Odabir"].Value;
-
-                    if (isOdabran.HasValue && isOdabran.Value)
-                    {
-                        await _predstavaZanrService.Insert<DataTransferObjects.Requests.PredstavaZanrUpsertRequest>(
-                            new PredstavaZanrUpsertRequest
-                            {
-                                ZanrId = zanrId,
-                                PredstavaId = entity.Id
-                            });
-                    }
-                }
-
-                //Unos glumaca za predstavu
-                foreach (DataGridViewRow row in dgvGlumac.Rows)
-                {
-                    var glumacId = row.Cells["Glumac"].Value?.ToString();
-                    var uloga = row.Cells["NazivUloge"].Value?.ToString();
-
-                    if (glumacId != null && uloga != null)
-                        await _ulogaService.Insert<DataTransferObjects.Requests.UlogaUpsertRequest>(
-                            new UlogaUpsertRequest
-                            {
-                                Naziv = uloga,
-                                PredstavaId = entity.Id,
-                                GlumacId = glumacId
-                            });
-                }
-
-
                 if (entity != null)
                 {
                     MessageBox.Show("Uspješno izvršeno");
@@ -115,6 +81,7 @@ namespace WinForms.Predstava
                     PanelSwitcher.setToTop(new uctPredstava());
                 }
             }
+
         }
 
         private void BtnDodajSliku_Click(object sender, EventArgs e)
