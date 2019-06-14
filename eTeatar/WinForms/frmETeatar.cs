@@ -93,5 +93,10 @@ namespace WinForms.Teatar
         {
             PanelSwitcher.setToTop(new Dvorane.uctDvorana());
         }
+
+        private void BtnNarudzbe_Click(object sender, EventArgs e)
+        {
+            PanelSwitcher.setToTop(new Narudzba.uctNarudzbe());
+        }
     }
 }

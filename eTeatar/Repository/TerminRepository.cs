@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using DataTransferObjects.Requests;
+using Microsoft.EntityFrameworkCore;
 using Models;
 
 namespace Repository
 {
-    public class TerminRepository: Repository<Models.Termin, TerminSearchRequest>
+    public class TerminRepository : Repository<Models.Termin, TerminSearchRequest>
     {
         public TerminRepository(eTeatarContext context) : base(context)
         {
@@ -32,9 +33,23 @@ namespace Repository
             }
 
             query = query.OrderBy(x => x.DatumVrijeme);
-            IEnumerable<Termin> list = query.ToList();
+            IEnumerable<Termin> list = query
+                .Include(t => t.Dvorana)
+                .Include(t => t.Predstava)
+                .ToList();
 
             return list;
+        }
+
+        public override Termin GetById(string id)
+        {
+            var query = Context.Set<Termin>().AsQueryable();
+            query = query.Where(w => w.Id == id);
+
+            query = query.Include(i => i.Dvorana);
+            query = query.Include(i => i.Predstava);
+            
+            return query.FirstOrDefault();
         }
     }
 }

@@ -442,9 +442,9 @@ namespace Repository
                                            Administrator2);
             context.SaveChanges();
 
-            Narudzba Narudzba1 = new Narudzba { Kupac = Kupac1, Termin = Termin1, CijenaKarte = 10f, TipSjedista = TipSjedista1 };
-            Narudzba Narudzba2 = new Narudzba { Kupac = Kupac1, Termin = Termin2, CijenaKarte = 15f, TipSjedista = TipSjedista4 };
-            Narudzba Narudzba3 = new Narudzba { Kupac = Kupac2, Termin = Termin1, CijenaKarte = 10f, TipSjedista = TipSjedista1 };
+            Narudzba Narudzba1 = new Narudzba { Kupac = Kupac1, Termin = Termin1, CijenaKarte = 10f, TipSjedista = TipSjedista1, DatumKupovine = DateTime.Now, Kolicina = 5};
+            Narudzba Narudzba2 = new Narudzba { Kupac = Kupac1, Termin = Termin2, CijenaKarte = 15f, TipSjedista = TipSjedista4, DatumKupovine = DateTime.Now, Kolicina = 5 };
+            Narudzba Narudzba3 = new Narudzba { Kupac = Kupac2, Termin = Termin1, CijenaKarte = 10f, TipSjedista = TipSjedista1, DatumKupovine = DateTime.Now, Kolicina = 5 };
 
             context.Narudzba.AddRange(Narudzba1,
                                       Narudzba2,

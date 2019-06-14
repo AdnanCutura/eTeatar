@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using DataTransferObjects;
+using DataTransferObjects.Requests;
 using Repository;
 using WebAPI.Services.Interfaces;
 
@@ -35,6 +36,15 @@ namespace WebAPI.Services
             queryresult.Zanrovi = _zanrService.Get(new DataTransferObjects.Requests.ZanrSearchRequest { PredstavaId = id });
 
             return queryresult;
+        }
+
+        public override Predstava Update(string id, PredstavaUpsertRequest request)
+        {
+            var obj = Repository.GetById(id);
+            Mapper.Map(request, obj);
+            obj.Uloge = null;
+            obj.Termini = null;
+            return Mapper.Map<DataTransferObjects.Predstava>(Repository.Update(obj));
         }
     }
 }

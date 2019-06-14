@@ -36,6 +36,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnDodajObavijest = new System.Windows.Forms.Button();
             this.dgvObavijest = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AdministratorId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.naslovDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.datumVrijemeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sadrzajDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AdministratorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Izbrisi = new System.Windows.Forms.DataGridViewButtonColumn();
             this.obavijestBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.searchIcon = new System.Windows.Forms.PictureBox();
@@ -44,13 +51,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.teatarBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AdministratorId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.naslovDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.datumVrijemeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sadrzajDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AdministratorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Izbrisi = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvObavijest)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.obavijestBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchIcon)).BeginInit();
@@ -60,11 +60,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Raleway", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(24, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(239, 29);
+            this.label1.Size = new System.Drawing.Size(235, 29);
             this.label1.TabIndex = 42;
             this.label1.Text = "Prikaz svih obavijesti";
             // 
@@ -72,7 +72,7 @@
             // 
             this.btnDodajObavijest.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(69)))), ((int)(((byte)(64)))));
             this.btnDodajObavijest.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnDodajObavijest.Font = new System.Drawing.Font("Raleway", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDodajObavijest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDodajObavijest.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnDodajObavijest.Location = new System.Drawing.Point(29, 494);
             this.btnDodajObavijest.Name = "btnDodajObavijest";
@@ -123,83 +123,6 @@
             this.dgvObavijest.TabIndex = 40;
             this.dgvObavijest.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvObavijest_CellContentClick);
             // 
-            // obavijestBindingSource
-            // 
-            this.obavijestBindingSource.DataSource = typeof(DataTransferObjects.Obavijest);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Raleway", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(566, 44);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(160, 19);
-            this.label2.TabIndex = 44;
-            this.label2.Text = "Pretraga po datumu";
-            // 
-            // searchIcon
-            // 
-            this.searchIcon.Image = ((System.Drawing.Image)(resources.GetObject("searchIcon.Image")));
-            this.searchIcon.Location = new System.Drawing.Point(856, 44);
-            this.searchIcon.MaximumSize = new System.Drawing.Size(10, 10);
-            this.searchIcon.MinimumSize = new System.Drawing.Size(20, 20);
-            this.searchIcon.Name = "searchIcon";
-            this.searchIcon.Size = new System.Drawing.Size(20, 20);
-            this.searchIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.searchIcon.TabIndex = 43;
-            this.searchIcon.TabStop = false;
-            this.searchIcon.Click += new System.EventHandler(this.SearchIcon_Click);
-            // 
-            // srchDateFrom
-            // 
-            this.srchDateFrom.CustomFormat = " ";
-            this.srchDateFrom.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.srchDateFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.srchDateFrom.Location = new System.Drawing.Point(597, 72);
-            this.srchDateFrom.Name = "srchDateFrom";
-            this.srchDateFrom.Size = new System.Drawing.Size(119, 25);
-            this.srchDateFrom.TabIndex = 46;
-            this.srchDateFrom.ValueChanged += new System.EventHandler(this.SrchDateFrom_ValueChanged);
-            this.srchDateFrom.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SrchDateFrom_KeyDown);
-            // 
-            // srchDateTo
-            // 
-            this.srchDateTo.CustomFormat = "dd.MM.yyyy";
-            this.srchDateTo.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.srchDateTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.srchDateTo.Location = new System.Drawing.Point(758, 72);
-            this.srchDateTo.Name = "srchDateTo";
-            this.srchDateTo.Size = new System.Drawing.Size(119, 25);
-            this.srchDateTo.TabIndex = 47;
-            this.srchDateTo.Value = new System.DateTime(2019, 6, 12, 15, 33, 36, 0);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Raleway", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(564, 74);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(31, 19);
-            this.label3.TabIndex = 48;
-            this.label3.Text = "Od";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Raleway", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(722, 75);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(30, 19);
-            this.label4.TabIndex = 49;
-            this.label4.Text = "Do";
-            // 
-            // teatarBindingSource
-            // 
-            this.teatarBindingSource.DataSource = typeof(DataTransferObjects.Teatar);
-            // 
             // Id
             // 
             this.Id.DataPropertyName = "Id";
@@ -245,6 +168,87 @@
             this.Izbrisi.ToolTipText = "Izbriši";
             this.Izbrisi.UseColumnTextForButtonValue = true;
             this.Izbrisi.Width = 125;
+            // 
+            // obavijestBindingSource
+            // 
+            this.obavijestBindingSource.DataSource = typeof(DataTransferObjects.Obavijest);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(566, 44);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(150, 20);
+            this.label2.TabIndex = 44;
+            this.label2.Text = "Pretraga po datumu";
+            // 
+            // searchIcon
+            // 
+            this.searchIcon.Image = ((System.Drawing.Image)(resources.GetObject("searchIcon.Image")));
+            this.searchIcon.Location = new System.Drawing.Point(856, 44);
+            this.searchIcon.MaximumSize = new System.Drawing.Size(10, 10);
+            this.searchIcon.MinimumSize = new System.Drawing.Size(20, 20);
+            this.searchIcon.Name = "searchIcon";
+            this.searchIcon.Size = new System.Drawing.Size(20, 20);
+            this.searchIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.searchIcon.TabIndex = 43;
+            this.searchIcon.TabStop = false;
+            this.searchIcon.Click += new System.EventHandler(this.SearchIcon_Click);
+            // 
+            // srchDateFrom
+            // 
+            this.srchDateFrom.Checked = false;
+            this.srchDateFrom.CustomFormat = " ";
+            this.srchDateFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.srchDateFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.srchDateFrom.Location = new System.Drawing.Point(597, 72);
+            this.srchDateFrom.MaxDate = new System.DateTime(2019, 6, 14, 0, 0, 0, 0);
+            this.srchDateFrom.Name = "srchDateFrom";
+            this.srchDateFrom.Size = new System.Drawing.Size(119, 24);
+            this.srchDateFrom.TabIndex = 46;
+            this.srchDateFrom.Value = new System.DateTime(2019, 6, 14, 0, 0, 0, 0);
+            this.srchDateFrom.ValueChanged += new System.EventHandler(this.SrchDateFrom_ValueChanged);
+            this.srchDateFrom.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SrchDateFrom_KeyDown);
+            // 
+            // srchDateTo
+            // 
+            this.srchDateTo.CustomFormat = "dd.MM.yyyy";
+            this.srchDateTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.srchDateTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.srchDateTo.Location = new System.Drawing.Point(758, 72);
+            this.srchDateTo.MaxDate = new System.DateTime(2019, 6, 14, 0, 0, 0, 0);
+            this.srchDateTo.Name = "srchDateTo";
+            this.srchDateTo.Size = new System.Drawing.Size(119, 24);
+            this.srchDateTo.TabIndex = 47;
+            this.srchDateTo.Value = new System.DateTime(2019, 6, 12, 15, 33, 36, 0);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(564, 74);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(30, 20);
+            this.label3.TabIndex = 48;
+            this.label3.Text = "Od";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(722, 75);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(30, 20);
+            this.label4.TabIndex = 49;
+            this.label4.Text = "Do";
+            // 
+            // teatarBindingSource
+            // 
+            this.teatarBindingSource.DataSource = typeof(DataTransferObjects.Teatar);
             // 
             // uctObavijest
             // 

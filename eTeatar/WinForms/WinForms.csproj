@@ -113,6 +113,12 @@
     <Compile Include="KorisnickiNalog\uctPostavke.Designer.cs">
       <DependentUpon>uctPostavke.cs</DependentUpon>
     </Compile>
+    <Compile Include="Narudzba\uctNarudzbe.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Narudzba\uctNarudzbe.Designer.cs">
+      <DependentUpon>uctNarudzbe.cs</DependentUpon>
+    </Compile>
     <Compile Include="Obavijest\uctDodajObavijest.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -126,17 +132,35 @@
       <DependentUpon>uctObavijest.cs</DependentUpon>
     </Compile>
     <Compile Include="PanelSwitcher.cs" />
+    <Compile Include="Predstava\frmDodajUloga.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Predstava\frmDodajUloga.Designer.cs">
+      <DependentUpon>frmDodajUloga.cs</DependentUpon>
+    </Compile>
     <Compile Include="Predstava\uctDodajPredstavu.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Predstava\uctDodajPredstavu.Designer.cs">
       <DependentUpon>uctDodajPredstavu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Predstava\uctDodajTermin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Predstava\uctDodajTermin.Designer.cs">
+      <DependentUpon>uctDodajTermin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Predstava\uctPredstava.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Predstava\uctPredstava.Designer.cs">
       <DependentUpon>uctPredstava.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Predstava\uctTerminiPredstave.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Predstava\uctTerminiPredstave.Designer.cs">
+      <DependentUpon>uctTerminiPredstave.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -183,6 +207,9 @@
     <EmbeddedResource Include="KorisnickiNalog\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Narudzba\uctNarudzbe.resx">
+      <DependentUpon>uctNarudzbe.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Obavijest\uctDodajObavijest.resx">
       <DependentUpon>uctDodajObavijest.cs</DependentUpon>
     </EmbeddedResource>
@@ -198,11 +225,20 @@
     <EmbeddedResource Include="KorisnickiNalog\uctPostavke.resx">
       <DependentUpon>uctPostavke.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Predstava\frmDodajUloga.resx">
+      <DependentUpon>frmDodajUloga.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Predstava\uctDodajPredstavu.resx">
       <DependentUpon>uctDodajPredstavu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Predstava\uctDodajTermin.resx">
+      <DependentUpon>uctDodajTermin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Predstava\uctPredstava.resx">
       <DependentUpon>uctPredstava.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Predstava\uctTerminiPredstave.resx">
+      <DependentUpon>uctTerminiPredstave.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -221,12 +257,15 @@
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\DataTransferObjects.Dvorana.datasource" />
+    <None Include="Properties\DataSources\DataTransferObjects.Narudzba.datasource" />
     <None Include="Properties\DataSources\DataTransferObjects.Obavijest.datasource" />
     <None Include="Properties\DataSources\DataTransferObjects.Glumac.datasource" />
     <None Include="Properties\DataSources\DataTransferObjects.KorisnickiNalog.datasource" />
     <None Include="Properties\DataSources\DataTransferObjects.Predstava.datasource" />
     <None Include="Properties\DataSources\DataTransferObjects.Teatar.datasource" />
+    <None Include="Properties\DataSources\DataTransferObjects.Termin.datasource" />
     <None Include="Properties\DataSources\DataTransferObjects.TipSjedista.datasource" />
+    <None Include="Properties\DataSources\DataTransferObjects.Uloga.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
