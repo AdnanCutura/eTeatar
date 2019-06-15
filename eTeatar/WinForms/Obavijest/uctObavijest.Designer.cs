@@ -218,11 +218,11 @@
             this.srchDateTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.srchDateTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.srchDateTo.Location = new System.Drawing.Point(758, 72);
-            this.srchDateTo.MaxDate = new System.DateTime(2019, 6, 14, 0, 0, 0, 0);
+            this.srchDateTo.MaxDate = new System.DateTime(9998, 6, 15, 0, 0, 0, 0);
             this.srchDateTo.Name = "srchDateTo";
             this.srchDateTo.Size = new System.Drawing.Size(119, 24);
             this.srchDateTo.TabIndex = 47;
-            this.srchDateTo.Value = new System.DateTime(2019, 6, 12, 15, 33, 36, 0);
+            this.srchDateTo.Value = new System.DateTime(2019, 6, 15, 0, 0, 0, 0);
             // 
             // label3
             // 

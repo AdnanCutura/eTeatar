@@ -1,6 +1,7 @@
 ﻿using DataTransferObjects.Requests;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -24,6 +25,7 @@ namespace WinForms.Predstava
             await LoadTermin();
             await LoadDvorana();
 
+            this.cmbDvorana.SelectedIndexChanged += new System.EventHandler(this.CmbDvorana_SelectedIndexChanged);
             var predstava = await _predstavaService.GetById<DataTransferObjects.Predstava>(_predstavaId);
             lblHeading.Text += " \"" + predstava.Naziv + "\"";
         }
@@ -82,15 +84,31 @@ namespace WinForms.Predstava
         private async void DgvTermin_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             var terminId = dgvTermin.Rows[e.RowIndex].Cells["Id"].Value?.ToString();
+            var termin = await _terminService.GetById<DataTransferObjects.Termin>(terminId);
+
+            if (termin.DatumVrijeme < DateTime.Now)
+            {
+                MessageBox.Show("Ne možete mjenjati termin koji je prošao!", "Greška", MessageBoxButtons.OK,
+                    MessageBoxIcon.Stop);
+                return;
+            }
+
             if (dgvTermin.Columns[e.ColumnIndex].Name == "Izbrisi")
             {
-                if (MessageBox.Show("Jeste li sigurni", "Poruka", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    await _terminService.Delete<DataTransferObjects.Termin>(terminId);
-                    await LoadTermin();
-                    return;
-                }
+                if (!termin.Narudzbe.Any())
+
+                    if (MessageBox.Show("Jeste li sigurni", "Poruka", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        await _terminService.Delete<DataTransferObjects.Termin>(terminId);
+                        await LoadTermin();
+                        return;
+                    }
+                    else
+                        MessageBox.Show("Ne možete brisati termin za kojeg postoje karte!", "Greška", MessageBoxButtons.OK,
+                            MessageBoxIcon.Stop);
+
             }
+
             PanelSwitcher.setToTop(new uctDodajTermin(_predstavaId, terminId));
         }
 

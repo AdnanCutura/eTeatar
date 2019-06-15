@@ -88,11 +88,11 @@
             this.pnlSidebarMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(20)))), ((int)(((byte)(44)))));
             this.pnlSidebarMenu.Controls.Add(this.btnNarudzbe);
             this.pnlSidebarMenu.Controls.Add(this.btnPredstave);
+            this.pnlSidebarMenu.Controls.Add(this.btnGlumac);
             this.pnlSidebarMenu.Controls.Add(this.btnDvorane);
             this.pnlSidebarMenu.Controls.Add(this.btnObavijesti);
             this.pnlSidebarMenu.Controls.Add(this.btnKorisnici);
             this.pnlSidebarMenu.Controls.Add(this.btnPostavke);
-            this.pnlSidebarMenu.Controls.Add(this.btnGlumac);
             this.pnlSidebarMenu.Controls.Add(this.btnTeatarMeni);
             this.pnlSidebarMenu.Location = new System.Drawing.Point(-2, 219);
             this.pnlSidebarMenu.Name = "pnlSidebarMenu";
@@ -105,7 +105,7 @@
             this.btnNarudzbe.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnNarudzbe.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNarudzbe.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnNarudzbe.Location = new System.Drawing.Point(0, 273);
+            this.btnNarudzbe.Location = new System.Drawing.Point(0, 254);
             this.btnNarudzbe.Name = "btnNarudzbe";
             this.btnNarudzbe.Size = new System.Drawing.Size(197, 38);
             this.btnNarudzbe.TabIndex = 27;
@@ -119,7 +119,7 @@
             this.btnPredstave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnPredstave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPredstave.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnPredstave.Location = new System.Drawing.Point(0, 357);
+            this.btnPredstave.Location = new System.Drawing.Point(0, 140);
             this.btnPredstave.Name = "btnPredstave";
             this.btnPredstave.Size = new System.Drawing.Size(197, 38);
             this.btnPredstave.TabIndex = 26;
@@ -133,7 +133,7 @@
             this.btnDvorane.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDvorane.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDvorane.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnDvorane.Location = new System.Drawing.Point(0, 229);
+            this.btnDvorane.Location = new System.Drawing.Point(2, 64);
             this.btnDvorane.Name = "btnDvorane";
             this.btnDvorane.Size = new System.Drawing.Size(197, 38);
             this.btnDvorane.TabIndex = 26;
@@ -147,7 +147,7 @@
             this.btnObavijesti.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnObavijesti.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnObavijesti.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnObavijesti.Location = new System.Drawing.Point(0, 63);
+            this.btnObavijesti.Location = new System.Drawing.Point(1, 178);
             this.btnObavijesti.Name = "btnObavijesti";
             this.btnObavijesti.Size = new System.Drawing.Size(197, 38);
             this.btnObavijesti.TabIndex = 23;
@@ -161,7 +161,7 @@
             this.btnKorisnici.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnKorisnici.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnKorisnici.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnKorisnici.Location = new System.Drawing.Point(0, 144);
+            this.btnKorisnici.Location = new System.Drawing.Point(0, 216);
             this.btnKorisnici.Name = "btnKorisnici";
             this.btnKorisnici.Size = new System.Drawing.Size(197, 38);
             this.btnKorisnici.TabIndex = 25;
@@ -175,7 +175,7 @@
             this.btnPostavke.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnPostavke.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPostavke.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnPostavke.Location = new System.Drawing.Point(0, 185);
+            this.btnPostavke.Location = new System.Drawing.Point(1, 292);
             this.btnPostavke.Name = "btnPostavke";
             this.btnPostavke.Size = new System.Drawing.Size(197, 38);
             this.btnPostavke.TabIndex = 24;
@@ -189,7 +189,7 @@
             this.btnGlumac.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnGlumac.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGlumac.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnGlumac.Location = new System.Drawing.Point(0, 103);
+            this.btnGlumac.Location = new System.Drawing.Point(1, 102);
             this.btnGlumac.Name = "btnGlumac";
             this.btnGlumac.Size = new System.Drawing.Size(197, 38);
             this.btnGlumac.TabIndex = 23;

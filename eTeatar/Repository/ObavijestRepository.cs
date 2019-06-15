@@ -19,8 +19,11 @@ namespace Repository
         {
             IQueryable<Obavijest> query = Context.Set<Obavijest>().AsQueryable();
 
-            query = query.Where(x => x.DatumVrijeme >= (search.DatumOd ?? DateTime.MinValue));
-            query = query.Where(x => x.DatumVrijeme <= (search.DatumDo ?? DateTime.MaxValue));
+            if (search?.DatumOd != null)
+                query = query.Where(x => x.DatumVrijeme >= (search.DatumOd ?? DateTime.MinValue));
+
+            if (search?.DatumDo != null)
+                query = query.Where(x => x.DatumVrijeme <= (search.DatumDo ?? DateTime.MaxValue));
 
             query = query.OrderBy(x => x.DatumVrijeme);
             IEnumerable<Obavijest> list = query

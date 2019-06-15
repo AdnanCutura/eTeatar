@@ -36,6 +36,7 @@ namespace Repository
             IEnumerable<Termin> list = query
                 .Include(t => t.Dvorana)
                 .Include(t => t.Predstava)
+                .Include(t => t.Narudzbe)
                 .ToList();
 
             return list;
@@ -46,9 +47,11 @@ namespace Repository
             var query = Context.Set<Termin>().AsQueryable();
             query = query.Where(w => w.Id == id);
 
-            query = query.Include(i => i.Dvorana);
-            query = query.Include(i => i.Predstava);
-            
+            query = query
+                .Include(i => i.Dvorana)
+                .Include(i => i.Predstava)
+                .Include(i => i.Narudzbe);
+
             return query.FirstOrDefault();
         }
     }

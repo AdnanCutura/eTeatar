@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace DataTransferObjects
 {
@@ -8,6 +9,7 @@ namespace DataTransferObjects
         public DateTime DatumVrijeme { get; set; }
         public Predstava Predstava { get; set; }
         public Dvorana Dvorana { get; set; }
+        public List<Narudzba> Narudzbe { get; set; }
         public double BaznaCijenaKarte { get; set; }
     }
 }

@@ -63,16 +63,22 @@ namespace WinForms.Obavijest
                 DatumDo = to,
                 DatumOd = from
             };
-
-            list = await _obavijestService.Get<List<DataTransferObjects.Obavijest>>(search);
-
-            dgvObavijest.AutoGenerateColumns = false;
-            dgvObavijest.DataSource = list;
-
-            for (int i = 0; i < dgvObavijest.Rows.Count; i++)
+            try
             {
-                dgvObavijest.Rows[i].Cells["AdministratorName"].Value = list[i].Administrator.Ime;
-                dgvObavijest.Rows[i].Cells["AdministratorId"].Value = list[i].Administrator.Id;
+
+                list = await _obavijestService.Get<List<DataTransferObjects.Obavijest>>(search);
+
+                dgvObavijest.AutoGenerateColumns = false;
+                dgvObavijest.DataSource = list;
+
+                for (int i = 0; i < dgvObavijest.Rows.Count; i++)
+                {
+                    dgvObavijest.Rows[i].Cells["AdministratorName"].Value = list[i].Administrator.Ime;
+                    dgvObavijest.Rows[i].Cells["AdministratorId"].Value = list[i].Administrator.Id;
+                }
+            }
+            catch 
+            {
             }
 
         }

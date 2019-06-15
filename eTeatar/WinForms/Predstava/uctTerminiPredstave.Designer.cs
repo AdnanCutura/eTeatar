@@ -192,7 +192,6 @@
             this.cmbDvorana.Name = "cmbDvorana";
             this.cmbDvorana.Size = new System.Drawing.Size(191, 26);
             this.cmbDvorana.TabIndex = 70;
-            this.cmbDvorana.SelectedIndexChanged += new System.EventHandler(this.CmbDvorana_SelectedIndexChanged);
             // 
             // obavijestBindingSource
             // 

@@ -27,8 +27,8 @@ namespace WinForms
             var url = $"{Settings.Default.APIUrl}/{_route}";
             try
             {
-                if (search != null)
-                    url += "?" + await search.ToQueryString();
+                if (search?.ToKeyValue() != null)
+                   url += "?" + await search.ToQueryString();
 
                 return await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
             }
