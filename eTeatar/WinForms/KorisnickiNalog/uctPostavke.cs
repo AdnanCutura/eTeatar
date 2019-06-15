@@ -48,12 +48,12 @@ namespace WinForms.KorisnickiNalog
 
         private void TxbIme_Validating(object sender, CancelEventArgs e)
         {
-            _validator.NullCheckTxb(txbIme, e);
+            _validator.NullCheck(txbIme, e);
         }
 
         private void TxbPrezime_Validating(object sender, CancelEventArgs e)
         {
-            _validator.NullCheckTxb(txbPrezime, e);
+            _validator.NullCheck(txbPrezime, e);
         }
 
         private void TxbNovaSifra_Validating(object sender, CancelEventArgs e)
@@ -68,7 +68,7 @@ namespace WinForms.KorisnickiNalog
                 return;
             }
 
-            _validator.NullCheckTxb(txbNovaSifraPotvrda, e);
+            _validator.NullCheck(txbNovaSifraPotvrda, e);
             if (txbNovaSifraPotvrda.Text != txbNovaSifra.Text)
             {
                 e.Cancel = true;
@@ -79,12 +79,12 @@ namespace WinForms.KorisnickiNalog
 
         private void TxbBrojTelefona_Validating(object sender, CancelEventArgs e)
         {
-            _validator.NullCheckTxb(txbBrojTelefona, e);
+            _validator.NullCheck(txbBrojTelefona, e);
         }
 
         private void TxbEmail_Validating(object sender, CancelEventArgs e)
         {
-            _validator.NullCheckTxb(txbEmail, e);
+            _validator.NullCheck(txbEmail, e);
         }
 
         private async void BtnSacuvaj_Click(object sender, EventArgs e)

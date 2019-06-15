@@ -13,8 +13,6 @@ namespace WinForms
             _errorProvider = errorProvider;
         }
 
-        #region Null checking
-
         public void NullCheck(Control attribute, CancelEventArgs e)
         {
             if (string.IsNullOrEmpty(attribute.Text))
@@ -25,44 +23,6 @@ namespace WinForms
             else
                 _errorProvider.SetError(attribute, null);
         }
-
-
-        public void NullCheckTxb(TextBox attribute, CancelEventArgs e)
-        {
-            if (string.IsNullOrEmpty(attribute.Text))
-            {
-                e.Cancel = true;
-                _errorProvider.SetError(attribute, Resources.Validation___Required_field);
-            }
-            else
-                _errorProvider.SetError(attribute, null);
-        }
-        
-        public void NullCheckCmb(ComboBox attribute, CancelEventArgs e)
-        {
-            if (string.IsNullOrEmpty(attribute.Text))
-            {
-                e.Cancel = true;
-                _errorProvider.SetError(attribute, Resources.Validation___Required_field);
-            }
-            else
-                _errorProvider.SetError(attribute, null);
-        }
-
-
-        public void NullCheckMaskBox(MaskedTextBox attribute, CancelEventArgs e)
-        {
-            if (!attribute.MaskFull)
-            {
-                e.Cancel = true;
-                _errorProvider.SetError(attribute, Resources.Validation___Required_field);
-                attribute.BeepOnError = true;
-            }
-            else
-                _errorProvider.SetError(attribute, null);
-        }
-
-        #endregion
 
         #region Regex
 

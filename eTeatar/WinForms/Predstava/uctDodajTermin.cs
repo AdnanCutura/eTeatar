@@ -17,6 +17,7 @@ namespace WinForms.Predstava
         private readonly APIService _terminService = new APIService("Termin");
         private readonly APIService _dvoranaService = new APIService("Dvorana");
         private readonly APIService _predstavaService = new APIService("Predstava");
+        private readonly DataValidation _dataValidation;
         private readonly string _predstavaId;
         private readonly string _terminId;
 
@@ -25,6 +26,7 @@ namespace WinForms.Predstava
             _predstavaId = predstavaId;
             _terminId = terminId;
             InitializeComponent();
+            _dataValidation = Factory.GetValidator(errorProvider); ;
         }
 
         private async void UctDodajTermin_Load(object sender, EventArgs e)
@@ -56,31 +58,49 @@ namespace WinForms.Predstava
 
         private async void BtnSacuvaj_Click(object sender, EventArgs e)
         {
-            string cijena = mtxbBaznaCijenaKarte.Text.Substring(0, mtxbBaznaCijenaKarte.Text.Length - 3);
-            var request = new TerminUpsertRequest
+            if (ValidateChildren())
             {
-                DvoranaId = cmbDvorana.SelectedValue.ToString(),
-                PredstavaId = _predstavaId,
-                BaznaCijenaKarte = double.Parse(cijena),
-                DatumVrijeme = dtpTermin.Value
-            };
-            DataTransferObjects.Termin response;
-            if (_terminId == null)
-                response = await _terminService.Insert<DataTransferObjects.Termin>(request);
+                string cijena = mtxbBaznaCijenaKarte.Text.Substring(0, mtxbBaznaCijenaKarte.Text.Length - 3);
+                var request = new TerminUpsertRequest
+                {
+                    DvoranaId = cmbDvorana.SelectedValue.ToString(),
+                    PredstavaId = _predstavaId,
+                    BaznaCijenaKarte = double.Parse(cijena),
+                    DatumVrijeme = dtpTermin.Value
+                };
+                DataTransferObjects.Termin response;
+                if (_terminId == null)
+                    response = await _terminService.Insert<DataTransferObjects.Termin>(request);
 
-            else
-                response = await _terminService.Update<DataTransferObjects.Termin>(_terminId, request);
+                else
+                    response = await _terminService.Update<DataTransferObjects.Termin>(_terminId, request);
 
-            if (response != null)
-            {
-                MessageBox.Show($"Uspješno izvršeno");
-                PanelSwitcher.setToTop(new uctTerminiPredstave(_predstavaId));
+                if (response != null)
+                {
+                    MessageBox.Show($"Uspješno izvršeno");
+                    PanelSwitcher.setToTop(new uctTerminiPredstave(_predstavaId));
+                }
             }
         }
 
         private void Button1_Click(object sender, EventArgs e)
         {
             PanelSwitcher.setToTop(new uctTerminiPredstave(_predstavaId));
+        }
+
+        private void CmbDvorana_Validating(object sender, CancelEventArgs e)
+        {
+            _dataValidation.NullCheck(cmbDvorana, e);
+        }
+
+        private void MtxbBaznaCijenaKarte_Validating(object sender, CancelEventArgs e)
+        {
+            _dataValidation.NullCheck(mtxbBaznaCijenaKarte, e);
+        }
+
+        private void DtpTermin_Validating(object sender, CancelEventArgs e)
+        {
+            _dataValidation.NullCheck(dtpTermin, e);
         }
     }
 }

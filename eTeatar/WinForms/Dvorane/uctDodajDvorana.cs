@@ -125,12 +125,12 @@ namespace WinForms.Dvorane
 
         private void TxbNaziv_Validating(object sender, CancelEventArgs e)
         {
-            _validator.NullCheckTxb(txbNaziv, e);
+            _validator.NullCheck(txbNaziv, e);
         }
 
         private void CmbTeatar_Validating(object sender, CancelEventArgs e)
         {
-            _validator.NullCheckCmb(cmbTeatar, e);
+            _validator.NullCheck(cmbTeatar, e);
         }
     }
 }

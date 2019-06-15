@@ -37,17 +37,17 @@ namespace WinForms.KorisnickiNalog
 
         private void TxbIme_Validating(object sender, CancelEventArgs e)
         {
-            _validator.NullCheckTxb(txbIme, e);
+            _validator.NullCheck(txbIme, e);
         }
 
         private void TxbPrezime_Validating(object sender, CancelEventArgs e)
         {
-            _validator.NullCheckTxb(txbPrezime, e);
+            _validator.NullCheck(txbPrezime, e);
         }
 
         private void TxbNovaSifra_Validating(object sender, CancelEventArgs e)
         {
-            _validator.NullCheckTxb(txbSifra, e);
+            _validator.NullCheck(txbSifra, e);
         }
 
         private void TxbNovaSifraPotvrda_Validating(object sender, CancelEventArgs e)
@@ -55,7 +55,7 @@ namespace WinForms.KorisnickiNalog
             if (string.IsNullOrEmpty(txbSifra.Text))
                 return;
 
-            _validator.NullCheckTxb(txbSifraPotvrda, e);
+            _validator.NullCheck(txbSifraPotvrda, e);
 
             if (txbSifraPotvrda.Text != txbSifra.Text)
             {
@@ -66,17 +66,17 @@ namespace WinForms.KorisnickiNalog
 
         private void TxbBrojTelefona_Validating(object sender, CancelEventArgs e)
         {
-            _validator.NullCheckTxb(txbBrojTelefona, e);
+            _validator.NullCheck(txbBrojTelefona, e);
         }
 
         private void TxbEmail_Validating(object sender, CancelEventArgs e)
         {
-            _validator.NullCheckTxb(txbEmail, e);
+            _validator.NullCheck(txbEmail, e);
         }
 
         private void TxbKorisnickoIme_Validating_1(object sender, CancelEventArgs e)
         {
-            _validator.NullCheckTxb(txbKorisnickoIme, e);
+            _validator.NullCheck(txbKorisnickoIme, e);
 
         }
 

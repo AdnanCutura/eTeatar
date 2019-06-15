@@ -98,22 +98,22 @@ namespace WinForms.Glumac
 
         private void TxbIme_Validating(object sender, CancelEventArgs e)
         {
-            _dataValidation.NullCheckTxb(txbIme, e);
+            _dataValidation.NullCheck(txbIme, e);
         }
 
         private void CmbSpol_Validating(object sender, CancelEventArgs e)
         {
-            _dataValidation.NullCheckCmb(cmbSpol, e);
+            _dataValidation.NullCheck(cmbSpol, e);
         }
 
         private void TxbPrezime_Validating(object sender, CancelEventArgs e)
         {
-            _dataValidation.NullCheckTxb(txbPrezime, e);
+            _dataValidation.NullCheck(txbPrezime, e);
         }
 
         private void TxbBiografija_Validating(object sender, CancelEventArgs e)
         {
-            _dataValidation.NullCheckTxb(txbBiografija, e);
+            _dataValidation.NullCheck(txbBiografija, e);
         }
 
         //TODO: Slika validation

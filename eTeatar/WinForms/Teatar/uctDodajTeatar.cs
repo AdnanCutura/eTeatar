@@ -81,7 +81,6 @@ namespace WinForms.Teatar
                 PanelSwitcher.RemoveControl(this);
             }
 
-            //pokreni user control lista teatara
         }
 
         #region Učitavanje podataka za comboBox-ove
@@ -165,7 +164,7 @@ namespace WinForms.Teatar
 
         private void CmbGrad_Validating(object sender, CancelEventArgs e)
         {
-            _dataValidation.NullCheckCmb(cmbGrad, e);
+            _dataValidation.NullCheck(cmbGrad, e);
         }
 
         private void TxbEmail_Validating(object sender, CancelEventArgs e)
@@ -182,7 +181,7 @@ namespace WinForms.Teatar
 
         private void TxbVrijemeZatvaranja_Validating(object sender, CancelEventArgs e)
         {
-            _dataValidation.NullCheckMaskBox(txbVrijemeZatvaranja, e);
+            _dataValidation.NullCheck(txbVrijemeZatvaranja, e);
             _dataValidation.TimeRegexCheck(txbVrijemeZatvaranja, e);
         }
 
