@@ -144,7 +144,7 @@ namespace WebAPI
             }
 
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             // Enable middleware to serve generated Swagger as a JSON endpostring.
             app.UseSwagger();

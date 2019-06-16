@@ -17,12 +17,11 @@ namespace XamarinForms
         public static string Password { get; set; }
 
 #if DEBUG
-        private readonly string _apiUrl = "http://localhost:44368/api";
+        private readonly string _apiUrl = "http://localhost:10264/api";
 #endif
 #if RELEASE
         private readonly string _apiUrl = "https://mywebsite.com/api";
 #endif
-
         public APIService(string route)
         {
             _route = route;

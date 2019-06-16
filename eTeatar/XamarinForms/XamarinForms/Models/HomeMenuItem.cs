@@ -6,8 +6,12 @@ namespace XamarinForms.Models
 {
     public enum MenuItemType
     {
-        Browse,
-        About
+        Pocetna,
+        Predstave,
+        Termini,
+        Obavijesti,
+        MojePredstave,
+        MojProfil
     }
     public class HomeMenuItem
     {
