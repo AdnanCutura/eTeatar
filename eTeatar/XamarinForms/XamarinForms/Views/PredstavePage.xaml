@@ -6,7 +6,7 @@
              xmlns:xamarinForms="clr-namespace:XamarinForms;assembly=XamarinForms"
              xmlns:viewModels="clr-namespace:XamarinForms.ViewModels;assembly=XamarinForms"
              mc:Ignorable="d"
-             x:Class="XamarinForms.Views.Predstave">
+             x:Class="XamarinForms.Views.PredstavePage">
 
     <ContentPage.BindingContext>
         <viewModels:PredstaveViewModel></viewModels:PredstaveViewModel>

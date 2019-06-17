@@ -34,7 +34,7 @@ namespace XamarinForms.Views
                         MenuPages.Add(id, new NavigationPage(new AboutPage()));
                         break;
                     case (int)MenuItemType.Predstave:
-                        MenuPages.Add(id, new NavigationPage(new Predstave()));
+                        MenuPages.Add(id, new NavigationPage(new PredstavePage()));
                         break;
                     case (int)MenuItemType.Obavijesti:
                         MenuPages.Add(id, new NavigationPage());
