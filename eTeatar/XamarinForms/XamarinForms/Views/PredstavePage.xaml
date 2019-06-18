@@ -8,28 +8,62 @@
              mc:Ignorable="d"
              x:Class="XamarinForms.Views.PredstavePage">
 
-    <ContentPage.BindingContext>
-        <viewModels:PredstaveViewModel></viewModels:PredstaveViewModel>
-    </ContentPage.BindingContext>
-
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Predstave"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
 
-            <ListView ItemsSource="{Binding PredstavaList}">
-                <ListView.ItemTemplate>
+            <Button Clicked="Search" Text="Pretraga i filtriranje"/>
+
+            <CollectionView ItemsSource="{Binding PredstavaList}" Margin="5,5,0,0">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical"
+                        Span="100"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Padding="10" Orientation="Vertical" BackgroundColor="Cornsilk">
-                                <Label Text="{Binding Naziv}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}"  FontSize="16" />
-                                <Label Text="{Binding Trajanje}" LineBreakMode="NoWrap"  Style="{DynamicResource ListItemDetailTextStyle}"  FontSize="13"/>
+                        <Grid Margin="0,0,5,5">
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="240" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="160" />
+                            </Grid.ColumnDefinitions>
+
+                            <Image Grid.Column="0" 
+                               Grid.Row="0" 
+                               Source="slika.png" 
+                               Aspect="AspectFill" />
+                            <Image Grid.Column="0" 
+                               Grid.Row="0" 
+                               Source="gradient.png" 
+                               Aspect="Fill" />
+                            <StackLayout Grid.Column="0" 
+                                     Grid.Row="0" 
+                                     VerticalOptions="End"
+                                     Margin="0,0,0,10" 
+                                     Padding="5,0,5,0">
+                                <Frame CornerRadius="7"
+                                   BackgroundColor="White"
+                                   Padding="0,0,0,0"
+                                   Margin="45,0,45,0">
+                                    <Label Text="{Binding Ocjena, StringFormat='{0:★0.00}'} " 
+                                       TextColor="Black" 
+                                       HorizontalOptions="CenterAndExpand"/>
+                                </Frame>
+
+                                <Label Text="{Binding Naziv}" 
+                                   LineBreakMode="TailTruncation" 
+                                   TextColor="White" 
+                                   FontAttributes="Bold" 
+                                   FontSize="Small" 
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="End"/>
                             </StackLayout>
-                        </ViewCell>
+                        </Grid>
                     </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
         </StackLayout>
     </ContentPage.Content>
+
 </ContentPage>

@@ -12,25 +12,18 @@ using XamarinForms.ViewModels;
 namespace XamarinForms.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PredstavePage : ContentPage
+    public partial class PredstavaSearchView : ContentPage
     {
-        PredstavaViewModel model = null;
-
-        public PredstavePage(PredstavaSearchRequest search)
+        private PredstavaSearchViewModel model;
+        public PredstavaSearchView(PredstavaSearchRequest search)
         {
             InitializeComponent();
-            BindingContext = model = new PredstavaViewModel(search);
-        }
-
-        protected async override void OnAppearing()
-        {
-            base.OnAppearing();
-            await model.Init();
+            BindingContext = model = new PredstavaSearchViewModel(search);
         }
 
         private async void Search(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new PredstavaSearchView(model._search));
+            await Navigation.PushAsync(new PredstavePage(model._search));
         }
     }
 }
