@@ -16,5 +16,10 @@ namespace DataTransferObjects
 
         public List<Dvorana> Dvorane { get; set; }
         public Grad Grad { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Naziv} ({Grad.Naziv})";
+        }
     }
 }
