@@ -97,6 +97,7 @@ namespace WebAPI
                 typeof(BaseService<DataTransferObjects.Zanr, ZanrSearchRequest, Models.Zanr>));
             services.AddScoped(typeof(ICrudService<DataTransferObjects.PredstavaZanr, PredstavaZanrSearchRequest, DataTransferObjects.Requests.PredstavaZanrUpsertRequest, DataTransferObjects.Requests.PredstavaZanrUpsertRequest>),
                 typeof(CrudService<DataTransferObjects.PredstavaZanr, DataTransferObjects.Requests.PredstavaZanrSearchRequest, Models.PredstavaZanr, DataTransferObjects.Requests.PredstavaZanrUpsertRequest, DataTransferObjects.Requests.PredstavaZanrUpsertRequest>));
+            services.AddScoped(typeof(ICrudService<DataTransferObjects.Ocjena, OcjenaSearchRequest, OcjenaInsertRequest, object>), typeof(CrudService<DataTransferObjects.Ocjena, OcjenaSearchRequest, Models.Ocjena, OcjenaInsertRequest, object>));
             // Add Repository
             services.AddScoped(typeof(IRepository<Teatar, TeatarSearchRequest>), typeof(TeatarRepository));
             services.AddScoped(typeof(IRepository<Dvorana, DvoranaSearchRequest>), typeof(DvoranaRepository));
@@ -120,6 +121,7 @@ namespace WebAPI
             services.AddScoped(typeof(IRepository<Zanr, ZanrSearchRequest>), typeof(ZanrRepository));
             services.AddScoped(typeof(IRepository<PredstavaZanr, PredstavaZanrSearchRequest>), typeof(PredstavaZanrRepository));
             services.AddScoped(typeof(IRepository<Spol, object>), typeof(Repository<Spol,object>));
+            services.AddScoped(typeof(IRepository<Ocjena, OcjenaSearchRequest>), typeof(OcjenaRepository));
 
             // Register the Swagger generator, def 1 or more Swagger documents
             services.AddSwaggerGen(c =>

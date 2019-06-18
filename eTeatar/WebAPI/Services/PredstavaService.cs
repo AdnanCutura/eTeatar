@@ -13,9 +13,12 @@ namespace WebAPI.Services
     public class PredstavaService : CrudService<DataTransferObjects.Predstava, DataTransferObjects.Requests.PredstavaSearchRequest, Models.Predstava, DataTransferObjects.Requests.PredstavaUpsertRequest, DataTransferObjects.Requests.PredstavaUpsertRequest>
     {
         private readonly IBaseService<DataTransferObjects.Zanr, DataTransferObjects.Requests.ZanrSearchRequest> _zanrService;
-        public PredstavaService(IMapper mapper, IRepository<Models.Predstava, DataTransferObjects.Requests.PredstavaSearchRequest> repository, IBaseService<DataTransferObjects.Zanr, DataTransferObjects.Requests.ZanrSearchRequest> zanrService) : base(mapper, repository)
+        private readonly ICrudService<DataTransferObjects.Ocjena, DataTransferObjects.Requests.OcjenaSearchRequest, DataTransferObjects.Requests.OcjenaInsertRequest, object> _ocjenaService;
+
+        public PredstavaService(IMapper mapper, IRepository<Models.Predstava, DataTransferObjects.Requests.PredstavaSearchRequest> repository, IBaseService<DataTransferObjects.Zanr, DataTransferObjects.Requests.ZanrSearchRequest> zanrService, ICrudService<DataTransferObjects.Ocjena, DataTransferObjects.Requests.OcjenaSearchRequest, DataTransferObjects.Requests.OcjenaInsertRequest, object> ocjenaService) : base(mapper, repository)
         {
             _zanrService = zanrService;
+            _ocjenaService = ocjenaService;
         }
 
         public override List<DataTransferObjects.Predstava> Get(DataTransferObjects.Requests.PredstavaSearchRequest search)
@@ -24,8 +27,10 @@ namespace WebAPI.Services
 
             //Dodavanje zanrova u model
             foreach (var result in queryresult)
+            {
                 result.Zanrovi = _zanrService.Get(new DataTransferObjects.Requests.ZanrSearchRequest { PredstavaId = result.Id });
-
+                result.Ocjena = _ocjenaService.Get(new OcjenaSearchRequest { PredstavaId = result.Id })?.Average(a => a?.Vrijednost) ?? 0;
+            }
            return queryresult;
         }
 

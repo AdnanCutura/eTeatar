@@ -15,6 +15,7 @@ namespace DataTransferObjects
         public string ReziserImePrezime { get; set; }
         public string NazivIzvornogDjela { get; set; }
         public string PisacIzvornogDjela { get; set; }
+        public double Ocjena { get; set; }
 
 
         public virtual List<Uloga> Uloge { get; set; }
