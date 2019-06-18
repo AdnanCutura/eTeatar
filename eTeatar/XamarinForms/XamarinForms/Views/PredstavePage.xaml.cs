@@ -22,10 +22,9 @@ namespace XamarinForms.Views
             BindingContext = model = new PredstavaViewModel(search);
         }
 
-        protected async override void OnAppearing()
+        protected override void OnAppearing()
         {
             base.OnAppearing();
-            await model.Init();
         }
 
         private async void Search(object sender, EventArgs e)
