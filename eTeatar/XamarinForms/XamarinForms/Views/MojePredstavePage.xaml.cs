@@ -18,5 +18,11 @@ namespace XamarinForms.Views
             InitializeComponent();
             BindingContext = model = new ViewModels.MojePredstaveViewModel();
         }
+
+        protected override void OnAppearing()
+        {
+            model.Init.Execute(null);
+            base.OnAppearing();
+        }
     }
 }

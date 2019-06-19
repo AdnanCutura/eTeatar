@@ -19,5 +19,11 @@ namespace XamarinForms.Views
             InitializeComponent();
             BindingContext = model = new OcjeneViewModel();
         }
+
+        protected override void OnAppearing()
+        {
+            model.Init.Execute(null);
+            base.OnAppearing();
+        }
     }
 }

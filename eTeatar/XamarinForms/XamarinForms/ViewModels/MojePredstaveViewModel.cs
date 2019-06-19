@@ -29,6 +29,7 @@ namespace XamarinForms.ViewModels
             {
                 var list = await _narudzbaService.Get<List<DataTransferObjects.Narudzba>>(new DataTransferObjects.Requests.NarudzbaSearchRequest { KupacId = Helpers.KupacData.Get().Id });
 
+                NarudzbaList.Clear();
                 foreach (var item in list)
                     NarudzbaList.Add(item);
             }
