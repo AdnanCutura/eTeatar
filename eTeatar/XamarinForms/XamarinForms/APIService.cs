@@ -32,7 +32,7 @@ namespace XamarinForms
             var url = $"{_apiUrl}/{_route}";
             try
             {
-                if (search != null)
+                if (search?.ToKeyValue() != null)
                     url += "?" + await search.ToQueryString();
 
                 return await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
