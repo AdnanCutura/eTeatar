@@ -23,7 +23,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Frame BackgroundColor="LightGray" Margin="10,0,0,10">
+                            <Frame BackgroundColor="LightGray" Margin="0,10,0,10">
                                 <Grid HorizontalOptions="Center">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="30"></RowDefinition>
