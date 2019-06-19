@@ -48,6 +48,9 @@ namespace XamarinForms.Views
                     case (int)MenuItemType.MojProfil:
                         MenuPages.Add(id, new NavigationPage());
                         break;
+                    case (int)MenuItemType.Ocjene:
+                        MenuPages.Add(id, new NavigationPage(new OcjenePage()));
+                        break;
                 }
             }
 

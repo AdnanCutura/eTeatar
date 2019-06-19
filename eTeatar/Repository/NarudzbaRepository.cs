@@ -29,6 +29,10 @@ namespace Repository
             if (!string.IsNullOrEmpty(search?.KorisnickoIme))
                 query = query.Where(w => w.Kupac.KorisnickiNalog.KorisnickoIme.ToUpper().Contains(search.KorisnickoIme.ToUpper()));
 
+            //KupacId
+            if (!string.IsNullOrEmpty(search?.KupacId))
+                query = query.Where(w => w.Kupac.Id==search.KupacId);
+
             //Naziv predstave
             if (!string.IsNullOrEmpty(search?.NazivPredstave))
                 query = query.Where(w => w.Termin.Predstava.Naziv.ToUpper().Contains(search.NazivPredstave.ToUpper()));

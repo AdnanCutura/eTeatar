@@ -29,7 +29,7 @@ namespace Repository
 
             if (!string.IsNullOrWhiteSpace(search?.NazivPredstave))
             {
-                query = query.Where(x => x.Predstava.Naziv.Contains(search.NazivPredstave));
+                query = query.Where(x => x.Predstava.Naziv.ToUpper().Contains(search.NazivPredstave.ToUpper()));
             }
 
             if (!string.IsNullOrWhiteSpace(search?.DvoranaId))

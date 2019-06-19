@@ -26,12 +26,16 @@ namespace XamarinForms.ViewModels
         public ICommand Init { get; private set; }
         private async Task Initialize()
         {
-            var list = await _terminservice.Get<List<DataTransferObjects.Termin>>(search);
+            try
+            {
+                var list = await _terminservice.Get<List<DataTransferObjects.Termin>>(search);
 
-            TerminList.Clear();
-            foreach (var item in list)
-                //if(item.DatumVrijeme > DateTime.Now)
+                TerminList.Clear();
+                foreach (var item in list)
+                    //if(item.DatumVrijeme > DateTime.Now)
                     TerminList.Add(item);
+            }
+            catch { }
         }
     }
 }

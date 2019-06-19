@@ -11,7 +11,8 @@ namespace XamarinForms.Models
         Termini,
         Obavijesti,
         MojePredstave,
-        MojProfil
+        MojProfil,
+        Ocjene
     }
     public class HomeMenuItem
     {

@@ -9,6 +9,7 @@ namespace DataTransferObjects.Requests
         public string Ime { get; set; }
         public string Prezime { get; set; }
         public string KorisnickoIme { get; set; }
+        public string KupacId { get; set; }
         public string NazivPredstave { get; set; }
     }
 }

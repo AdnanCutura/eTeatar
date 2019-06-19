@@ -22,10 +22,14 @@ namespace XamarinForms.ViewModels
 
         public async Task Initialize()
         {
-            var list = await _obavijestService.Get<List<DataTransferObjects.Obavijest>>(null);
+            try
+            {
+                var list = await _obavijestService.Get<List<DataTransferObjects.Obavijest>>(null);
 
-            foreach (var item in list)
-                ObavijestList.Add(item);
+                foreach (var item in list)
+                    ObavijestList.Add(item);
+            }
+            catch { }
         }
     }
 }
