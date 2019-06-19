@@ -6,7 +6,8 @@
              xmlns:xamarinForms="clr-namespace:XamarinForms;assembly=XamarinForms"
              xmlns:viewModels="clr-namespace:XamarinForms.ViewModels;assembly=XamarinForms"
              mc:Ignorable="d"
-             x:Class="XamarinForms.Views.PredstavePage">
+             x:Class="XamarinForms.Views.PredstavePage"
+             Title="Predstave">
 
     <ContentPage.Content>
         <StackLayout>
