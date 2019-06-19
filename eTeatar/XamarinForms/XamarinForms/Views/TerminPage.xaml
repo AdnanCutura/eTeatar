@@ -19,7 +19,7 @@
                 <Entry Grid.Row="0" Grid.Column="0" Placeholder="Naziv predstave" VerticalOptions="Center" Text="{Binding Naziv}"/>
                 <Button Grid.Row="0" Grid.Column="1" Text="Pretraga" Command="{Binding Init}"/>
             </Grid>
-            <ListView ItemsSource="{Binding TerminList}">
+            <ListView ItemsSource="{Binding TerminList}" SelectionMode="None">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -32,9 +32,9 @@
                                         <RowDefinition Height="30"></RowDefinition>
                                     </Grid.RowDefinitions>
                                     <Label Grid.Row="0" Text="{Binding Predstava.Naziv}" FontSize="16" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
-                                    <StackLayout Grid.Row="1" Orientation="Horizontal" VerticalOptions="Center">
-                                        <Label Text="{Binding Dvorana.Teatar.Grad.Naziv}"/>
-                                        <Label Text="Narodno pozoriste" FontAttributes="None"/>
+                                    <StackLayout Grid.Row="1" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
+                                        <Label Text="{Binding Dvorana.Teatar.Grad.Naziv,StringFormat='{0:},'}"/>
+                                        <Label Text="{Binding Dvorana.Teatar.Naziv}" FontAttributes="None"/>
                                     </StackLayout>
                                     <Label Text="{Binding DatumVrijeme,StringFormat='{0:d.M.yyyy HH:mm}'}" Grid.Row="2" HorizontalTextAlignment="Center"/>
                                     <Button Grid.Row="3" Text="Kupi kartu" BackgroundColor="DodgerBlue"/>

@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="XamarinForms.Views.MojePredstavePage"
+             Title="Moje Predstave">
+    <ContentPage.Content>
+        <ListView ItemsSource="{Binding NarudzbaList}" SelectionMode="None">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame BackgroundColor="LightGray" Margin="0,10,0,10">
+                            <Grid HorizontalOptions="Center">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="30"></RowDefinition>
+                                    <RowDefinition Height="30"></RowDefinition>
+                                    <RowDefinition Height="50"></RowDefinition>
+                                    <RowDefinition Height="30"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Row="0" Text="{Binding Termin.Predstava.Naziv}" FontSize="16" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                                <StackLayout Grid.Row="1" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
+                                    <Label Text="{Binding Termin.Dvorana.Teatar.Grad.Naziv, StringFormat='{0:},'}"/>
+                                    <Label Text="{Binding Termin.Dvorana.Teatar.Naziv}" FontAttributes="None"/>
+                                </StackLayout>
+                                <StackLayout Grid.Row="2" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
+                                    <Label Text="{Binding Termin.DatumVrijeme,StringFormat='{0:d.M.yyyy HH:mm}'}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                    <Frame Padding="3" BackgroundColor="Black">
+                                        <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
+                                            <Label Text="{Binding Kolicina,StringFormat='{0:} Ulazinca'}" HorizontalTextAlignment="Center" TextColor="White"/>
+                                            <Label Text="{Binding TipSjedista.Naziv, StringFormat='({0:})'}" HorizontalTextAlignment="Center" TextColor="White"/>
+                                        </StackLayout>
+                                    </Frame>
+                                </StackLayout>
+                                <StackLayout Grid.Row="3" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
+                                    <Button Text="Ostavi ocjenu" BackgroundColor="DodgerBlue"/>
+                                    <Button Text="Pokazi kartu" BackgroundColor="DodgerBlue"/>
+                                </StackLayout>
+                            </Grid>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

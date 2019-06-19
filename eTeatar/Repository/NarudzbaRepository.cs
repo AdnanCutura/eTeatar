@@ -35,7 +35,14 @@ namespace Repository
 
             query = query.Include(i => i.Termin).Include(i => i.Termin.Predstava).Include(i => i.Termin.Dvorana).ThenInclude(d => d.Teatar).Include(i=>i.TipSjedista).Include(i=>i.Ocjena);
 
-            return query.ToList();
+
+            var list = query.ToList();
+            foreach (var item in list)
+            {
+                item.Termin.Narudzbe = null;
+                item.Termin.Dvorana.Teatar.Grad = Context.Grad.Where(w => w.Id == item.Termin.Dvorana.Teatar.GradId).FirstOrDefault();
+            }
+            return list;
         }
 
         public override Narudzba GetById(string id)
