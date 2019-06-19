@@ -10,5 +10,6 @@ namespace DataTransferObjects.Requests
         public DateTime? DatumDo { get; set; }
         public string PredstavaId { get; set; }
         public string DvoranaId { get; set; }
+        public string NazivPredstave { get; set; }
     }
 }

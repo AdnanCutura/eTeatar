@@ -22,23 +22,35 @@ namespace Repository
             query = query.Where(x => x.DatumVrijeme <= (search.DatumDo ?? DateTime.MaxValue));
 
 
-            if (!string.IsNullOrWhiteSpace(search.PredstavaId))
+            if (!string.IsNullOrWhiteSpace(search?.PredstavaId))
             {
                 query = query.Where(x => x.PredstavaId == search.PredstavaId);
             }
 
-            if (!string.IsNullOrWhiteSpace(search.DvoranaId))
+            if (!string.IsNullOrWhiteSpace(search?.NazivPredstave))
+            {
+                query = query.Where(x => x.Predstava.Naziv.Contains(search.NazivPredstave));
+            }
+
+            if (!string.IsNullOrWhiteSpace(search?.DvoranaId))
             {
                 query = query.Where(x => x.DvoranaId == search.DvoranaId);
             }
 
             query = query.OrderBy(x => x.DatumVrijeme);
             IEnumerable<Termin> list = query
-                .Include(t => t.Dvorana)
-                .Include(t => t.Predstava)
+                .Include(t => t.Dvorana).ThenInclude(d => d.Teatar).ThenInclude(t => t.Grad)
                 .Include(t => t.Narudzbe)
+                .Include(t => t.Predstava)
                 .ToList();
 
+            foreach (var item in list)
+            {
+                item.Predstava.Termini = null;
+                item.Dvorana.Termini = null;
+                item.Dvorana.Teatar.Dvorane = null;
+                item.Dvorana.Teatar.Grad.Teatri = null;
+            }
             return list;
         }
 

@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="XamarinForms.Views.TerminPage"
+             Title="Termini">
+    <ContentPage.Content>
+        <StackLayout Margin="20">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="110"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Entry Grid.Row="0" Grid.Column="0" Placeholder="Naziv predstave" VerticalOptions="Center" Text="{Binding Naziv}"/>
+                <Button Grid.Row="0" Grid.Column="1" Text="Pretraga" Command="{Binding Init}"/>
+            </Grid>
+            <ListView ItemsSource="{Binding TerminList}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame BackgroundColor="LightGray" Margin="10,0,0,10">
+                                <Grid HorizontalOptions="Center">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="30"></RowDefinition>
+                                        <RowDefinition Height="30"></RowDefinition>
+                                        <RowDefinition Height="30"></RowDefinition>
+                                        <RowDefinition Height="30"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Label Grid.Row="0" Text="{Binding Predstava.Naziv}" FontSize="16" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                                    <StackLayout Grid.Row="1" Orientation="Horizontal" VerticalOptions="Center">
+                                        <Label Text="{Binding Dvorana.Teatar.Grad.Naziv}"/>
+                                        <Label Text="Narodno pozoriste" FontAttributes="None"/>
+                                    </StackLayout>
+                                    <Label Text="{Binding DatumVrijeme,StringFormat='{0:d.M.yyyy HH:mm}'}" Grid.Row="2" HorizontalTextAlignment="Center"/>
+                                    <Button Grid.Row="3" Text="Kupi kartu" BackgroundColor="DodgerBlue"/>
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
