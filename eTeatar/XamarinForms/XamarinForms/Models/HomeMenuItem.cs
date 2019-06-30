@@ -12,7 +12,10 @@ namespace XamarinForms.Models
         Obavijesti,
         MojePredstave,
         MojProfil,
-        Ocjene
+        Ocjene,
+
+        //Test
+        TestObavijestDetalji
     }
     public class HomeMenuItem
     {

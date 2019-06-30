@@ -26,7 +26,8 @@ namespace XamarinForms.Views
                 new HomeMenuItem {Id = MenuItemType.Obavijesti, Title="Obavijesti" },
                 new HomeMenuItem {Id = MenuItemType.MojePredstave, Title="Moje predstave" },
                 new HomeMenuItem {Id = MenuItemType.Ocjene, Title="Ocjene" },
-                new HomeMenuItem {Id = MenuItemType.MojProfil, Title="Moj profil" }
+                new HomeMenuItem {Id = MenuItemType.MojProfil, Title="Moj profil" },
+                new HomeMenuItem {Id = MenuItemType.TestObavijestDetalji, Title="Test obavijest detalji" }
             };
 
             ListViewMenu.ItemsSource = menuItems;

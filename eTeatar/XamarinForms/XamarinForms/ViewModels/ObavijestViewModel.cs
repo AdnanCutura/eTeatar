@@ -19,7 +19,7 @@ namespace XamarinForms.ViewModels
             Init = new Command(async () => await Initialize());
             Init.Execute(null);
         }
-
+       
         public async Task Initialize()
         {
             try
@@ -29,7 +29,9 @@ namespace XamarinForms.ViewModels
                 foreach (var item in list)
                     ObavijestList.Add(item);
             }
-            catch { }
+            catch {}
         }
+
+
     }
 }

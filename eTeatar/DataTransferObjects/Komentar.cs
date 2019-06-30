@@ -11,7 +11,8 @@ namespace DataTransferObjects
         public DateTime DatumVrijeme { get; set; }
         public string Sadrzaj { get; set; }
 
-        public string KupacId { get; set; }
+        public Kupac Kupac { get; set; }
+
         public string ObavijestId { get; set; }
     }
 }

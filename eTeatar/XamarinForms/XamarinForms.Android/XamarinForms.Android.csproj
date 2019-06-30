@@ -103,5 +103,10 @@
       <Name>XamarinForms</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\gradient.png" />
+    <Content Include="Assets\slika.png" />
+    <Content Include="Assets\slika2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

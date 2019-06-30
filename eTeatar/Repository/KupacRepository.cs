@@ -13,11 +13,26 @@ namespace Repository
         {
         }
 
-        public override Kupac GetById(string id)
+        public override IEnumerable<Kupac> Get(object search)
         {
             var query = Context.Kupac.AsQueryable();
-            query = query.Include(i => i.TipKorisnika);
-            return query.FirstOrDefault(w => w.Id == id);
+
+            IEnumerable<Kupac> list = query
+                .Include(i => i.KorisnickiNalog)
+                .ToList();
+
+            return list;
+        }
+
+        public override Kupac GetById(string id)
+        {
+            var query = Context.Kupac.Where(w => w.Id == id).AsQueryable();
+            var item = query
+                .Include(i => i.TipKorisnika)
+                .Include(i => i.KorisnickiNalog)
+                .Single();
+
+            return item;
         }
     }
 }

@@ -27,7 +27,8 @@ namespace WebAPI.Services
         public virtual TTransferObject GetById(string id)
         {
            TEntity entity = Repository.GetById(id);
-           return Mapper.Map<TTransferObject>(entity);
+           var mapped = Mapper.Map<TTransferObject>(entity);
+           return mapped;
         }
     }
 }

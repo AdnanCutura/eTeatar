@@ -112,7 +112,7 @@ namespace WebAPI
             services.AddScoped(typeof(IRepository<DvoranaTipSjedista, DvoranaTipSjedistaSearchRequest>), typeof(DvoranaTipSjedistaRepository));
             services.AddScoped(typeof(IRepository<Glumac, GlumacSearchRequest>), typeof(GlumacRepository));
             services.AddScoped(typeof(IRepository<Termin, TerminSearchRequest>), typeof(TerminRepository));
-            services.AddScoped(typeof(IRepository<Komentar, object>), typeof(Repository<Komentar, object>));
+            services.AddScoped(typeof(IRepository<Komentar, object>), typeof(KomentarRepository));
             services.AddScoped(typeof(IKorisnickiNalogRepository), typeof(KorisnickiNalogRepository));
             services.AddScoped(typeof(IRepository<Kupac, object>), typeof(KupacRepository));
             services.AddScoped(typeof(IRepository<Administrator, object>), typeof(Repository<Administrator, object>));
