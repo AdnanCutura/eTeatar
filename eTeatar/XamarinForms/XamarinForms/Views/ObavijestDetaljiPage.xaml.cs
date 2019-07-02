@@ -37,6 +37,7 @@ namespace XamarinForms.Views
             {
                 Obavijest = ob
             };
+            _model.InitCommand.Execute(null);
         }
 
         private void Button_OnClicked(object sender, EventArgs e)

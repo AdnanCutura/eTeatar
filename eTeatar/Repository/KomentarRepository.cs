@@ -8,19 +8,21 @@ using Models;
 
 namespace Repository
 {
-    public class KomentarRepository : Repository<Models.Komentar, object>
+    public class KomentarRepository : Repository<Models.Komentar, KomentarSearchRequest>
     {
         public KomentarRepository(eTeatarContext context) : base(context)
         {
         }
 
-        public override IEnumerable<Komentar> Get(object search)
+        public override IEnumerable<Komentar> Get(KomentarSearchRequest search)
         {
             var query = Context.Komentar.AsQueryable();
 
+            if (!string.IsNullOrEmpty(search.ObavijestId))
+                query = query.Where(k => k.ObavijestId == search.ObavijestId);
+
             IEnumerable<Komentar> list = query
-                .Include(i => i.Kupac)
-                .ThenInclude(kp => kp.KorisnickiNalog)
+                .OrderByDescending(k => k.DatumVrijeme)
                 .ToList();
 
             return list;
@@ -30,8 +32,6 @@ namespace Repository
         {
             var query = Context.Komentar.Where(w => w.Id == id).AsQueryable();
             var item = query
-                .Include(i => i.Kupac)
-                .ThenInclude(kp => kp.KorisnickiNalog)
                 .Single();
 
             return item;

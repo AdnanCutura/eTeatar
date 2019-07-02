@@ -26,7 +26,7 @@ namespace XamarinForms.ViewModels
             Kupac = Helpers.KupacData.Get();
             Komentari = new ObservableCollection<Komentar>();
             InitCommand = new Command(async () => await Init());
-            InitCommand.Execute(null);
+            
             NoviKomentarCommand = new Command(async () => await NoviKomentar());
         }
 
@@ -60,8 +60,6 @@ namespace XamarinForms.ViewModels
             {
                 await _serviceKomentar.Insert<Komentar>(noviKomentar);
                 InitCommand.Execute(null);
-                
-                //Application.KomentarEditor
             }
             catch
             {
@@ -74,7 +72,7 @@ namespace XamarinForms.ViewModels
         {
             try
             {
-                var list = await _serviceKomentar.Get<List<Komentar>>(null);
+                var list = await _serviceKomentar.Get<List<Komentar>>(Obavijest.Id);
                 foreach (var item in list)
                     Komentari.Add(item);
             }
