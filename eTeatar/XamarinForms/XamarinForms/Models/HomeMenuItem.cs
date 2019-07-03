@@ -15,7 +15,8 @@ namespace XamarinForms.Models
         Ocjene,
 
         //Test
-        TestObavijestDetalji
+        TestObavijestDetalji,
+        TestPredstavaDetalji
     }
     public class HomeMenuItem
     {

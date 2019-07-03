@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:XamarinForms.ViewModels;assembly=XamarinForms"
+             xmlns:convertor="clr-namespace:XamarinForms.Convertor;assembly=XamarinForms"
+             mc:Ignorable="d"
+             x:Class="XamarinForms.Views.PredstavaDetaljiPage">
+
+    <ContentPage.BindingContext>
+        <viewModels:PredstavaDetaljiViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <convertor:ImageConverter x:Key="ImgConvert"/>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <ScrollView>
+
+            <StackLayout>
+
+                <Image  HeightRequest="200" Source="{Binding Predstava.Slika, Converter={StaticResource ImgConvert}}" Aspect="AspectFill"></Image>
+                <Label Margin="0, 10" BackgroundColor="#801336" Text="{Binding Predstava.Naziv}" FontSize="25" TextColor="#ffffff" HorizontalTextAlignment="Center"></Label>
+                <Label  Margin="10" Text="{Binding Predstava.Ocjena, StringFormat='{0:N} ★'}" FontSize="20" TextColor="#000000" HorizontalTextAlignment="Center"></Label>
+
+                <!-- Info režiser, trajanje, izvorno djelo -->
+                <FlexLayout Direction="Row" JustifyContent="SpaceEvenly">
+                    <StackLayout>
+                        <Label TextColor="#000000" FontSize="18" Text="Režiser"></Label>
+                        <Label TextColor="#000000" FontSize="18" Text="{Binding Predstava.ReziserImePrezime}"></Label>
+                    </StackLayout>
+                    <StackLayout>
+                        <Label TextColor="#000000" FontSize="18" Text="Trajanje"></Label>
+                        <Label TextColor="#000000" FontSize="18" Text="{Binding Predstava.Trajanje}"></Label>
+                    </StackLayout>
+                    <StackLayout>
+                        <Label TextColor="#000000" FontSize="18" Text="Izvorno djelo"></Label>
+                        <Label TextColor="#000000" FontSize="18" Text="{Binding Predstava.NazivIzvornogDjela}"></Label>
+                    </StackLayout>
+                </FlexLayout>
+
+                <Label Margin="0,15"  Text="{Binding Zanrovi}" FontSize="20" TextColor="#000000" HorizontalTextAlignment="Center"></Label>
+
+                <Label Margin="15"  Text="Opis" FontSize="20" TextColor="#000000" HorizontalTextAlignment="Center"></Label>
+                <Label Margin="15, 0"  Text="{Binding Predstava.Opis}" FontSize="18" TextColor="#000000"></Label>
+
+                <!-- Glumci -->
+                <Label Margin="15" Text="Glumci" FontSize="20" TextColor="#000000" HorizontalTextAlignment="Center"></Label>
+                <ListView ItemsSource="{Binding Uloge}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Margin="0, 5" Orientation="Horizontal" BackgroundColor="#d6d6d6">
+                                    <StackLayout VerticalOptions="CenterAndExpand">
+                                        <Image Margin="10, 0, 0, 0" WidthRequest="40" HeightRequest="40" Source="{Binding Glumac.Slika, Converter={StaticResource ImgConvert}}" Aspect="AspectFill"></Image>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Vertical" Padding="10">
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="{Binding Glumac.Ime}"
+                                               LineBreakMode="NoWrap"
+                                               FontSize="16" />
+                                            <Label Text="{Binding Glumac.Prezime}"
+                                               LineBreakMode="NoWrap"
+                                               FontSize="16" />
+                                        </StackLayout>
+                                        <Label Text="{Binding Naziv, StringFormat='Uloga: {0:N}'}"
+                                               LineBreakMode="NoWrap"
+                                               FontSize="12" />
+
+                                        <Label FontSize="10">
+                                            <Label.Triggers>
+                                                <DataTrigger TargetType="Label" Binding="{Binding IsGlavnaUloga}" Value="true">
+                                                    <Setter Property="Text"  Value="Glavna uloga" />
+                                                </DataTrigger>
+                                                <DataTrigger TargetType="Label" Binding="{Binding IsGlavnaUloga}" Value="false">
+                                                    <Setter  Property="Text"  Value="Sporedna uloga" />
+                                                </DataTrigger>
+                                            </Label.Triggers>
+                                        </Label>
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
