@@ -1,12 +1,11 @@
-﻿using System;
+﻿using DataTransferObjects;
+using DataTransferObjects.Requests;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using DataTransferObjects;
-using DataTransferObjects.Requests;
 using Xamarin.Forms;
 
 namespace XamarinForms.ViewModels
@@ -72,7 +71,10 @@ namespace XamarinForms.ViewModels
         {
             try
             {
-                var list = await _serviceKomentar.Get<List<Komentar>>(Obavijest.Id);
+                var list = await _serviceKomentar.Get<List<Komentar>>(new KomentarSearchRequest
+                {
+                    ObavijestId = Obavijest.Id
+                });
                 foreach (var item in list)
                     Komentari.Add(item);
             }

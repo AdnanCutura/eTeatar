@@ -20,7 +20,7 @@ namespace XamarinForms.Views
         private ObavijestDetaljiViewModel _model;
         private readonly string _obavijestId;
 
-        public ObavijestDetaljiPage(string id = "15f54bf3-b185-43ea-ac60-399916781070")
+        public ObavijestDetaljiPage(string id = "2f530ca9-e080-4569-898d-56bb33edfd19")
         {
             _obavijestId = id;
             InitializeComponent();
@@ -28,7 +28,7 @@ namespace XamarinForms.Views
             Init.Execute(null);
         }
 
-        private ICommand Init { get; set; } 
+        private ICommand Init { get; } 
 
         public async Task Initialize(string id)
         {
