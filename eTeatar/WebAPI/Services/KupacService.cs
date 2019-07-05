@@ -60,5 +60,26 @@ namespace WebAPI.Services
             returnmodel.Id = id;
             return returnmodel;
         }
+
+        public override DataTransferObjects.Kupac Update(string id, KupacKorisnickiNalogUpsertRequest request)
+        {
+            var nalogRequest = Mapper.Map<KorisnickiNalogUpsertRequest>(request);
+            var kupacRequest = Mapper.Map<KupacUpsertRequest>(request);
+            
+            var kupac = Repository.GetById(id);
+            kupacRequest.KorisnickiNalogId = kupac.KorisnickiNalogId;
+            Mapper.Map(kupacRequest, kupac);
+
+            var kupacResponse = Mapper.Map<DataTransferObjects.Kupac>(kupac);
+            Repository.Update(kupac);
+
+            var nalogResponse = _korisnickiNalogService.Update(kupac.KorisnickiNalogId, nalogRequest);
+
+            var kupacId = kupacResponse.Id;
+            Mapper.Map(nalogResponse, kupacResponse);
+            kupacResponse.Id = kupacId;
+
+            return kupacResponse;
+        }
     }
 }

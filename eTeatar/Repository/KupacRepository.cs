@@ -18,7 +18,7 @@ namespace Repository
             var query = Context.Kupac.AsQueryable();
 
             IEnumerable<Kupac> list = query
-                .Include(i => i.KorisnickiNalog)
+                .Include(i => i.TipKorisnika)
                 .ToList();
 
             return list;
@@ -29,7 +29,6 @@ namespace Repository
             var query = Context.Kupac.Where(w => w.Id == id).AsQueryable();
             var item = query
                 .Include(i => i.TipKorisnika)
-                .Include(i => i.KorisnickiNalog)
                 .Single();
 
             return item;
