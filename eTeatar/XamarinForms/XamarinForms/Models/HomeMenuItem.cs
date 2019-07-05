@@ -13,6 +13,8 @@ namespace XamarinForms.Models
         MojePredstave,
         MojProfil,
         Ocjene,
+        Registracija,
+
 
         //Test
         TestObavijestDetalji,

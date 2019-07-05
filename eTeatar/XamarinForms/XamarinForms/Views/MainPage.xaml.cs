@@ -51,6 +51,9 @@ namespace XamarinForms.Views
                     case (int)MenuItemType.Ocjene:
                         MenuPages.Add(id, new NavigationPage(new OcjenePage()));
                         break;
+                    case (int)MenuItemType.Registracija:
+                        MenuPages.Add(id, new NavigationPage(new RegistracijaPage()));
+                        break;
                     case (int)MenuItemType.TestObavijestDetalji:
                         MenuPages.Add(id, new NavigationPage(new ObavijestDetaljiPage()));
                         break;

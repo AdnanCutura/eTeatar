@@ -59,10 +59,12 @@ namespace XamarinForms.ViewModels
             {
                 await _serviceKomentar.Insert<Komentar>(noviKomentar);
                 InitCommand.Execute(null);
+                await Application.Current.MainPage.DisplayAlert("Informacija", "Uspješno ste se ostavili komentar", "OK");
+
             }
             catch
             {
-                // ignored
+                await Application.Current.MainPage.DisplayAlert("Greška", "Provjerite podatke i pokušajte ponovo", "OK");
             }
         }
         #endregion
