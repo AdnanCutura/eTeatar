@@ -54,17 +54,16 @@
         <Label FontSize="16" TextColor="#000000" Text="Broj telefona"></Label>
         <Entry Text="{Binding Kupac.Telefon}"></Entry>
 
-        <!--Command="{Binding UpdateProfilCommand}"-->
         <Button TextColor="White" Clicked="UpdateProfil" Text="Spasi promjene" BackgroundColor="#510a32"></Button>
 
-        <!-- Promijeni šifru -->
+        <!-- Promijena šifre -->
         <Label Text="Nova lozinka"></Label>
-        <Entry Text="{Binding NovaLozinka}" IsPassword="true"></Entry>
+        <Entry x:Name="NoviPassword" Text="{Binding NovaLozinka}" IsPassword="true"></Entry>
 
         <Label Text="Potvrda lozinke"></Label>
-        <Entry Text="{Binding PotvrdaLozinke}" IsPassword="true"></Entry>
+        <Entry x:Name="PotvrdaPassword" Text="{Binding PotvrdaLozinke}" IsPassword="true"></Entry>
 
-        <Button TextColor="White" Command="{Binding UpdatePasswordCommand}" Text="Promijeni lozinku" BackgroundColor="#510a32"></Button>
+        <Button TextColor="White" Command="{Binding UpdatePasswordCommand}" Clicked="CleanPassword" Text="Promijeni lozinku" BackgroundColor="#510a32"></Button>
 
       </StackLayout>
     </ScrollView>

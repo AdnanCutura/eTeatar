@@ -14,7 +14,7 @@ namespace XamarinForms.Models
         MojProfil,
         Ocjene,
         Registracija,
-
+        Prijava,
 
         //Test
         TestObavijestDetalji,

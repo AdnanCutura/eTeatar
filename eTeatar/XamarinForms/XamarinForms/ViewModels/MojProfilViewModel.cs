@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using DataTransferObjects;
+using DataTransferObjects.Requests;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using DataTransferObjects;
-using DataTransferObjects.Requests;
-using WinForms.Helpers;
 using Xamarin.Forms;
 
 namespace XamarinForms.ViewModels
@@ -43,10 +39,11 @@ namespace XamarinForms.ViewModels
             try
             {
                 var response = await _serviceKupacKorisnickiNalog.Update<Kupac>(Kupac.Id, request);
+                await Application.Current.MainPage.DisplayAlert("Informacija", "Uspješno ste spremili podatke", "OK");
             }
             catch
             {
-                // ignored
+                await Application.Current.MainPage.DisplayAlert("Greška", "Provjerite podatke i pokušajte ponovo", "OK");
             }
         }
 
@@ -61,16 +58,16 @@ namespace XamarinForms.ViewModels
             try
             {
                 var response = await _serviceKupacKorisnickiNalog.Update<Kupac>(Kupac.Id, request);
+                await Application.Current.MainPage.DisplayAlert("Informacija", "Lozinka je uspješno promjenjena", "OK");
             }
             catch
             {
-                // ignored
+                await Application.Current.MainPage.DisplayAlert("Greška", "Provjerite podatke i pokušajte ponovo", "OK");
             }
         }
 
         private async Task UpgradeAccount()
         {
-            //Kupac = Helpers.KupacData.Get();
             var sljedeciTipId = Kupac.TipKorisnika.IduciTipKorisnikaId;
             KupacUpsertRequest request = new KupacUpsertRequest
             {
@@ -81,10 +78,11 @@ namespace XamarinForms.ViewModels
             try
             {
                 var response = await _serviceKupacKorisnickiNalog.Update<Kupac>(Kupac.Id, request);
+                await Application.Current.MainPage.DisplayAlert("Informacija", "Lozinka je uspješno promjenjena", "OK");
             }
             catch
             {
-                // ignored
+                await Application.Current.MainPage.DisplayAlert("Greška", "Desila se greška, molimo vas da pokušate ponovo", "OK");
             }
         }
     }

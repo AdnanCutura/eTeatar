@@ -1,11 +1,10 @@
-﻿
+﻿using DataTransferObjects.Extensions;
+using Flurl.Http;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using DataTransferObjects.Extensions;
-using Flurl.Http;
 using Xamarin.Forms;
 
 namespace XamarinForms
@@ -42,7 +41,7 @@ namespace XamarinForms
                 switch (err.Call.HttpStatus)
                 {
                     case System.Net.HttpStatusCode.Unauthorized:
-                        await Application.Current.MainPage.DisplayAlert("Greška", "Niste authentificirani", "OK");
+                        await Application.Current.MainPage.DisplayAlert("Greška", "Niste autentificirani", "OK");
                         break;
                     case System.Net.HttpStatusCode.Forbidden:
                         await Application.Current.MainPage.DisplayAlert("Greška", "Niste autorizirani", "OK");

@@ -1,12 +1,11 @@
 ﻿using Plugin.Media;
 using Plugin.Media.Abstractions;
 using System;
-using System.IO;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using XamarinForms.Convertor;
 using XamarinForms.ViewModels;
-using XamarinForms.Convertor;
+
 namespace XamarinForms.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -43,11 +42,17 @@ namespace XamarinForms.Views
             byte[] imgData = new ImageConverter().StreamToBytes(selectedImageFile.GetStream());
             _slikaByte = imgData;
         }
-        
+
         private void UpdateProfil(object sender, EventArgs e)
         {
             _model.UpdateProfilCommand = new Command(async () => await _model.UpdateProfil(_slikaByte));
             _model.UpdateProfilCommand.Execute(null);
+        }
+
+        private void CleanPassword(object sender, EventArgs e)
+        {
+            NoviPassword.Text = "";
+            PotvrdaPassword.Text = "";
         }
     }
 }
