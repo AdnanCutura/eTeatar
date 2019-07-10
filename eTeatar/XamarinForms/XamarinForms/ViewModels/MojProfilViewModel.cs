@@ -1,29 +1,68 @@
-﻿using DataTransferObjects;
+﻿using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using DataTransferObjects;
 using DataTransferObjects.Requests;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
+using XamarinForms.Annotations;
 
 namespace XamarinForms.ViewModels
 {
-    public class MojProfilViewModel
+    public class MojProfilViewModel : BaseViewModel, INotifyPropertyChanged
     {
         private readonly APIService _serviceKupacKorisnickiNalog;
-        public Kupac Kupac { get; set; }
+
+        private Kupac _kupac;
+        public Kupac Kupac {
+            get => _kupac;
+            set {
+                _kupac = value;
+                OnPropertyChanged();
+            }
+        }
+        private string _tipKupca;
+        public string TipKupca {
+            get => _tipKupca;
+            set {
+                _tipKupca = value;
+                OnPropertyChanged();
+                OnPropertyChanged(nameof(Kupac));
+            }
+        }
+
         public string NovaLozinka { get; set; }
         public string PotvrdaLozinke { get; set; }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         public MojProfilViewModel()
         {
-            Kupac = Helpers.KupacData.Get();
+            _kupac = Helpers.KupacData.Get();
+            _tipKupca = Kupac.TipKorisnika.Naziv;
             _serviceKupacKorisnickiNalog = new APIService("Kupac");
+            InitCommand = new Command(async () => await Init());
+            InitCommand.Execute(null);
             UpdatePasswordCommand = new Command(async () => await UpdatePassword());
             UpgradeAccountCommand = new Command(async () => await UpgradeAccount());
         }
 
+        public ICommand InitCommand { get; set; }
         public ICommand UpdateProfilCommand { get; set; }
         public ICommand UpdatePasswordCommand { get; set; }
         public ICommand UpgradeAccountCommand { get; set; }
+
+        private async Task Init()
+        {
+            var kupac = await _serviceKupacKorisnickiNalog.GetById<Kupac>(Kupac.Id);
+            var sljedeciTipId = kupac.TipKorisnika.IduciTipKorisnikaId;
+        }
 
         public async Task UpdateProfil(byte[] slika = null)
         {
@@ -68,22 +107,41 @@ namespace XamarinForms.ViewModels
 
         private async Task UpgradeAccount()
         {
-            var sljedeciTipId = Kupac.TipKorisnika.IduciTipKorisnikaId;
-            KupacUpsertRequest request = new KupacUpsertRequest
-            {
-                TipKorisnikaId = sljedeciTipId,
-                KorisnickiNalogId = Kupac.KorisnickiNalogId
-            };
+            var kupac = await _serviceKupacKorisnickiNalog.GetById<Kupac>(_kupac.Id);
+            var sljedeciTipId = kupac.TipKorisnika.IduciTipKorisnikaId;
 
-            try
+            if (sljedeciTipId != null)
             {
-                var response = await _serviceKupacKorisnickiNalog.Update<Kupac>(Kupac.Id, request);
-                await Application.Current.MainPage.DisplayAlert("Informacija", "Lozinka je uspješno promjenjena", "OK");
+                KupacUpsertRequest request = new KupacUpsertRequest
+                {
+                    TipKorisnikaId = sljedeciTipId
+                };
+
+                try
+                {
+                    var response = await _serviceKupacKorisnickiNalog.Update<Kupac>(_kupac.Id, request);
+
+                    _tipKupca = response.TipKorisnika.Naziv;
+                   
+                    OnPropertyChanged(nameof(TipKupca));
+                    await Application.Current.MainPage.DisplayAlert("Informacija", "Akaunt uspješno nadograđen",
+                        "OK");
+                }
+                catch
+                {
+                    await Application.Current.MainPage.DisplayAlert("Greška",
+                        "Desila se greška, molimo vas da pokušate ponovo", "OK");
+                }
             }
-            catch
+            else
             {
-                await Application.Current.MainPage.DisplayAlert("Greška", "Desila se greška, molimo vas da pokušate ponovo", "OK");
+                await Application.Current.MainPage.DisplayAlert("Informacija",
+                    "Trenutno ne postoji veći nivo korisničkog računa od trenutnog", "OK");
             }
         }
+
+
+
+
     }
 }

@@ -6,6 +6,7 @@ namespace DataTransferObjects.Requests
 {
     public class KupacKorisnickiNalogUpsertRequest : KorisnickiNalogUpsertRequest
     {
+        public string TipKorisnikaId { get; set; }
     }
 
 }

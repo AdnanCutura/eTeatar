@@ -79,6 +79,7 @@
                                                 </DataTrigger>
                                             </Label.Triggers>
                                         </Label>
+
                                     </StackLayout>
                                 </StackLayout>
                             </ViewCell>

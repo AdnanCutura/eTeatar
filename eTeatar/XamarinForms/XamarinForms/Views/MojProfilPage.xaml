@@ -26,14 +26,12 @@
 
         <Button  Margin="0, 10" TextColor="White" Clicked="UploadPicture" Text="Dodaj novu sliku" BackgroundColor="DarkGray"></Button>
 
-        <!--<Button  Margin="0, 10" TextColor="White" Clicked="UploadPicture" Text="Odjava" BackgroundColor="DeepSkyBlue"></Button>-->
-
         <!--Nadogradi račun-->
         <FlexLayout VerticalOptions="Center" JustifyContent="SpaceAround">
           <StackLayout Padding ="10, 5" BackgroundColor="DarkGoldenrod">
-            <Label TextColor="White" Text="Zlatni"></Label>
+            <Label x:Name="TipKorisnika" TextColor="White" Text="{Binding TipKupca}"></Label>
           </StackLayout>
-          <Button  Command="{Binding UpgradeAccountCommand}" BackgroundColor="Gray" Text="Nadogradi račun"></Button>
+          <Button Command="{Binding UpgradeAccountCommand}" BackgroundColor="Gray" Text="Nadogradi račun"></Button>
         </FlexLayout>
 
         <!--Izmjena podataka-->

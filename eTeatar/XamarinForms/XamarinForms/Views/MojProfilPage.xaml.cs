@@ -34,13 +34,16 @@ namespace XamarinForms.Views
 
             var selectedImageFile = await CrossMedia.Current.PickPhotoAsync(mediaOptions);
 
-            if (KupacAvatar == null)
-                await DisplayAlert("Greška", "Slika nije učitana, pokušajte ponovo", "Ok");
+            if (selectedImageFile != null)
+            {
+                if (KupacAvatar == null)
+                    await DisplayAlert("Greška", "Slika nije učitana, pokušajte ponovo", "Ok");
 
-            var slika = ImageSource.FromStream(() => selectedImageFile.GetStream());
-            KupacAvatar.Source = slika;
-            byte[] imgData = new ImageConverter().StreamToBytes(selectedImageFile.GetStream());
-            _slikaByte = imgData;
+                var slika = ImageSource.FromStream(() => selectedImageFile.GetStream());
+                KupacAvatar.Source = slika;
+                byte[] imgData = new ImageConverter().StreamToBytes(selectedImageFile.GetStream());
+                _slikaByte = imgData;
+            }
         }
 
         private void UpdateProfil(object sender, EventArgs e)

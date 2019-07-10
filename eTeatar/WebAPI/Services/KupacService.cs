@@ -18,7 +18,7 @@ namespace WebAPI.Services
         private readonly IKorisnickiNalogService _korisnickiNalogService;
         private readonly IBaseService<DataTransferObjects.TipKorisnika, TipKorisnikaSearchRequest> _tipKorisnikaService;
 
-        public KupacService(IMapper mapper, IRepository<Models.Kupac,object> repository, IKorisnickiNalogService korisnickiNalogService, IBaseService<TipKorisnika, TipKorisnikaSearchRequest> tipKorisnikaService) : base(mapper, repository)
+        public KupacService(IMapper mapper, IRepository<Models.Kupac, object> repository, IKorisnickiNalogService korisnickiNalogService, IBaseService<TipKorisnika, TipKorisnikaSearchRequest> tipKorisnikaService) : base(mapper, repository)
         {
             _tipKorisnikaService = tipKorisnikaService;
             _korisnickiNalogService = korisnickiNalogService;
@@ -45,7 +45,8 @@ namespace WebAPI.Services
         public override List<DataTransferObjects.Kupac> Get(object search)
         {
             var returnmodel = base.Get(search);
-            foreach (var model in returnmodel) {
+            foreach (var model in returnmodel)
+            {
                 var id = model.Id;
                 Mapper.Map(_korisnickiNalogService.GetById(model.KorisnickiNalogId), model);
                 model.Id = id;
@@ -65,19 +66,23 @@ namespace WebAPI.Services
         {
             var nalogRequest = Mapper.Map<KorisnickiNalogUpsertRequest>(request);
             var kupacRequest = Mapper.Map<KupacUpsertRequest>(request);
-            
+
             var kupac = Repository.GetById(id);
+
             kupacRequest.KorisnickiNalogId = kupac.KorisnickiNalogId;
             Mapper.Map(kupacRequest, kupac);
 
-            var kupacResponse = Mapper.Map<DataTransferObjects.Kupac>(kupac);
             Repository.Update(kupac);
+            var kupacResponse = Mapper.Map<DataTransferObjects.Kupac>(kupac);
+            var tipKorisnika = _tipKorisnikaService.GetById(kupac.TipKorisnikaId);
 
             var nalogResponse = _korisnickiNalogService.Update(kupac.KorisnickiNalogId, nalogRequest);
 
             var kupacId = kupacResponse.Id;
             Mapper.Map(nalogResponse, kupacResponse);
+
             kupacResponse.Id = kupacId;
+            kupacResponse.TipKorisnika = tipKorisnika;
 
             return kupacResponse;
         }
