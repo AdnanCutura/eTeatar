@@ -14,6 +14,7 @@
 
   <ContentPage.Resources>
     <convertor:ImageConverter x:Key="ImgConvert"/>
+    <convertor:TipKorisnikaBojaPozadineConverter x:Key="BgConvert"/>
   </ContentPage.Resources>
 
   <ContentPage.Content>
@@ -24,14 +25,14 @@
           <Image  x:Name="KupacAvatar" HeightRequest="200" WidthRequest="200" Source="{Binding Kupac.Slika, Converter={StaticResource ImgConvert}}" Aspect="AspectFill"></Image>
         </StackLayout>
 
-        <Button  Margin="0, 10" TextColor="White" Clicked="UploadPicture" Text="Dodaj novu sliku" BackgroundColor="DarkGray"></Button>
+        <Button Margin="0, 10" TextColor="White" Clicked="UploadPicture" Text="Dodaj novu sliku" BackgroundColor="DarkGray"></Button>
 
         <!--Nadogradi račun-->
         <FlexLayout VerticalOptions="Center" JustifyContent="SpaceAround">
-          <StackLayout Padding ="10, 5" BackgroundColor="DarkGoldenrod">
+                    <StackLayout Padding ="10, 5" BackgroundColor="{Binding TipKupca, Converter={StaticResource BgConvert}}">
             <Label x:Name="TipKorisnika" TextColor="White" Text="{Binding TipKupca}"></Label>
           </StackLayout>
-          <Button Command="{Binding UpgradeAccountCommand}" BackgroundColor="Gray" Text="Nadogradi račun"></Button>
+          <Button Command="{Binding UpgradeAccountCommand}" IsVisible="{Binding IsVisible}" BackgroundColor="Gray" Text="Nadogradi račun"></Button>
         </FlexLayout>
 
         <!--Izmjena podataka-->

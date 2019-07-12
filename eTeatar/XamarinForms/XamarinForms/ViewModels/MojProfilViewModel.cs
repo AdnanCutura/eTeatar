@@ -9,7 +9,7 @@ using XamarinForms.Annotations;
 
 namespace XamarinForms.ViewModels
 {
-    public class MojProfilViewModel : BaseViewModel, INotifyPropertyChanged
+    public class MojProfilViewModel : BaseViewModel
     {
         private readonly APIService _serviceKupacKorisnickiNalog;
 
@@ -27,20 +27,20 @@ namespace XamarinForms.ViewModels
             set {
                 _tipKupca = value;
                 OnPropertyChanged();
-                OnPropertyChanged(nameof(Kupac));
+            }
+        }
+
+        private bool _isVisible;
+        public bool IsVisible {
+            get => _isVisible;
+            set {
+                SetProperty(ref _isVisible, value);
+                OnPropertyChanged();
             }
         }
 
         public string NovaLozinka { get; set; }
         public string PotvrdaLozinke { get; set; }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
 
         public MojProfilViewModel()
         {
@@ -62,6 +62,7 @@ namespace XamarinForms.ViewModels
         {
             var kupac = await _serviceKupacKorisnickiNalog.GetById<Kupac>(Kupac.Id);
             var sljedeciTipId = kupac.TipKorisnika.IduciTipKorisnikaId;
+            IsVisible = sljedeciTipId != null;
         }
 
         public async Task UpdateProfil(byte[] slika = null)
@@ -122,7 +123,9 @@ namespace XamarinForms.ViewModels
                     var response = await _serviceKupacKorisnickiNalog.Update<Kupac>(_kupac.Id, request);
 
                     _tipKupca = response.TipKorisnika.Naziv;
-                   
+                    if (_tipKupca == "Gold")
+                        IsVisible = false;
+
                     OnPropertyChanged(nameof(TipKupca));
                     await Application.Current.MainPage.DisplayAlert("Informacija", "Akaunt uspješno nadograđen",
                         "OK");
@@ -139,9 +142,5 @@ namespace XamarinForms.ViewModels
                     "Trenutno ne postoji veći nivo korisničkog računa od trenutnog", "OK");
             }
         }
-
-
-
-
     }
 }

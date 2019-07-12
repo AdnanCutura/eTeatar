@@ -19,7 +19,7 @@
             <Entry Text="{Binding Password}" IsPassword="true"></Entry>
 
             <Button Command="{Binding LoginCommand}" HorizontalOptions="FillAndExpand" Text="Prijava"></Button>
-            <Label FontSize="12"  IsVisible="{Binding IsBusy}" Text="Zahtjev se procesuira ..."></Label>
+            <ActivityIndicator IsRunning="{Binding IsBusy}"></ActivityIndicator>
 
         </StackLayout>
 

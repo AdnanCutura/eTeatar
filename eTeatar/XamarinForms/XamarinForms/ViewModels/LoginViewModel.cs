@@ -17,7 +17,7 @@ namespace XamarinForms.ViewModels
         public LoginViewModel()
         {
             _kupacService = new APIService("Kupac");
-            LoginCommand = new Command(async () => await Login());
+            LoginCommand = new Command(async () => await Login(), () => !IsBusy);
             _username = "Kupac";
             _password = "1";
         }
@@ -34,22 +34,27 @@ namespace XamarinForms.ViewModels
             set => SetProperty(ref _password, value);
         }
 
-        public ICommand LoginCommand { get; set; }
+        public Command LoginCommand { get; set; }
         public async Task Login()
         {
             IsBusy = true;
             APIService.Username = Username;
             APIService.Password = Password;
+            LoginCommand.ChangeCanExecute();
 
+            await Task.Delay(4000);
             try
             {
                 var list = await _kupacService.Get<List<DataTransferObjects.Kupac>>(null);
                 KupacData.Set(list.FirstOrDefault(w => w.KorisnickoIme == _username));
+                LoginCommand.ChangeCanExecute();
+                IsBusy = false;
                 Application.Current.MainPage = new MainPage();
             }
             catch
             {
-                // ignored
+                IsBusy = false;
+                LoginCommand.ChangeCanExecute();
             }
         }
 
