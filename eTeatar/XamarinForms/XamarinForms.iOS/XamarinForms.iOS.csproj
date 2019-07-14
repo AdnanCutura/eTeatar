@@ -143,4 +143,7 @@
       <Name>XamarinForms</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\defaultAvatar.png" />
+  </ItemGroup>
 </Project>

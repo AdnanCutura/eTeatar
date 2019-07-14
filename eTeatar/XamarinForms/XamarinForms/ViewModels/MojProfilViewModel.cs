@@ -30,15 +30,6 @@ namespace XamarinForms.ViewModels
             }
         }
 
-        private bool _isVisible;
-        public bool IsVisible {
-            get => _isVisible;
-            set {
-                SetProperty(ref _isVisible, value);
-                OnPropertyChanged();
-            }
-        }
-
         public string NovaLozinka { get; set; }
         public string PotvrdaLozinke { get; set; }
 

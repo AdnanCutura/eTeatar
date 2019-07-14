@@ -10,30 +10,47 @@ using Xamarin.Forms;
 
 namespace XamarinForms.ViewModels
 {
-    public class ObavijestDetaljiViewModel
+    public class ObavijestDetaljiViewModel : BaseViewModel
     {
         private readonly APIService _serviceKomentar = new APIService("Komentar");
 
         public Obavijest Obavijest { get; set; }
         public Kupac Kupac { get; set; }
-        public string Komentar { get; set; }
+
+        private string _komentar;
+        public string Komentar {
+            get => _komentar;
+            set => SetProperty(ref _komentar, value);
+        }
+
+        private int _brojKomentara;
+        public int BrojKomentara
+        {
+            get => _brojKomentara;
+            set
+            {
+                SetProperty(ref _brojKomentara, value);
+                OnPropertyChanged();
+            }
+        }
 
         public ObservableCollection<Komentar> Komentari { get; set; }
 
         public ObavijestDetaljiViewModel()
         {
             Kupac = Helpers.KupacData.Get();
+            Komentar = string.Empty;
             Komentari = new ObservableCollection<Komentar>();
+
             InitCommand = new Command(async () => await Init());
-            
             NoviKomentarCommand = new Command(async () => await NoviKomentar());
         }
 
         public ICommand NoviKomentarCommand { get; set; }
         public ICommand InitCommand { get; set; }
-        
+
         #region Metode za komande
-        public async Task Init()
+        private async Task Init()
         {
             if (!Komentari.Any())
                 await LoadKomentare();
@@ -45,27 +62,34 @@ namespace XamarinForms.ViewModels
             }
         }
 
-        public async Task NoviKomentar()
+        private async Task NoviKomentar()
         {
-            var noviKomentar = new KomentarInsertRequest
+            if (!string.IsNullOrEmpty(_komentar))
             {
-                DatumVrijeme = DateTime.Now,
-                KupacId = Kupac.Id,
-                Sadrzaj = Komentar,
-                ObavijestId = Obavijest.Id
-            };
+                var noviKomentar = new KomentarInsertRequest
+                {
+                    DatumVrijeme = DateTime.Now,
+                    KupacId = Kupac.Id,
+                    Sadrzaj = _komentar,
+                    ObavijestId = Obavijest.Id
+                };
 
-            try
-            {
-                await _serviceKomentar.Insert<Komentar>(noviKomentar);
-                InitCommand.Execute(null);
-                await Application.Current.MainPage.DisplayAlert("Informacija", "Uspješno ste se ostavili komentar", "OK");
+                try
+                {
+                    await _serviceKomentar.Insert<Komentar>(noviKomentar);
+                    InitCommand.Execute(null);
+                    BrojKomentara++;
+                    await Application.Current.MainPage.DisplayAlert("Informacija", "Uspješno ste se ostavili komentar", "OK");
 
+                }
+                catch
+                {
+                    await Application.Current.MainPage.DisplayAlert("Greška", "Provjerite podatke i pokušajte ponovo", "OK");
+                }
             }
-            catch
-            {
-                await Application.Current.MainPage.DisplayAlert("Greška", "Provjerite podatke i pokušajte ponovo", "OK");
-            }
+            else
+                await Application.Current.MainPage.DisplayAlert("Greška", "Komentar ne može biti prazan!", "OK");
+
         }
         #endregion
 
@@ -77,6 +101,7 @@ namespace XamarinForms.ViewModels
                 {
                     ObavijestId = Obavijest.Id
                 });
+                BrojKomentara = list.Count;
                 foreach (var item in list)
                     Komentari.Add(item);
             }

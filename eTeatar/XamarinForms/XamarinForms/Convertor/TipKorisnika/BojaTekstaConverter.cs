@@ -4,9 +4,9 @@ using System.Globalization;
 using System.Text;
 using Xamarin.Forms;
 
-namespace XamarinForms.Convertor
+namespace XamarinForms.Convertor.TipKorisnika
 {
-    public class TipKorisnikaBojaPozadineConverter : IValueConverter
+    public class BojaTekstaConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
@@ -17,17 +17,17 @@ namespace XamarinForms.Convertor
                 switch (tipKupca)
                 {
                     case "Standard":
-                        return Color.Gray;
+                        return Color.White;
                     case "Silver":
-                        return Color.Silver;
+                        return Color.FromHex("#221d1d");
                     case "Platinum":
-                        return Color.FromHex("#e5e4e2");
+                        return Color.FromHex("#221d1d");
                     case "Gold":
-                        return Color.DarkGoldenrod;
+                        return Color.White;
                 }
             }
 
-            return Color.Gray;
+            return Color.White;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

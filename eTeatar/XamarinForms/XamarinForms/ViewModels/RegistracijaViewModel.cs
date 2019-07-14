@@ -1,10 +1,13 @@
 ﻿using DataTransferObjects;
 using DataTransferObjects.Requests;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Android;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 using XamarinForms.Helpers;
 using XamarinForms.Views;
 
@@ -22,7 +25,7 @@ namespace XamarinForms.ViewModels
 
         public RegistracijaViewModel()
         {
-            Kupac = new Kupac();
+            Kupac = new Kupac { Slika = File.ReadAllBytes("defaultAvatar.png") };
             _kupacService = new APIService("Kupac");
             _serviceKupacKorisnickiNalog = new APIService("Kupac");
         }
@@ -48,7 +51,7 @@ namespace XamarinForms.ViewModels
             {
                 var response = await _serviceKupacKorisnickiNalog.Insert<Kupac>(request);
                 await Application.Current.MainPage.DisplayAlert("Informacija", "Uspješno ste se registrovali", "OK");
-                
+
                 try
                 {
                     var list = await _kupacService.Get<List<DataTransferObjects.Kupac>>(null);

@@ -6,7 +6,8 @@
              xmlns:viewModels="clr-namespace:XamarinForms.ViewModels;assembly=XamarinForms"
              xmlns:convertor="clr-namespace:XamarinForms.Convertor;assembly=XamarinForms"
              mc:Ignorable="d"
-             x:Class="XamarinForms.Views.ObavijestDetaljiPage">
+             x:Class="XamarinForms.Views.ObavijestDetaljiPage"
+             Title="{Binding Obavijest.Naslov, StringFormat='Obavijest - {0}'}">
 
   <ContentPage.BindingContext>
     <viewModels:ObavijestDetaljiViewModel></viewModels:ObavijestDetaljiViewModel>
@@ -32,32 +33,39 @@
 
           <!-- Osnovne informacije-->
           <Image HeightRequest="200" Source="{Binding Obavijest.Slika, Converter={StaticResource ImgConvert}}" Aspect="AspectFill"></Image>
-          <Label Text="{Binding Obavijest.Naslov}" FontSize="25" TextColor="#000000" HorizontalTextAlignment="Center"></Label>
-          <Label Margin="10, 0"  TextColor="#000000" FontSize="13" Text="{Binding Obavijest.Sadrzaj}"></Label>
-          <Label Text="Komentari" FontSize="20" TextColor="#000000" HorizontalTextAlignment="Center"></Label>
+          <Label Text="{Binding Obavijest.Naslov}" Style="{StaticResource ETeatarHeader1}"></Label>
+          <BoxView Style="{StaticResource ETeatarTitleSeparator}"></BoxView>
+          <Label Text="{Binding Obavijest.Sadrzaj}" Style="{StaticResource ETeatarParagraph}"></Label>
+          <Label Text="{Binding BrojKomentara, StringFormat='Komentari ({0})'}" Style="{StaticResource ETeatarHeader3}"></Label> 
+         
 
           <!-- Lista komentara -->
           <StackLayout VerticalOptions="StartAndExpand">
-            <ListView ItemsSource="{Binding Komentari}" Margin="0, 5" VerticalOptions="Start" HasUnevenRows="True">
+            <ListView ItemsSource="{Binding Komentari}" VerticalOptions="Start" HasUnevenRows="True">
               <ListView.ItemTemplate>
                 <DataTemplate>
                   <ViewCell>
-                    <StackLayout Margin="0, 5" Orientation="Horizontal" BackgroundColor="#d6d6d6">
-                      <StackLayout VerticalOptions="CenterAndExpand">
-                        <Image Margin="10, 0, 0, 0" WidthRequest="40" HeightRequest="40" Source="{Binding Kupac.Slika, Converter={StaticResource ImgConvert}}" Aspect="AspectFill"></Image>
+                    <Frame Margin="5" BorderColor="{StaticResource ETeatarDarkPurple}">
+                      <StackLayout Style="{StaticResource ETeatarComment}" >
+                        <StackLayout VerticalOptions="CenterAndExpand">
+
+                          <Image Margin="5, 5, 0, 0" WidthRequest="40" HeightRequest="40" Source="{Binding Kupac.Slika, Converter={StaticResource ImgConvert}}" Aspect="AspectFill"></Image>
+
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" Padding="5">
+                          <Label Text="{Binding Kupac.KorisnickoIme}"
+                                 LineBreakMode="NoWrap"
+                                 FontSize="16" />
+                          <Label Text="{Binding Sadrzaj}"
+                                 LineBreakMode="NoWrap"
+                                 FontSize="12" />
+                          <Label Text="{Binding DatumVrijeme, StringFormat='{0:dd.MM.yyyy. HH:mm}'}"
+                             LineBreakMode="NoWrap"
+                             FontSize="12" />
+
+                        </StackLayout>
                       </StackLayout>
-                      <StackLayout Orientation="Vertical" Padding="10">
-                        <Label Text="{Binding Kupac.KorisnickoIme}"
-                               LineBreakMode="NoWrap"
-                               FontSize="16" />
-                        <Label Text="{Binding Sadrzaj}"
-                               LineBreakMode="NoWrap"
-                               FontSize="12" />
-                        <Label Text="{Binding DatumVrijeme, StringFormat='{0:dd.MM.yyyy. HH:mm}'}"
-                           LineBreakMode="NoWrap"
-                           FontSize="12" />
-                      </StackLayout>
-                    </StackLayout>
+                    </Frame>
                   </ViewCell>
                 </DataTemplate>
               </ListView.ItemTemplate>
@@ -65,17 +73,18 @@
           </StackLayout>
 
           <!-- Ostavljanje komentara -->
-          <StackLayout  Margin="0, 10" Padding="0, 10"  Orientation="Horizontal" BackgroundColor="#d6d6d6">
-            <StackLayout VerticalOptions="StartAndExpand">
-              <Image Margin="10, 10, 0, 0" WidthRequest="40" HeightRequest="40" Source="{Binding Kupac.Slika, Converter={StaticResource ImgConvert}}" Aspect="AspectFill"></Image>
+          <Frame Margin="5" BorderColor="{StaticResource ETeatarDarkPurple}">
+            <StackLayout   Style="{StaticResource ETeatarComment}">
+              <StackLayout VerticalOptions="StartAndExpand">
+                <Image Margin="5, 5, 0, 0" WidthRequest="40" HeightRequest="40" Source="{Binding Kupac.Slika, Converter={StaticResource ImgConvert}}" Aspect="AspectFill"></Image>
+              </StackLayout>
+              <StackLayout Margin="5, 0" Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                <Label Text="{Binding Kupac.KorisnickoIme}" FontSize="12" />
+                <Editor x:Name="KomentarEditor" Text="{Binding Komentar}" Placeholder="Unesite komentar" Keyboard="Text" HeightRequest="70"></Editor>
+                <Button Text="Ostavi komentar" Clicked="Button_OnClicked" Command="{Binding NoviKomentarCommand}" Style="{StaticResource ETeatarBtn}"></Button>
+              </StackLayout>
             </StackLayout>
-            <StackLayout Margin="10, 0" Orientation="Vertical" HorizontalOptions="FillAndExpand">
-              <Label Text="{Binding Kupac.KorisnickoIme}" FontSize="12" />
-              <Editor x:Name="KomentarEditor" Text="{Binding Komentar}" Placeholder="Unesite komentar"  HeightRequest="70"></Editor>
-                            <Button Text="Ostavi komentar" Command="{Binding NoviKomentarCommand}" Clicked="Button_OnClicked" BackgroundColor="#510a32"></Button>
-            </StackLayout>
-          </StackLayout>
-
+          </Frame>
         </StackLayout>
       </Grid>
     </ScrollView>

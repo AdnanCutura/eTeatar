@@ -14,7 +14,7 @@ namespace XamarinForms.ViewModels
     {
         public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>() ?? new MockDataStore();
 
-        bool _isBusy = false;
+        private bool _isBusy;
         public bool IsBusy {
             get => _isBusy;
             set
@@ -24,10 +24,19 @@ namespace XamarinForms.ViewModels
             }
         }
 
-        string title = string.Empty;
+        private bool _isVisible;
+        public bool IsVisible {
+            get => _isVisible;
+            set {
+                SetProperty(ref _isVisible, value);
+                OnPropertyChanged();
+            }
+        }
+
+        private string _title = string.Empty;
         public string Title {
-            get => title;
-            set => SetProperty(ref title, value);
+            get => _title;
+            set => SetProperty(ref _title, value);
         }
 
         protected bool SetProperty<T>(ref T backingStore, T value,

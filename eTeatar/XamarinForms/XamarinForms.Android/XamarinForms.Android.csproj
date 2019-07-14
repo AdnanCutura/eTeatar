@@ -104,6 +104,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <AndroidAsset Include="Assets\defaultAvatar.png" />
     <Content Include="Assets\gradient.png" />
     <Content Include="Assets\slika.png" />
     <Content Include="Assets\slika2.png" />

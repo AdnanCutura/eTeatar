@@ -6,62 +6,66 @@
              xmlns:viewModels="clr-namespace:XamarinForms.ViewModels;assembly=XamarinForms"
              xmlns:convertor="clr-namespace:XamarinForms.Convertor;assembly=XamarinForms"
              mc:Ignorable="d"
-             x:Class="XamarinForms.Views.RegistracijaPage">
-    <ContentPage.BindingContext>
-        <viewModels:RegistracijaViewModel />
-    </ContentPage.BindingContext>
+             x:Class="XamarinForms.Views.RegistracijaPage"
+             Title="Registracija">
+  <ContentPage.BindingContext>
+    <viewModels:RegistracijaViewModel />
+  </ContentPage.BindingContext>
 
-    <ContentPage.Resources>
-        <convertor:ImageConverter x:Key="ImgConvert"/>
-    </ContentPage.Resources>
+  <ContentPage.Resources>
+    <convertor:ImageConverter x:Key="ImgConvert"/>
+  </ContentPage.Resources>
 
-    <ContentPage.Content>
-        <ScrollView>
-            <StackLayout Margin="20, 0">
+  <ContentPage.Content>
+    <ScrollView>
+      <StackLayout Margin="5, 20">
 
-                <StackLayout  Margin="0, 10, 0, 0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                    <Image  x:Name="KupacAvatar" HeightRequest="200" WidthRequest="200" Source="{Binding Kupac.Slika, Converter={StaticResource ImgConvert}}" Aspect="AspectFill"></Image>
-                </StackLayout>
-                <Button  Margin="0, 10" TextColor="White" Clicked="UploadPicture" Text="Dodaj avatar" BackgroundColor="DarkGray"></Button>
+        <Label Text="Registracija na eTeatar" Style="{StaticResource ETeatarHeader1}"></Label>
+        <BoxView Style="{StaticResource ETeatarTitleSeparator}"></BoxView>
 
+        <StackLayout  Margin="0, 10, 0, 0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+          <Image  x:Name="KupacAvatar" HeightRequest="200" WidthRequest="200" Source="{Binding Kupac.Slika, Converter={StaticResource ImgConvert}}" Aspect="AspectFill"></Image>
+        </StackLayout>
+        <Button  Clicked="UploadPicture" Text="Dodaj avatar" Style="{StaticResource ETeatarBtn}"></Button>
 
-                <!-- Lični podaci -->
-                <Label FontSize="18" TextColor="#000000" Text="Lični podaci"></Label>
+        <BoxView Margin="0, 20"></BoxView>
 
-                <Label FontSize="16" TextColor="#000000" Text="Ime"></Label>
-                <Entry Text="{Binding Kupac.Ime}"></Entry>
+        <!-- Lični podaci -->
+        <Label  Text="Lični podaci" Style="{StaticResource ETeatarHeader3}"></Label>
 
-                <Label FontSize="16" TextColor="#000000" Text="Prezime"></Label>
-                <Entry Text="{Binding Kupac.Prezime}"></Entry>
+        <Label FontSize="16" TextColor="#000000" Text="Ime"></Label>
+        <Entry Text="{Binding Kupac.Ime}"></Entry>
 
-                <BoxView BackgroundColor="#510a32" HeightRequest="10" Margin="5, 10"></BoxView>
+        <Label FontSize="16" TextColor="#000000" Text="Prezime"></Label>
+        <Entry Text="{Binding Kupac.Prezime}"></Entry>
 
-                <!-- Kontakt podaci -->
-                <Label FontSize="18" TextColor="#000000" Text="Kontakt podaci"></Label>
+        <BoxView Margin="0, 20"></BoxView>
 
-                <Label FontSize="16" TextColor="#000000" Text="Email"></Label>
-                <Entry Text="{Binding Kupac.Email}"></Entry>
+        <!-- Kontakt podaci -->
+        <Label Text="Kontakt podaci"  Style="{StaticResource ETeatarHeader3}"></Label>
 
-                <Label FontSize="16" TextColor="#000000" Text="Broj telefona"></Label>
-                <Entry Text="{Binding Kupac.Telefon}"></Entry>
+        <Label FontSize="16" TextColor="#000000" Text="Email"></Label>
+        <Entry Text="{Binding Kupac.Email}"></Entry>
 
-                <BoxView BackgroundColor="#510a32" HeightRequest="10" Margin="5, 10"></BoxView>
+        <Label FontSize="16" TextColor="#000000" Text="Broj telefona"></Label>
+        <Entry Text="{Binding Kupac.Telefon}"></Entry>
 
-                <!-- Podaci o akauntu -->
+        <BoxView Margin="0, 20"></BoxView>
 
-                <Label FontSize="18" TextColor="#000000" Text="Kontakt podaci"></Label>
-                <Label FontSize="16" TextColor="#000000" Text="Korisničko ime"></Label>
-                <Entry Text="{Binding Kupac.KorisnickoIme}"></Entry>
-                <Label Text="Nova lozinka"></Label>
-                <Entry Text="{Binding NovaLozinka}" IsPassword="true"></Entry>
+        <!-- Podaci o akauntu -->
+        <Label Text="Podaci o akauntu"  Style="{StaticResource ETeatarHeader3}"></Label>
 
-                <Label Text="Potvrda lozinke"></Label>
-                <Entry Text="{Binding PotvrdaLozinke}" IsPassword="true"></Entry>
+        <Label FontSize="16" Text="Korisničko ime"></Label>
+        <Entry Text="{Binding Kupac.KorisnickoIme}"></Entry>
+        <Label Text="Nova lozinka"></Label>
+        <Entry Text="{Binding NovaLozinka}" IsPassword="true"></Entry>
 
+        <Label Text="Potvrda lozinke"></Label>
+        <Entry Text="{Binding PotvrdaLozinke}" IsPassword="true"></Entry>
 
-                <Button TextColor="White" Clicked="InsertKupac" Text="Registracija" BackgroundColor="#510a32"></Button>
+        <Button Margin="0,5,0,0" Clicked="InsertKupac" Text="Registracija" Style="{StaticResource ETeatarBtn}"></Button>
 
-            </StackLayout>
-        </ScrollView>
-    </ContentPage.Content>
+      </StackLayout>
+    </ScrollView>
+  </ContentPage.Content>
 </ContentPage>

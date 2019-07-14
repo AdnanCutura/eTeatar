@@ -5,21 +5,28 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:viewModels="clr-namespace:XamarinForms.ViewModels;assembly=XamarinForms"
              mc:Ignorable="d"
-             x:Class="XamarinForms.Views.LoginPage">
+             x:Class="XamarinForms.Views.LoginPage"
+             Title="Prijava">
     <ContentPage.BindingContext>
         <viewModels:LoginViewModel></viewModels:LoginViewModel>
     </ContentPage.BindingContext>
     <ContentPage.Content>
 
         <StackLayout HorizontalOptions="FillAndExpand" Padding="10" VerticalOptions="CenterAndExpand">
+            <Label Text="Prijava na eTeatar" Style="{StaticResource ETeatarHeader1}"></Label>
+            <BoxView Style="{StaticResource ETeatarTitleSeparator}"></BoxView>
+
             <Label Text="Korisničko ime"></Label>
             <Entry x:Name="KorisnickoIme" Text="{Binding Username}"></Entry>
 
             <Label Text="Lozinka"></Label>
             <Entry Text="{Binding Password}" IsPassword="true"></Entry>
 
-            <Button Command="{Binding LoginCommand}" HorizontalOptions="FillAndExpand" Text="Prijava"></Button>
+            <Button Command="{Binding LoginCommand}" Text="Prijava" Style="{StaticResource ETeatarBtn}"></Button>
             <ActivityIndicator IsRunning="{Binding IsBusy}"></ActivityIndicator>
+
+            <Label Margin="0, 15, 0, 0" Text="Nemate korisnički profil?"></Label>
+            <Button Text="Registrujte se" Command="{Binding RegistracijaCommand}" Style="{StaticResource ETeatarBtn}"></Button>
 
         </StackLayout>
 
