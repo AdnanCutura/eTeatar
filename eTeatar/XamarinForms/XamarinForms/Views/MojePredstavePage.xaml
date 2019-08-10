@@ -7,7 +7,7 @@
              x:Class="XamarinForms.Views.MojePredstavePage"
              Title="Moje Predstave">
     <ContentPage.Content>
-        <ListView ItemsSource="{Binding NarudzbaList}" SelectionMode="None">
+        <ListView ItemsSource="{Binding NarudzbaList}" ItemSelected="MojePredstave_OnItemSelected">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

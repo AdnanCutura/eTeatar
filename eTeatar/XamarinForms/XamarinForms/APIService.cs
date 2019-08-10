@@ -1,10 +1,10 @@
-﻿using DataTransferObjects.Extensions;
-using Flurl.Http;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using DataTransferObjects.Extensions;
+using Flurl.Http;
 using Xamarin.Forms;
 
 namespace XamarinForms

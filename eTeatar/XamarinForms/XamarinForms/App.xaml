@@ -47,6 +47,7 @@
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="VerticalOptions" Value="CenterAndExpand" />
                 <Setter Property="Margin" Value="10, 8"/>
+                <Setter Property="Margin" Value="0"/>
             </Style>
 
             <!-- Separators -->

@@ -71,7 +71,7 @@ namespace WebAPI
                 typeof(BaseService<DataTransferObjects.Grad, GradSearchRequest, Models.Grad>));
             services.AddScoped(typeof(ICrudService<DataTransferObjects.Termin, object, TerminUpsertRequest, TerminUpsertRequest>),
                 typeof(CrudService<DataTransferObjects.Termin, object, Models.Termin, TerminUpsertRequest, TerminUpsertRequest>));
-            services.AddScoped(typeof(ICrudService<DataTransferObjects.Narudzba, NarudzbaSearchRequest, NarudzbaInsertRequest, object>),
+            services.AddScoped(typeof(ICrudService<DataTransferObjects.Narudzba, NarudzbaSearchRequest, NarudzbaInsertRequest, NarudzbaUpdateRequest>),
                 typeof(NarudzbaService));
             services.AddScoped(typeof(ICrudService<DataTransferObjects.Predstava, PredstavaSearchRequest, PredstavaUpsertRequest, PredstavaUpsertRequest>),
                 typeof(PredstavaService));

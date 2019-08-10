@@ -19,7 +19,7 @@ namespace XamarinForms.ViewModels
             get => _zanrovi;
             set => SetProperty(ref _zanrovi, value);
         }
-  
+
         private int _brojOcjena;
         public int BrojOcjena {
             get => _brojOcjena;
@@ -41,10 +41,10 @@ namespace XamarinForms.ViewModels
 
         public ICommand InitCommand { get; set; }
 
-   
+
         private async Task Init()
         {
-           
+
             Zanrovi = string.Join(", ", Predstava.Zanrovi.Select(z => z.Naziv).ToList());
             try
             {
@@ -61,7 +61,7 @@ namespace XamarinForms.ViewModels
                 {
                     NazivPredstave = Predstava.Naziv
                 });
-                BrojOcjena = narudzbe.Select(n => n.Ocjena != null).Count();
+                BrojOcjena = narudzbe.Where(n => n.Ocjena != null && n.Termin.Predstava.Id == Predstava.Id).Select(n => n.Ocjena).Count();
             }
             catch
             {

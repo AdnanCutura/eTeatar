@@ -14,7 +14,9 @@
     <PackageReference Include="Flurl.Http" Version="2.4.2" />
     <PackageReference Include="Xam.Plugin.Media" Version="4.0.1.5" />
     <PackageReference Include="Xamarin.Forms" Version="4.0.0.425677" />  
-    <PackageReference Include="Xamarin.Essentials" Version="1.1.0" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.1.0" />  
+    <PackageReference Include="ZXing.Net.Mobile" Version="2.4.1" />  
+    <PackageReference Include="ZXing.Net.Mobile.Forms" Version="2.4.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -29,12 +31,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\KartaPage.xaml.cs">
+      <DependentUpon>KartaPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\PredstavePage.xaml.cs">
       <DependentUpon>PredstavePage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Views\KartaPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\LoginPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
