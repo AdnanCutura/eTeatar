@@ -19,7 +19,7 @@ namespace XamarinForms.Views
 
         private readonly string _predstavaId;
         
-        public PredstavaDetaljiPage(string id = "0d71742f-1be8-48f3-8a6e-175e797ed63c")
+        public PredstavaDetaljiPage(string id = "f0bd9438-5443-446c-90ee-666e3893cf7e")
         {
             _predstavaService = new APIService("Predstava");
             _predstavaId = id;

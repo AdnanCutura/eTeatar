@@ -4,11 +4,13 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="ScanTicket.MainPage">
+             x:Class="ScanTicket.MainPage"
+             Title="eTeatar - Skeniranje karte">
 
-    <StackLayout>
-        <Button Text="Skeniraj kartu" Clicked="Skeniraj_kartu"></Button>
-        <Label Text="" x:Name="ScanText" HorizontalOptions="CenterAndExpand"></Label>
+    <StackLayout x:Name="MainLayout">
+        <Button Margin="20" BackgroundColor="SlateGray" TextColor="White" Text="Skeniraj kartu" Clicked="Skeniraj_kartu"></Button>
+        <Label Text="" FontSize="25"  x:Name="ScanText" HorizontalOptions="CenterAndExpand"></Label>
+        <Label Text="" FontSize="15"  x:Name="ScanCode" HorizontalOptions="CenterAndExpand"></Label>
     </StackLayout>
 
 </ContentPage>

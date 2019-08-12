@@ -1,5 +1,6 @@
 ﻿using DataTransferObjects;
 using DataTransferObjects.Requests;
+using Flurl.Http;
 using System;
 using System.ComponentModel;
 using Xamarin.Forms;
@@ -26,11 +27,46 @@ namespace ScanTicket
                 Device.BeginInvokeOnMainThread(async () =>
                 {
                     await Navigation.PopAsync();
-                    ScanText.Text = "Kod karte: " + result.Text;
-                    await _serviceNarudzba.Update<Narudzba>(result.ToString(), new NarudzbaUpdateRequest
+
+                    try
                     {
-                        IsSkenirana = true
-                    });
+                        var karta = await _serviceNarudzba.GetById<Narudzba>(result.ToString());
+
+                        if (karta.IsSkenirana)
+                        {
+                            ScanText.Text = "Karta je već poništena";
+                            ScanCode.Text = result.Text;
+                            MainLayout.BackgroundColor = Color.Red;
+                        }
+
+                        else
+                        {
+                            ScanText.Text = "Karta je uspješno poništena";
+                            ScanCode.Text = result.Text;
+                            MainLayout.BackgroundColor = Color.Green;
+
+                            await _serviceNarudzba.Update<Narudzba>(result.ToString(), new NarudzbaUpdateRequest
+                            {
+                                IsSkenirana = true
+                            });
+                        }
+                    }
+
+                    catch (FlurlHttpException err)
+                    {
+                        switch (err.Call.HttpStatus)
+                        {
+                            case System.Net.HttpStatusCode.NotFound:
+                                ScanText.Text = "Karta ne postoji";
+                                ScanCode.Text = result.Text;
+                                MainLayout.BackgroundColor = Color.Red;
+                                break;
+                            default:
+                                throw new ArgumentOutOfRangeException();
+                        }
+                    }
+
+
                 });
             };
         }
