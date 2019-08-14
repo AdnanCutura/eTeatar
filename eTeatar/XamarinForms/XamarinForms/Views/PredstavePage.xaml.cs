@@ -18,8 +18,8 @@ namespace XamarinForms.Views
 
         public PredstavePage(PredstavaSearchRequest search = null)
         {
-            InitializeComponent();
             BindingContext = model = new PredstavaViewModel(search);
+            InitializeComponent();
         }
 
         protected override void OnAppearing()

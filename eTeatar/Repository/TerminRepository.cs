@@ -40,6 +40,7 @@ namespace Repository
             query = query.OrderBy(x => x.DatumVrijeme);
             IEnumerable<Termin> list = query
                 .Include(t => t.Dvorana).ThenInclude(d => d.Teatar).ThenInclude(t => t.Grad)
+                .Include(t=>t.Dvorana.TipoviSjedista)
                 .Include(t => t.Narudzbe)
                 .Include(t => t.Predstava)
                 .ToList();
@@ -50,6 +51,11 @@ namespace Repository
                 item.Dvorana.Termini = null;
                 item.Dvorana.Teatar.Dvorane = null;
                 item.Dvorana.Teatar.Grad.Teatri = null;
+                foreach (var TipSjedista in item.Dvorana.TipoviSjedista)
+                {
+                    TipSjedista.Dvorana = null;
+                    TipSjedista.TipSjedista = Context.TipSjedista.Find(TipSjedista.TipSjedistaId);
+                }
             }
             return list;
         }

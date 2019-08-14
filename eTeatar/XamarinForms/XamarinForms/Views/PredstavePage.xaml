@@ -7,20 +7,20 @@
              xmlns:viewModels="clr-namespace:XamarinForms.ViewModels;assembly=XamarinForms"
              mc:Ignorable="d"
              x:Class="XamarinForms.Views.PredstavePage"
-             Title="Predstave">
-
-    <ContentPage.Content>
+             Title="Predstave"
+             x:Name="Predstave">
+    
+      <ContentPage.Content>
         <StackLayout>
 
             <Button Clicked="Search" Text="Pretraga i filtriranje"/>
-
-            <CollectionView ItemsSource="{Binding PredstavaList}" Margin="5,5,0,0">
+            <CollectionView ItemsSource="{Binding PredstavaList}" Margin="5,5,0,0" SelectionMode="None">
                 <CollectionView.ItemsLayout>
                     <GridItemsLayout Orientation="Vertical"
                         Span="100"/>
                 </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
-                    <DataTemplate>
+                    <DataTemplate>                            
                         <Grid Margin="0,0,5,5">
 
                             <Grid.RowDefinitions>
@@ -33,7 +33,7 @@
                             <Image Grid.Column="0" 
                                Grid.Row="0" 
                                Source="slika.png" 
-                               Aspect="AspectFill" />
+                               Aspect="AspectFill"/>
                             <Image Grid.Column="0" 
                                Grid.Row="0" 
                                Source="gradient.png" 
@@ -60,6 +60,7 @@
                                    HorizontalTextAlignment="Center"
                                    VerticalTextAlignment="End"/>
                             </StackLayout>
+                            <Button Command="{Binding Path=BindingContext.SelectedCommand, Source={x:Reference Name=Predstave}}" CommandParameter="{Binding Id }"/>
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>

@@ -25,5 +25,10 @@ namespace XamarinForms.Views
             model.Init.Execute(null);
             base.OnAppearing();
         }
+
+        private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            
+        }
     }
 }

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="XamarinForms.Views.NarudzbaPage"
+             Title="Kupi kartu">
+    <ContentPage.Content>
+        <StackLayout>
+            <Button HorizontalOptions="Start" Text="X" Command="{Binding CloseCommand}"/>
+            <Label Text="{Binding Termin.Predstava.Naziv}" HorizontalOptions="Center" FontSize="Large"/>
+            <Label Text="{Binding Termin.DatumVrijeme,StringFormat='{0:d.M.yyyy HH:mm}'}" HorizontalOptions="Center"/>
+            <Label Text="{Binding Termin.Dvorana}" HorizontalOptions="Center"/>
+            <StackLayout HorizontalOptions="Center" Orientation="Horizontal" Margin="0,0,0,15" VerticalOptions="Center">
+                <Label Text="{Binding Termin.Dvorana.Teatar.Grad.Naziv,StringFormat='{0:},'}"/>
+                <Label Text="{Binding Termin.Dvorana.Teatar.Naziv}" FontAttributes="None"/>
+            </StackLayout>
+            <Label Text="Tip sjedista" HorizontalOptions="Center"/>
+            <Picker ItemsSource="{Binding TipoviSjedista}" SelectedItem="{Binding SelectedTipSjedista}" ItemDisplayBinding="{Binding TipSjedista.Naziv}"/>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                <Label Text="Broj karata"/>
+                <Entry Text="{Binding Kolicina}" IsReadOnly="True"/>
+                <Button Text="-" Command="{Binding SubCommand}"/>
+                <Button Text="+" Command="{Binding AddCommand}"/>
+            </StackLayout>
+            <Label Text="{Binding Cijena,StringFormat='{0:} KM'}" HorizontalOptions="Center" TextColor="DarkRed" FontSize="Large" Margin="0,20,0,0"/>
+            <Button Text="Kupi" Command="{Binding KupiCommand}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

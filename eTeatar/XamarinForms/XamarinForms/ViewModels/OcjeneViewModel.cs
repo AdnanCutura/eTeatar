@@ -14,6 +14,7 @@ namespace XamarinForms.ViewModels
         private readonly APIService _narudzbaService = new APIService("Narudzba");
 
         public ObservableCollection<DataTransferObjects.Narudzba> NaruzbaList { get; set; } = new ObservableCollection<DataTransferObjects.Narudzba>();
+        public ObservableCollection<DataTransferObjects.Narudzba> NaruzbaHistoryList { get; set; } = new ObservableCollection<DataTransferObjects.Narudzba>();
 
         public ICommand Init { get; private set; }
 
@@ -30,9 +31,12 @@ namespace XamarinForms.ViewModels
                 var list = await _narudzbaService.Get<List<DataTransferObjects.Narudzba>>(new DataTransferObjects.Requests.NarudzbaSearchRequest { KupacId = Helpers.KupacData.Get().Id });
 
                 NaruzbaList.Clear();
+                NaruzbaHistoryList.Clear();
                 foreach (var item in list)
                     if (item?.Ocjena == null)
                         NaruzbaList.Add(item);
+                    else
+                        NaruzbaHistoryList.Add(item);
             }
             catch { }
         }

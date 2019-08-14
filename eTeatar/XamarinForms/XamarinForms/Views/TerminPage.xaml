@@ -19,7 +19,7 @@
                 <Entry Grid.Row="0" Grid.Column="0" Placeholder="Naziv predstave" VerticalOptions="Center" Text="{Binding Naziv}"/>
                 <Button Grid.Row="0" Grid.Column="1" Text="Pretraga" Command="{Binding Init}"/>
             </Grid>
-            <ListView ItemsSource="{Binding TerminList}" SelectionMode="None">
+            <ListView ItemsSource="{Binding TerminList}" ItemSelected="ListView_ItemSelected" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -37,7 +37,7 @@
                                         <Label Text="{Binding Dvorana.Teatar.Naziv}" FontAttributes="None"/>
                                     </StackLayout>
                                     <Label Text="{Binding DatumVrijeme,StringFormat='{0:d.M.yyyy HH:mm}'}" Grid.Row="2" HorizontalTextAlignment="Center"/>
-                                    <Button Grid.Row="3" Text="Kupi kartu" BackgroundColor="DodgerBlue"/>
+                                    <Label Grid.Row="3" Text="Kupi kartu" BackgroundColor="DodgerBlue" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
                                 </Grid>
                             </Frame>
                         </ViewCell>

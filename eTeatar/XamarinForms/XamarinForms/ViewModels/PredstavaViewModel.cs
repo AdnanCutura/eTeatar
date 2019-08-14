@@ -30,10 +30,18 @@ namespace XamarinForms.ViewModels
             PredstavaList = new ObservableCollection<Predstava>();
             _predstaveService = new APIService("Predstava");
             InitCommand = new Command(async () => await Init());
+            SelectedCommand = new Command<object>(async (o) => await Selected(o));
             InitCommand.Execute(null);
         }
 
         public ICommand InitCommand { get; set; }
+        public ICommand SelectedCommand { get; set; }
+
+        public async Task Selected(object o)
+        {
+            string PredstavaId = o as string;
+            //PredstavaDetails Page
+        }
 
         public async Task Init()
         {

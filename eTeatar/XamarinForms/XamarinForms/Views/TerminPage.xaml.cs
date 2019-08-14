@@ -19,5 +19,10 @@ namespace XamarinForms.Views
             InitializeComponent();
             BindingContext = model = new TerminViewModel();
         }
+
+        private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            Navigation.PushModalAsync(new NarudzbaPage((DataTransferObjects.Termin)e.SelectedItem));
+        }
     }
 }

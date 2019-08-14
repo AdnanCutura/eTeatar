@@ -5,7 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="XamarinForms.Views.ObavijestPage"
-             Title="Obavijesti">
+             Title="Obavijesti"
+             x:Name="Obavijesti">
     
     
     <ContentPage.Content>
@@ -45,7 +46,7 @@
                                    Grid.Row="0" 
                                    VerticalOptions="End"
                                    Margin="5,0,5,10"/>
-                        
+                        <Button Command="{Binding Path=BindingContext.SelectedCommand, Source={x:Reference Name=Obavijesti}}" CommandParameter="{Binding Id }"/>
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
