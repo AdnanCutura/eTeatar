@@ -232,6 +232,8 @@ namespace Repository.Migrations
 
                     b.Property<bool>("IsDeleted");
 
+                    b.Property<bool>("IsSkenirana");
+
                     b.Property<int>("Kolicina");
 
                     b.Property<string>("KupacId");

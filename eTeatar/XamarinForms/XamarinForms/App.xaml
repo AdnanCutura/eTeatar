@@ -8,13 +8,93 @@
 
     <Application.Resources>
         <ResourceDictionary>
+
             <!--Global Styles-->
             <Color x:Key="NavigationPrimary">#2196F3</Color>
+            <Color x:Key="ETeatarDarkPurple">#510a32</Color>
+            <Color x:Key="ETeatarDarkGray">#171717</Color>
+
+            <Style TargetType="Label">
+                <Setter Property="FontFamily" Value="Roboto"/>
+                <Setter Property="TextColor" Value="{StaticResource ETeatarDarkGray}"/>
+            </Style>
+            <Style TargetType="Entry">
+                <Setter Property="FontFamily" Value="Roboto"/>
+            </Style>
+            <Style TargetType="Editor">
+                <Setter Property="FontFamily" Value="Roboto"/>
+            </Style>
+
+            <!-- NavigationPage -->
             <Style TargetType="NavigationPage">
-                <Setter Property="BarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
-                <Setter Property="BarTextColor" Value="White" />
+                <Setter Property="BarBackgroundColor" Value="{StaticResource ETeatarDarkPurple}" />
+                <Setter Property="BarTextColor" Value="#ffffff" />
+            </Style>
+
+            <!-- Button style -->
+            <Style x:Key="ETeatarBtn" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource ETeatarDarkPurple}"/>
+                <Setter Property="TextColor" Value="#ffffff"/>
+                <Setter Property="BorderRadius" Value="5"/>
+                <!--<Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />-->
+            </Style>
+
+            <!-- Header 1 style -->
+            <Style x:Key="ETeatarHeader1" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource ETeatarDarkPurple}"/>
+                <Setter Property="FontSize" Value="25"/>
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+                <Setter Property="Margin" Value="10, 8"/>
+                <Setter Property="Margin" Value="0"/>
+            </Style>
+
+            <!-- Separators -->
+            <Style x:Key="ETeatarTitleSeparator" TargetType="BoxView">
+                <Setter Property="BackgroundColor" Value="{StaticResource ETeatarDarkPurple}"/>
+                <Setter Property="HeightRequest" Value="2"/>
+                <Setter Property="WidthRequest" Value="50" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+                <Setter Property="Margin" Value="10, 8"/>
+            </Style>
+
+            <Style x:Key="ETeatarSeparator" TargetType="BoxView">
+                <Setter Property="BackgroundColor" Value="{StaticResource ETeatarDarkPurple}"/>
+                <Setter Property="HeightRequest" Value="2"/>
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="Margin" Value="0, 5"/>
+            </Style>
+
+
+            <!-- Header 3 style -->
+            <Style x:Key="ETeatarHeader3" TargetType="Label">
+                <Setter Property="Text" Value="{StaticResource ETeatarDarkGray}"/>
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+                <Setter Property="Margin" Value="10, 6"/>
+            </Style>
+
+            <!-- Paragraph -->
+            <Style x:Key="ETeatarParagraph" TargetType="Label">
+                <Setter Property="Text" Value="{StaticResource ETeatarDarkGray}"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="Margin" Value="10, 5"/>
+            </Style>
+
+            <!-- Custom list views -->
+
+            <Style x:Key="ETeatarComment" TargetType="StackLayout">
+                <Setter Property="BackgroundColor" Value="White"/>
+                <!--<Setter Property="Padding" Value="1"/>-->
+                <!--<Setter Property="Margin" Value="5"/>-->
+                <Setter Property="Orientation" Value="Horizontal"/>
+                
             </Style>
         </ResourceDictionary>
     </Application.Resources>
-    
+
 </Application>

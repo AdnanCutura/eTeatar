@@ -15,7 +15,7 @@ namespace Models
         public string KorisnickiNalogId { get; set; }
         public KorisnickiNalog KorisnickiNalog { get; set; }
 
-        //Tip korisnika (npr. Basic, Platstringum, Silver...)
+        //Tip korisnika (npr. Basic, Platinum, Silver...)
         public string TipKorisnikaId { get; set; }
         public TipKorisnika TipKorisnika { get; set; }
 

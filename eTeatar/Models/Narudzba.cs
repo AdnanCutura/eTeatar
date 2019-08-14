@@ -4,6 +4,11 @@ namespace Models
 {
     public class Narudzba : IIsDeleted
     {
+        public Narudzba()
+        {
+            IsSkenirana = false;
+        }
+
         public string Id { get; set; }
 
         //Kupac koji je izvrsio narudzbu
@@ -22,11 +27,15 @@ namespace Models
         //Broj karata koje je su kupljene
         public int Kolicina { get; set; }
 
+        public bool IsSkenirana { get; set; }
+
         public DateTime DatumKupovine { get; set; }
 
         //Ocjena koju je kupac ostavio za predstavu
         public string OcjenaId { get; set; }
         public virtual Ocjena Ocjena { get; set; }
+
+        //public bool isSkeniran { get; set; }
 
         public bool IsDeleted { get; set; }
     }

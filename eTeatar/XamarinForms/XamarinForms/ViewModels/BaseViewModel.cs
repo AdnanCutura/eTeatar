@@ -14,16 +14,29 @@ namespace XamarinForms.ViewModels
     {
         public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>() ?? new MockDataStore();
 
-        bool isBusy = false;
+        private bool _isBusy;
         public bool IsBusy {
-            get { return isBusy; }
-            set { SetProperty(ref isBusy, value); }
+            get => _isBusy;
+            set
+            {
+                SetProperty(ref _isBusy, value); 
+                OnPropertyChanged();
+            }
         }
 
-        string title = string.Empty;
+        private bool _isVisible;
+        public bool IsVisible {
+            get => _isVisible;
+            set {
+                SetProperty(ref _isVisible, value);
+                OnPropertyChanged();
+            }
+        }
+
+        private string _title = string.Empty;
         public string Title {
-            get { return title; }
-            set { SetProperty(ref title, value); }
+            get => _title;
+            set => SetProperty(ref _title, value);
         }
 
         protected bool SetProperty<T>(ref T backingStore, T value,
@@ -44,10 +57,7 @@ namespace XamarinForms.ViewModels
         protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
             var changed = PropertyChanged;
-            if (changed == null)
-                return;
-
-            changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            changed?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         #endregion
     }

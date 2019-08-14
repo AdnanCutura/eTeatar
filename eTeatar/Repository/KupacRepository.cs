@@ -22,9 +22,12 @@ namespace Repository
 
         public override Kupac GetById(string id)
         {
-            var query = Context.Kupac.AsQueryable();
-            query = query.Include(i => i.TipKorisnika);
-            return query.FirstOrDefault(w => w.Id == id);
+            var query = Context.Kupac.Where(w => w.Id == id).AsQueryable();
+            var item = query
+                .Include(i => i.TipKorisnika)
+                .Single();
+
+            return item;
         }
     }
 }

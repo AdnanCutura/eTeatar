@@ -17,12 +17,13 @@ namespace XamarinForms.ViewModels
         public LoginViewModel()
         {
             _kupacService = new APIService("Kupac");
-            LoginCommand = new Command(async () => await Login());
+            LoginCommand = new Command(async () => await Login(), () => !IsBusy);
+            RegistracijaCommand = new Command(Registracija);
             _username = "Kupac";
             _password = "1";
         }
 
-        private string _username = string.Empty;
+        private string _username;
         public string Username {
             get => _username;
             set => SetProperty(ref _username, value);
@@ -34,22 +35,33 @@ namespace XamarinForms.ViewModels
             set => SetProperty(ref _password, value);
         }
 
-        public ICommand LoginCommand { get; set; }
-        public async Task Login()
+        public Command RegistracijaCommand { get; set; }
+
+        private void Registracija()
+        {
+            Application.Current.MainPage = new RegistracijaPage();
+        }
+
+        public Command LoginCommand { get; set; }
+        private async Task Login()
         {
             IsBusy = true;
             APIService.Username = Username;
             APIService.Password = Password;
+            LoginCommand.ChangeCanExecute();
 
             try
             {
                 var list = await _kupacService.Get<List<DataTransferObjects.Kupac>>(null);
                 KupacData.Set(list.FirstOrDefault(w => w.KorisnickoIme == _username));
+                LoginCommand.ChangeCanExecute();
+                IsBusy = false;
                 Application.Current.MainPage = new MainPage();
             }
             catch
             {
-                // ignored
+                IsBusy = false;
+                LoginCommand.ChangeCanExecute();
             }
         }
 

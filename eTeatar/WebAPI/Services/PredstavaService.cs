@@ -31,7 +31,7 @@ namespace WebAPI.Services
                 result.Zanrovi = _zanrService.Get(new DataTransferObjects.Requests.ZanrSearchRequest { PredstavaId = result.Id });
                 result.Ocjena = _ocjenaService.Get(new OcjenaSearchRequest { PredstavaId = result.Id })?.Average(a => a?.Vrijednost) ?? 0;
             }
-           return queryresult;
+            return queryresult;
         }
 
         public override Predstava GetById(string id)

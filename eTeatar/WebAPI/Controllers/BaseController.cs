@@ -10,7 +10,7 @@ namespace WebAPI.Controllers
     [ApiController]
     public class BaseController<TDataTransferObject, TSearch> : ControllerBase where TDataTransferObject : class
     {
-        private readonly IBaseService<TDataTransferObject, TSearch> _service;
+        protected readonly IBaseService<TDataTransferObject, TSearch> _service;
 
         public BaseController(IBaseService<TDataTransferObject, TSearch> service)
         {
@@ -20,7 +20,7 @@ namespace WebAPI.Controllers
         [HttpGet]
         public ActionResult<List<TDataTransferObject>> Get([FromQuery] TSearch search)
         {
-            List<TDataTransferObject> list = _service.Get(search); ;
+            List<TDataTransferObject> list = _service.Get(search);
 
             if (!list.Any())
                 return NotFound();
@@ -29,7 +29,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet("{id}")]
-        public ActionResult<TDataTransferObject> GetById(string id)
+        public virtual ActionResult<TDataTransferObject> GetById(string id)
         {
             var obj = _service.GetById(id);
 

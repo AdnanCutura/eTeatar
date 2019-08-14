@@ -12,36 +12,39 @@ namespace Repository
             {
                 return;
             }
+         
+            #region Države
 
             Drzava Drzava1 = new Drzava { Naziv = "Bosna i Hercegovina" };
             Drzava Drzava2 = new Drzava { Naziv = "Drzava" };
 
-            context.Drzava.AddRange(Drzava1,
-                                    Drzava2);
+            context.Drzava.AddRange(Drzava1, Drzava2);
             context.SaveChanges();
+            #endregion
+
+            #region Gradovi
 
             Grad Grad1 = new Grad { Naziv = "Sarajevo", Drzava = Drzava1 };
             Grad Grad2 = new Grad { Naziv = "Mostar", Drzava = Drzava1 };
             Grad Grad3 = new Grad { Naziv = "Grad3", Drzava = Drzava2 };
             Grad Grad4 = new Grad { Naziv = "Grad4", Drzava = Drzava2 };
 
-            context.Grad.AddRange(Grad1,
-                                  Grad2,
-                                  Grad3,
-                                  Grad4);
+            context.Grad.AddRange(Grad1, Grad2, Grad3, Grad4);
             context.SaveChanges();
 
+            #endregion
+
+            #region Teatri
             Teatar Teatar1 = new Teatar { Grad = Grad1, Naziv = "Narodno pozoriste", Adresa = "Adresa 51", BrojTelefona = "061/091-741", Email = "SarajevNPo@eteatar.com", VrijemeOtvaranja = DateTime.Now, VrijemeZatvaranja = DateTime.Now.AddHours(8) };
             Teatar Teatar2 = new Teatar { Grad = Grad1, Naziv = "Kamerni Teatar 55", Adresa = "Adresa 52", BrojTelefona = "061/091-742", Email = "SarajevoKT@eteatar.com", VrijemeOtvaranja = DateTime.Now, VrijemeZatvaranja = DateTime.Now.AddHours(8) };
             Teatar Teatar3 = new Teatar { Grad = Grad2, Naziv = "Narodno Pozoriste", Adresa = "Adresa 53", BrojTelefona = "061/091-743", Email = "MostarNP@eteatar.com", VrijemeOtvaranja = DateTime.Now, VrijemeZatvaranja = DateTime.Now.AddHours(8) };
             Teatar Teatar4 = new Teatar { Grad = Grad2, Naziv = "Pozoriste Mladih", Adresa = "Adresa 54", BrojTelefona = "061/091-744", Email = "MostarPM@eteatar.com", VrijemeOtvaranja = DateTime.Now, VrijemeZatvaranja = DateTime.Now.AddHours(8) };
 
-            context.Teatar.AddRange(Teatar1,
-                                    Teatar2,
-                                    Teatar3,
-                                    Teatar4);
+            context.Teatar.AddRange(Teatar1, Teatar2, Teatar3, Teatar4);
             context.SaveChanges();
+            #endregion
 
+            #region Dvorane
 
             Dvorana Dvorana1 = new Dvorana { Naziv = "Dvorana 1", Teatar = Teatar1 };
             Dvorana Dvorana2 = new Dvorana { Naziv = "Dvorana 2", Teatar = Teatar1 };
@@ -52,16 +55,12 @@ namespace Repository
             Dvorana Dvorana7 = new Dvorana { Naziv = "Dvorana 1", Teatar = Teatar4 };
             Dvorana Dvorana8 = new Dvorana { Naziv = "Dvorana 2", Teatar = Teatar4 };
 
-            context.Dvorana.AddRange(Dvorana1,
-                                     Dvorana2,
-                                     Dvorana3,
-                                     Dvorana4,
-                                     Dvorana5,
-                                     Dvorana6,
-                                     Dvorana7,
-                                     Dvorana8);
+            context.Dvorana.AddRange(Dvorana1, Dvorana2, Dvorana3, Dvorana4, Dvorana5, Dvorana6, Dvorana7, Dvorana8);
             context.SaveChanges();
 
+            #endregion
+
+            #region Tipovi sjedišta
 
             TipSjedista TipSjedista1 = new TipSjedista { Naziv = "Galerija", CijenaKarteMultiplier = 1.0f };
             TipSjedista TipSjedista2 = new TipSjedista { Naziv = "Balkon", CijenaKarteMultiplier = 2.0f };
@@ -69,13 +68,12 @@ namespace Repository
             TipSjedista TipSjedista4 = new TipSjedista { Naziv = "Loža I", CijenaKarteMultiplier = 4.0f };
             TipSjedista TipSjedista5 = new TipSjedista { Naziv = "VIP Loža", CijenaKarteMultiplier = 5.0f };
 
-            context.TipSjedista.AddRange(TipSjedista1,
-                                         TipSjedista2,
-                                         TipSjedista3,
-                                         TipSjedista4,
-                                         TipSjedista5);
+            context.TipSjedista.AddRange(TipSjedista1, TipSjedista2, TipSjedista3, TipSjedista4, TipSjedista5);
             context.SaveChanges();
 
+            #endregion
+
+            #region Dvorane tip sjedišta
 
             DvoranaTipSjedista DvoranaTipSjedista1 = new DvoranaTipSjedista { Dvorana = Dvorana1, TipSjedista = TipSjedista1, BrojSjedista = 15 };
             DvoranaTipSjedista DvoranaTipSjedista2 = new DvoranaTipSjedista { Dvorana = Dvorana2, TipSjedista = TipSjedista1, BrojSjedista = 25 };
@@ -118,57 +116,22 @@ namespace Repository
             DvoranaTipSjedista DvoranaTipSjedista39 = new DvoranaTipSjedista { Dvorana = Dvorana7, TipSjedista = TipSjedista5, BrojSjedista = 20 };
             DvoranaTipSjedista DvoranaTipSjedista40 = new DvoranaTipSjedista { Dvorana = Dvorana8, TipSjedista = TipSjedista5, BrojSjedista = 15 };
 
-            context.DvoranaTipSjedista.AddRange(DvoranaTipSjedista1,
-                                                DvoranaTipSjedista2,
-                                                DvoranaTipSjedista3,
-                                                DvoranaTipSjedista4,
-                                                DvoranaTipSjedista5,
-                                                DvoranaTipSjedista6,
-                                                DvoranaTipSjedista7,
-                                                DvoranaTipSjedista8,
-                                                DvoranaTipSjedista9,
-                                                DvoranaTipSjedista10,
-                                                DvoranaTipSjedista11,
-                                                DvoranaTipSjedista12,
-                                                DvoranaTipSjedista13,
-                                                DvoranaTipSjedista14,
-                                                DvoranaTipSjedista15,
-                                                DvoranaTipSjedista16,
-                                                DvoranaTipSjedista17,
-                                                DvoranaTipSjedista18,
-                                                DvoranaTipSjedista19,
-                                                DvoranaTipSjedista20,
-                                                DvoranaTipSjedista21,
-                                                DvoranaTipSjedista22,
-                                                DvoranaTipSjedista23,
-                                                DvoranaTipSjedista24,
-                                                DvoranaTipSjedista25,
-                                                DvoranaTipSjedista26,
-                                                DvoranaTipSjedista27,
-                                                DvoranaTipSjedista28,
-                                                DvoranaTipSjedista29,
-                                                DvoranaTipSjedista30,
-                                                DvoranaTipSjedista31,
-                                                DvoranaTipSjedista32,
-                                                DvoranaTipSjedista33,
-                                                DvoranaTipSjedista34,
-                                                DvoranaTipSjedista35,
-                                                DvoranaTipSjedista36,
-                                                DvoranaTipSjedista37,
-                                                DvoranaTipSjedista38,
-                                                DvoranaTipSjedista39,
-                                                DvoranaTipSjedista40);
+            context.DvoranaTipSjedista
+                .AddRange(DvoranaTipSjedista1, DvoranaTipSjedista2, DvoranaTipSjedista3, DvoranaTipSjedista4, DvoranaTipSjedista5, DvoranaTipSjedista6, DvoranaTipSjedista7, DvoranaTipSjedista8, DvoranaTipSjedista9, DvoranaTipSjedista10, DvoranaTipSjedista11, DvoranaTipSjedista12, DvoranaTipSjedista13, DvoranaTipSjedista14, DvoranaTipSjedista15, DvoranaTipSjedista16, DvoranaTipSjedista17, DvoranaTipSjedista18, DvoranaTipSjedista19, DvoranaTipSjedista20, DvoranaTipSjedista21, DvoranaTipSjedista22, DvoranaTipSjedista23, DvoranaTipSjedista24, DvoranaTipSjedista25, DvoranaTipSjedista26, DvoranaTipSjedista27, DvoranaTipSjedista28, DvoranaTipSjedista29, DvoranaTipSjedista30, DvoranaTipSjedista31, DvoranaTipSjedista32, DvoranaTipSjedista33, DvoranaTipSjedista34, DvoranaTipSjedista35, DvoranaTipSjedista36, DvoranaTipSjedista37, DvoranaTipSjedista38, DvoranaTipSjedista39, DvoranaTipSjedista40);
             context.SaveChanges();
 
+            #endregion
+
+            #region Predstave
 
             Predstava Predstava1 = new Predstava { Naziv = "Waitress", Trajanje = "120min", ReziserImePrezime = "ReziserIme ReziserPrezime", NazivIzvornogDjela = "Naziv Izvornog Djela", PisacIzvornogDjela = "Pisac1" };
-            Predstava Predstava2 = new Predstava { Naziv = "Wicked", Trajanje = "130min", ReziserImePrezime = "ReziserIme ReziserPrezime", NazivIzvornogDjela = "Naziv Izvornog Djela", PisacIzvornogDjela = "Pisac1",  };
+            Predstava Predstava2 = new Predstava { Naziv = "Wicked", Trajanje = "130min", ReziserImePrezime = "ReziserIme ReziserPrezime", NazivIzvornogDjela = "Naziv Izvornog Djela", PisacIzvornogDjela = "Pisac1", };
             Predstava Predstava3 = new Predstava { Naziv = "Aint Too Proud", Trajanje = "115min", ReziserImePrezime = "ReziserIme ReziserPrezime", NazivIzvornogDjela = "Naziv Izvornog Djela", PisacIzvornogDjela = "Pisac1" };
-            Predstava Predstava4 = new Predstava { Naziv = "Be More Chill", Trajanje = "100min", ReziserImePrezime = "ReziserIme ReziserPrezime", NazivIzvornogDjela = "Naziv Izvornog Djela", PisacIzvornogDjela = "Pisac1"};
-            Predstava Predstava5 = new Predstava { Naziv = "The Lion King", Trajanje = "145min", ReziserImePrezime = "ReziserIme ReziserPrezime", NazivIzvornogDjela = "Naziv Izvornog Djela", PisacIzvornogDjela = "Pisac1"};
-            Predstava Predstava6 = new Predstava { Naziv = "Pretty Woman", Trajanje = "120min", ReziserImePrezime = "ReziserIme ReziserPrezime", NazivIzvornogDjela = "Naziv Izvornog Djela", PisacIzvornogDjela = "Pisac1"};
-            Predstava Predstava7 = new Predstava { Naziv = "Little Mermaid", Trajanje = "100min", ReziserImePrezime = "ReziserIme ReziserPrezime", NazivIzvornogDjela = "Naziv Izvornog Djela", PisacIzvornogDjela = "Pisac1"};
-            Predstava Predstava8 = new Predstava { Naziv = "The Wizard of OZ", Trajanje = "100min", ReziserImePrezime = "ReziserIme ReziserPrezime", NazivIzvornogDjela = "Naziv Izvornog Djela", PisacIzvornogDjela = "Pisac1"};
+            Predstava Predstava4 = new Predstava { Naziv = "Be More Chill", Trajanje = "100min", ReziserImePrezime = "ReziserIme ReziserPrezime", NazivIzvornogDjela = "Naziv Izvornog Djela", PisacIzvornogDjela = "Pisac1" };
+            Predstava Predstava5 = new Predstava { Naziv = "The Lion King", Trajanje = "145min", ReziserImePrezime = "ReziserIme ReziserPrezime", NazivIzvornogDjela = "Naziv Izvornog Djela", PisacIzvornogDjela = "Pisac1" };
+            Predstava Predstava6 = new Predstava { Naziv = "Pretty Woman", Trajanje = "120min", ReziserImePrezime = "ReziserIme ReziserPrezime", NazivIzvornogDjela = "Naziv Izvornog Djela", PisacIzvornogDjela = "Pisac1" };
+            Predstava Predstava7 = new Predstava { Naziv = "Little Mermaid", Trajanje = "100min", ReziserImePrezime = "ReziserIme ReziserPrezime", NazivIzvornogDjela = "Naziv Izvornog Djela", PisacIzvornogDjela = "Pisac1" };
+            Predstava Predstava8 = new Predstava { Naziv = "The Wizard of OZ", Trajanje = "100min", ReziserImePrezime = "ReziserIme ReziserPrezime", NazivIzvornogDjela = "Naziv Izvornog Djela", PisacIzvornogDjela = "Pisac1" };
 
             Predstava1.Opis = Predstava2.Opis = Predstava3.Opis = Predstava4.Opis = Predstava5.Opis = Predstava6.Opis = Predstava7.Opis = Predstava8.Opis =
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " +
@@ -187,16 +150,12 @@ namespace Repository
                 "Risus pretium quam vulputate dignissim suspendisse in est ante. Maecenas accumsan lacus vel facilisis volutpat est. " +
                 "Non arcu risus quis varius quam quisque id. Nec feugiat nisl pretium fusce id velit ut.";
 
-            context.Predstava.AddRange(Predstava1,
-                                       Predstava2,
-                                       Predstava3,
-                                       Predstava4,
-                                       Predstava5,
-                                       Predstava6,
-                                       Predstava7,
-                                       Predstava8);
+            context.Predstava.AddRange(Predstava1, Predstava2, Predstava3, Predstava4, Predstava5, Predstava6, Predstava7, Predstava8);
             context.SaveChanges();
 
+            #endregion
+
+            #region Žanrovi
 
             Zanr Zanr1 = new Zanr { Naziv = "Komedija" };
             Zanr Zanr2 = new Zanr { Naziv = "Tragedija" };
@@ -207,21 +166,22 @@ namespace Repository
             Zanr Zanr7 = new Zanr { Naziv = "Psihodrama" };
             Zanr Zanr8 = new Zanr { Naziv = "Djeciji" };
 
-            context.Zanr.AddRange(Zanr1,
-                                  Zanr2,
-                                  Zanr3,
-                                  Zanr4,
-                                  Zanr5,
-                                  Zanr6,
-                                  Zanr7,
-                                  Zanr8);
+            context.Zanr.AddRange(Zanr1, Zanr2, Zanr3, Zanr4, Zanr5, Zanr6, Zanr7, Zanr8);
             context.SaveChanges();
+
+            #endregion
+
+            #region Spolovi
 
             Spol Musko = new Spol { Naziv = "Musko" };
             Spol Zensko = new Spol { Naziv = "Zensko" };
 
             context.Spol.AddRange(Musko, Zensko);
             context.SaveChanges();
+
+            #endregion
+
+            #region Glumci
 
             Glumac Glumac1 = new Glumac { Ime = "GlumacIme1", Prezime = "GlumacPrezime1", Biografija = "Opako dobra biografija", Spol = Musko };
             Glumac Glumac2 = new Glumac { Ime = "GlumacIme2", Prezime = "GlumacPrezime2", Biografija = "Opako dobra biografija", Spol = Musko };
@@ -234,18 +194,12 @@ namespace Repository
             Glumac Glumac9 = new Glumac { Ime = "GlumacIme9", Prezime = "GlumacPrezime8", Biografija = "Opako dobra biografija", Spol = Zensko };
             Glumac Glumac10 = new Glumac { Ime = "GlumacIme10", Prezime = "GlumacPrezime10", Biografija = "Opako dobra biografija", Spol = Musko };
 
-            context.Glumac.AddRange(Glumac1,
-                                    Glumac2,
-                                    Glumac3,
-                                    Glumac4,
-                                    Glumac5,
-                                    Glumac6,
-                                    Glumac7,
-                                    Glumac8,
-                                    Glumac9,
-                                    Glumac10);
+            context.Glumac.AddRange(Glumac1, Glumac2, Glumac3, Glumac4, Glumac5, Glumac6, Glumac7, Glumac8, Glumac9, Glumac10);
             context.SaveChanges();
 
+            #endregion
+
+            #region Predstave žanr
 
             PredstavaZanr PredstavaZanr1 = new PredstavaZanr { Predstava = Predstava1, Zanr = Zanr1 };
             PredstavaZanr PredstavaZanr2 = new PredstavaZanr { Predstava = Predstava1, Zanr = Zanr2 };
@@ -268,28 +222,14 @@ namespace Repository
             PredstavaZanr PredstavaZanr19 = new PredstavaZanr { Predstava = Predstava8, Zanr = Zanr3 };
             PredstavaZanr PredstavaZanr20 = new PredstavaZanr { Predstava = Predstava8, Zanr = Zanr4 };
 
-            context.PredstavaZanr.AddRange(PredstavaZanr1,
-                                           PredstavaZanr2,
-                                           PredstavaZanr3,
-                                           PredstavaZanr4,
-                                           PredstavaZanr5,
-                                           PredstavaZanr6,
-                                           PredstavaZanr7,
-                                           PredstavaZanr8,
-                                           PredstavaZanr9,
-                                           PredstavaZanr10,
-                                           PredstavaZanr11,
-                                           PredstavaZanr12,
-                                           PredstavaZanr13,
-                                           PredstavaZanr14,
-                                           PredstavaZanr15,
-                                           PredstavaZanr16,
-                                           PredstavaZanr17,
-                                           PredstavaZanr18,
-                                           PredstavaZanr19,
-                                           PredstavaZanr20);
+            context.PredstavaZanr
+                .AddRange(PredstavaZanr1, PredstavaZanr2, PredstavaZanr3, PredstavaZanr4, PredstavaZanr5, PredstavaZanr6, PredstavaZanr7, PredstavaZanr8, PredstavaZanr9, PredstavaZanr10, PredstavaZanr11, PredstavaZanr12, PredstavaZanr13, PredstavaZanr14, PredstavaZanr15, PredstavaZanr16, PredstavaZanr17, PredstavaZanr18, PredstavaZanr19, PredstavaZanr20);
             context.SaveChanges();
 
+
+            #endregion
+
+            #region Uloge
 
             Uloga Uloga1 = new Uloga { Naziv = "Uloga1", Predstava = Predstava1, Glumac = Glumac1, IsGlavnaUloga = true };
             Uloga Uloga2 = new Uloga { Naziv = "Uloga2", Predstava = Predstava1, Glumac = Glumac2, IsGlavnaUloga = false };
@@ -313,29 +253,14 @@ namespace Repository
             Uloga Uloga20 = new Uloga { Naziv = "Uloga3", Predstava = Predstava7, Glumac = Glumac9, IsGlavnaUloga = false };
             Uloga Uloga21 = new Uloga { Naziv = "Uloga1", Predstava = Predstava8, Glumac = Glumac10, IsGlavnaUloga = true };
 
-            context.Uloga.AddRange(Uloga1,
-                                   Uloga2,
-                                   Uloga3,
-                                   Uloga4,
-                                   Uloga5,
-                                   Uloga6,
-                                   Uloga7,
-                                   Uloga8,
-                                   Uloga9,
-                                   Uloga10,
-                                   Uloga11,
-                                   Uloga12,
-                                   Uloga13,
-                                   Uloga14,
-                                   Uloga15,
-                                   Uloga16,
-                                   Uloga17,
-                                   Uloga18,
-                                   Uloga19,
-                                   Uloga20,
-                                   Uloga21);
+            context.Uloga
+                .AddRange(Uloga1, Uloga2, Uloga3, Uloga4, Uloga5, Uloga6, Uloga7, Uloga8, Uloga9, Uloga10, Uloga11, Uloga12, Uloga13, Uloga14, Uloga15, Uloga16, Uloga17, Uloga18, Uloga19, Uloga20, Uloga21);
             context.SaveChanges();
 
+
+            #endregion
+
+            #region Termini
 
             DateTime Danas = DateTime.Today;
             DateTime Sutra = DateTime.Today.AddDays(1);
@@ -363,44 +288,36 @@ namespace Repository
             Termin Termin15 = new Termin { Predstava = Predstava1, Dvorana = Dvorana1, BaznaCijenaKarte = 10, DatumVrijeme = Sest.AddHours(18) };
             Termin Termin16 = new Termin { Predstava = Predstava2, Dvorana = Dvorana1, BaznaCijenaKarte = 10, DatumVrijeme = Sedam.AddHours(18) };
 
-            context.Termin.AddRange(Termin1,
-                                    Termin2,
-                                    Termin3,
-                                    Termin4,
-                                    Termin5,
-                                    Termin6,
-                                    Termin7,
-                                    Termin8,
-                                    Termin9,
-                                    Termin10,
-                                    Termin11,
-                                    Termin12,
-                                    Termin13,
-                                    Termin14,
-                                    Termin15,
-                                    Termin16);
+            context.Termin
+                .AddRange(Termin1, Termin2, Termin3, Termin4, Termin5, Termin6, Termin7, Termin8, Termin9, Termin10, Termin11, Termin12, Termin13, Termin14, Termin15, Termin16);
             context.SaveChanges();
 
+
+            #endregion
+
+            #region Tipovi korisnika
 
             TipKorisnika TipKorisnika4 = new TipKorisnika { Naziv = "Gold", Cijena = 50, CijenaKartePopust = 0.5, IduciTipKorisnika = null };
             TipKorisnika TipKorisnika3 = new TipKorisnika { Naziv = "Platinum", Cijena = 30, CijenaKartePopust = 0.3, IduciTipKorisnika = TipKorisnika4 };
             TipKorisnika TipKorisnika2 = new TipKorisnika { Naziv = "Silver", Cijena = 10, CijenaKartePopust = 0.1, IduciTipKorisnika = TipKorisnika3 };
             TipKorisnika TipKorisnika1 = new TipKorisnika { Naziv = "Standard", Cijena = 00, CijenaKartePopust = 0.0, IduciTipKorisnika = TipKorisnika2, IsOsnovni = true };
 
-            context.TipKorisnika.AddRange(TipKorisnika1,
-                                          TipKorisnika2,
-                                          TipKorisnika3,
-                                          TipKorisnika4);
+            context.TipKorisnika.AddRange(TipKorisnika1, TipKorisnika2, TipKorisnika3, TipKorisnika4);
             context.SaveChanges();
 
+            #endregion
+
+            #region Korisnicke uloge
 
             KorisnickaUloga KorisnickaUloga1 = new KorisnickaUloga { Naziv = "Administrator" };
             KorisnickaUloga KorisnickaUloga2 = new KorisnickaUloga { Naziv = "Kupac" };
 
-            context.KorisnickaUloga.AddRange(KorisnickaUloga1,
-                                             KorisnickaUloga2);
-
+            context.KorisnickaUloga.AddRange(KorisnickaUloga1, KorisnickaUloga2);
             context.SaveChanges();
+
+            #endregion
+
+            #region Korisnicki nalozi
 
             KorisnickiNalog Korisnik1 = new KorisnickiNalog { KorisnickoIme = "Kupac", Email = "Kupac@Email.com", LozinkaHash = "j7+6UDUsnJcVogyMj2kZsLhfrgY=", LozinkaSalt = "yHXtkSuamKxmhzbWfbDKIg==", DatumKreiranja = DateTime.Now, Ime = "KupacIme", Prezime = "KupacPrezime", KorisnickaUloga = KorisnickaUloga2, Telefon = "061093743" };
             KorisnickiNalog Korisnik2 = new KorisnickiNalog { KorisnickoIme = "Kupac2", Email = "Kupac2@Email.com", LozinkaHash = "j7+6UDUsnJcVogyMj2kZsLhfrgY=", LozinkaSalt = "yHXtkSuamKxmhzbWfbDKIg==", DatumKreiranja = DateTime.Now, Ime = "KupacIme2", Prezime = "KupacPrezime2", KorisnickaUloga = KorisnickaUloga2, Telefon = "061093743" };
@@ -411,16 +328,12 @@ namespace Repository
             KorisnickiNalog KorisnikAdi = new KorisnickiNalog { KorisnickoIme = "Adi", Email = "adi.sose@outlook.com", LozinkaHash = "j7+6UDUsnJcVogyMj2kZsLhfrgY=", LozinkaSalt = "yHXtkSuamKxmhzbWfbDKIg==", DatumKreiranja = DateTime.Now, Ime = "Adi", Prezime = "Sose", KorisnickaUloga = KorisnickaUloga2, Telefon = "061093743" };
             KorisnickiNalog KorisnikAdnan = new KorisnickiNalog { KorisnickoIme = "Adnan", Email = "adnan.cutura@outlook.com", LozinkaHash = "j7+6UDUsnJcVogyMj2kZsLhfrgY=", LozinkaSalt = "yHXtkSuamKxmhzbWfbDKIg==", DatumKreiranja = DateTime.Now, Ime = "Adnan", Prezime = "Cutura", KorisnickaUloga = KorisnickaUloga2, Telefon = "061093743" };
 
-            context.KorisnickiNalog.AddRange(Korisnik1,
-                                      Korisnik2,
-                                      Korisnik3,
-                                      Korisnik4,
-                                      Korisnik5,
-                                      Korisnik6,
-                                      KorisnikAdi,
-                                      KorisnikAdnan);
-
+            context.KorisnickiNalog.AddRange(Korisnik1, Korisnik2, Korisnik3, Korisnik4, Korisnik5, Korisnik6, KorisnikAdi, KorisnikAdnan);
             context.SaveChanges();
+
+            #endregion
+
+            #region Kupci
 
             Kupac Kupac1 = new Kupac { TipKorisnika = TipKorisnika4, KorisnickiNalog = Korisnik1 };
             Kupac Kupac2 = new Kupac { TipKorisnika = TipKorisnika3, KorisnickiNalog = Korisnik2 };
@@ -428,39 +341,22 @@ namespace Repository
             Kupac Kupac4 = new Kupac { TipKorisnika = TipKorisnika1, KorisnickiNalog = Korisnik4 };
             Kupac KupacAdi = new Kupac { TipKorisnika = TipKorisnika1, KorisnickiNalog = KorisnikAdi };
 
-            context.Kupac.AddRange(Kupac1,
-                                   Kupac2,
-                                   Kupac3,
-                                   Kupac4,
-                                   KupacAdi);
+            context.Kupac.AddRange(Kupac1, Kupac2, Kupac3, Kupac4, KupacAdi);
             context.SaveChanges();
+
+            #endregion
+
+            #region Administratori
 
             Administrator Administrator1 = new Administrator { KorisnickiNalog = Korisnik5 };
             Administrator Administrator2 = new Administrator { KorisnickiNalog = Korisnik6 };
 
-            context.Administrator.AddRange(Administrator1,
-                                           Administrator2);
+            context.Administrator.AddRange(Administrator1, Administrator2);
             context.SaveChanges();
 
-            Narudzba Narudzba1 = new Narudzba { Kupac = Kupac1, Termin = Termin1, CijenaKarte = 10f, TipSjedista = TipSjedista1, DatumKupovine = DateTime.Now, Kolicina = 5};
-            Narudzba Narudzba2 = new Narudzba { Kupac = Kupac1, Termin = Termin2, CijenaKarte = 15f, TipSjedista = TipSjedista4, DatumKupovine = DateTime.Now, Kolicina = 5 };
-            Narudzba Narudzba3 = new Narudzba { Kupac = Kupac2, Termin = Termin1, CijenaKarte = 10f, TipSjedista = TipSjedista1, DatumKupovine = DateTime.Now, Kolicina = 5 };
+            #endregion
 
-            context.Narudzba.AddRange(Narudzba1,
-                                      Narudzba2,
-                                      Narudzba3);
-            context.SaveChanges();
-
-
-            Ocjena Ocjena1 = new Ocjena { Narudzba = Narudzba1, Vrijednost = 5, Review = "Review1" };
-            Ocjena Ocjena2 = new Ocjena { Narudzba = Narudzba2, Vrijednost = 5, Review = "Review2" };
-            Ocjena Ocjena3 = new Ocjena { Narudzba = Narudzba3, Vrijednost = 4, Review = "Review3" };
-
-            context.Ocjena.AddRange(Ocjena1,
-                                    Ocjena2,
-                                    Ocjena3);
-            context.SaveChanges();
-
+            #region Obavijesti
 
             Obavijest Obavijest1 = new Obavijest { Naslov = "Obavijest1", Sadrzaj = "LoremIpsum", Administrator = Administrator1, DatumVrijeme = Danas.AddDays(-1).AddHours(9) };
             Obavijest Obavijest2 = new Obavijest { Naslov = "Obavijest2", Sadrzaj = "LoremIpsum", Administrator = Administrator1, DatumVrijeme = Danas.AddDays(-1).AddHours(8) };
@@ -472,26 +368,44 @@ namespace Repository
             Obavijest Obavijest8 = new Obavijest { Naslov = "Obavijest8", Sadrzaj = "LoremIpsum", Administrator = Administrator2, DatumVrijeme = Danas.AddDays(-1).AddHours(2) };
             Obavijest Obavijest9 = new Obavijest { Naslov = "Obavijest9", Sadrzaj = "LoremIpsum", Administrator = Administrator2, DatumVrijeme = Danas.AddDays(-1).AddHours(1) };
 
-            context.Obavijest.AddRange(Obavijest1,
-                                       Obavijest2,
-                                       Obavijest3,
-                                       Obavijest4,
-                                       Obavijest5,
-                                       Obavijest6,
-                                       Obavijest7,
-                                       Obavijest8,
-                                       Obavijest9);
+            context.Obavijest.AddRange(Obavijest1, Obavijest2, Obavijest3, Obavijest4, Obavijest5, Obavijest6, Obavijest7, Obavijest8, Obavijest9);
             context.SaveChanges();
+            
+            #endregion
 
-
+            #region Komentari
             Komentar Komentar1 = new Komentar { Sadrzaj = "Sadrzaj prvog komentara", Kupac = Kupac1, Obavijest = Obavijest1, DatumVrijeme = Danas.AddDays(-1).AddHours(14) };
             Komentar Komentar2 = new Komentar { Sadrzaj = "Sadrzaj drugog komentara", Kupac = Kupac2, Obavijest = Obavijest1, DatumVrijeme = Danas.AddDays(-1).AddHours(15) };
 
-            context.Komentar.AddRange(Komentar1,
-                                      Komentar2);
-
             context.Komentar.AddRange(Komentar1, Komentar2);
+            context.SaveChanges(); 
+            #endregion
+        
+            #region Narudžbe
+
+            Narudzba Narudzba1 = new Narudzba { Kupac = Kupac1, Termin = Termin1, CijenaKarte = 10f, TipSjedista = TipSjedista1, DatumKupovine = DateTime.Now, Kolicina = 5 };
+            Narudzba Narudzba2 = new Narudzba { Kupac = Kupac1, Termin = Termin2, CijenaKarte = 15f, TipSjedista = TipSjedista4, DatumKupovine = DateTime.Now, Kolicina = 5 };
+            Narudzba Narudzba3 = new Narudzba { Kupac = Kupac2, Termin = Termin1, CijenaKarte = 10f, TipSjedista = TipSjedista1, DatumKupovine = DateTime.Now, Kolicina = 5 };
+
+            #region Ocjene
+
+            Ocjena Ocjena1 = new Ocjena { Narudzba = Narudzba1, Vrijednost = 5, Review = "Review1" };
+            Ocjena Ocjena2 = new Ocjena { Narudzba = Narudzba2, Vrijednost = 5, Review = "Review2" };
+            Ocjena Ocjena3 = new Ocjena { Narudzba = Narudzba3, Vrijednost = 4, Review = "Review3" };
+
+            context.Ocjena.AddRange(Ocjena1, Ocjena2, Ocjena3);
             context.SaveChanges();
+
+            #endregion
+
+            Narudzba1.OcjenaId = Ocjena1.Id;
+            Narudzba2.OcjenaId = Ocjena2.Id;
+            Narudzba3.OcjenaId = Ocjena3.Id;
+
+            context.Narudzba.AddRange(Narudzba1, Narudzba2, Narudzba3);
+            context.SaveChanges();
+
+            #endregion
         }
     }
 }

@@ -54,11 +54,13 @@ namespace WebAPI.Mappers
             //Narudzba
             CreateMap<Models.Narudzba, DataTransferObjects.Narudzba>();
             CreateMap<Models.Narudzba, DataTransferObjects.Requests.NarudzbaInsertRequest>().ReverseMap().ForAllMembers(opt => opt.Condition((src, dest, sourceMember) => sourceMember != null));
+            CreateMap<Models.Narudzba, DataTransferObjects.Requests.NarudzbaUpdateRequest>().ReverseMap().ForAllMembers(opt => opt.Condition((src, dest, sourceMember) => sourceMember != null));
 
             //Predstava
             CreateMap<Models.Predstava, DataTransferObjects.Predstava>();
             CreateMap<Models.Predstava, DataTransferObjects.Requests.PredstavaUpsertRequest>().ReverseMap().ForAllMembers(opt => opt.Condition((src, dest, sourceMember) => sourceMember != null));
-            //Predstava
+            
+            //Predstava zanr
             CreateMap<Models.PredstavaZanr, DataTransferObjects.PredstavaZanr>();
             CreateMap<Models.PredstavaZanr, DataTransferObjects.Requests.PredstavaZanrUpsertRequest>().ReverseMap().ForAllMembers(opt => opt.Condition((src, dest, sourceMember) => sourceMember != null));
 

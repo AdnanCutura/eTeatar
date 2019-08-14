@@ -37,7 +37,9 @@ namespace XamarinForms.ViewModels
                 foreach (var item in list)
                     ObavijestList.Add(item);
             }
-            catch { }
+            catch {}
         }
+
+
     }
 }

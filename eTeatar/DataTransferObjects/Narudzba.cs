@@ -23,6 +23,8 @@ namespace DataTransferObjects
 
         public DateTime DatumKupovine { get; set; }
 
+        public bool IsSkenirana { get; set; }
+
         public Ocjena Ocjena { get; set; }
     }
 }

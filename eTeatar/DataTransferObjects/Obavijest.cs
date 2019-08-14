@@ -18,5 +18,7 @@ namespace DataTransferObjects
 
         [JsonIgnore]
         public string AdministratorId { get; set; }
+
+        public List<Komentar> Komentari { get; set; }
     }
 }
