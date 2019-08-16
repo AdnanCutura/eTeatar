@@ -9,12 +9,15 @@ using DataTransferObjects;
 using DataTransferObjects.Requests;
 using Xamarin.Forms;
 using XamarinForms.Helpers;
+using XamarinForms.Views;
 
 namespace XamarinForms.ViewModels
 {
     public class PredstavaViewModel : BaseViewModel
     {
         private readonly APIService _predstaveService;
+        private readonly INavigation _navigation;
+
 
         public ObservableCollection<Predstava> PredstavaList { get; set; }
 
@@ -24,9 +27,10 @@ namespace XamarinForms.ViewModels
         public string Naziv { get => _naziv; set => _naziv = value; }
 
 
-        public PredstavaViewModel(PredstavaSearchRequest search)
+        public PredstavaViewModel(PredstavaSearchRequest search, INavigation Navigation)
         {
             _search = search;
+            _navigation = Navigation;
             PredstavaList = new ObservableCollection<Predstava>();
             _predstaveService = new APIService("Predstava");
             InitCommand = new Command(async () => await Init());
@@ -41,6 +45,7 @@ namespace XamarinForms.ViewModels
         {
             string PredstavaId = o as string;
             //PredstavaDetails Page
+            await _navigation.PushAsync(new PredstavaDetaljiPage(PredstavaId));
         }
 
         public async Task Init()

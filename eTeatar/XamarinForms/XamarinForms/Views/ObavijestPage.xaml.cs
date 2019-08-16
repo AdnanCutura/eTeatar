@@ -17,7 +17,7 @@ namespace XamarinForms.Views
         public ObavijestPage()
         {
             InitializeComponent();
-            BindingContext = model = new ObavijestViewModel();
+            BindingContext = model = new ObavijestViewModel(Navigation);
         }
     }
 }

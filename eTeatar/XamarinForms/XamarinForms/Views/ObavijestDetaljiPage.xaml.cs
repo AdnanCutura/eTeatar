@@ -20,7 +20,7 @@ namespace XamarinForms.Views
         private ObavijestDetaljiViewModel _model;
         private readonly string _obavijestId;
 
-        public ObavijestDetaljiPage(string id = "2959db11-527a-49b6-98bc-d14982d815b2")
+        public ObavijestDetaljiPage(string id)
         {
             _obavijestId = id;
             InitializeComponent();

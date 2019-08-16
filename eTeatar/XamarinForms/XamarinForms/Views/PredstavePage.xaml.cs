@@ -18,7 +18,7 @@ namespace XamarinForms.Views
 
         public PredstavePage(PredstavaSearchRequest search = null)
         {
-            BindingContext = model = new PredstavaViewModel(search);
+            BindingContext = model = new PredstavaViewModel(search, Navigation);
             InitializeComponent();
         }
 
