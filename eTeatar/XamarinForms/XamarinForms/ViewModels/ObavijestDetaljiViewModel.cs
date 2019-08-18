@@ -24,11 +24,9 @@ namespace XamarinForms.ViewModels
         }
 
         private int _brojKomentara;
-        public int BrojKomentara
-        {
+        public int BrojKomentara {
             get => _brojKomentara;
-            set
-            {
+            set {
                 SetProperty(ref _brojKomentara, value);
                 OnPropertyChanged();
             }
@@ -48,7 +46,7 @@ namespace XamarinForms.ViewModels
 
         public ICommand NoviKomentarCommand { get; set; }
         public ICommand InitCommand { get; set; }
-
+        
         #region Metode za komande
         private async Task Init()
         {
@@ -95,20 +93,13 @@ namespace XamarinForms.ViewModels
 
         private async Task LoadKomentare()
         {
-            try
+            var list = await _serviceKomentar.Get<List<Komentar>>(new KomentarSearchRequest
             {
-                var list = await _serviceKomentar.Get<List<Komentar>>(new KomentarSearchRequest
-                {
-                    ObavijestId = Obavijest.Id
-                });
-                BrojKomentara = list.Count;
-                foreach (var item in list)
-                    Komentari.Add(item);
-            }
-            catch
-            {
-                // ignored
-            }
+                ObavijestId = Obavijest.Id
+            });
+            BrojKomentara = list.Count;
+            foreach (var item in list)
+                Komentari.Add(item);
         }
     }
 }

@@ -2,7 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using DataTransferObjects;
+using DataTransferObjects.Requests;
+using Flurl.Http;
 using Plugin.Media;
 using Plugin.Media.Abstractions;
 using Xamarin.Forms;
@@ -17,6 +21,7 @@ namespace XamarinForms.Views
     {
         private byte[] _slikaByte;
         private readonly RegistracijaViewModel _model;
+        private readonly APIService _korisnikService = new APIService("Korisnik");
 
         public RegistracijaPage()
         {
@@ -54,9 +59,10 @@ namespace XamarinForms.Views
 
         private void InsertKupac(object sender, EventArgs e)
         {
+            // Insertovanje slike
             _model.InsertKupacCommand = new Command(async () => await _model.InsertKupac(_slikaByte));
             _model.InsertKupacCommand.Execute(null);
         }
-
     }
+
 }
