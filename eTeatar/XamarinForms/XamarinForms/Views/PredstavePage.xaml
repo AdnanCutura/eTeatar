@@ -5,11 +5,15 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:xamarinForms="clr-namespace:XamarinForms;assembly=XamarinForms"
              xmlns:viewModels="clr-namespace:XamarinForms.ViewModels;assembly=XamarinForms"
+             xmlns:convertor="clr-namespace:XamarinForms.Convertor"
              mc:Ignorable="d"
              x:Class="XamarinForms.Views.PredstavePage"
              Title="Predstave"
              x:Name="Predstave">
-    
+    <ContentPage.Resources>
+        <convertor:ImageConverter x:Key="ImgConvert"/>
+        <convertor:RatingToStarsConverter x:Key="RatingToStars"/>
+    </ContentPage.Resources>
       <ContentPage.Content>
         <StackLayout>
 
@@ -47,7 +51,7 @@
                                    BackgroundColor="White"
                                    Padding="0,0,0,0"
                                    Margin="45,0,45,0">
-                                    <Label Text="{Binding Ocjena, StringFormat='{0:★0.00}'} " 
+                                    <Label Text="{Binding Ocjena, Converter={StaticResource Key='RatingToStars'}, ConverterParameter='N/A'}" 
                                        TextColor="Black" 
                                        HorizontalOptions="CenterAndExpand"/>
                                 </Frame>

@@ -14,11 +14,7 @@ namespace XamarinForms.Models
         MojProfil,
         Ocjene,
         Registracija,
-        Prijava,
-
-        //Test
-        TestObavijestDetalji,
-        TestPredstavaDetalji
+        Prijava
     }
     public class HomeMenuItem
     {

@@ -83,7 +83,7 @@
                 <Setter Property="Text" Value="{StaticResource ETeatarDarkGray}"/>
                 <Setter Property="FontSize" Value="16"/>
                 <Setter Property="Margin" Value="10, 5"/>
-            </Style>
+            </Style>    
 
             <!-- Custom list views -->
 
@@ -94,6 +94,30 @@
                 <Setter Property="Orientation" Value="Horizontal"/>
                 
             </Style>
+            
+            <!--Termin DataTemplate-->
+            
+            <DataTemplate x:Key="terminTemplate">
+                <ViewCell>
+                    <Frame BackgroundColor="LightGray" Margin="0,10,0,10">
+                        <Grid HorizontalOptions="Center">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"></RowDefinition>
+                                <RowDefinition Height="30"></RowDefinition>
+                                <RowDefinition Height="30"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" Text="{Binding Predstava.Naziv}" FontSize="16" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                            <StackLayout Grid.Row="1" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
+                                <Label Text="{Binding Dvorana.Teatar.Grad.Naziv,StringFormat='{0:},'}"/>
+                                <Label Text="{Binding Dvorana.Teatar.Naziv}" FontAttributes="None"/>
+                            </StackLayout>
+                            <Label Text="{Binding DatumVrijeme,StringFormat='{0:d.M.yyyy HH:mm}'}" Grid.Row="2" HorizontalTextAlignment="Center"/>
+                            <!--<Label Grid.Row="3" Text="Kupi kartu" BackgroundColor="DodgerBlue" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>-->
+                        </Grid>
+                    </Frame>
+                </ViewCell>
+            </DataTemplate>
+            
         </ResourceDictionary>
     </Application.Resources>
 

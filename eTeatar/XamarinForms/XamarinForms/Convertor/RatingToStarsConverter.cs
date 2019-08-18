@@ -22,6 +22,9 @@ namespace XamarinForms.Convertor
                 case 5: return "★★★★★";
             }
 
+            if (!string.IsNullOrWhiteSpace(parameter.ToString()))
+                return parameter.ToString();
+
             return "Trenutno nema ocjena";
         }
 

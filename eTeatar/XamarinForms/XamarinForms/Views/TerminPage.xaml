@@ -19,30 +19,7 @@
                 <Entry Grid.Row="0" Grid.Column="0" Placeholder="Naziv predstave" VerticalOptions="Center" Text="{Binding Naziv}"/>
                 <Button Grid.Row="0" Grid.Column="1" Text="Pretraga" Command="{Binding Init}"/>
             </Grid>
-            <ListView ItemsSource="{Binding TerminList}" ItemSelected="ListView_ItemSelected" >
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Frame BackgroundColor="LightGray" Margin="0,10,0,10">
-                                <Grid HorizontalOptions="Center">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="30"></RowDefinition>
-                                        <RowDefinition Height="30"></RowDefinition>
-                                        <RowDefinition Height="30"></RowDefinition>
-                                        <RowDefinition Height="30"></RowDefinition>
-                                    </Grid.RowDefinitions>
-                                    <Label Grid.Row="0" Text="{Binding Predstava.Naziv}" FontSize="16" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
-                                    <StackLayout Grid.Row="1" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
-                                        <Label Text="{Binding Dvorana.Teatar.Grad.Naziv,StringFormat='{0:},'}"/>
-                                        <Label Text="{Binding Dvorana.Teatar.Naziv}" FontAttributes="None"/>
-                                    </StackLayout>
-                                    <Label Text="{Binding DatumVrijeme,StringFormat='{0:d.M.yyyy HH:mm}'}" Grid.Row="2" HorizontalTextAlignment="Center"/>
-                                    <Label Grid.Row="3" Text="Kupi kartu" BackgroundColor="DodgerBlue" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-                                </Grid>
-                            </Frame>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
+            <ListView ItemsSource="{Binding TerminList}" ItemSelected="ListView_ItemSelected" ItemTemplate="{StaticResource terminTemplate}">
             </ListView>
         </StackLayout>
     </ContentPage.Content>
