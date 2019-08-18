@@ -39,7 +39,7 @@ namespace WebAPI.Services
             var queryresult = base.GetById(id);
 
             queryresult.Zanrovi = _zanrService.Get(new DataTransferObjects.Requests.ZanrSearchRequest { PredstavaId = id });
-
+            queryresult.Ocjena = _ocjenaService.Get(new OcjenaSearchRequest { PredstavaId = queryresult.Id })?.Average(a => a?.Vrijednost) ?? 0;
             return queryresult;
         }
 

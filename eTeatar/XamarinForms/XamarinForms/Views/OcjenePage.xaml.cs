@@ -11,7 +11,7 @@ using XamarinForms.ViewModels;
 namespace XamarinForms.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class OcjenePage : ContentPage
+    public partial class OcjenePage : TabbedPage
     {
         OcjeneViewModel model;
         public OcjenePage()
