@@ -93,13 +93,20 @@ namespace XamarinForms.ViewModels
 
         private async Task LoadKomentare()
         {
-            var list = await _serviceKomentar.Get<List<Komentar>>(new KomentarSearchRequest
+            try
             {
-                ObavijestId = Obavijest.Id
-            });
-            BrojKomentara = list.Count;
-            foreach (var item in list)
-                Komentari.Add(item);
+                var list = await _serviceKomentar.Get<List<Komentar>>(new KomentarSearchRequest
+                {
+                    ObavijestId = Obavijest.Id
+                });
+                BrojKomentara = list.Count;
+                foreach (var item in list)
+                    Komentari.Add(item);
+            }
+            catch
+            {
+                // ignored
+            }
         }
     }
 }

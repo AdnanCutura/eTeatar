@@ -1,12 +1,6 @@
-﻿using Microsoft.AspNetCore.Http.Internal;
-using Models;
+﻿using Models;
 using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Text;
-using Microsoft.AspNetCore.Hosting;
-using Repository.Helpers;
 
 namespace Repository
 {
