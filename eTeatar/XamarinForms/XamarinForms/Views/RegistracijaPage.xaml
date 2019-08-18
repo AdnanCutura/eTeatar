@@ -5,6 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:viewModels="clr-namespace:XamarinForms.ViewModels;assembly=XamarinForms"
              xmlns:convertor="clr-namespace:XamarinForms.Convertor;assembly=XamarinForms"
+             xmlns:inputValidations="clr-namespace:InputValidations;assembly=XamarinForms"
              mc:Ignorable="d"
              x:Class="XamarinForms.Views.RegistracijaPage"
              Title="Registracija">
@@ -33,20 +34,32 @@
         <!-- Lični podaci -->
         <Label  Text="Lični podaci" Style="{StaticResource ETeatarHeader3}"></Label>
 
-        <Label FontSize="16" TextColor="#000000" Text="Ime"></Label>
-        <Entry Text="{Binding Kupac.Ime}"></Entry>
+        <Label FontSize="16" TextColor="#000000" Text="Ime*"></Label>
+        <Entry Text="{Binding Kupac.Ime}">
+            <Entry.Behaviors>
+                <inputValidations:RequiredValidationBehavior/>
+            </Entry.Behaviors>
+        </Entry>
 
-        <Label FontSize="16" TextColor="#000000" Text="Prezime"></Label>
-        <Entry Text="{Binding Kupac.Prezime}"></Entry>
+        <Label FontSize="16" TextColor="#000000" Text="Prezime*"></Label>
+        <Entry Text="{Binding Kupac.Prezime}">
+            <Entry.Behaviors>
+                <inputValidations:RequiredValidationBehavior/>
+            </Entry.Behaviors>
+        </Entry>
 
         <BoxView Margin="0, 20"></BoxView>
 
         <!-- Kontakt podaci -->
         <Label Text="Kontakt podaci"  Style="{StaticResource ETeatarHeader3}"></Label>
 
-        <Label FontSize="16" TextColor="#000000" Text="Email"></Label>
-        <Entry Text="{Binding Kupac.Email}"></Entry>
-
+        <Label FontSize="16" TextColor="#000000" Text="Email*"></Label>
+        <Entry x:Name="Email" Text="{Binding Kupac.Email}" Placeholder="yourmail@email.com">
+            <Entry.Behaviors>
+              <inputValidations:EmailValidationBehavior/>
+            </Entry.Behaviors>
+        </Entry>
+        <Label x:Name="ErrorLabel"></Label>
         <Label FontSize="16" TextColor="#000000" Text="Broj telefona"></Label>
         <Entry Text="{Binding Kupac.Telefon}"></Entry>
 
@@ -55,16 +68,28 @@
         <!-- Podaci o akauntu -->
         <Label Text="Podaci o akauntu"  Style="{StaticResource ETeatarHeader3}"></Label>
 
-        <Label FontSize="16" Text="Korisničko ime"></Label>
-        <Entry Text="{Binding Kupac.KorisnickoIme}"></Entry>
-        <Label Text="Nova lozinka"></Label>
-        <Entry Text="{Binding NovaLozinka}" IsPassword="true"></Entry>
+        <Label FontSize="16" Text="Korisničko ime*"></Label>
+        <Entry x:Name="UsernameEntry" Text="{Binding Kupac.KorisnickoIme}">
+            <Entry.Behaviors>
+                <inputValidations:RequiredValidationBehavior/>
+            </Entry.Behaviors>
+        </Entry>
+        <Label Text="Lozinka*"></Label>
+        <Entry Text="{Binding NovaLozinka}" IsPassword="true">
+            <Entry.Behaviors>
+                <inputValidations:PasswordValidationBehavior/>
+            </Entry.Behaviors>
+        </Entry>
 
-        <Label Text="Potvrda lozinke"></Label>
-        <Entry Text="{Binding PotvrdaLozinke}" IsPassword="true"></Entry>
+        <Label Text="Potvrda lozinke*"></Label>
+        <Entry Text="{Binding PotvrdaLozinke}" IsPassword="true">
+                <Entry.Behaviors>
+                    <inputValidations:PasswordValidationBehavior/>
+                </Entry.Behaviors>
+        </Entry>
 
+        <Label x:Name="GlobalError" TextColor="Red" Margin="5"></Label>
         <Button Margin="0,5,0,0" Clicked="InsertKupac" Text="Registracija" Style="{StaticResource ETeatarBtn}"></Button>
-
       </StackLayout>
     </ScrollView>
   </ContentPage.Content>

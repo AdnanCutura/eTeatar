@@ -1,6 +1,9 @@
-﻿using DataTransferObjects;
+﻿using System;
+using System.Collections;
+using DataTransferObjects;
 using DataTransferObjects.Requests;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -69,5 +72,6 @@ namespace XamarinForms.ViewModels
                 await Application.Current.MainPage.DisplayAlert("Greška", "Provjerite podatke i pokušajte ponovo", "OK");
             }
         }
+
     }
 }
