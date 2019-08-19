@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="XamarinForms.Views.OstaviOcjenuPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Kako biste ocijenili ovu predstavu ?" Style="{StaticResource ETeatarHeader1}" VerticalOptions="Start" Margin="0,30,0,30"></Label>
+            <BoxView Style="{StaticResource ETeatarSeparator}" VerticalOptions="Start" HorizontalOptions="Center"></BoxView>
+            <Picker ItemsSource="{Binding ocjene}" SelectedItem="{Binding ocjena}" Margin="0,30,0,30" WidthRequest="160" HorizontalOptions="Center"/>
+            <Grid Margin="30,10,30,30">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+            <Button Grid.Row="0" Grid.Column="0" Text="Nazad" Command="{Binding NazadCommand}" Style="{StaticResource ETeatarBtn}" />
+            <Button Grid.Row="0" Grid.Column="1" Text="Ostavi ocjenu" Command="{Binding OstaviOcjenuCommand}" Style="{StaticResource ETeatarBtn}"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

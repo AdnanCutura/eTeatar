@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
+using XamarinForms.Views;
 
 namespace XamarinForms.ViewModels
 {
@@ -17,10 +18,13 @@ namespace XamarinForms.ViewModels
         public ObservableCollection<DataTransferObjects.Narudzba> NaruzbaHistoryList { get; set; } = new ObservableCollection<DataTransferObjects.Narudzba>();
 
         public ICommand Init { get; private set; }
+        public INavigation _navigation { get; set; }
 
-        public OcjeneViewModel()
+        public OcjeneViewModel(INavigation Navigation)
         {
             Init = new Command(async () => await Initalize());
+            _navigation = Navigation;
+            OstaviOcjenuCommand = new Command<object>(async (o) => await OstaviOcjenu(o));
             Init.Execute(null);
         }
 
@@ -39,6 +43,14 @@ namespace XamarinForms.ViewModels
                         NaruzbaHistoryList.Add(item);
             }
             catch { }
+        }
+
+        public ICommand OstaviOcjenuCommand { get; private set; }
+
+        private async Task OstaviOcjenu(object Id)
+        {
+            var id = Id as string;
+            await _navigation.PushModalAsync(new OstaviOcjenuPage(id));
         }
     }
 }

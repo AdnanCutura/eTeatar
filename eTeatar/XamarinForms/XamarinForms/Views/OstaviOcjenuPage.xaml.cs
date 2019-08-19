@@ -11,19 +11,14 @@ using XamarinForms.ViewModels;
 namespace XamarinForms.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class OcjenePage : TabbedPage
+    public partial class OstaviOcjenuPage : ContentPage
     {
-        OcjeneViewModel model;
-        public OcjenePage()
+        public OstaviOcjenuViewModel model;
+            
+        public OstaviOcjenuPage(string Id)
         {
             InitializeComponent();
-            BindingContext = model = new OcjeneViewModel(Navigation);
-        }
-
-        protected override void OnAppearing()
-        {
-            model.Init.Execute(null);
-            base.OnAppearing();
+            BindingContext = model = new OstaviOcjenuViewModel(Id, Navigation);
         }
     }
 }

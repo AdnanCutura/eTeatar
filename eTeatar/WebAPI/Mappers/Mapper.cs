@@ -63,6 +63,10 @@ namespace WebAPI.Mappers
             //Predstava zanr
             CreateMap<Models.PredstavaZanr, DataTransferObjects.PredstavaZanr>();
             CreateMap<Models.PredstavaZanr, DataTransferObjects.Requests.PredstavaZanrUpsertRequest>().ReverseMap().ForAllMembers(opt => opt.Condition((src, dest, sourceMember) => sourceMember != null));
+            
+            //Ocjena
+            CreateMap<Models.Ocjena, DataTransferObjects.Ocjena>();
+            CreateMap<Models.Ocjena, DataTransferObjects.Requests.OcjenaInsertRequest>().ReverseMap().ForAllMembers(opt => opt.Condition((src, dest, sourceMember) => sourceMember != null));
 
             //KorisnickiNalog
             CreateMap<Models.KorisnickiNalog, DataTransferObjects.KorisnickiNalog>();
