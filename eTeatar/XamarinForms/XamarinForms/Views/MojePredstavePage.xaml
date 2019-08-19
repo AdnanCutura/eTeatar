@@ -17,7 +17,6 @@
                                     <RowDefinition Height="30"></RowDefinition>
                                     <RowDefinition Height="30"></RowDefinition>
                                     <RowDefinition Height="50"></RowDefinition>
-                                    <RowDefinition Height="30"></RowDefinition>
                                 </Grid.RowDefinitions>
                                 <Label Grid.Row="0" Text="{Binding Termin.Predstava.Naziv}" FontSize="16" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
                                 <StackLayout Grid.Row="1" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
@@ -32,9 +31,6 @@
                                             <Label Text="{Binding TipSjedista.Naziv, StringFormat='({0:})'}" HorizontalTextAlignment="Center" TextColor="White"/>
                                         </StackLayout>
                                     </Frame>
-                                </StackLayout>
-                                <StackLayout Grid.Row="3" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
-                                    <Button Text="Pokazi kartu" BackgroundColor="DodgerBlue"/>
                                 </StackLayout>
                             </Grid>
                         </Frame>

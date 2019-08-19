@@ -3,12 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:convertor="clr-namespace:XamarinForms.Convertor"
              mc:Ignorable="d"
              x:Class="XamarinForms.Views.ObavijestPage"
              Title="Obavijesti"
              x:Name="Obavijesti">
-    
-    
+    <ContentPage.Resources>
+        <convertor:ImageConverter x:Key="ImgConverter"/>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <CollectionView ItemsSource="{Binding ObavijestList}" Margin="5,5,0,0">
             <CollectionView.ItemsLayout>
@@ -28,7 +30,7 @@
 
                         <Image Grid.Column="0" 
                                Grid.Row="0" 
-                               Source="slika.png" 
+                               Source="{Binding Slika, Converter={StaticResource ImgConverter}}" 
                                Aspect="AspectFill" />
                         <Image Grid.Column="0" 
                                Grid.Row="0" 

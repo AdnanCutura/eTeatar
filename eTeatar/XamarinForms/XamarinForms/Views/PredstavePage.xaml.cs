@@ -22,11 +22,6 @@ namespace XamarinForms.Views
             InitializeComponent();
         }
 
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-        }
-
         private async void Search(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new PredstavaSearchView(model._search));

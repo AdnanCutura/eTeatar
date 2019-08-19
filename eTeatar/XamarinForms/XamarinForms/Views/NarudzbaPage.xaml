@@ -7,9 +7,9 @@
              x:Class="XamarinForms.Views.NarudzbaPage"
              Title="Kupi kartu">
     <ContentPage.Content>
-        <StackLayout>
-            <Button HorizontalOptions="Start" Text="X" Command="{Binding CloseCommand}"/>
-            <Label Text="{Binding Termin.Predstava.Naziv}" HorizontalOptions="Center" FontSize="Large"/>
+        <StackLayout Margin="30,0,30,40" VerticalOptions="CenterAndExpand">
+            <Label Text="{Binding Termin.Predstava.Naziv}" HorizontalOptions="Center" Style="{StaticResource ETeatarHeader1}" VerticalOptions="Start" FontSize="Large"/>
+            <BoxView Style="{StaticResource ETeatarSeparator}" VerticalOptions="Start" HorizontalOptions="Center"></BoxView>
             <Label Text="{Binding Termin.DatumVrijeme,StringFormat='{0:d.M.yyyy HH:mm}'}" HorizontalOptions="Center"/>
             <Label Text="{Binding Termin.Dvorana}" HorizontalOptions="Center"/>
             <StackLayout HorizontalOptions="Center" Orientation="Horizontal" Margin="0,0,0,15" VerticalOptions="Center">
@@ -17,15 +17,30 @@
                 <Label Text="{Binding Termin.Dvorana.Teatar.Naziv}" FontAttributes="None"/>
             </StackLayout>
             <Label Text="Tip sjedista" HorizontalOptions="Center"/>
+            <BoxView Style="{StaticResource ETeatarSeparator}" VerticalOptions="Start" HorizontalOptions="Center"></BoxView>
             <Picker ItemsSource="{Binding TipoviSjedista}" SelectedItem="{Binding SelectedTipSjedista}" ItemDisplayBinding="{Binding TipSjedista.Naziv}"/>
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
                 <Label Text="Broj karata"/>
                 <Entry Text="{Binding Kolicina}" IsReadOnly="True"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
                 <Button Text="-" Command="{Binding SubCommand}"/>
                 <Button Text="+" Command="{Binding AddCommand}"/>
             </StackLayout>
             <Label Text="{Binding Cijena,StringFormat='{0:} KM'}" HorizontalOptions="Center" TextColor="DarkRed" FontSize="Large" Margin="0,20,0,0"/>
-            <Button Text="Kupi" Command="{Binding KupiCommand}"/>
+
+            <Grid Margin="20,0,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Row="0" Grid.Column="0" Text="Kupi" Command="{Binding KupiCommand}" Style="{StaticResource ETeatarBtn}"/>
+                <Button Grid.Row="0" Grid.Column="1" Text="Nazad" Command="{Binding CloseCommand}" Style="{StaticResource ETeatarBtn}"/>
+            </Grid>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

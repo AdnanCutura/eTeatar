@@ -15,9 +15,9 @@
         <convertor:RatingToStarsConverter x:Key="RatingToStars"/>
     </ContentPage.Resources>
       <ContentPage.Content>
-        <StackLayout>
+        <StackLayout Padding="0,1,0,0">
 
-            <Button Clicked="Search" Text="Pretraga i filtriranje"/>
+            <Button Clicked="Search" Text="Pretraga i filtriranje" Style="{StaticResource ETeatarBtn}"/>
             <CollectionView ItemsSource="{Binding PredstavaList}" Margin="5,5,0,0" SelectionMode="None">
                 <CollectionView.ItemsLayout>
                     <GridItemsLayout Orientation="Vertical"
@@ -36,7 +36,7 @@
 
                             <Image Grid.Column="0" 
                                Grid.Row="0" 
-                               Source="slika.png" 
+                               Source="{Binding Slika, Converter={StaticResource ImgConvert}}" 
                                Aspect="AspectFill"/>
                             <Image Grid.Column="0" 
                                Grid.Row="0" 
