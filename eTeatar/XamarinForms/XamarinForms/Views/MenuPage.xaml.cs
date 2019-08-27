@@ -20,7 +20,7 @@ namespace XamarinForms.Views
 
             menuItems = new List<HomeMenuItem>
             {
-                new HomeMenuItem {Id = MenuItemType.Pocetna, Title="Početna" },
+                new HomeMenuItem {Id = MenuItemType.HomePage, Title="Početna" },
                 new HomeMenuItem {Id = MenuItemType.Predstave, Title="Predstave" },
                 new HomeMenuItem {Id = MenuItemType.Termini, Title="Termini" },
                 new HomeMenuItem {Id = MenuItemType.Obavijesti, Title="Obavijesti" },
