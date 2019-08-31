@@ -12,8 +12,6 @@ namespace XamarinForms
         public App()
         {
             InitializeComponent();
-
-            DependencyService.Register<MockDataStore>();
             MainPage = new LoginPage();
 
 

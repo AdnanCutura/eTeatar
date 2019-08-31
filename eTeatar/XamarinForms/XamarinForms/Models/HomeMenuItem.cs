@@ -6,7 +6,7 @@ namespace XamarinForms.Models
 {
     public enum MenuItemType
     {
-        Pocetna,
+        HomePage,
         Predstave,
         Termini,
         Obavijesti,

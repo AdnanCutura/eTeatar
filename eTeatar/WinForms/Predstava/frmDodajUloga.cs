@@ -23,7 +23,7 @@ namespace WinForms.Predstava
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
         private readonly APIService _glumacSerive;
-        private List<DataTransferObjects.Glumac> _glumci;
+        private List<GlumacUloga> _glumci;
         private List<DataTransferObjects.Uloga> _uloge;
 
         public frmDodajUloga(ref List<DataTransferObjects.Uloga> uloge)
@@ -50,7 +50,8 @@ namespace WinForms.Predstava
 
         private void LblClose_Click(object sender, EventArgs e)
         {
-            Environment.Exit(0);
+            Close();
+            DialogResult = DialogResult.Cancel;
         }
 
         #endregion
@@ -61,10 +62,10 @@ namespace WinForms.Predstava
 
         private async Task LoadGlumci()
         {
-            _glumci=  await _glumacSerive.Get<List<DataTransferObjects.Glumac>>(null);
+            _glumci=  await _glumacSerive.Get<List<GlumacUloga>>(null);
 
             cmbGlumac.DataSource = _glumci;
-            cmbGlumac.DisplayMember = "Ime";
+            cmbGlumac.DisplayMember = "ImePrezime";
             cmbGlumac.ValueMember = "Id";
         }
 
@@ -72,6 +73,11 @@ namespace WinForms.Predstava
         {
             _uloge.Add(new DataTransferObjects.Uloga { Glumac = _glumci.Where(w => w.Id == cmbGlumac.SelectedValue.ToString()).FirstOrDefault(), Id = "", IsGlavnaUloga = chbGlavnaUloga.Checked, Naziv = txbNaziv.Text, Predstava = null });
             Close();
+        }
+
+        public class GlumacUloga : DataTransferObjects.Glumac
+        {
+            public string ImePrezime { get { return $"{Ime} {Prezime}"; } }
         }
     }
 }

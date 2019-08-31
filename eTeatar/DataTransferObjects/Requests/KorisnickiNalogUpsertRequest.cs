@@ -1,4 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Text;
+using System.ComponentModel.DataAnnotations;
 
 namespace DataTransferObjects.Requests
 {
@@ -24,6 +28,7 @@ namespace DataTransferObjects.Requests
         [Required(ErrorMessage = "Ovo polje je obavezno")]
         public string Password { get; set; }
         [Required(ErrorMessage = "Ovo polje je obavezno")]
+        [Compare("Password", ErrorMessage = "Passwordi se ne slazu")]
         public string PasswordPotvrda { get; set; }
     }
 }
