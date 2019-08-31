@@ -253,15 +253,15 @@ namespace Repository
 
             #region Glumci
 
-            Glumac Glumac1 = new Glumac { Ime = "GlumacIme1", Prezime = "GlumacPrezime1", Biografija = "Opako dobra biografija", Spol = Musko };
-            Glumac Glumac2 = new Glumac { Ime = "GlumacIme2", Prezime = "GlumacPrezime2", Biografija = "Opako dobra biografija", Spol = Musko };
-            Glumac Glumac3 = new Glumac { Ime = "GlumacIme3", Prezime = "GlumacPrezime3", Biografija = "Opako dobra biografija", Spol = Musko };
-            Glumac Glumac4 = new Glumac { Ime = "GlumacIme4", Prezime = "GlumacPrezime4", Biografija = "Opako dobra biografija", Spol = Musko };
-            Glumac Glumac5 = new Glumac { Ime = "GlumacIme5", Prezime = "GlumacPrezime5", Biografija = "Opako dobra biografija", Spol = Zensko };
-            Glumac Glumac6 = new Glumac { Ime = "GlumacIme6", Prezime = "GlumacPrezime6", Biografija = "Opako dobra biografija", Spol = Zensko };
-            Glumac Glumac7 = new Glumac { Ime = "GlumacIme7", Prezime = "GlumacPrezime7", Biografija = "Opako dobra biografija", Spol = Zensko };
-            Glumac Glumac8 = new Glumac { Ime = "GlumacIme8", Prezime = "GlumacPrezime8", Biografija = "Opako dobra biografija", Spol = Zensko };
-            Glumac Glumac9 = new Glumac { Ime = "GlumacIme9", Prezime = "GlumacPrezime8", Biografija = "Opako dobra biografija", Spol = Zensko };
+            Glumac Glumac1 = new Glumac { Ime = "GlumacIme1", Prezime = "GlumacPrezime1", Biografija = "Opako dobra biografija", Spol = Musko, Slika = korisnikSlikaByte3 };
+            Glumac Glumac2 = new Glumac { Ime = "GlumacIme2", Prezime = "GlumacPrezime2", Biografija = "Opako dobra biografija", Spol = Musko, Slika = korisnikSlikaByte2 };
+            Glumac Glumac3 = new Glumac { Ime = "GlumacIme3", Prezime = "GlumacPrezime3", Biografija = "Opako dobra biografija", Spol = Musko, Slika = korisnikSlikaByte1 };
+            Glumac Glumac4 = new Glumac { Ime = "GlumacIme4", Prezime = "GlumacPrezime4", Biografija = "Opako dobra biografija", Spol = Musko, Slika = korisnikSlikaByte3 };
+            Glumac Glumac5 = new Glumac { Ime = "GlumacIme5", Prezime = "GlumacPrezime5", Biografija = "Opako dobra biografija", Spol = Zensko, Slika = korisnikSlikaByte1 };
+            Glumac Glumac6 = new Glumac { Ime = "GlumacIme6", Prezime = "GlumacPrezime6", Biografija = "Opako dobra biografija", Spol = Zensko, Slika = korisnikSlikaByte2 };
+            Glumac Glumac7 = new Glumac { Ime = "GlumacIme7", Prezime = "GlumacPrezime7", Biografija = "Opako dobra biografija", Spol = Zensko, Slika = korisnikSlikaByte1 };
+            Glumac Glumac8 = new Glumac { Ime = "GlumacIme8", Prezime = "GlumacPrezime8", Biografija = "Opako dobra biografija", Spol = Zensko, Slika = korisnikSlikaByte3 };
+            Glumac Glumac9 = new Glumac { Ime = "GlumacIme9", Prezime = "GlumacPrezime8", Biografija = "Opako dobra biografija", Spol = Zensko, Slika = korisnikSlikaByte2 };
             Glumac Glumac10 = new Glumac { Ime = "GlumacIme10", Prezime = "GlumacPrezime10", Biografija = "Opako dobra biografija", Spol = Musko };
 
             context.Glumac.AddRange(Glumac1, Glumac2, Glumac3, Glumac4, Glumac5, Glumac6, Glumac7, Glumac8, Glumac9, Glumac10);

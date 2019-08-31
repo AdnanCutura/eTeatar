@@ -41,7 +41,7 @@ namespace Repository
             //Filter po teatru
             if (!string.IsNullOrEmpty(search.TeatarId))
                 query = query.Where(w => Context.Termin.Any(q => q.PredstavaId == w.Id && q.Dvorana.TeatarId == search.TeatarId));
-            
+
 
             //Sortiranje
             switch (search?.OrderBy)
@@ -81,7 +81,13 @@ namespace Repository
             query = query.Where(w => w.Id == id);
 
             query = query.Include(i => i.Uloge);
-            query = query.Include(i => i.Termini);
+            query = query
+                .Include(i => i.Termini)
+                .ThenInclude(t => t.Dvorana)
+                .ThenInclude(d => d.Teatar)
+                .ThenInclude(t => t.Grad)
+                .Include(i => i.Termini)
+                .ThenInclude(t => t.Predstava);
 
             foreach (var item in query)
                 foreach (var uloga in item.Uloge)

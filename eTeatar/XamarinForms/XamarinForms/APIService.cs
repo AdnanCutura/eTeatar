@@ -46,9 +46,9 @@ namespace XamarinForms
                     case System.Net.HttpStatusCode.Forbidden:
                         await Application.Current.MainPage.DisplayAlert("Greška", "Niste autorizirani", "OK");
                         break;
-                    case System.Net.HttpStatusCode.NotFound:
-                        await Application.Current.MainPage.DisplayAlert("Informacija", "Nije pronaden nijedan rezultat", "OK");
-                        break;
+                    //case System.Net.HttpStatusCode.NotFound:
+                    //    await Application.Current.MainPage.DisplayAlert("Informacija", "Nije pronaden nijedan rezultat", "OK");
+                    //    break;
                     default:
                         throw new ArgumentOutOfRangeException();
                 }

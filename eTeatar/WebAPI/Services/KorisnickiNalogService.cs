@@ -9,6 +9,7 @@ using DataTransferObjects;
 using DataTransferObjects.Requests;
 using Microsoft.AspNetCore.Hosting.Internal;
 using Repository;
+using WebAPI.Errors;
 using WebAPI.Services.Interfaces;
 
 namespace WebAPI.Services
@@ -16,7 +17,7 @@ namespace WebAPI.Services
     public class KorisnickiNalogService : BaseService<DataTransferObjects.KorisnickiNalog, KorisnickiNalogSearchRequest, Models.KorisnickiNalog>, IKorisnickiNalogService
     {
         private readonly IKorisnickiNalogRepository _nalogRepository;
-        IBaseService<KorisnickaUloga, KorisnickaUlogaSearchRequest> _korisnickaUlogaService;
+        readonly IBaseService<KorisnickaUloga, KorisnickaUlogaSearchRequest> _korisnickaUlogaService;
         public KorisnickiNalogService(IMapper mapper, IKorisnickiNalogRepository nalogRepository, IBaseService<KorisnickaUloga, KorisnickaUlogaSearchRequest> korisnickaUlogaService) : base(mapper, nalogRepository)
         {
             _nalogRepository = nalogRepository;
@@ -49,7 +50,7 @@ namespace WebAPI.Services
             var list = Repository.Get(search);
             return Mapper.Map<List<KorisnickiNalog>>(list);
         }
-        
+
         public KorisnickiNalog Update(string id, KorisnickiNalogUpsertRequest request)
         {
             var entity = Repository.GetById(id);
@@ -58,7 +59,8 @@ namespace WebAPI.Services
                 throw new Exception("Passwordi se ne slažu");
             }
 
-            if (!string.IsNullOrEmpty(request.Password)){
+            if (!string.IsNullOrEmpty(request.Password))
+            {
                 entity.LozinkaSalt = GenerateSalt();
                 entity.LozinkaHash = GenerateHash(entity.LozinkaSalt, request.Password);
             }
@@ -86,16 +88,19 @@ namespace WebAPI.Services
         {
             var entity = Mapper.Map<Models.KorisnickiNalog>(request);
 
+            if (!_nalogRepository.ValidacijaKorisnickogImena(request.KorisnickoIme))
+                throw new UserException("Korisničko ime je zauzeto");
+
             if (request.Password != request.PasswordPotvrda)
-            {
-                throw new Exception("Passwordi se ne slažu");
-            }
+                throw new UserException("Passwordi se ne slažu");
 
             entity.LozinkaSalt = GenerateSalt();
             entity.LozinkaHash = GenerateHash(entity.LozinkaSalt, request.Password);
-            entity.KorisnickaUlogaId = _korisnickaUlogaService.Get(new KorisnickaUlogaSearchRequest { Naziv = uloga.ToString() }).FirstOrDefault().Id;
-            return Mapper.Map<KorisnickiNalog>(Repository.Add(entity));
+            entity.KorisnickaUlogaId = _korisnickaUlogaService
+                .Get(new KorisnickaUlogaSearchRequest { Naziv = uloga.ToString() })
+                .First().Id;
 
+            return Mapper.Map<KorisnickiNalog>(Repository.Add(entity));
         }
 
         public KorisnickiNalog Insert(KorisnickiNalogUpsertRequest request)

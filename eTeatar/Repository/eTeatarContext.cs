@@ -81,10 +81,5 @@ namespace Repository
             return base.SaveChanges();
         }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            base.OnConfiguring(optionsBuilder);
-        }
-
     }
 }

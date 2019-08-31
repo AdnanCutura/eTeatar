@@ -15,6 +15,7 @@ namespace Repository
 
         public override KorisnickiNalog Add(KorisnickiNalog obj)
         {
+            //ValidacijaKorisnickogImena(obj.KorisnickoIme);
             obj.DatumKreiranja = DateTime.Now;
             return base.Add(obj);
         }
@@ -30,7 +31,7 @@ namespace Repository
                 query = Context.KorisnickiNalog.Where(k => k.Prezime.ToUpper().Contains(search.Prezime.ToUpper()));
 
             if (!string.IsNullOrEmpty(search.KorisnickoIme))
-                query = Context.KorisnickiNalog.Where(k => k.KorisnickoIme.ToUpper().Contains(search.KorisnickoIme.ToUpper()));
+                query = Context.KorisnickiNalog.Where(k => string.Equals(k.KorisnickoIme, search.KorisnickoIme, StringComparison.CurrentCultureIgnoreCase));
 
             query = query.Include(i => i.KorisnickaUloga);
 
@@ -41,7 +42,18 @@ namespace Repository
 
         public KorisnickiNalog Autentificiraj(string korisnickoIme)
         {
-            return Context.KorisnickiNalog.Where(k => k.KorisnickoIme == korisnickoIme).Include(k=>k.KorisnickaUloga).FirstOrDefault();
+            return Context.KorisnickiNalog.Where(k => k.KorisnickoIme == korisnickoIme).Include(k => k.KorisnickaUloga).FirstOrDefault();
+        }
+        
+        /// <summary>
+        /// Provjera da li korisničko ime već postoji
+        /// </summary>
+        /// <param name="korisnickoIme">Korisničko ime</param>
+        /// <returns>True ukoliko je ime unikatno</returns>
+        public bool ValidacijaKorisnickogImena(string korisnickoIme)
+        {
+            var nalog = Context.KorisnickiNalog.FirstOrDefault(k => string.Equals(k.KorisnickoIme, korisnickoIme, StringComparison.CurrentCultureIgnoreCase));
+            return nalog == null;
         }
 
         public override KorisnickiNalog GetById(string id)

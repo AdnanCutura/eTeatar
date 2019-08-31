@@ -15,6 +15,8 @@ namespace XamarinForms
 
             DependencyService.Register<MockDataStore>();
             MainPage = new LoginPage();
+
+
         }
 
         protected override void OnStart()

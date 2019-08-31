@@ -6,5 +6,6 @@ namespace Repository
     public interface IKorisnickiNalogRepository: IRepository<Models.KorisnickiNalog, KorisnickiNalogSearchRequest>
     {
         KorisnickiNalog Autentificiraj(string korisnickoIme);
+        bool ValidacijaKorisnickogImena(string requestKorisnickoIme);
     }
 }

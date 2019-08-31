@@ -40,11 +40,9 @@ namespace XamarinForms.ViewModels
         }
 
         public ICommand InitCommand { get; set; }
-
-
+        
         private async Task Init()
         {
-
             Zanrovi = string.Join(", ", Predstava.Zanrovi.Select(z => z.Naziv).ToList());
             try
             {

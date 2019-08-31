@@ -91,6 +91,7 @@
                 </ListView>
 
                 <!-- Termini -->
+                <Label Margin="15" Text="Termini" Style="{StaticResource ETeatarHeader3}"></Label>
                 <ListView ItemTemplate="{StaticResource terminTemplate}" ItemsSource="{Binding Predstava.Termini}"></ListView>
 
             </StackLayout>

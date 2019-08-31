@@ -12,6 +12,7 @@ using Swashbuckle.AspNetCore.Swagger;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Authentication;
+using WebAPI.Filters;
 using WebAPI.Security;
 using WebAPI.Services;
 using WebAPI.Services.Interfaces;
@@ -43,9 +44,8 @@ namespace WebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             // Add Automapper service
-            services.AddAutoMapper();
-
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2).AddJsonOptions(x =>
+            services.AddAutoMapper(typeof(Startup));
+            services.AddMvc(x => x.Filters.Add<ErrorFilter>()).SetCompatibilityVersion(CompatibilityVersion.Version_2_2).AddJsonOptions(x =>
                 x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
             services.AddAuthentication("BasicAuthentication")
@@ -54,9 +54,10 @@ namespace WebAPI
             // Add DbContext from Repository layer
             services.AddDbContext<eTeatarContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Local")));
 
-            // Add Web API services
+            #region Adding Web API service dependencies
+
             services.AddScoped(typeof(ICrudService<DataTransferObjects.Teatar, TeatarSearchRequest, TeatarUpsertRequest, TeatarUpsertRequest>),
-                typeof(TeatarService));
+                   typeof(TeatarService));
             services.AddScoped(typeof(ICrudService<DataTransferObjects.Dvorana, DvoranaSearchRequest, DvoranaUpsertRequest, DvoranaUpsertRequest>),
                 typeof(DvoranaService));
             services.AddScoped(typeof(ICrudService<DataTransferObjects.Obavijest, ObavijestSearchRequest, ObavijestUpsertRequest, ObavijestUpsertRequest>),
@@ -99,7 +100,11 @@ namespace WebAPI
             services.AddScoped(typeof(ICrudService<DataTransferObjects.PredstavaZanr, PredstavaZanrSearchRequest, DataTransferObjects.Requests.PredstavaZanrUpsertRequest, DataTransferObjects.Requests.PredstavaZanrUpsertRequest>),
                 typeof(CrudService<DataTransferObjects.PredstavaZanr, DataTransferObjects.Requests.PredstavaZanrSearchRequest, Models.PredstavaZanr, DataTransferObjects.Requests.PredstavaZanrUpsertRequest, DataTransferObjects.Requests.PredstavaZanrUpsertRequest>));
             services.AddScoped(typeof(ICrudService<DataTransferObjects.Ocjena, OcjenaSearchRequest, OcjenaInsertRequest, object>), typeof(CrudService<DataTransferObjects.Ocjena, OcjenaSearchRequest, Models.Ocjena, OcjenaInsertRequest, object>));
-            // Add Repository
+
+            #endregion
+
+            #region Adding Repository dependencies
+
             services.AddScoped(typeof(IRepository<Teatar, TeatarSearchRequest>), typeof(TeatarRepository));
             services.AddScoped(typeof(IRepository<Dvorana, DvoranaSearchRequest>), typeof(DvoranaRepository));
             services.AddScoped(typeof(IRepository<Obavijest, ObavijestSearchRequest>), typeof(ObavijestRepository));
@@ -121,8 +126,10 @@ namespace WebAPI
             services.AddScoped(typeof(IRepository<TipKorisnika, TipKorisnikaSearchRequest>), typeof(TipKorisnikaRepository));
             services.AddScoped(typeof(IRepository<Zanr, ZanrSearchRequest>), typeof(ZanrRepository));
             services.AddScoped(typeof(IRepository<PredstavaZanr, PredstavaZanrSearchRequest>), typeof(PredstavaZanrRepository));
-            services.AddScoped(typeof(IRepository<Spol, object>), typeof(Repository<Spol,object>));
+            services.AddScoped(typeof(IRepository<Spol, object>), typeof(Repository<Spol, object>));
             services.AddScoped(typeof(IRepository<Ocjena, OcjenaSearchRequest>), typeof(OcjenaRepository));
+
+            #endregion
 
             // Register the Swagger generator, def 1 or more Swagger documents
             services.AddSwaggerGen(c =>

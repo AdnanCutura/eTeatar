@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections;
-using DataTransferObjects;
+﻿using DataTransferObjects;
 using DataTransferObjects.Requests;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Android;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 using XamarinForms.Helpers;
 using XamarinForms.Views;
 
