@@ -1,11 +1,9 @@
-﻿using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using DataTransferObjects;
+﻿using DataTransferObjects;
 using DataTransferObjects.Requests;
+using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
-using XamarinForms.Annotations;
 
 namespace XamarinForms.ViewModels
 {
@@ -104,11 +102,11 @@ namespace XamarinForms.ViewModels
 
             if (sljedeciTipId != null)
             {
-                KupacUpsertRequest request = new KupacUpsertRequest
+                KupacKorisnickiNalogUpsertRequest request = new KupacKorisnickiNalogUpsertRequest
                 {
                     TipKorisnikaId = sljedeciTipId
                 };
-
+                
                 try
                 {
                     var response = await _serviceKupacKorisnickiNalog.Update<Kupac>(_kupac.Id, request);

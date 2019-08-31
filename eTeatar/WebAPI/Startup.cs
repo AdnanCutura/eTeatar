@@ -100,7 +100,8 @@ namespace WebAPI
             services.AddScoped(typeof(ICrudService<DataTransferObjects.PredstavaZanr, PredstavaZanrSearchRequest, DataTransferObjects.Requests.PredstavaZanrUpsertRequest, DataTransferObjects.Requests.PredstavaZanrUpsertRequest>),
                 typeof(CrudService<DataTransferObjects.PredstavaZanr, DataTransferObjects.Requests.PredstavaZanrSearchRequest, Models.PredstavaZanr, DataTransferObjects.Requests.PredstavaZanrUpsertRequest, DataTransferObjects.Requests.PredstavaZanrUpsertRequest>));
             services.AddScoped(typeof(ICrudService<DataTransferObjects.Ocjena, OcjenaSearchRequest, OcjenaInsertRequest, object>), typeof(CrudService<DataTransferObjects.Ocjena, OcjenaSearchRequest, Models.Ocjena, OcjenaInsertRequest, object>));
-
+            services.AddScoped(typeof(PredstavaService));
+            
             #endregion
 
             #region Adding Repository dependencies
@@ -128,6 +129,7 @@ namespace WebAPI
             services.AddScoped(typeof(IRepository<PredstavaZanr, PredstavaZanrSearchRequest>), typeof(PredstavaZanrRepository));
             services.AddScoped(typeof(IRepository<Spol, object>), typeof(Repository<Spol, object>));
             services.AddScoped(typeof(IRepository<Ocjena, OcjenaSearchRequest>), typeof(OcjenaRepository));
+            services.AddScoped(typeof(PredstavaRepository));
 
             #endregion
 

@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using DataTransferObjects;
 using DataTransferObjects.Requests;
 using Repository;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using WebAPI.Services.Interfaces;
 
 namespace WebAPI.Services
@@ -14,11 +13,13 @@ namespace WebAPI.Services
     {
         private readonly IBaseService<DataTransferObjects.Zanr, DataTransferObjects.Requests.ZanrSearchRequest> _zanrService;
         private readonly ICrudService<DataTransferObjects.Ocjena, DataTransferObjects.Requests.OcjenaSearchRequest, DataTransferObjects.Requests.OcjenaInsertRequest, object> _ocjenaService;
+        private readonly PredstavaRepository _repo;
 
-        public PredstavaService(IMapper mapper, IRepository<Models.Predstava, DataTransferObjects.Requests.PredstavaSearchRequest> repository, IBaseService<DataTransferObjects.Zanr, DataTransferObjects.Requests.ZanrSearchRequest> zanrService, ICrudService<DataTransferObjects.Ocjena, DataTransferObjects.Requests.OcjenaSearchRequest, DataTransferObjects.Requests.OcjenaInsertRequest, object> ocjenaService) : base(mapper, repository)
+        public PredstavaService(IMapper mapper, IRepository<Models.Predstava, DataTransferObjects.Requests.PredstavaSearchRequest> repository, IBaseService<DataTransferObjects.Zanr, DataTransferObjects.Requests.ZanrSearchRequest> zanrService, ICrudService<DataTransferObjects.Ocjena, DataTransferObjects.Requests.OcjenaSearchRequest, DataTransferObjects.Requests.OcjenaInsertRequest, object> ocjenaService, PredstavaRepository repo) : base(mapper, repository)
         {
             _zanrService = zanrService;
             _ocjenaService = ocjenaService;
+            _repo = repo;
         }
 
         public override List<DataTransferObjects.Predstava> Get(DataTransferObjects.Requests.PredstavaSearchRequest search)
@@ -50,6 +51,11 @@ namespace WebAPI.Services
             obj.Uloge = null;
             obj.Termini = null;
             return Mapper.Map<DataTransferObjects.Predstava>(Repository.Update(obj));
+        }
+
+        public List<Predstava> GetPreporucene(string predstavaId)
+        {
+            return Mapper.Map<List<DataTransferObjects.Predstava>>(_repo.GetPreporucene(predstavaId));
         }
     }
 }

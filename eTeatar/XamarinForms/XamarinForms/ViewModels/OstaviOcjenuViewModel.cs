@@ -36,7 +36,7 @@ namespace XamarinForms.ViewModels
         {
             var newOcjena = new DataTransferObjects.Requests.OcjenaInsertRequest
             {
-                Review = "",
+             //   Review = "",
                 NarudzbaId = _id,
                 Vrijednost = _ocjena
             };

@@ -1,4 +1,5 @@
-﻿using DataTransferObjects;
+﻿using System.Collections.Generic;
+using DataTransferObjects;
 using DataTransferObjects.Requests;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -24,5 +25,12 @@ namespace WebAPI.Controllers
 
             return obj;
         }
+
+        [AllowAnonymous]
+        public override ActionResult<Kupac> Insert(KupacKorisnickiNalogUpsertRequest request)
+        {
+            return base.Insert(request);
+        }
+
     }
 }

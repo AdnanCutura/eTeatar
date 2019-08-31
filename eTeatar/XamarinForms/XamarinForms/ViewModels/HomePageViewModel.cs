@@ -12,9 +12,11 @@ namespace XamarinForms.ViewModels
     public class HomePageViewModel : BaseViewModel
     {
         public ObservableCollection<DataTransferObjects.Predstava> IgrajuUskoro { get; set; } = new ObservableCollection<DataTransferObjects.Predstava>();
+        public ObservableCollection<DataTransferObjects.Predstava> Preporucene { get; set; } = new ObservableCollection<DataTransferObjects.Predstava>();
         public ObservableCollection<DataTransferObjects.Obavijest> Obavijesti { get; set; } = new ObservableCollection<DataTransferObjects.Obavijest>();
 
         private readonly APIService _predstavaService = new APIService("Predstava");
+        private readonly APIService _predstavaPreporucenoService = new APIService("Predstava/GetPreporucene");
         private readonly APIService _obavijestiService = new APIService("Obavijest");
 
         private INavigation _navigation;
@@ -59,6 +61,15 @@ namespace XamarinForms.ViewModels
 
                 foreach (var obavijest in obavijesti)
                     Obavijesti.Add(obavijest);
+            }
+            catch { }
+
+            try
+            {
+                List<DataTransferObjects.Predstava> predstave = await _predstavaPreporucenoService.GetById<List<DataTransferObjects.Predstava>>(Helpers.KupacData._kupac.Id);
+
+                foreach (var predstava in predstave)
+                    Preporucene.Add(predstava);
             }
             catch { }
         }

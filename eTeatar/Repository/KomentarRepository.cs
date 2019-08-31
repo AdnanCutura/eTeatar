@@ -1,10 +1,7 @@
-﻿using System;
+﻿using DataTransferObjects.Requests;
+using Models;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using DataTransferObjects.Requests;
-using Microsoft.EntityFrameworkCore;
-using Models;
 
 namespace Repository
 {

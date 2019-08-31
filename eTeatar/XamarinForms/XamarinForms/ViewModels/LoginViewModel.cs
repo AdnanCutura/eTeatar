@@ -52,11 +52,17 @@ namespace XamarinForms.ViewModels
 
             try
             {
+
                 var list = await _kupacService.Get<List<DataTransferObjects.Kupac>>(null);
                 KupacData.Set(list.FirstOrDefault(w => w.KorisnickoIme == _username));
                 LoginCommand.ChangeCanExecute();
                 IsBusy = false;
                 Application.Current.MainPage = new MainPage();
+
+                //else
+                //{
+                //    await Application.Current.MainPage.DisplayAlert("Greška", "Podaci nisu ispravni!", "OK");
+                //}
             }
             catch
             {

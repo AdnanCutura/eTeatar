@@ -78,7 +78,7 @@ namespace XamarinForms
                 var stringBuilder = new StringBuilder();
 
                 foreach (var error in errors)
-                    stringBuilder.AppendLine($"{error.Key}, ${string.Join(",", error.Value)}");
+                    stringBuilder.AppendLine($"{error.Key}, {string.Join(",", error.Value)}");
 
                 await Application.Current.MainPage.DisplayAlert("Greška", stringBuilder.ToString(), "OK");
                 return default;

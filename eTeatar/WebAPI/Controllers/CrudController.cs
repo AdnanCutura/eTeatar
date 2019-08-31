@@ -14,7 +14,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost]
-        public ActionResult<TTransferObject> Insert([FromBody]TInsert request)
+        public virtual ActionResult<TTransferObject> Insert([FromBody]TInsert request)
         {
             return _service.Insert(request);
         }

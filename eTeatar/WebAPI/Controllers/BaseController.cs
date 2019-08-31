@@ -18,7 +18,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet]
-        public ActionResult<List<TDataTransferObject>> Get([FromQuery] TSearch search)
+        public virtual ActionResult<List<TDataTransferObject>> Get([FromQuery] TSearch search)
         {
             List<TDataTransferObject> list = _service.Get(search);
 
