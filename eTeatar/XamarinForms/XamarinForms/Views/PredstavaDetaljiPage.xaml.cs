@@ -21,5 +21,11 @@ namespace XamarinForms.Views
             var predstava = (Predstava)e.SelectedItem;
             Navigation.PushModalAsync(new PredstavaDetaljiPage(predstava.Id));
         }
+
+        private async void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            if (e.SelectedItem != null)
+                await Navigation.PushModalAsync(new NarudzbaPage((Termin)e.SelectedItem));
+        }
     }
 }
