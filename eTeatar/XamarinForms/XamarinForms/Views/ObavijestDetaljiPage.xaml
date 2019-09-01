@@ -35,28 +35,26 @@
 
                     <!-- Lista komentara -->
                     <StackLayout VerticalOptions="StartAndExpand">
-                        <ListView ItemsSource="{Binding Komentari}" VerticalOptions="Start" HasUnevenRows="True">
+                        <ListView ItemsSource="{Binding Komentari}" VerticalOptions="Start" HasUnevenRows="True"  Margin="5">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <ViewCell>
-                                        <Frame Margin="5" BorderColor="{StaticResource ETeatarDarkPurple}">
-                                            <StackLayout Style="{StaticResource ETeatarComment}" >
+                                        <Frame BorderColor="{StaticResource ETeatarDarkPurple}" Padding="0" Margin="5">
+                                            <StackLayout Style="{StaticResource ETeatarComment}" Margin="5">
                                                 <StackLayout VerticalOptions="CenterAndExpand">
-
-                                                    <Image Margin="5, 5, 0, 0" WidthRequest="40" HeightRequest="40" Source="{Binding Kupac.Slika, Converter={StaticResource ImgConvert}}" Aspect="AspectFill"></Image>
-
+                                                    <Image  Margin="5, 5, 0, 0" WidthRequest="50" HeightRequest="50" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
+                                                           Source="{Binding Kupac.Slika, Converter={StaticResource ImgConvert}}" Aspect="AspectFill"></Image>
                                                 </StackLayout>
                                                 <StackLayout Orientation="Vertical" Padding="5">
                                                     <Label Text="{Binding Kupac.KorisnickoIme}"
-                                 LineBreakMode="NoWrap"
-                                 FontSize="16" />
+                                                           LineBreakMode="NoWrap"
+                                                           FontSize="16" />
                                                     <Label Text="{Binding Sadrzaj}"
-                                 LineBreakMode="NoWrap"
-                                 FontSize="12" />
+                                                           LineBreakMode="NoWrap"
+                                                           FontSize="12" />
                                                     <Label Text="{Binding DatumVrijeme, StringFormat='{0:dd.MM.yyyy. HH:mm}'}"
-                             LineBreakMode="NoWrap"
-                             FontSize="12" />
-
+                                                           LineBreakMode="NoWrap"
+                                                           FontSize="12" />
                                                 </StackLayout>
                                             </StackLayout>
                                         </Frame>
@@ -67,15 +65,15 @@
                     </StackLayout>
 
                     <!-- Ostavljanje komentara -->
-                    <Frame Margin="5" BorderColor="{StaticResource ETeatarDarkPurple}">
-                        <StackLayout   Style="{StaticResource ETeatarComment}">
+                    <Frame Padding="0" Margin="5" BorderColor="{StaticResource ETeatarDarkPurple}">
+                        <StackLayout Style="{StaticResource ETeatarComment}"  Margin="5">
                             <StackLayout VerticalOptions="StartAndExpand">
-                                <Image Margin="5, 5, 0, 0" WidthRequest="40" HeightRequest="40" Source="{Binding Kupac.Slika, Converter={StaticResource ImgConvert}}" Aspect="AspectFill"></Image>
+                                <Image Margin="5, 5, 0, 0" WidthRequest="50" HeightRequest="50" Source="{Binding Kupac.Slika, Converter={StaticResource ImgConvert}}" Aspect="AspectFill"></Image>
                             </StackLayout>
                             <StackLayout Margin="5, 0" Orientation="Vertical" HorizontalOptions="FillAndExpand">
                                 <Label Text="{Binding Kupac.KorisnickoIme}" FontSize="12" />
                                 <Editor x:Name="KomentarEditor" Text="{Binding Komentar}" Placeholder="Unesite komentar" Keyboard="Text" HeightRequest="70"></Editor>
-                                <Button Text="Ostavi komentar" Clicked="Button_OnClicked" Command="{Binding NoviKomentarCommand}" Style="{StaticResource ETeatarBtn}"></Button>
+                                <Button Text="Ostavi komentar" Command="{Binding NoviKomentarCommand}" Style="{StaticResource ETeatarBtn}"></Button>
                             </StackLayout>
                         </StackLayout>
                     </Frame>

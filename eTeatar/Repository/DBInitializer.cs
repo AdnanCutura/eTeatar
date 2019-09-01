@@ -1,5 +1,6 @@
 ﻿using Models;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Repository
@@ -86,7 +87,7 @@ namespace Repository
             #region Države
 
             Drzava Drzava1 = new Drzava { Naziv = "Bosna i Hercegovina" };
-            Drzava Drzava2 = new Drzava { Naziv = "Drzava" };
+            Drzava Drzava2 = new Drzava { Naziv = "Njemačka" };
 
             context.Drzava.AddRange(Drzava1, Drzava2);
             context.SaveChanges();
@@ -96,8 +97,8 @@ namespace Repository
 
             Grad Grad1 = new Grad { Naziv = "Sarajevo", Drzava = Drzava1 };
             Grad Grad2 = new Grad { Naziv = "Mostar", Drzava = Drzava1 };
-            Grad Grad3 = new Grad { Naziv = "Grad3", Drzava = Drzava2 };
-            Grad Grad4 = new Grad { Naziv = "Grad4", Drzava = Drzava2 };
+            Grad Grad3 = new Grad { Naziv = "Berlin", Drzava = Drzava2 };
+            Grad Grad4 = new Grad { Naziv = "Frankfurt", Drzava = Drzava2 };
 
             context.Grad.AddRange(Grad1, Grad2, Grad3, Grad4);
             context.SaveChanges();
@@ -447,10 +448,83 @@ namespace Repository
             #endregion
 
             #region Komentari
-            Komentar Komentar1 = new Komentar { Sadrzaj = "Sviđa mi se.", Kupac = Kupac1, Obavijest = Obavijest1, DatumVrijeme = Danas.AddDays(-1).AddHours(14) };
-            Komentar Komentar2 = new Komentar { Sadrzaj = "Ovo je super!", Kupac = Kupac2, Obavijest = Obavijest1, DatumVrijeme = Danas.AddDays(-1).AddHours(15) };
 
-            context.Komentar.AddRange(Komentar1, Komentar2);
+            var komentari = new List<Komentar>
+            {
+                new Komentar
+                {
+                    Sadrzaj = "Sviđa mi se.", Kupac = Kupac1, Obavijest = Obavijest1,
+                    DatumVrijeme = Danas.AddDays(-1).AddHours(14)
+                },
+                new Komentar
+                {
+                    Sadrzaj = "Svaka čast!", Kupac = Kupac4, Obavijest = Obavijest8,
+                    DatumVrijeme = Danas.AddDays(-1).AddHours(14)
+                },
+                new Komentar
+                {
+                    Sadrzaj = "Ovo je super!", Kupac = Kupac3, Obavijest = Obavijest2,
+                    DatumVrijeme = Danas.AddDays(-1).AddHours(15)
+                },
+                new Komentar
+                {
+                    Sadrzaj = "Sviđa mi se.", Kupac = Kupac1, Obavijest = Obavijest2,
+                    DatumVrijeme = Danas.AddDays(-1).AddHours(14)
+                },
+                new Komentar
+                {
+                    Sadrzaj = "Sviđa mi se.", Kupac = Kupac1, Obavijest = Obavijest1,
+                    DatumVrijeme = Danas.AddDays(-1).AddHours(14)
+                },
+                new Komentar
+                {
+                    Sadrzaj = "Svaka čast!", Kupac = Kupac2, Obavijest = Obavijest4,
+                    DatumVrijeme = Danas.AddDays(-1).AddHours(14)
+                },
+                new Komentar
+                {
+                    Sadrzaj = "Ovo je super!", Kupac = Kupac3, Obavijest = Obavijest5,
+                    DatumVrijeme = Danas.AddDays(-1).AddHours(15)
+                },
+                new Komentar
+                {
+                    Sadrzaj = "Sviđa mi se.", Kupac = Kupac4, Obavijest = Obavijest6,
+                    DatumVrijeme = Danas.AddDays(-1).AddHours(14)
+                },
+                new Komentar
+                {
+                    Sadrzaj = "Ovo je super!", Kupac = Kupac3, Obavijest = Obavijest9,
+                    DatumVrijeme = Danas.AddDays(-1).AddHours(15)
+                },
+                new Komentar
+                {
+                    Sadrzaj = "Sviđa mi se.", Kupac = Kupac4, Obavijest = Obavijest2,
+                    DatumVrijeme = Danas.AddDays(-1).AddHours(14)
+                },
+                new Komentar
+                {
+                    Sadrzaj = "Sviđa mi se.", Kupac = Kupac1, Obavijest = Obavijest9,
+                    DatumVrijeme = Danas.AddDays(-1).AddHours(14)
+                },
+                new Komentar
+                {
+                    Sadrzaj = "Svaka čast!", Kupac = Kupac4, Obavijest = Obavijest9,
+                    DatumVrijeme = Danas.AddDays(-1).AddHours(14)
+                },
+                new Komentar
+                {
+                    Sadrzaj = "Ovo je super!", Kupac = Kupac3, Obavijest = Obavijest7,
+                    DatumVrijeme = Danas.AddDays(-1).AddHours(15)
+                },
+                new Komentar
+                {
+                    Sadrzaj = "Sviđa mi se.", Kupac = Kupac4, Obavijest = Obavijest2,
+                    DatumVrijeme = Danas.AddDays(-1).AddHours(14)
+                },
+            };
+
+
+            context.Komentar.AddRange(komentari);
             context.SaveChanges();
             #endregion
 
@@ -458,57 +532,71 @@ namespace Repository
 
             Narudzba Narudzba1 = new Narudzba { Kupac = Kupac1, Termin = Termin1, CijenaKarte = 10f, TipSjedista = TipSjedista1, DatumKupovine = DateTime.Now, Kolicina = 2 };
             Narudzba Narudzba2 = new Narudzba { Kupac = Kupac1, Termin = Termin2, CijenaKarte = 15f, TipSjedista = TipSjedista4, DatumKupovine = DateTime.Now.AddDays(-3), Kolicina = 3 };
-
             Narudzba Narudzba3 = new Narudzba { Kupac = Kupac2, Termin = Termin2, CijenaKarte = 10f, TipSjedista = TipSjedista1, DatumKupovine = DateTime.Now, Kolicina = 5 };
             Narudzba Narudzba4 = new Narudzba { Kupac = Kupac2, Termin = Termin1, CijenaKarte = 10f, TipSjedista = TipSjedista2, DatumKupovine = DateTime.Now.AddDays(-4), Kolicina = 5 };
-
             Narudzba Narudzba5 = new Narudzba { Kupac = Kupac3, Termin = Termin2, CijenaKarte = 10f, TipSjedista = TipSjedista2, DatumKupovine = DateTime.Now.AddDays(-1), Kolicina = 5 };
             Narudzba Narudzba6 = new Narudzba { Kupac = Kupac3, Termin = Termin1, CijenaKarte = 10f, TipSjedista = TipSjedista1, DatumKupovine = DateTime.Now.AddDays(-5), Kolicina = 1 };
-
             Narudzba Narudzba7 = new Narudzba { Kupac = Kupac4, Termin = Termin2, CijenaKarte = 10f, TipSjedista = TipSjedista3, DatumKupovine = DateTime.Now.AddDays(-1), Kolicina = 5 };
             Narudzba Narudzba8 = new Narudzba { Kupac = Kupac4, Termin = Termin1, CijenaKarte = 10f, TipSjedista = TipSjedista1, DatumKupovine = DateTime.Now, Kolicina = 2 };
-
             Narudzba Narudzba9 = new Narudzba { Kupac = Kupac1, Termin = Termin3, CijenaKarte = 10f, TipSjedista = TipSjedista1, DatumKupovine = DateTime.Now, Kolicina = 2 };
             Narudzba Narudzba10 = new Narudzba { Kupac = Kupac1, Termin = Termin4, CijenaKarte = 15f, TipSjedista = TipSjedista4, DatumKupovine = DateTime.Now.AddDays(-3), Kolicina = 3 };
-
             Narudzba Narudzba11 = new Narudzba { Kupac = Kupac2, Termin = Termin4, CijenaKarte = 10f, TipSjedista = TipSjedista1, DatumKupovine = DateTime.Now, Kolicina = 5 };
             Narudzba Narudzba12 = new Narudzba { Kupac = Kupac2, Termin = Termin3, CijenaKarte = 10f, TipSjedista = TipSjedista2, DatumKupovine = DateTime.Now.AddDays(-4), Kolicina = 5 };
-
             Narudzba Narudzba13 = new Narudzba { Kupac = Kupac3, Termin = Termin4, CijenaKarte = 10f, TipSjedista = TipSjedista2, DatumKupovine = DateTime.Now.AddDays(-1), Kolicina = 5 };
             Narudzba Narudzba14 = new Narudzba { Kupac = Kupac3, Termin = Termin3, CijenaKarte = 10f, TipSjedista = TipSjedista1, DatumKupovine = DateTime.Now.AddDays(-5), Kolicina = 1 };
-
             Narudzba Narudzba15 = new Narudzba { Kupac = Kupac4, Termin = Termin4, CijenaKarte = 10f, TipSjedista = TipSjedista3, DatumKupovine = DateTime.Now.AddDays(-1), Kolicina = 5 };
             Narudzba Narudzba16 = new Narudzba { Kupac = Kupac4, Termin = Termin3, CijenaKarte = 10f, TipSjedista = TipSjedista1, DatumKupovine = DateTime.Now, Kolicina = 2 };
-
+            Narudzba Narudzba17 = new Narudzba { Kupac = Kupac4, Termin = Termin5, CijenaKarte = 10f, TipSjedista = TipSjedista3, DatumKupovine = DateTime.Now.AddDays(-1), Kolicina = 5 };
+            Narudzba Narudzba18 = new Narudzba { Kupac = Kupac4, Termin = Termin6, CijenaKarte = 10f, TipSjedista = TipSjedista1, DatumKupovine = DateTime.Now, Kolicina = 2 };
+            Narudzba Narudzba19 = new Narudzba { Kupac = Kupac1, Termin = Termin7, CijenaKarte = 10f, TipSjedista = TipSjedista1, DatumKupovine = DateTime.Now, Kolicina = 2 };
+            Narudzba Narudzba20 = new Narudzba { Kupac = Kupac1, Termin = Termin8, CijenaKarte = 15f, TipSjedista = TipSjedista4, DatumKupovine = DateTime.Now.AddDays(-3), Kolicina = 3 };
+            Narudzba Narudzba21 = new Narudzba { Kupac = Kupac2, Termin = Termin9, CijenaKarte = 10f, TipSjedista = TipSjedista1, DatumKupovine = DateTime.Now, Kolicina = 5 };
+            Narudzba Narudzba22 = new Narudzba { Kupac = Kupac2, Termin = Termin10, CijenaKarte = 10f, TipSjedista = TipSjedista2, DatumKupovine = DateTime.Now.AddDays(-4), Kolicina = 5 };
+            Narudzba Narudzba23 = new Narudzba { Kupac = Kupac3, Termin = Termin11, CijenaKarte = 10f, TipSjedista = TipSjedista2, DatumKupovine = DateTime.Now.AddDays(-1), Kolicina = 5 };
+            Narudzba Narudzba24 = new Narudzba { Kupac = Kupac2, Termin = Termin12, CijenaKarte = 10f, TipSjedista = TipSjedista2, DatumKupovine = DateTime.Now.AddDays(-4), Kolicina = 5 };
+            Narudzba Narudzba25 = new Narudzba { Kupac = Kupac3, Termin = Termin5, CijenaKarte = 10f, TipSjedista = TipSjedista2, DatumKupovine = DateTime.Now.AddDays(-1), Kolicina = 5 };
+            Narudzba Narudzba26 = new Narudzba { Kupac = Kupac3, Termin = Termin6, CijenaKarte = 10f, TipSjedista = TipSjedista1, DatumKupovine = DateTime.Now.AddDays(-5), Kolicina = 1 };
+            Narudzba Narudzba27 = new Narudzba { Kupac = Kupac4, Termin = Termin7, CijenaKarte = 10f, TipSjedista = TipSjedista3, DatumKupovine = DateTime.Now.AddDays(-1), Kolicina = 5 };
+            Narudzba Narudzba28 = new Narudzba { Kupac = Kupac4, Termin = Termin8, CijenaKarte = 10f, TipSjedista = TipSjedista1, DatumKupovine = DateTime.Now, Kolicina = 2 };
+            Narudzba Narudzba29 = new Narudzba { Kupac = Kupac1, Termin = Termin9, CijenaKarte = 10f, TipSjedista = TipSjedista1, DatumKupovine = DateTime.Now, Kolicina = 2 };
+            Narudzba Narudzba30 = new Narudzba { Kupac = Kupac1, Termin = Termin10, CijenaKarte = 15f, TipSjedista = TipSjedista4, DatumKupovine = DateTime.Now.AddDays(-3), Kolicina = 3 };
+            
             #region Ocjene
 
             Ocjena Ocjena1 = new Ocjena { Narudzba = Narudzba1, Vrijednost = 5, Review = "Odlična!" };
             Ocjena Ocjena2 = new Ocjena { Narudzba = Narudzba2, Vrijednost = 5, Review = "Odlična!" };
-
             Ocjena Ocjena3 = new Ocjena { Narudzba = Narudzba3, Vrijednost = 4, Review = "Super!" };
             Ocjena Ocjena4 = new Ocjena { Narudzba = Narudzba4, Vrijednost = 3, Review = "Ok." };
-
             Ocjena Ocjena5 = new Ocjena { Narudzba = Narudzba5, Vrijednost = 5, Review = "Odlična!" };
             Ocjena Ocjena6 = new Ocjena { Narudzba = Narudzba6, Vrijednost = 3, Review = "Ok." };
-
             Ocjena Ocjena7 = new Ocjena { Narudzba = Narudzba7, Vrijednost = 2, Review = "Ne sviđa mi se." };
             Ocjena Ocjena8 = new Ocjena { Narudzba = Narudzba8, Vrijednost = 3, Review = "Ok." };
-
-
             Ocjena Ocjena9 = new Ocjena { Narudzba = Narudzba1, Vrijednost = 3, Review = "Ok!" };
             Ocjena Ocjena10 = new Ocjena { Narudzba = Narudzba2, Vrijednost = 4, Review = "Odlična!" };
-
             Ocjena Ocjena11 = new Ocjena { Narudzba = Narudzba3, Vrijednost = 5, Review = "Super!" };
             Ocjena Ocjena12 = new Ocjena { Narudzba = Narudzba4, Vrijednost = 5, Review = "Ok." };
-
             Ocjena Ocjena13 = new Ocjena { Narudzba = Narudzba5, Vrijednost = 5, Review = "Odlična!" };
             Ocjena Ocjena14 = new Ocjena { Narudzba = Narudzba6, Vrijednost = 4, Review = "Ok." };
-
             Ocjena Ocjena15 = new Ocjena { Narudzba = Narudzba7, Vrijednost = 5, Review = "Odlična!" };
             Ocjena Ocjena16 = new Ocjena { Narudzba = Narudzba8, Vrijednost = 3, Review = "Ok." };
+            Ocjena Ocjena17 = new Ocjena { Narudzba = Narudzba17, Vrijednost = 2, Review = "Ne sviđa mi se." };
+            Ocjena Ocjena18 = new Ocjena { Narudzba = Narudzba18, Vrijednost = 3, Review = "Ok." };
+            Ocjena Ocjena19 = new Ocjena { Narudzba = Narudzba19, Vrijednost = 3, Review = "Ok!" };
+            Ocjena Ocjena20 = new Ocjena { Narudzba = Narudzba20, Vrijednost = 4, Review = "Odlična!" };
+            Ocjena Ocjena21 = new Ocjena { Narudzba = Narudzba21, Vrijednost = 5, Review = "Super!" };
+            Ocjena Ocjena22 = new Ocjena { Narudzba = Narudzba22, Vrijednost = 5, Review = "Ok." };
+            Ocjena Ocjena23 = new Ocjena { Narudzba = Narudzba23, Vrijednost = 5, Review = "Odlična!" };
+            Ocjena Ocjena24 = new Ocjena { Narudzba = Narudzba24, Vrijednost = 4, Review = "Ok." };
+            Ocjena Ocjena25 = new Ocjena { Narudzba = Narudzba25, Vrijednost = 5, Review = "Odlična!" };
+            Ocjena Ocjena26 = new Ocjena { Narudzba = Narudzba26, Vrijednost = 3, Review = "Ok." };
+            Ocjena Ocjena27 = new Ocjena { Narudzba = Narudzba27, Vrijednost = 2, Review = "Ne sviđa mi se." };
+            Ocjena Ocjena28 = new Ocjena { Narudzba = Narudzba28, Vrijednost = 3, Review = "Ok." };
+            Ocjena Ocjena29 = new Ocjena { Narudzba = Narudzba29, Vrijednost = 3, Review = "Ok!" };
+            Ocjena Ocjena30 = new Ocjena { Narudzba = Narudzba30, Vrijednost = 4, Review = "Odlična!" };
 
             context.Ocjena.AddRange(Ocjena1, Ocjena2, Ocjena3, Ocjena4, Ocjena5, Ocjena6, Ocjena7, Ocjena8,
-            Ocjena9, Ocjena10, Ocjena11, Ocjena12, Ocjena13, Ocjena14, Ocjena15, Ocjena16);
+            Ocjena9, Ocjena10, Ocjena11, Ocjena12, Ocjena13, Ocjena14, Ocjena15, Ocjena16, Ocjena17, Ocjena18, Ocjena19, Ocjena20, Ocjena21, Ocjena22, Ocjena23, Ocjena24,
+            Ocjena25, Ocjena26, Ocjena27, Ocjena28, Ocjena29, Ocjena30);
             context.SaveChanges();
 
             #endregion
@@ -521,9 +609,30 @@ namespace Repository
             Narudzba6.OcjenaId = Ocjena6.Id;
             Narudzba7.OcjenaId = Ocjena7.Id;
             Narudzba8.OcjenaId = Ocjena8.Id;
+            Narudzba9.OcjenaId = Ocjena1.Id;
+            Narudzba10.OcjenaId = Ocjena2.Id;
+            Narudzba11.OcjenaId = Ocjena3.Id;
+            Narudzba12.OcjenaId = Ocjena4.Id;
+            Narudzba13.OcjenaId = Ocjena5.Id;
+            Narudzba14.OcjenaId = Ocjena6.Id;
+            Narudzba15.OcjenaId = Ocjena7.Id;
+            Narudzba16.OcjenaId = Ocjena8.Id;
+            Narudzba17.OcjenaId = Ocjena1.Id;
+            Narudzba18.OcjenaId = Ocjena2.Id;
+            Narudzba19.OcjenaId = Ocjena3.Id;
+            Narudzba20.OcjenaId = Ocjena4.Id;
+            Narudzba21.OcjenaId = Ocjena5.Id;
+            Narudzba22.OcjenaId = Ocjena6.Id;
+            Narudzba23.OcjenaId = Ocjena7.Id;
+            Narudzba24.OcjenaId = Ocjena8.Id;
+            Narudzba25.OcjenaId = Ocjena5.Id;
+            Narudzba26.OcjenaId = Ocjena6.Id;
+            Narudzba27.OcjenaId = Ocjena7.Id;
+            Narudzba28.OcjenaId = Ocjena8.Id;
+            Narudzba29.OcjenaId = Ocjena1.Id;
+            Narudzba30.OcjenaId = Ocjena2.Id;
 
-            context.Narudzba.AddRange(Narudzba1, Narudzba2, Narudzba3, Narudzba4, Narudzba5, Narudzba6, Narudzba7, Narudzba8,
-            Narudzba9, Narudzba10, Narudzba11, Narudzba12, Narudzba13, Narudzba14, Narudzba15, Narudzba16);
+            context.Narudzba.AddRange(Narudzba1, Narudzba2, Narudzba3, Narudzba4, Narudzba5, Narudzba6, Narudzba7, Narudzba8, Narudzba9, Narudzba10, Narudzba11, Narudzba12, Narudzba13, Narudzba14, Narudzba15, Narudzba16, Narudzba17, Narudzba18, Narudzba19, Narudzba20, Narudzba21, Narudzba22, Narudzba23, Narudzba24, Narudzba25, Narudzba26, Narudzba27, Narudzba28, Narudzba29, Narudzba30);
             context.SaveChanges();
 
             #endregion

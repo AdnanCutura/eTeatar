@@ -8,7 +8,7 @@
              x:Class="XamarinForms.Views.HomePage"
             Padding="0"
             x:Name="Home"
-            Title="Pocetna">
+            Title="Početna">
     <TabbedPage.Resources>
         <convertor:ImageConverter x:Key="ImgConvert"/>
         <convertor:RatingToStarsConverter x:Key="RatingToStars"/>
