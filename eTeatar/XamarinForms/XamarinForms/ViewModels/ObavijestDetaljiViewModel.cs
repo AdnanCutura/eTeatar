@@ -16,31 +16,32 @@ namespace XamarinForms.ViewModels
         private readonly APIService _serviceObavijest;
 
         private Obavijest _obavijest;
-        public Obavijest Obavijest { get => _obavijest; set => SetProperty(ref _obavijest, value); }
+        public Obavijest Obavijest {
+            get => _obavijest;
+            set => SetProperty(ref _obavijest, value);
+        }
+
         public Kupac Kupac { get; set; }
 
+        private readonly string _obavijestId;
+
         private string _komentar;
-        public string Komentar
-        {
+        public string Komentar {
             get => _komentar;
             set => SetProperty(ref _komentar, value);
         }
 
         private int _brojKomentara;
 
-        public int BrojKomentara
-        {
+        public int BrojKomentara {
             get => _brojKomentara;
-            set
-            {
+            set {
                 SetProperty(ref _brojKomentara, value);
                 OnPropertyChanged();
             }
         }
 
         public ObservableCollection<Komentar> Komentari { get; set; }
-
-        private string _obavijestId { get; set; }
 
         public ObavijestDetaljiViewModel(string id)
         {
@@ -97,6 +98,7 @@ namespace XamarinForms.ViewModels
                     await _serviceKomentar.Insert<Komentar>(noviKomentar);
                     InitCommand.Execute(null);
                     BrojKomentara++;
+                    Komentar = string.Empty;
                     await Application.Current.MainPage.DisplayAlert("Informacija", "Uspješno ste se ostavili komentar", "OK");
 
                 }

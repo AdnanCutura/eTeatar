@@ -16,6 +16,8 @@ namespace XamarinForms.ViewModels
         private readonly APIService _servicePredstava;
         private readonly APIService _servicePreporucenePredstave;
 
+        private readonly string _predstavaId;
+
         private string _zanrovi;
         public string Zanrovi {
             get => _zanrovi;
@@ -34,9 +36,10 @@ namespace XamarinForms.ViewModels
         public ObservableCollection<Uloga> Uloge { get; set; }
         public ObservableCollection<Predstava> PreporucenePredstave { get; set; }
         private Predstava _predstava;
-        public Predstava Predstava { get { return _predstava; } set { SetProperty(ref _predstava, value); } }
-
-        private string _predstavaId;
+        public Predstava Predstava {
+            get => _predstava;
+            set => SetProperty(ref _predstava, value);
+        }
 
         public PredstavaDetaljiViewModel(string id)
         {
