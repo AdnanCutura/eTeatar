@@ -44,7 +44,7 @@ namespace XamarinForms.ViewModels
             if (slika == null)
                 slika = _defaultAvatar;
 
-            KupacKorisnickiNalogUpsertRequest request = new KupacKorisnickiNalogUpsertRequest
+            KupacKorisnickiNalogInsertRequest request = new KupacKorisnickiNalogInsertRequest
             {
                 Ime = Kupac.Ime,
                 Prezime = Kupac.Prezime,

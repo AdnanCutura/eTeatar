@@ -13,7 +13,7 @@ using KorisnickaUloga = DataTransferObjects.KorisnickaUloga;
 
 namespace WebAPI.Services
 {
-    public class AdministratorService : CrudService<DataTransferObjects.Administrator, object, Models.Administrator, AdministratorKorisnickiNalogUpsertRequest, AdministratorKorisnickiNalogUpsertRequest>
+    public class AdministratorService : CrudService<DataTransferObjects.Administrator, object, Models.Administrator, AdministratorKorisnickiNalogInsertRequest, AdministratorKorisnickiNalogUpdateRequest>
     {
         private readonly IKorisnickiNalogService _korisnickiNalogService;
 
@@ -23,9 +23,9 @@ namespace WebAPI.Services
         }
 
 
-        public override DataTransferObjects.Administrator Insert(AdministratorKorisnickiNalogUpsertRequest request)
+        public override DataTransferObjects.Administrator Insert(AdministratorKorisnickiNalogInsertRequest request)
         {
-            var nalog = Mapper.Map<KorisnickiNalogUpsertRequest>(request);
+            var nalog = Mapper.Map<AdministratorKorisnickiNalogInsertRequest>(request);
             var nalogResponse = _korisnickiNalogService.Insert(nalog, DataTransferObjects.Enums.KorisnickeUloge.Administrator);
 
             var admin = new AdministratorUpsertRequest
@@ -41,9 +41,9 @@ namespace WebAPI.Services
         }
 
 
-        public override DataTransferObjects.Administrator Update(string id, AdministratorKorisnickiNalogUpsertRequest request)
+        public override DataTransferObjects.Administrator Update(string id, AdministratorKorisnickiNalogUpdateRequest request)
         {
-            var nalogRequest = Mapper.Map<KorisnickiNalogUpsertRequest>(request);
+            var nalogRequest = Mapper.Map<KorisnickiNalogUpdateRequest>(request);
             var adminRequest = Mapper.Map<AdministratorUpsertRequest>(request);
 
 

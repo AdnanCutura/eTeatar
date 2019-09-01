@@ -18,7 +18,7 @@ namespace XamarinForms.Views
         public NarudzbaPage(DataTransferObjects.Termin termin)
         {
             InitializeComponent();
-            BindingContext = model = new NarudzbaViewModel { Termin = termin };
+            BindingContext = model = new NarudzbaViewModel(Navigation) { Termin = termin };
             model.InitCommand.Execute(null);
         }
     }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DataTransferObjects.Requests
 {
-    public class AdministratorKorisnickiNalogUpsertRequest : KorisnickiNalogUpsertRequest
+    public class AdministratorKorisnickiNalogInsertRequest : KorisnickiNalogInsertRequest
     {
     }
 }

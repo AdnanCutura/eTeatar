@@ -8,9 +8,9 @@ using WebAPI.Services.Interfaces;
 namespace WebAPI.Controllers
 {
     [Authorize(Roles = "Kupac")]
-    public class KupacController : CrudController<DataTransferObjects.Kupac, object, DataTransferObjects.Requests.KupacKorisnickiNalogUpsertRequest, DataTransferObjects.Requests.KupacKorisnickiNalogUpsertRequest>
+    public class KupacController : CrudController<DataTransferObjects.Kupac, object, DataTransferObjects.Requests.KupacKorisnickiNalogInsertRequest, DataTransferObjects.Requests.KupacKorisnickiNalogUpdateRequest>
     {
-        public KupacController(ICrudService<Kupac, object, KupacKorisnickiNalogUpsertRequest, KupacKorisnickiNalogUpsertRequest> service) : base(service)
+        public KupacController(ICrudService<Kupac, object, KupacKorisnickiNalogInsertRequest, KupacKorisnickiNalogUpdateRequest> service) : base(service)
         {
         }
 
@@ -27,7 +27,7 @@ namespace WebAPI.Controllers
         }
 
         [AllowAnonymous]
-        public override ActionResult<Kupac> Insert(KupacKorisnickiNalogUpsertRequest request)
+        public override ActionResult<Kupac> Insert(KupacKorisnickiNalogInsertRequest request)
         {
             return base.Insert(request);
         }

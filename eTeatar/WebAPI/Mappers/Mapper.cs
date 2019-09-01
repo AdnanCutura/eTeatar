@@ -70,7 +70,8 @@ namespace WebAPI.Mappers
 
             //KorisnickiNalog
             CreateMap<Models.KorisnickiNalog, DataTransferObjects.KorisnickiNalog>();
-            CreateMap<Models.KorisnickiNalog, DataTransferObjects.Requests.KorisnickiNalogUpsertRequest>().ReverseMap().ForAllMembers(opt => opt.Condition((src, dest, sourceMember) => sourceMember != null));
+            CreateMap<Models.KorisnickiNalog, DataTransferObjects.Requests.KorisnickiNalogInsertRequest>().ReverseMap().ForAllMembers(opt => opt.Condition((src, dest, sourceMember) => sourceMember != null));
+            CreateMap<Models.KorisnickiNalog, DataTransferObjects.Requests.KorisnickiNalogUpdateRequest>().ReverseMap().ForAllMembers(opt => opt.Condition((src, dest, sourceMember) => sourceMember != null));
 
             //Spol
             CreateMap<Models.Spol, DataTransferObjects.Spol>();
@@ -79,18 +80,23 @@ namespace WebAPI.Mappers
             CreateMap<Models.Kupac, DataTransferObjects.Kupac>();
             CreateMap<DataTransferObjects.Requests.KupacUpsertRequest, Models.Kupac>().ForAllMembers(opt => opt.Condition((src, dest, sourceMember) => sourceMember != null));
             CreateMap<DataTransferObjects.Kupac, DataTransferObjects.KorisnickiNalog>().ReverseMap();
-            CreateMap<Models.Kupac, DataTransferObjects.Requests.KupacKorisnickiNalogUpsertRequest>().ReverseMap().ForAllMembers(opt => opt.Condition((src, dest, sourceMember) => sourceMember != null));
-            CreateMap<DataTransferObjects.Requests.KupacKorisnickiNalogUpsertRequest, DataTransferObjects.Requests.KorisnickiNalogUpsertRequest>().ReverseMap().ForAllMembers(opt => opt.Condition((src, dest, sourceMember) => sourceMember != null));
-            CreateMap<DataTransferObjects.Requests.KupacKorisnickiNalogUpsertRequest, DataTransferObjects.Requests.KupacUpsertRequest>().ReverseMap();
+            CreateMap<Models.Kupac, DataTransferObjects.Requests.KupacKorisnickiNalogUpdateRequest>().ReverseMap().ForAllMembers(opt => opt.Condition((src, dest, sourceMember) => sourceMember != null));
+            CreateMap<Models.Kupac, DataTransferObjects.Requests.KupacKorisnickiNalogInsertRequest>().ReverseMap().ForAllMembers(opt => opt.Condition((src, dest, sourceMember) => sourceMember != null));
+            CreateMap<DataTransferObjects.Requests.KupacKorisnickiNalogInsertRequest, DataTransferObjects.Requests.KorisnickiNalogInsertRequest>().ReverseMap().ForAllMembers(opt => opt.Condition((src, dest, sourceMember) => sourceMember != null));
+            CreateMap<DataTransferObjects.Requests.KupacKorisnickiNalogUpdateRequest, DataTransferObjects.Requests.KorisnickiNalogUpdateRequest>().ReverseMap().ForAllMembers(opt => opt.Condition((src, dest, sourceMember) => sourceMember != null));
+            CreateMap<DataTransferObjects.Requests.KupacKorisnickiNalogUpdateRequest, DataTransferObjects.Requests.KupacUpsertRequest>().ReverseMap();
+            CreateMap<DataTransferObjects.Requests.KupacKorisnickiNalogInsertRequest, DataTransferObjects.Requests.KupacUpsertRequest>().ReverseMap();
 
             //Administrator
             CreateMap<Models.Administrator, DataTransferObjects.Administrator>();
             CreateMap<DataTransferObjects.Requests.AdministratorUpsertRequest, Models.Administrator>().ForAllMembers(opt => opt.Condition((src, dest, sourceMember) => sourceMember != null));
             CreateMap<DataTransferObjects.Administrator, DataTransferObjects.KorisnickiNalog>().ReverseMap();
-            CreateMap<Models.Administrator, DataTransferObjects.Requests.AdministratorKorisnickiNalogUpsertRequest>().ReverseMap().ForAllMembers(opt => opt.Condition((src, dest, sourceMember) => sourceMember != null));
-            CreateMap<DataTransferObjects.Requests.AdministratorKorisnickiNalogUpsertRequest, DataTransferObjects.Requests.KorisnickiNalogUpsertRequest>().ReverseMap().ForAllMembers(opt => opt.Condition((src, dest, sourceMember) => sourceMember != null));
-            CreateMap<DataTransferObjects.Requests.AdministratorKorisnickiNalogUpsertRequest, DataTransferObjects.Requests.AdministratorUpsertRequest>().ReverseMap().ForAllMembers(opt => opt.Condition((src, dest, sourceMember) => sourceMember != null));
-
+            CreateMap<Models.Administrator, DataTransferObjects.Requests.AdministratorKorisnickiNalogUpdateRequest>().ReverseMap().ForAllMembers(opt => opt.Condition((src, dest, sourceMember) => sourceMember != null));
+            CreateMap<Models.Administrator, DataTransferObjects.Requests.AdministratorKorisnickiNalogInsertRequest>().ReverseMap().ForAllMembers(opt => opt.Condition((src, dest, sourceMember) => sourceMember != null));
+            CreateMap<DataTransferObjects.Requests.AdministratorKorisnickiNalogInsertRequest, DataTransferObjects.Requests.KorisnickiNalogInsertRequest>().ReverseMap().ForAllMembers(opt => opt.Condition((src, dest, sourceMember) => sourceMember != null));
+            CreateMap<DataTransferObjects.Requests.AdministratorKorisnickiNalogUpdateRequest, DataTransferObjects.Requests.KorisnickiNalogUpdateRequest>().ReverseMap().ForAllMembers(opt => opt.Condition((src, dest, sourceMember) => sourceMember != null));
+            CreateMap<DataTransferObjects.Requests.AdministratorKorisnickiNalogUpdateRequest, DataTransferObjects.Requests.AdministratorUpsertRequest>().ReverseMap();
+            CreateMap<DataTransferObjects.Requests.AdministratorKorisnickiNalogInsertRequest, DataTransferObjects.Requests.AdministratorUpsertRequest>().ReverseMap();
             //Korisnicka uloga
             CreateMap<Models.KorisnickaUloga, DataTransferObjects.KorisnickaUloga>();
 

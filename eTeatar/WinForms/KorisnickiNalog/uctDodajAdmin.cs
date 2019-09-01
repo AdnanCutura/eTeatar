@@ -8,14 +8,14 @@ namespace WinForms.KorisnickiNalog
 {
     public partial class uctDodajAdmin : UserControl
     {
-        private DataTransferObjects.Requests.AdministratorKorisnickiNalogUpsertRequest _request;
+        private DataTransferObjects.Requests.KorisnickiNalogInsertRequest _request;
         private readonly DataValidation _validator;
         private readonly APIService _korisnickiNalogService;
 
         public uctDodajAdmin()
         {
             InitializeComponent();
-            _request = new DataTransferObjects.Requests.AdministratorKorisnickiNalogUpsertRequest();
+            _request = new DataTransferObjects.Requests.KorisnickiNalogInsertRequest();
             _validator = Factory.GetValidator(errorProvider1);
             _korisnickiNalogService = new APIService("Administrator");
         }

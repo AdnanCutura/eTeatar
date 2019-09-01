@@ -51,7 +51,7 @@ namespace WebAPI.Services
             return Mapper.Map<List<KorisnickiNalog>>(list);
         }
 
-        public KorisnickiNalog Update(string id, KorisnickiNalogUpsertRequest request)
+        public KorisnickiNalog Update(string id, KorisnickiNalogUpdateRequest request)
         {
             var entity = Repository.GetById(id);
             if (request.Password != request.PasswordPotvrda)
@@ -84,7 +84,7 @@ namespace WebAPI.Services
             return GenerateHash(user.LozinkaSalt, pass) == user.LozinkaHash ? Mapper.Map<Models.KorisnickiNalog>(user) : null;
         }
 
-        public KorisnickiNalog Insert(KorisnickiNalogUpsertRequest request, DataTransferObjects.Enums.KorisnickeUloge uloga)
+        public KorisnickiNalog Insert(KorisnickiNalogInsertRequest request, DataTransferObjects.Enums.KorisnickeUloge uloga)
         {
             var entity = Mapper.Map<Models.KorisnickiNalog>(request);
 
@@ -103,7 +103,7 @@ namespace WebAPI.Services
             return Mapper.Map<KorisnickiNalog>(Repository.Add(entity));
         }
 
-        public KorisnickiNalog Insert(KorisnickiNalogUpsertRequest request)
+        public KorisnickiNalog Insert(KorisnickiNalogInsertRequest request)
         {
             var entity = Mapper.Map<Models.KorisnickiNalog>(request);
 

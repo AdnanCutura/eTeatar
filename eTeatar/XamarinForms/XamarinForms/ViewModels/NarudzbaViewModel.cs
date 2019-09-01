@@ -12,6 +12,7 @@ namespace XamarinForms.ViewModels
     {
         private readonly APIService _dvoranaTipSjedistaService = new APIService("DvoranaTipSjedista");
         private readonly APIService _narudzbaService = new APIService("Narudzba");
+        private readonly INavigation _navigation;
         public Termin Termin { get; set; }
 
         public ObservableCollection<DvoranaTipSjedista> TipoviSjedista { get; set; } = new ObservableCollection<DvoranaTipSjedista>();
@@ -47,13 +48,14 @@ namespace XamarinForms.ViewModels
         public ICommand KupiCommand { get; private set; }
         public ICommand CloseCommand { get; private set; }
 
-        public NarudzbaViewModel()
+        public NarudzbaViewModel(INavigation navigation)
         {
             InitCommand = new Command(async () => await Initialize());
             AddCommand = new Command(() => Kolicina++);
-            SubCommand = new Command(() => { if (Kolicina > 1) Kolicina--; } );
+            SubCommand = new Command(() => { if (Kolicina > 1) Kolicina--; });
             KupiCommand = new Command(async () => await Kupi());
             CloseCommand = new Command(async () => await Application.Current.MainPage.Navigation.PopModalAsync());
+            _navigation = navigation;
         }
 
         public async Task Kupi()
@@ -98,7 +100,7 @@ namespace XamarinForms.ViewModels
             var bazna = Termin.BaznaCijenaKarte;
             var kolicina = _kolicina <= 0 ? 0 : _kolicina;
             var mult = SelectedTipSjedista?.TipSjedista?.CijenaKarteMultiplier ?? 0;
-            var popust = Helpers.KupacData.Get().TipKorisnika.CijenaKartePopust;
+            var popust = 1 - Helpers.KupacData.Get().TipKorisnika.CijenaKartePopust;
             Cijena = bazna * kolicina * mult * popust;
         }
     }

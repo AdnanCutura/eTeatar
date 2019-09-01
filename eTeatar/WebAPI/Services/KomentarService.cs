@@ -12,9 +12,9 @@ namespace WebAPI.Services
     public class KomentarService : CrudService<DataTransferObjects.Komentar, KomentarSearchRequest, Komentar, KomentarInsertRequest, object>
     {
         private readonly
-            ICrudService<Kupac, object, KupacKorisnickiNalogUpsertRequest,
-                KupacKorisnickiNalogUpsertRequest> _kupacService;
-        public KomentarService(IMapper mapper, IRepository<Komentar, KomentarSearchRequest> repository, ICrudService<Kupac, object, KupacKorisnickiNalogUpsertRequest, KupacKorisnickiNalogUpsertRequest> kupacService) : base(mapper, repository)
+            ICrudService<Kupac, object, KupacKorisnickiNalogInsertRequest,
+                KupacKorisnickiNalogUpdateRequest> _kupacService;
+        public KomentarService(IMapper mapper, IRepository<Komentar, KomentarSearchRequest> repository, ICrudService<Kupac, object, KupacKorisnickiNalogInsertRequest, KupacKorisnickiNalogUpdateRequest> kupacService) : base(mapper, repository)
         {
             _kupacService = kupacService;
         }

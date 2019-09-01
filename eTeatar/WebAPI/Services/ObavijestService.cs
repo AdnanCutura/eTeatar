@@ -16,10 +16,10 @@ namespace WebAPI.Services
     {
 
         private readonly
-            ICrudService<DataTransferObjects.Administrator, object, AdministratorKorisnickiNalogUpsertRequest,
-                AdministratorKorisnickiNalogUpsertRequest> _adminService;
+            ICrudService<DataTransferObjects.Administrator, object, AdministratorKorisnickiNalogInsertRequest,
+                AdministratorKorisnickiNalogUpdateRequest> _adminService;
 
-        public ObavijestService(IMapper mapper, IRepository<Obavijest, ObavijestSearchRequest> repository, ICrudService<Administrator, object, AdministratorKorisnickiNalogUpsertRequest, AdministratorKorisnickiNalogUpsertRequest> adminService) : base(mapper, repository)
+        public ObavijestService(IMapper mapper, IRepository<Obavijest, ObavijestSearchRequest> repository, ICrudService<Administrator, object, AdministratorKorisnickiNalogInsertRequest, AdministratorKorisnickiNalogUpdateRequest> adminService) : base(mapper, repository)
         {
             _adminService = adminService;
         }

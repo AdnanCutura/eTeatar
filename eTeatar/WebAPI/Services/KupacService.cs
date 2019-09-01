@@ -13,7 +13,7 @@ using TipKorisnika = DataTransferObjects.TipKorisnika;
 
 namespace WebAPI.Services
 {
-    public class KupacService : CrudService<DataTransferObjects.Kupac, object, Models.Kupac, KupacKorisnickiNalogUpsertRequest, KupacKorisnickiNalogUpsertRequest>
+    public class KupacService : CrudService<DataTransferObjects.Kupac, object, Models.Kupac, KupacKorisnickiNalogInsertRequest, KupacKorisnickiNalogUpdateRequest>
     {
         private readonly IKorisnickiNalogService _korisnickiNalogService;
         private readonly IBaseService<DataTransferObjects.TipKorisnika, TipKorisnikaSearchRequest> _tipKorisnikaService;
@@ -24,9 +24,9 @@ namespace WebAPI.Services
             _korisnickiNalogService = korisnickiNalogService;
         }
 
-        public override DataTransferObjects.Kupac Insert(KupacKorisnickiNalogUpsertRequest request)
+        public override DataTransferObjects.Kupac Insert(KupacKorisnickiNalogInsertRequest request)
         {
-            var nalog = Mapper.Map<KorisnickiNalogUpsertRequest>(request);
+            var nalog = Mapper.Map<KorisnickiNalogInsertRequest>(request);
             var nalogResponse = _korisnickiNalogService.Insert(nalog, DataTransferObjects.Enums.KorisnickeUloge.Kupac);
 
             var kupac = new KupacUpsertRequest
@@ -62,9 +62,9 @@ namespace WebAPI.Services
             return returnmodel;
         }
 
-        public override DataTransferObjects.Kupac Update(string id, KupacKorisnickiNalogUpsertRequest request)
+        public override DataTransferObjects.Kupac Update(string id, KupacKorisnickiNalogUpdateRequest request)
         {
-            var nalogRequest = Mapper.Map<KorisnickiNalogUpsertRequest>(request);
+            var nalogRequest = Mapper.Map<KorisnickiNalogUpdateRequest>(request);
             var kupacRequest = Mapper.Map<KupacUpsertRequest>(request);
 
             var kupac = Repository.GetById(id);

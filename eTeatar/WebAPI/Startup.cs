@@ -85,9 +85,9 @@ namespace WebAPI
             services.AddScoped(typeof(ICrudService<DataTransferObjects.Komentar, KomentarSearchRequest, KomentarInsertRequest, object>),
               typeof(KomentarService));
             services.AddScoped(typeof(IKorisnickiNalogService), typeof(KorisnickiNalogService));
-            services.AddScoped(typeof(ICrudService<DataTransferObjects.Kupac, object, KupacKorisnickiNalogUpsertRequest, KupacKorisnickiNalogUpsertRequest>),
+            services.AddScoped(typeof(ICrudService<DataTransferObjects.Kupac, object, KupacKorisnickiNalogInsertRequest, KupacKorisnickiNalogUpdateRequest>),
               typeof(KupacService));
-            services.AddScoped(typeof(ICrudService<DataTransferObjects.Administrator, object, AdministratorKorisnickiNalogUpsertRequest, AdministratorKorisnickiNalogUpsertRequest>),
+            services.AddScoped(typeof(ICrudService<DataTransferObjects.Administrator, object, AdministratorKorisnickiNalogInsertRequest, AdministratorKorisnickiNalogUpdateRequest>),
               typeof(AdministratorService));
             services.AddScoped(typeof(IBaseService<DataTransferObjects.KorisnickaUloga, KorisnickaUlogaSearchRequest>),
               typeof(BaseService<DataTransferObjects.KorisnickaUloga, KorisnickaUlogaSearchRequest, KorisnickaUloga>));

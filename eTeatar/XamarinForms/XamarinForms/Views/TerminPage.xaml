@@ -19,7 +19,7 @@
                 <Entry Grid.Row="0" Grid.Column="0" Placeholder="Naziv predstave" VerticalOptions="Center" Text="{Binding Naziv}"/>
                 <Button Grid.Row="0" Grid.Column="1" Text="Pretraga" Command="{Binding Init}" Style="{StaticResource ETeatarBtn}"/>
             </Grid>
-            <ListView ItemsSource="{Binding TerminList}" ItemSelected="ListView_ItemSelected" ItemTemplate="{StaticResource terminTemplate}"/>
+            <ListView ItemsSource="{Binding TerminList}" ItemSelected="ListView_ItemSelected" ItemTemplate="{StaticResource terminTemplate}" x:Name="TerminList"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

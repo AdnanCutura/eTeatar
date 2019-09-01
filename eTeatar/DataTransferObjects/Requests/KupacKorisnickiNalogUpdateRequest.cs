@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DataTransferObjects.Requests
 {
-    public class KupacKorisnickiNalogUpsertRequest : KorisnickiNalogUpsertRequest
+    public class KupacKorisnickiNalogUpdateRequest : KorisnickiNalogUpdateRequest
     {
         public string TipKorisnikaId { get; set; }
     }

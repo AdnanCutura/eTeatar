@@ -56,7 +56,7 @@ namespace XamarinForms.ViewModels
 
         public async Task UpdateProfil(byte[] slika = null)
         {
-            KupacKorisnickiNalogUpsertRequest request = new KupacKorisnickiNalogUpsertRequest
+            KupacKorisnickiNalogUpdateRequest request = new KupacKorisnickiNalogUpdateRequest
             {
                 Ime = Kupac.Ime,
                 Prezime = Kupac.Prezime,
@@ -78,7 +78,7 @@ namespace XamarinForms.ViewModels
 
         private async Task UpdatePassword()
         {
-            KupacKorisnickiNalogUpsertRequest request = new KupacKorisnickiNalogUpsertRequest
+            KupacKorisnickiNalogUpdateRequest request = new KupacKorisnickiNalogUpdateRequest
             {
                 Password = NovaLozinka,
                 PasswordPotvrda = PotvrdaLozinke
@@ -102,7 +102,7 @@ namespace XamarinForms.ViewModels
 
             if (sljedeciTipId != null)
             {
-                KupacKorisnickiNalogUpsertRequest request = new KupacKorisnickiNalogUpsertRequest
+                KupacKorisnickiNalogUpdateRequest request = new KupacKorisnickiNalogUpdateRequest
                 {
                     TipKorisnikaId = sljedeciTipId
                 };

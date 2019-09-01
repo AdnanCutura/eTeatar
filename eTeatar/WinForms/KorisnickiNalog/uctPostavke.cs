@@ -9,7 +9,7 @@ namespace WinForms.KorisnickiNalog
     public partial class uctPostavke : UserControl
     {
         private DataTransferObjects.Administrator _admin;
-        private DataTransferObjects.Requests.AdministratorKorisnickiNalogUpsertRequest _request;
+        private DataTransferObjects.Requests.KorisnickiNalogUpdateRequest _request;
         private readonly DataValidation _validator;
         private readonly APIService _korisnickiNalogService;
 
@@ -17,7 +17,7 @@ namespace WinForms.KorisnickiNalog
         {
             InitializeComponent();
             _admin = AdminData.Get();
-            _request = new DataTransferObjects.Requests.AdministratorKorisnickiNalogUpsertRequest();
+            _request = new DataTransferObjects.Requests.KorisnickiNalogUpdateRequest();
             _validator = Factory.GetValidator(errorProvider1);
             _korisnickiNalogService = new APIService("Administrator");
         }
