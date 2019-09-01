@@ -12,7 +12,7 @@ namespace XamarinForms.ViewModels
 {
     public class ObavijestDetaljiViewModel : BaseViewModel
     {
-        private readonly APIService _serviceKomentar = new APIService("Komentar");
+        private readonly APIService _serviceKomentar;
 
         public Obavijest Obavijest { get; set; }
         public Kupac Kupac { get; set; }
@@ -39,6 +39,7 @@ namespace XamarinForms.ViewModels
             Kupac = Helpers.KupacData.Get();
             Komentar = string.Empty;
             Komentari = new ObservableCollection<Komentar>();
+            _serviceKomentar = new APIService("Komentar");
 
             InitCommand = new Command(async () => await Init());
             NoviKomentarCommand = new Command(async () => await NoviKomentar());
@@ -47,7 +48,9 @@ namespace XamarinForms.ViewModels
         public ICommand NoviKomentarCommand { get; set; }
         public ICommand InitCommand { get; set; }
         
-        #region Metode za komande
+        /// <summary>
+        /// Metoda za inicijalno učitavanje komentara
+        /// </summary>
         private async Task Init()
         {
             if (!Komentari.Any())
@@ -60,6 +63,9 @@ namespace XamarinForms.ViewModels
             }
         }
 
+        /// <summary>
+        /// Metoda za dodavanje komentara
+        /// </summary>
         private async Task NoviKomentar()
         {
             if (!string.IsNullOrEmpty(_komentar))
@@ -89,8 +95,10 @@ namespace XamarinForms.ViewModels
                 await Application.Current.MainPage.DisplayAlert("Greška", "Komentar ne može biti prazan!", "OK");
 
         }
-        #endregion
 
+        /// <summary>
+        /// Metoda za učitavanje komentara
+        /// </summary>
         private async Task LoadKomentare()
         {
             try

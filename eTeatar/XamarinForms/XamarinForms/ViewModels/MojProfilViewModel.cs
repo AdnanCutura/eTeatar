@@ -1,9 +1,9 @@
 ﻿using DataTransferObjects;
 using DataTransferObjects.Requests;
-using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
+using XamarinForms.Helpers;
 
 namespace XamarinForms.ViewModels
 {
@@ -19,6 +19,7 @@ namespace XamarinForms.ViewModels
                 OnPropertyChanged();
             }
         }
+
         private string _tipKupca;
         public string TipKupca {
             get => _tipKupca;
@@ -28,25 +29,49 @@ namespace XamarinForms.ViewModels
             }
         }
 
-        public string NovaLozinka { get; set; }
-        public string PotvrdaLozinke { get; set; }
+        public byte[] Picture {
+            get => _picture;
+            set => SetProperty(ref _picture, value);
+        }
+        private byte[] _picture;
+
+        private string _novaLozinka;
+        public string NovaLozinka {
+            get => _novaLozinka;
+            set => SetProperty(ref _novaLozinka, value);
+        }
+
+        private string _potvrdaLozinke;
+        public string PotvrdaLozinke {
+            get => _potvrdaLozinke;
+            set => SetProperty(ref _potvrdaLozinke, value);
+        }
 
         public MojProfilViewModel()
         {
             _kupac = Helpers.KupacData.Get();
             _tipKupca = Kupac.TipKorisnika.Naziv;
             _serviceKupacKorisnickiNalog = new APIService("Kupac");
+            Picture = Kupac.Slika;
+
             InitCommand = new Command(async () => await Init());
             InitCommand.Execute(null);
+
             UpdatePasswordCommand = new Command(async () => await UpdatePassword());
             UpgradeAccountCommand = new Command(async () => await UpgradeAccount());
+            UploadPictureCommand = new Command(async () =>  Picture = await UploadPicture.UploadingPicture(Picture));
+            UpdateProfilCommand = new Command(async () => await UpdateProfil());
         }
 
         public ICommand InitCommand { get; set; }
         public ICommand UpdateProfilCommand { get; set; }
         public ICommand UpdatePasswordCommand { get; set; }
         public ICommand UpgradeAccountCommand { get; set; }
+        public ICommand UploadPictureCommand { get; set; }
 
+        /// <summary>
+        /// Metoda za dobavljanje kupca
+        /// </summary>
         private async Task Init()
         {
             var kupac = await _serviceKupacKorisnickiNalog.GetById<Kupac>(Kupac.Id);
@@ -54,7 +79,10 @@ namespace XamarinForms.ViewModels
             IsVisible = sljedeciTipId != null;
         }
 
-        public async Task UpdateProfil(byte[] slika = null)
+        /// <summary>
+        /// Metoda za uređivanje profila
+        /// </summary>
+        public async Task UpdateProfil()
         {
             KupacKorisnickiNalogUpdateRequest request = new KupacKorisnickiNalogUpdateRequest
             {
@@ -62,12 +90,12 @@ namespace XamarinForms.ViewModels
                 Prezime = Kupac.Prezime,
                 Email = Kupac.Email,
                 Telefon = Kupac.Telefon,
-                Slika = slika
+                Slika = Picture
             };
 
             try
             {
-                var response = await _serviceKupacKorisnickiNalog.Update<Kupac>(Kupac.Id, request);
+                await _serviceKupacKorisnickiNalog.Update<Kupac>(Kupac.Id, request);
                 await Application.Current.MainPage.DisplayAlert("Informacija", "Uspješno ste spremili podatke", "OK");
             }
             catch
@@ -76,6 +104,9 @@ namespace XamarinForms.ViewModels
             }
         }
 
+        /// <summary>
+        /// Metoda za promjenu lozinke
+        /// </summary>
         private async Task UpdatePassword()
         {
             KupacKorisnickiNalogUpdateRequest request = new KupacKorisnickiNalogUpdateRequest
@@ -87,6 +118,8 @@ namespace XamarinForms.ViewModels
             try
             {
                 var response = await _serviceKupacKorisnickiNalog.Update<Kupac>(Kupac.Id, request);
+                NovaLozinka = string.Empty;
+                PotvrdaLozinke = string.Empty;
                 await Application.Current.MainPage.DisplayAlert("Informacija", "Lozinka je uspješno promjenjena", "OK");
             }
             catch
@@ -95,6 +128,9 @@ namespace XamarinForms.ViewModels
             }
         }
 
+        /// <summary>
+        /// Metoda za nadograđivanje akaunta
+        /// </summary>
         private async Task UpgradeAccount()
         {
             var kupac = await _serviceKupacKorisnickiNalog.GetById<Kupac>(_kupac.Id);
@@ -106,7 +142,7 @@ namespace XamarinForms.ViewModels
                 {
                     TipKorisnikaId = sljedeciTipId
                 };
-                
+
                 try
                 {
                     var response = await _serviceKupacKorisnickiNalog.Update<Kupac>(_kupac.Id, request);
@@ -131,5 +167,6 @@ namespace XamarinForms.ViewModels
                     "Trenutno ne postoji veći nivo korisničkog računa od trenutnog", "OK");
             }
         }
+
     }
 }

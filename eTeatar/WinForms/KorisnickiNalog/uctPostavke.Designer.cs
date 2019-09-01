@@ -54,22 +54,24 @@
             // lblHeading
             // 
             this.lblHeading.AutoSize = true;
-            this.lblHeading.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHeading.Font = new System.Drawing.Font("Raleway", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHeading.ForeColor = System.Drawing.Color.White;
-            this.lblHeading.Location = new System.Drawing.Point(31, 38);
+            this.lblHeading.Location = new System.Drawing.Point(35, 44);
+            this.lblHeading.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblHeading.Name = "lblHeading";
-            this.lblHeading.Size = new System.Drawing.Size(111, 29);
+            this.lblHeading.Size = new System.Drawing.Size(137, 36);
             this.lblHeading.TabIndex = 25;
             this.lblHeading.Text = "Postavke";
             // 
             // lblIme
             // 
             this.lblIme.AutoSize = true;
-            this.lblIme.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIme.Font = new System.Drawing.Font("Raleway", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIme.ForeColor = System.Drawing.Color.White;
-            this.lblIme.Location = new System.Drawing.Point(33, 89);
+            this.lblIme.Location = new System.Drawing.Point(38, 107);
+            this.lblIme.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblIme.Name = "lblIme";
-            this.lblIme.Size = new System.Drawing.Size(36, 20);
+            this.lblIme.Size = new System.Drawing.Size(44, 25);
             this.lblIme.TabIndex = 28;
             this.lblIme.Text = "Ime";
             // 
@@ -77,22 +79,24 @@
             // 
             this.txbIme.BackColor = System.Drawing.Color.White;
             this.txbIme.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txbIme.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbIme.Location = new System.Drawing.Point(36, 110);
+            this.txbIme.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbIme.Location = new System.Drawing.Point(42, 132);
+            this.txbIme.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txbIme.MaxLength = 100;
             this.txbIme.Name = "txbIme";
-            this.txbIme.Size = new System.Drawing.Size(191, 24);
+            this.txbIme.Size = new System.Drawing.Size(254, 29);
             this.txbIme.TabIndex = 27;
             this.txbIme.Validating += new System.ComponentModel.CancelEventHandler(this.TxbIme_Validating);
             // 
             // lblPrezime
             // 
             this.lblPrezime.AutoSize = true;
-            this.lblPrezime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrezime.Font = new System.Drawing.Font("Raleway", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrezime.ForeColor = System.Drawing.Color.White;
-            this.lblPrezime.Location = new System.Drawing.Point(34, 169);
+            this.lblPrezime.Location = new System.Drawing.Point(39, 205);
+            this.lblPrezime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPrezime.Name = "lblPrezime";
-            this.lblPrezime.Size = new System.Drawing.Size(66, 20);
+            this.lblPrezime.Size = new System.Drawing.Size(83, 25);
             this.lblPrezime.TabIndex = 30;
             this.lblPrezime.Text = "Prezime";
             // 
@@ -100,11 +104,12 @@
             // 
             this.txbPrezime.BackColor = System.Drawing.Color.White;
             this.txbPrezime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txbPrezime.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbPrezime.Location = new System.Drawing.Point(37, 190);
+            this.txbPrezime.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbPrezime.Location = new System.Drawing.Point(43, 231);
+            this.txbPrezime.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txbPrezime.MaxLength = 100;
             this.txbPrezime.Name = "txbPrezime";
-            this.txbPrezime.Size = new System.Drawing.Size(191, 24);
+            this.txbPrezime.Size = new System.Drawing.Size(254, 29);
             this.txbPrezime.TabIndex = 29;
             this.txbPrezime.Validating += new System.ComponentModel.CancelEventHandler(this.TxbPrezime_Validating);
             // 
@@ -112,22 +117,24 @@
             // 
             this.txbEmail.BackColor = System.Drawing.Color.White;
             this.txbEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txbEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbEmail.Location = new System.Drawing.Point(360, 400);
+            this.txbEmail.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbEmail.Location = new System.Drawing.Point(474, 489);
+            this.txbEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txbEmail.MaxLength = 100;
             this.txbEmail.Name = "txbEmail";
-            this.txbEmail.Size = new System.Drawing.Size(191, 24);
+            this.txbEmail.Size = new System.Drawing.Size(254, 29);
             this.txbEmail.TabIndex = 27;
             this.txbEmail.Validating += new System.ComponentModel.CancelEventHandler(this.TxbEmail_Validating);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Raleway", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(357, 379);
+            this.label1.Location = new System.Drawing.Point(470, 463);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 20);
+            this.label1.Size = new System.Drawing.Size(60, 25);
             this.label1.TabIndex = 28;
             this.label1.Text = "Email";
             // 
@@ -135,22 +142,24 @@
             // 
             this.txbBrojTelefona.BackColor = System.Drawing.Color.White;
             this.txbBrojTelefona.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txbBrojTelefona.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbBrojTelefona.Location = new System.Drawing.Point(361, 313);
+            this.txbBrojTelefona.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbBrojTelefona.Location = new System.Drawing.Point(475, 382);
+            this.txbBrojTelefona.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txbBrojTelefona.MaxLength = 100;
             this.txbBrojTelefona.Name = "txbBrojTelefona";
-            this.txbBrojTelefona.Size = new System.Drawing.Size(191, 24);
+            this.txbBrojTelefona.Size = new System.Drawing.Size(254, 29);
             this.txbBrojTelefona.TabIndex = 29;
             this.txbBrojTelefona.Validating += new System.ComponentModel.CancelEventHandler(this.TxbBrojTelefona_Validating);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Raleway", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(358, 292);
+            this.label2.Location = new System.Drawing.Point(471, 356);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 20);
+            this.label2.Size = new System.Drawing.Size(120, 25);
             this.label2.TabIndex = 30;
             this.label2.Text = "Broj telefona";
             // 
@@ -159,12 +168,13 @@
             this.txbNovaSifra.BackColor = System.Drawing.Color.White;
             this.txbNovaSifra.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txbNovaSifra.CausesValidation = false;
-            this.txbNovaSifra.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbNovaSifra.Location = new System.Drawing.Point(36, 313);
+            this.txbNovaSifra.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbNovaSifra.Location = new System.Drawing.Point(42, 382);
+            this.txbNovaSifra.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txbNovaSifra.MaxLength = 100;
             this.txbNovaSifra.Name = "txbNovaSifra";
             this.txbNovaSifra.PasswordChar = '*';
-            this.txbNovaSifra.Size = new System.Drawing.Size(191, 24);
+            this.txbNovaSifra.Size = new System.Drawing.Size(254, 29);
             this.txbNovaSifra.TabIndex = 29;
             this.txbNovaSifra.Validating += new System.ComponentModel.CancelEventHandler(this.TxbNovaSifra_Validating);
             // 
@@ -172,34 +182,37 @@
             // 
             this.txbNovaSifraPotvrda.BackColor = System.Drawing.Color.White;
             this.txbNovaSifraPotvrda.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txbNovaSifraPotvrda.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbNovaSifraPotvrda.Location = new System.Drawing.Point(36, 400);
+            this.txbNovaSifraPotvrda.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbNovaSifraPotvrda.Location = new System.Drawing.Point(42, 489);
+            this.txbNovaSifraPotvrda.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txbNovaSifraPotvrda.MaxLength = 100;
             this.txbNovaSifraPotvrda.Name = "txbNovaSifraPotvrda";
             this.txbNovaSifraPotvrda.PasswordChar = '*';
-            this.txbNovaSifraPotvrda.Size = new System.Drawing.Size(191, 24);
+            this.txbNovaSifraPotvrda.Size = new System.Drawing.Size(254, 29);
             this.txbNovaSifraPotvrda.TabIndex = 29;
             this.txbNovaSifraPotvrda.Validating += new System.ComponentModel.CancelEventHandler(this.TxbNovaSifraPotvrda_Validating);
             // 
             // lblNovaSifra
             // 
             this.lblNovaSifra.AutoSize = true;
-            this.lblNovaSifra.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNovaSifra.Font = new System.Drawing.Font("Raleway", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNovaSifra.ForeColor = System.Drawing.Color.White;
-            this.lblNovaSifra.Location = new System.Drawing.Point(33, 292);
+            this.lblNovaSifra.Location = new System.Drawing.Point(38, 356);
+            this.lblNovaSifra.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNovaSifra.Name = "lblNovaSifra";
-            this.lblNovaSifra.Size = new System.Drawing.Size(79, 20);
+            this.lblNovaSifra.Size = new System.Drawing.Size(99, 25);
             this.lblNovaSifra.TabIndex = 30;
             this.lblNovaSifra.Text = "Nova sifra";
             // 
             // lblNovaSifraPotvrda
             // 
             this.lblNovaSifraPotvrda.AutoSize = true;
-            this.lblNovaSifraPotvrda.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNovaSifraPotvrda.Font = new System.Drawing.Font("Raleway", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNovaSifraPotvrda.ForeColor = System.Drawing.Color.White;
-            this.lblNovaSifraPotvrda.Location = new System.Drawing.Point(33, 379);
+            this.lblNovaSifraPotvrda.Location = new System.Drawing.Point(38, 463);
+            this.lblNovaSifraPotvrda.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNovaSifraPotvrda.Name = "lblNovaSifraPotvrda";
-            this.lblNovaSifraPotvrda.Size = new System.Drawing.Size(135, 20);
+            this.lblNovaSifraPotvrda.Size = new System.Drawing.Size(168, 25);
             this.lblNovaSifraPotvrda.TabIndex = 30;
             this.lblNovaSifraPotvrda.Text = "Potvrda nove sifre";
             // 
@@ -207,11 +220,12 @@
             // 
             this.btnSacuvaj.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(69)))), ((int)(((byte)(64)))));
             this.btnSacuvaj.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSacuvaj.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSacuvaj.Font = new System.Drawing.Font("Raleway", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSacuvaj.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnSacuvaj.Location = new System.Drawing.Point(37, 491);
+            this.btnSacuvaj.Location = new System.Drawing.Point(43, 601);
+            this.btnSacuvaj.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSacuvaj.Name = "btnSacuvaj";
-            this.btnSacuvaj.Size = new System.Drawing.Size(191, 38);
+            this.btnSacuvaj.Size = new System.Drawing.Size(255, 47);
             this.btnSacuvaj.TabIndex = 40;
             this.btnSacuvaj.Text = "Sačuvaj";
             this.btnSacuvaj.UseVisualStyleBackColor = false;
@@ -221,11 +235,12 @@
             // 
             this.btnDodajSliku.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(69)))), ((int)(((byte)(64)))));
             this.btnDodajSliku.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnDodajSliku.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDodajSliku.Font = new System.Drawing.Font("Raleway", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDodajSliku.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnDodajSliku.Location = new System.Drawing.Point(362, 213);
+            this.btnDodajSliku.Location = new System.Drawing.Point(477, 259);
+            this.btnDodajSliku.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDodajSliku.Name = "btnDodajSliku";
-            this.btnDodajSliku.Size = new System.Drawing.Size(191, 38);
+            this.btnDodajSliku.Size = new System.Drawing.Size(255, 47);
             this.btnDodajSliku.TabIndex = 41;
             this.btnDodajSliku.Text = "Dodaj sliku";
             this.btnDodajSliku.UseVisualStyleBackColor = false;
@@ -234,9 +249,10 @@
             // imgAvatar
             // 
             this.imgAvatar.Image = global::WinForms.Properties.Resources.avatar_1577909_640;
-            this.imgAvatar.Location = new System.Drawing.Point(385, 64);
+            this.imgAvatar.Location = new System.Drawing.Point(507, 76);
+            this.imgAvatar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.imgAvatar.Name = "imgAvatar";
-            this.imgAvatar.Size = new System.Drawing.Size(139, 125);
+            this.imgAvatar.Size = new System.Drawing.Size(185, 154);
             this.imgAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imgAvatar.TabIndex = 42;
             this.imgAvatar.TabStop = false;
@@ -251,7 +267,7 @@
             // 
             // uctPostavke
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(19)))), ((int)(((byte)(54)))));
             this.Controls.Add(this.imgAvatar);
@@ -270,8 +286,9 @@
             this.Controls.Add(this.lblIme);
             this.Controls.Add(this.txbIme);
             this.Controls.Add(this.lblHeading);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "uctPostavke";
-            this.Size = new System.Drawing.Size(1127, 566);
+            this.Size = new System.Drawing.Size(1503, 697);
             this.Load += new System.EventHandler(this.UctPostavke_Load);
             ((System.ComponentModel.ISupportInitialize)(this.imgAvatar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();

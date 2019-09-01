@@ -9,39 +9,40 @@
              x:Class="XamarinForms.Views.KartaPage"
              Title="{Binding Narudzba.Termin.Predstava.Naziv, StringFormat='Karta za predstavu - {0}'}">
 
-  <ContentPage.BindingContext>
-    <viewModels:KartaViewModel></viewModels:KartaViewModel>
-  </ContentPage.BindingContext>
+    <ContentPage.BindingContext>
+        <viewModels:KartaViewModel></viewModels:KartaViewModel>
+    </ContentPage.BindingContext>
 
-  <ContentPage.Resources>
-    <convertor:BoolToStringConverter x:Key="IsSkeniranaConvert" FalseText="" TrueText="Karta je iskorištena"/>
-  </ContentPage.Resources>
+    <ContentPage.Resources>
+        <convertor:BoolToStringConverter x:Key="IsSkeniranaConvert" FalseText="" TrueText="Karta je iskorištena"/>
+    </ContentPage.Resources>
 
-  <ContentPage.Content>
-    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+    <ContentPage.Content>
 
-      <Label Text="{Binding Narudzba.Termin.Predstava.Naziv, StringFormat='Karta za predstavu {0}'}" Style="{StaticResource ETeatarHeader1}"></Label>
-      <BoxView Style="{StaticResource ETeatarTitleSeparator}"></BoxView>
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+            <!-- Detalji karte -->
+            <Label Text="{Binding Narudzba.Termin.Predstava.Naziv, StringFormat='Karta za predstavu {0}'}" Style="{StaticResource ETeatarHeader1}"></Label>
+            <BoxView Style="{StaticResource ETeatarTitleSeparator}"></BoxView>
 
-      <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
-        <Label Text="{Binding Narudzba.Termin.Dvorana.Teatar.Grad.Naziv, StringFormat='{0:},'}"/>
-        <Label Text="{Binding Narudzba.Termin.Dvorana.Teatar.Naziv}" FontAttributes="Bold"/>
-      </StackLayout>
+            <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
+                <Label Text="{Binding Narudzba.Termin.Dvorana.Teatar.Grad.Naziv, StringFormat='{0:},'}"/>
+                <Label Text="{Binding Narudzba.Termin.Dvorana.Teatar.Naziv}" FontAttributes="Bold"/>
+            </StackLayout>
 
-      <Label Text="{Binding Narudzba.Termin.DatumVrijeme, StringFormat='{0:dd.MM.yyyy HH:mm}'}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+            <Label Text="{Binding Narudzba.Termin.DatumVrijeme, StringFormat='{0:dd.MM.yyyy HH:mm}'}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
 
-      <StackLayout Margin="0, 0, 0, 40" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
-        <Label Text="{Binding Narudzba.Kolicina,StringFormat='Na ovu kartu može ući {0} osoba'}" FontAttributes="Bold" HorizontalTextAlignment="Center" TextColor="{StaticResource ETeatarDarkPurple}"/>
-        <Label Text="{Binding Narudzba.TipSjedista.Naziv, StringFormat='({0:})'}" HorizontalTextAlignment="Center"/>
-      </StackLayout>
+            <StackLayout Margin="0, 0, 0, 40" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
+                <Label Text="{Binding Narudzba.Kolicina,StringFormat='Na ovu kartu može ući {0} osoba'}" FontAttributes="Bold" HorizontalTextAlignment="Center" TextColor="{StaticResource ETeatarDarkPurple}"/>
+                <Label Text="{Binding Narudzba.TipSjedista.Naziv, StringFormat='({0:})'}" HorizontalTextAlignment="Center"/>
+            </StackLayout>
 
+            <!-- Kod za skeniranje -->
+            <Label Text="Kod za skeniranje" Style="{StaticResource ETeatarHeader3}"></Label>
+            <BoxView Style="{StaticResource ETeatarTitleSeparator}"></BoxView>
+            <Label HorizontalOptions="CenterAndExpand" FontSize="12" Text="{Binding Narudzba.IsSkenirana, Converter={StaticResource IsSkeniranaConvert}}"></Label>
+            <StackLayout x:Name="QrKarta">
+            </StackLayout>
 
-      <Label Text="Kod za skeniranje" Style="{StaticResource ETeatarHeader3}"></Label>
-      <BoxView Style="{StaticResource ETeatarTitleSeparator}"></BoxView>
-      <Label HorizontalOptions="CenterAndExpand" FontSize="12" Text="{Binding Narudzba.IsSkenirana, Converter={StaticResource IsSkeniranaConvert}}"></Label>
-      <StackLayout x:Name="QrKarta">
-      </StackLayout>
-
-    </StackLayout>
-  </ContentPage.Content>
+        </StackLayout>
+    </ContentPage.Content>
 </ContentPage>

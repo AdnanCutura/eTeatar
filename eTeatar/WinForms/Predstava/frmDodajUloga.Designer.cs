@@ -44,7 +44,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Raleway", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(30, 19);
             this.label1.Name = "label1";
@@ -57,7 +57,7 @@
             this.lblClose.AutoSize = true;
             this.lblClose.BackColor = System.Drawing.Color.Transparent;
             this.lblClose.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 19F);
+            this.lblClose.Font = new System.Drawing.Font("Raleway", 19F);
             this.lblClose.ForeColor = System.Drawing.Color.White;
             this.lblClose.Location = new System.Drawing.Point(525, 14);
             this.lblClose.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -71,7 +71,7 @@
             // 
             this.lblWinDown.AutoSize = true;
             this.lblWinDown.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblWinDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 19F);
+            this.lblWinDown.Font = new System.Drawing.Font("Raleway", 19F);
             this.lblWinDown.ForeColor = System.Drawing.Color.White;
             this.lblWinDown.Location = new System.Drawing.Point(493, 14);
             this.lblWinDown.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -96,7 +96,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Raleway", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(227, 92);
             this.label2.Name = "label2";
@@ -108,7 +108,7 @@
             // 
             this.txbNaziv.BackColor = System.Drawing.Color.White;
             this.txbNaziv.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txbNaziv.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbNaziv.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbNaziv.Location = new System.Drawing.Point(181, 115);
             this.txbNaziv.MaxLength = 100;
             this.txbNaziv.Name = "txbNaziv";
@@ -118,7 +118,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Raleway", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(237, 160);
             this.label3.Name = "label3";
@@ -138,7 +138,7 @@
             // 
             this.chbGlavnaUloga.AutoSize = true;
             this.chbGlavnaUloga.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.chbGlavnaUloga.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.chbGlavnaUloga.Font = new System.Drawing.Font("Raleway", 12F);
             this.chbGlavnaUloga.ForeColor = System.Drawing.Color.White;
             this.chbGlavnaUloga.Location = new System.Drawing.Point(220, 234);
             this.chbGlavnaUloga.Name = "chbGlavnaUloga";
@@ -151,7 +151,7 @@
             // 
             this.btnSacuvaj.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(69)))), ((int)(((byte)(64)))));
             this.btnSacuvaj.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSacuvaj.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSacuvaj.Font = new System.Drawing.Font("Raleway", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSacuvaj.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnSacuvaj.Location = new System.Drawing.Point(181, 281);
             this.btnSacuvaj.Name = "btnSacuvaj";

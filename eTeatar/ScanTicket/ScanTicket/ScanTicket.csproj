@@ -21,8 +21,4 @@
   <ItemGroup>
     <ProjectReference Include="..\..\DataTransferObjects\DataTransferObjects.csproj" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="ViewModels\" />
-  </ItemGroup>
 </Project>

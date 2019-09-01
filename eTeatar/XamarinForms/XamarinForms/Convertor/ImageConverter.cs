@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
-using System.Text;
 using Xamarin.Forms;
 
 namespace XamarinForms.Convertor
@@ -33,7 +31,8 @@ namespace XamarinForms.Convertor
                 {
                     ms.Write(buffer, 0, read);
                 }
-                return ms.ToArray();
+                byte[] picture =  ms.ToArray();
+                return picture;
             }
         }
 

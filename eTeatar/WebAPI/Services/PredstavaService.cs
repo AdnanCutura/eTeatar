@@ -2,7 +2,6 @@
 using DataTransferObjects;
 using DataTransferObjects.Requests;
 using Repository;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using WebAPI.Services.Interfaces;
@@ -55,7 +54,11 @@ namespace WebAPI.Services
 
         public List<Predstava> GetPreporucene(string predstavaId)
         {
-            return Mapper.Map<List<DataTransferObjects.Predstava>>(_repo.GetPreporucene(predstavaId));
+            var preporucene = Mapper.Map<List<DataTransferObjects.Predstava>>(_repo.GetPreporucene(predstavaId));
+            foreach (var item in preporucene)
+                item.Ocjena = _ocjenaService.Get(new OcjenaSearchRequest { PredstavaId = item.Id })?.Average(a => a?.Vrijednost) ?? 0;
+
+            return preporucene;
         }
     }
 }

@@ -132,5 +132,6 @@ namespace WinForms.Dvorane
         {
             _validator.NullCheck(cmbTeatar, e);
         }
+     
     }
 }

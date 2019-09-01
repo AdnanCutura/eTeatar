@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(uctTerminiPredstave));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.searchIcon = new System.Windows.Forms.PictureBox();
             this.btnDodajTermin = new System.Windows.Forms.Button();
             this.dgvTermin = new System.Windows.Forms.DataGridView();
@@ -60,11 +60,12 @@
             // searchIcon
             // 
             this.searchIcon.Image = ((System.Drawing.Image)(resources.GetObject("searchIcon.Image")));
-            this.searchIcon.Location = new System.Drawing.Point(861, 50);
-            this.searchIcon.MaximumSize = new System.Drawing.Size(10, 10);
-            this.searchIcon.MinimumSize = new System.Drawing.Size(20, 20);
+            this.searchIcon.Location = new System.Drawing.Point(1148, 75);
+            this.searchIcon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.searchIcon.MaximumSize = new System.Drawing.Size(13, 12);
+            this.searchIcon.MinimumSize = new System.Drawing.Size(27, 25);
             this.searchIcon.Name = "searchIcon";
-            this.searchIcon.Size = new System.Drawing.Size(20, 20);
+            this.searchIcon.Size = new System.Drawing.Size(27, 25);
             this.searchIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.searchIcon.TabIndex = 66;
             this.searchIcon.TabStop = false;
@@ -73,11 +74,12 @@
             // 
             this.btnDodajTermin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(69)))), ((int)(((byte)(64)))));
             this.btnDodajTermin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnDodajTermin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDodajTermin.Font = new System.Drawing.Font("Raleway", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDodajTermin.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnDodajTermin.Location = new System.Drawing.Point(34, 500);
+            this.btnDodajTermin.Location = new System.Drawing.Point(45, 628);
+            this.btnDodajTermin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDodajTermin.Name = "btnDodajTermin";
-            this.btnDodajTermin.Size = new System.Drawing.Size(197, 38);
+            this.btnDodajTermin.Size = new System.Drawing.Size(263, 47);
             this.btnDodajTermin.TabIndex = 64;
             this.btnDodajTermin.Text = "Dodaj novi termin";
             this.btnDodajTermin.UseVisualStyleBackColor = false;
@@ -85,18 +87,18 @@
             // 
             // dgvTermin
             // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(249)))));
-            this.dgvTermin.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(249)))));
+            this.dgvTermin.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvTermin.AutoGenerateColumns = false;
             this.dgvTermin.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTermin.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Raleway", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTermin.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvTermin.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTermin.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
@@ -105,20 +107,21 @@
             this.Izbrisi,
             this.Id});
             this.dgvTermin.DataSource = this.terminBindingSource;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTermin.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Raleway", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTermin.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvTermin.GridColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dgvTermin.Location = new System.Drawing.Point(34, 117);
+            this.dgvTermin.Location = new System.Drawing.Point(45, 157);
+            this.dgvTermin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvTermin.Name = "dgvTermin";
             this.dgvTermin.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvTermin.RowHeadersWidth = 51;
-            this.dgvTermin.Size = new System.Drawing.Size(849, 377);
+            this.dgvTermin.Size = new System.Drawing.Size(1132, 464);
             this.dgvTermin.TabIndex = 63;
             this.dgvTermin.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvTermin_CellClick);
             // 
@@ -126,20 +129,26 @@
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
             this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
             this.idDataGridViewTextBoxColumn.Visible = false;
+            this.idDataGridViewTextBoxColumn.Width = 125;
             // 
             // datumVrijemeDataGridViewTextBoxColumn
             // 
             this.datumVrijemeDataGridViewTextBoxColumn.DataPropertyName = "DatumVrijeme";
             this.datumVrijemeDataGridViewTextBoxColumn.HeaderText = "Datum i vrijeme";
+            this.datumVrijemeDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.datumVrijemeDataGridViewTextBoxColumn.Name = "datumVrijemeDataGridViewTextBoxColumn";
+            this.datumVrijemeDataGridViewTextBoxColumn.Width = 125;
             // 
             // baznaCijenaKarteDataGridViewTextBoxColumn
             // 
             this.baznaCijenaKarteDataGridViewTextBoxColumn.DataPropertyName = "BaznaCijenaKarte";
             this.baznaCijenaKarteDataGridViewTextBoxColumn.HeaderText = "Bazna cijena karte";
+            this.baznaCijenaKarteDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.baznaCijenaKarteDataGridViewTextBoxColumn.Name = "baznaCijenaKarteDataGridViewTextBoxColumn";
+            this.baznaCijenaKarteDataGridViewTextBoxColumn.Width = 125;
             // 
             // Izbrisi
             // 
@@ -155,8 +164,10 @@
             // 
             this.Id.DataPropertyName = "Id";
             this.Id.HeaderText = "Id";
+            this.Id.MinimumWidth = 6;
             this.Id.Name = "Id";
             this.Id.Visible = false;
+            this.Id.Width = 125;
             // 
             // terminBindingSource
             // 
@@ -165,32 +176,35 @@
             // lblHeading
             // 
             this.lblHeading.AutoSize = true;
-            this.lblHeading.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHeading.Font = new System.Drawing.Font("Raleway", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHeading.ForeColor = System.Drawing.Color.White;
-            this.lblHeading.Location = new System.Drawing.Point(29, 24);
+            this.lblHeading.Location = new System.Drawing.Point(39, 43);
+            this.lblHeading.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblHeading.Name = "lblHeading";
-            this.lblHeading.Size = new System.Drawing.Size(208, 29);
+            this.lblHeading.Size = new System.Drawing.Size(251, 36);
             this.lblHeading.TabIndex = 65;
             this.lblHeading.Text = "Termini predstave";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Raleway", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(687, 51);
+            this.label2.Location = new System.Drawing.Point(916, 76);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(147, 20);
+            this.label2.Size = new System.Drawing.Size(182, 25);
             this.label2.TabIndex = 69;
             this.label2.Text = "Pretraga po dvorani";
             // 
             // cmbDvorana
             // 
-            this.cmbDvorana.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbDvorana.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbDvorana.FormattingEnabled = true;
-            this.cmbDvorana.Location = new System.Drawing.Point(692, 78);
+            this.cmbDvorana.Location = new System.Drawing.Point(923, 109);
+            this.cmbDvorana.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbDvorana.Name = "cmbDvorana";
-            this.cmbDvorana.Size = new System.Drawing.Size(191, 26);
+            this.cmbDvorana.Size = new System.Drawing.Size(253, 32);
             this.cmbDvorana.TabIndex = 70;
             // 
             // obavijestBindingSource
@@ -209,11 +223,12 @@
             // 
             this.lblBackPredstava.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(69)))), ((int)(((byte)(64)))));
             this.lblBackPredstava.AutoSize = true;
-            this.lblBackPredstava.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblBackPredstava.Font = new System.Drawing.Font("Raleway", 12F);
             this.lblBackPredstava.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(69)))), ((int)(((byte)(64)))));
-            this.lblBackPredstava.Location = new System.Drawing.Point(31, 59);
+            this.lblBackPredstava.Location = new System.Drawing.Point(41, 86);
+            this.lblBackPredstava.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBackPredstava.Name = "lblBackPredstava";
-            this.lblBackPredstava.Size = new System.Drawing.Size(151, 20);
+            this.lblBackPredstava.Size = new System.Drawing.Size(187, 25);
             this.lblBackPredstava.TabIndex = 71;
             this.lblBackPredstava.TabStop = true;
             this.lblBackPredstava.Text = "Nazad na predstave";
@@ -222,7 +237,7 @@
             // 
             // uctTerminiPredstave
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(19)))), ((int)(((byte)(54)))));
             this.Controls.Add(this.lblBackPredstava);
@@ -232,8 +247,9 @@
             this.Controls.Add(this.btnDodajTermin);
             this.Controls.Add(this.dgvTermin);
             this.Controls.Add(this.lblHeading);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "uctTerminiPredstave";
-            this.Size = new System.Drawing.Size(913, 562);
+            this.Size = new System.Drawing.Size(1217, 692);
             this.Load += new System.EventHandler(this.UctTerminiPredstave_Load);
             ((System.ComponentModel.ISupportInitialize)(this.searchIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTermin)).EndInit();
