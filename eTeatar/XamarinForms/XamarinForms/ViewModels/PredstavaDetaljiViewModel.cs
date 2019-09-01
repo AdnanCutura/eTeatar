@@ -13,6 +13,7 @@ namespace XamarinForms.ViewModels
     {
         private readonly APIService _serviceUloga;
         private readonly APIService _serviceNarudzba;
+        private readonly APIService _servicePredstava;
         private readonly APIService _servicePreporucenePredstave;
 
         private string _zanrovi;
@@ -32,19 +33,25 @@ namespace XamarinForms.ViewModels
 
         public ObservableCollection<Uloga> Uloge { get; set; }
         public ObservableCollection<Predstava> PreporucenePredstave { get; set; }
-        public Predstava Predstava { get; set; }
+        private Predstava _predstava;
+        public Predstava Predstava { get { return _predstava; } set { SetProperty(ref _predstava, value); } }
 
-        public PredstavaDetaljiViewModel()
+        private string _predstavaId;
+
+        public PredstavaDetaljiViewModel(string id)
         {
+            _predstavaId = id;
             Uloge = new ObservableCollection<Uloga>();
             PreporucenePredstave = new ObservableCollection<Predstava>();
 
             _serviceUloga = new APIService("Uloga");
             _serviceNarudzba = new APIService("Narudzba");
             _servicePreporucenePredstave = new APIService("Predstava/GetPreporucene");
+            _servicePredstava = new APIService("Predstava");
 
 
             InitCommand = new Command(async () => await Init());
+            InitCommand.Execute(null);
             IsVisible = false;
         }
 
@@ -55,6 +62,8 @@ namespace XamarinForms.ViewModels
         /// </summary>
         private async Task Init()
         {
+            Predstava = await _servicePredstava.GetById<Predstava>(_predstavaId);
+
             Zanrovi = string.Join(", ", Predstava.Zanrovi.Select(z => z.Naziv).ToList());
             try
             {

@@ -8,11 +8,6 @@
              mc:Ignorable="d"
              x:Class="XamarinForms.Views.ObavijestDetaljiPage"
              Title="{Binding Obavijest.Naslov, StringFormat='Obavijest - {0}'}">
-
-    <ContentPage.BindingContext>
-        <viewModels:ObavijestDetaljiViewModel></viewModels:ObavijestDetaljiViewModel>
-    </ContentPage.BindingContext>
-
     <ContentPage.Resources>
         <convertor:ImageConverter x:Key="ImgConvert"/>
     </ContentPage.Resources>

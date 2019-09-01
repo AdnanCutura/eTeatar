@@ -13,20 +13,26 @@ namespace XamarinForms.ViewModels
     public class ObavijestDetaljiViewModel : BaseViewModel
     {
         private readonly APIService _serviceKomentar;
+        private readonly APIService _serviceObavijest;
 
-        public Obavijest Obavijest { get; set; }
+        private Obavijest _obavijest;
+        public Obavijest Obavijest { get => _obavijest; set => SetProperty(ref _obavijest, value); }
         public Kupac Kupac { get; set; }
 
         private string _komentar;
-        public string Komentar {
+        public string Komentar
+        {
             get => _komentar;
             set => SetProperty(ref _komentar, value);
         }
 
         private int _brojKomentara;
-        public int BrojKomentara {
+
+        public int BrojKomentara
+        {
             get => _brojKomentara;
-            set {
+            set
+            {
                 SetProperty(ref _brojKomentara, value);
                 OnPropertyChanged();
             }
@@ -34,25 +40,33 @@ namespace XamarinForms.ViewModels
 
         public ObservableCollection<Komentar> Komentari { get; set; }
 
-        public ObavijestDetaljiViewModel()
+        private string _obavijestId { get; set; }
+
+        public ObavijestDetaljiViewModel(string id)
         {
+            _obavijestId = id;
             Kupac = Helpers.KupacData.Get();
             Komentar = string.Empty;
             Komentari = new ObservableCollection<Komentar>();
             _serviceKomentar = new APIService("Komentar");
+            _serviceObavijest = new APIService("Obavijest");
 
             InitCommand = new Command(async () => await Init());
             NoviKomentarCommand = new Command(async () => await NoviKomentar());
+
+            InitCommand.Execute(null);
         }
 
         public ICommand NoviKomentarCommand { get; set; }
         public ICommand InitCommand { get; set; }
-        
+
         /// <summary>
         /// Metoda za inicijalno učitavanje komentara
         /// </summary>
         private async Task Init()
         {
+            Obavijest = await _serviceObavijest.GetById<Obavijest>(_obavijestId);
+
             if (!Komentari.Any())
                 await LoadKomentare();
 

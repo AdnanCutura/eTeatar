@@ -31,7 +31,6 @@ namespace XamarinForms.ViewModels
 
             InitCommand = new Command(async () => await Init());
             SelectedCommand = new Command(async (o) => await Selected(o as string));
-            InitCommand.Execute(null);
         }
 
         public ICommand InitCommand { get; set; }

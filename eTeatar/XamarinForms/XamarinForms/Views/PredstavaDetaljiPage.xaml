@@ -10,7 +10,6 @@
              Title="{Binding Predstava.Naziv, StringFormat='Predstava - {0}'}">
 
   <ContentPage.BindingContext>
-    <viewModels:PredstavaDetaljiViewModel/>
   </ContentPage.BindingContext>
 
   <ContentPage.Resources>

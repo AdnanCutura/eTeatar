@@ -14,34 +14,16 @@ namespace XamarinForms.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PredstavaDetaljiPage : ContentPage
     {
-        private readonly APIService _predstavaService;
-        private PredstavaDetaljiViewModel _model;
+        //private readonly APIService _predstavaService;
+        public PredstavaDetaljiViewModel _model;
 
         public PredstavaDetaljiPage(string id)
         {
-            _predstavaService = new APIService("Predstava");
+            //_predstavaService = new APIService("Predstava");
+            BindingContext = _model = new PredstavaDetaljiViewModel(id);
             InitializeComponent();
-            InitCommand = new Command(async () => await Init(id));
-            InitCommand.Execute(null);
-        }
-
-        public ICommand InitCommand { get; set; }
-
-        public async Task Init(string id)
-        {
-            try
-            {
-                var item = await _predstavaService.GetById<Predstava>(id);
-                BindingContext = _model = new PredstavaDetaljiViewModel
-                {
-                    Predstava = item
-                };
-                _model.InitCommand.Execute(null);
-            }
-            catch
-            {
-                // ignored
-            }
+            //InitCommand = new Command(async () => await Init(id));
+            //InitCommand.Execute(null);
         }
 
         private void PredstavaDetalji(object sender, SelectedItemChangedEventArgs e)

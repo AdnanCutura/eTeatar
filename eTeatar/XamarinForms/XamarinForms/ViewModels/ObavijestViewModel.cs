@@ -28,7 +28,6 @@ namespace XamarinForms.ViewModels
         public async Task Selected(object o)
         {
             string Id = o as string;
-            //ObavijestDetailsPage
             await _navigation.PushAsync(new ObavijestDetaljiPage(Id));
         }
 
