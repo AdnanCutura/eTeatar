@@ -13,6 +13,8 @@
     <ContentPage.Content>
 
         <StackLayout HorizontalOptions="FillAndExpand" Padding="10" VerticalOptions="CenterAndExpand">
+
+            <!-- Prijava -->
             <Label Text="Prijava na eTeatar" Style="{StaticResource ETeatarHeader1}"></Label>
             <BoxView Style="{StaticResource ETeatarTitleSeparator}"></BoxView>
 
@@ -23,14 +25,13 @@
             <Entry Text="{Binding Password}" IsPassword="true"></Entry>
 
             <Button Command="{Binding LoginCommand}" Text="Prijava" Style="{StaticResource ETeatarBtn}"></Button>
-            <ActivityIndicator IsRunning="{Binding IsBusy}"></ActivityIndicator>
+            <ActivityIndicator Margin="0, 15, 0, 0"  IsRunning="{Binding IsBusy}"></ActivityIndicator>
 
+            <!-- Registracija -->
             <Label Margin="0, 15, 0, 0" Text="Nemate korisnički profil?"></Label>
             <Button Text="Registrujte se" Command="{Binding RegistracijaCommand}" Style="{StaticResource ETeatarBtn}"></Button>
 
         </StackLayout>
-
-
 
     </ContentPage.Content>
 </ContentPage>

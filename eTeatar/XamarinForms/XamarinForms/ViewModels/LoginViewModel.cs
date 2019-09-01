@@ -35,8 +35,15 @@ namespace XamarinForms.ViewModels
         public Command RegistracijaCommand { get; set; }
         public Command LoginCommand { get; set; }
 
+
+        /// <summary>
+        /// Metoda za otvaranje stranice za registraciju
+        /// </summary>
         private void Registracija() => Application.Current.MainPage = new RegistracijaPage();
 
+        /// <summary>
+        /// Metoda za prijavu korisnika
+        /// </summary>
         private async Task Login()
         {
             IsBusy = true;
@@ -46,17 +53,11 @@ namespace XamarinForms.ViewModels
 
             try
             {
-
                 var list = await _kupacService.Get<List<DataTransferObjects.Kupac>>(null);
                 KupacData.Set(list.FirstOrDefault(w => w.KorisnickoIme == _username));
                 LoginCommand.ChangeCanExecute();
                 IsBusy = false;
                 Application.Current.MainPage = new MainPage();
-
-                //else
-                //{
-                //    await Application.Current.MainPage.DisplayAlert("Greška", "Podaci nisu ispravni!", "OK");
-                //}
             }
             catch
             {

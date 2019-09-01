@@ -32,14 +32,18 @@
             </Style>
 
             <!-- Button style -->
+            <Style x:Key="ETeatarBtnSecondary" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#ffffff"/>
+                <Setter Property="BorderColor" Value="{StaticResource ETeatarDarkPurple}"/>
+                <Setter Property="BorderWidth" Value="3"/>
+                <Setter Property="TextColor" Value="{StaticResource ETeatarDarkPurple}"/>
+            </Style>
+
             <Style x:Key="ETeatarBtn" TargetType="Button">
                 <Setter Property="BackgroundColor" Value="{StaticResource ETeatarDarkPurple}"/>
                 <Setter Property="TextColor" Value="#ffffff"/>
                 <Setter Property="BorderRadius" Value="5"/>
-                <!--<Setter Property="HorizontalOptions" Value="CenterAndExpand" />
-                <Setter Property="VerticalOptions" Value="CenterAndExpand" />-->
             </Style>
-
             <!-- Header 1 style -->
             <Style x:Key="ETeatarHeader1" TargetType="Label">
                 <Setter Property="TextColor" Value="{StaticResource ETeatarDarkPurple}"/>
