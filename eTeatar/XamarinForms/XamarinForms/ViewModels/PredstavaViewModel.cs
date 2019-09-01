@@ -32,10 +32,15 @@ namespace XamarinForms.ViewModels
 
             InitCommand = new Command(async () => await Init());
             SelectedCommand = new Command(async (o) => await Selected(o as string));
+            WorkAround = new Command(async () => await Workaround());
+
+            InitCommand.Execute(null);
+            WorkAround.Execute(null);
         }
 
         public ICommand InitCommand { get; set; }
         public ICommand SelectedCommand { get; set; }
+        public ICommand WorkAround { get; set; }
 
         public async Task Selected(string Id) => await _navigation.PushAsync(new PredstavaDetaljiPage(Id));
 
@@ -50,7 +55,10 @@ namespace XamarinForms.ViewModels
                 }
             }
             catch { }
+        }
 
+        public async Task Workaround()
+        {
             await Task.Delay(1000);
             await _navigation.PushAsync(new Workaround());
             await _navigation.PopAsync();

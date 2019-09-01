@@ -19,13 +19,18 @@ namespace XamarinForms.Views
         public PredstavePage(PredstavaSearchRequest search = null)
         {
             BindingContext = model = new PredstavaViewModel(search, Navigation);
-            model.InitCommand.Execute(null);
             InitializeComponent();
         }
 
         private async void Search(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new PredstavaSearchView(model._search));
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            model.WorkAround.Execute(null);
         }
     }
 }

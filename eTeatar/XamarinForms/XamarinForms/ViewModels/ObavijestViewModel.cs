@@ -18,6 +18,7 @@ namespace XamarinForms.ViewModels
         public ObservableCollection<DataTransferObjects.Obavijest> ObavijestList { get { return _obavijestList; } set {SetProperty(ref _obavijestList, value); } }
         public ICommand Init { get; private set; }
         public ICommand SelectedCommand { get; private set; }
+        public ICommand WorkAround { get; set; }
 
         public ObavijestViewModel(INavigation Navigation)
         {
@@ -25,6 +26,8 @@ namespace XamarinForms.ViewModels
             Init = new Command(async () => await Initialize());
             SelectedCommand = new Command<object>(async (o) => await Selected(o));
             Init.Execute(null);
+            WorkAround = new Command(async () => await Workaround());
+            WorkAround.Execute(null);
             _navigation = Navigation;
         }
 
@@ -47,6 +50,13 @@ namespace XamarinForms.ViewModels
             }
             catch {}
 
+            await Task.Delay(1000);
+            await _navigation.PushAsync(new Workaround());
+            await _navigation.PopAsync();
+        }
+
+        public async Task Workaround()
+        {
             await Task.Delay(1000);
             await _navigation.PushAsync(new Workaround());
             await _navigation.PopAsync();
