@@ -29,7 +29,7 @@
 
                         <Image Grid.Column="0" 
                                Grid.Row="0" 
-                               Source="{Binding Slika, Converter={StaticResource ImgConvert}}"
+                               Source="{Binding Predstava.Slika, Converter={StaticResource ImgConvert}}"
                                Aspect="AspectFill"/>
                         <Image Grid.Column="0" 
                                Grid.Row="0" 
@@ -42,12 +42,26 @@
                                    BackgroundColor="White"
                                    Padding="0"
                                    Margin="45,0,45,50">
-                                <Label Text="{Binding Ocjena, Converter={StaticResource Key='RatingToStars'}, ConverterParameter='N/A'}" 
+                                <Label Text="{Binding Predstava.Ocjena, Converter={StaticResource Key='RatingToStars'}, ConverterParameter='N/A'}" 
                                        TextColor="Black"  FontSize="Large"
                                        HorizontalOptions="CenterAndExpand"/>
                             </Frame>
 
-                            <Label Text="{Binding Naziv}" 
+                            <Label Text="{Binding DatumVrijeme, StringFormat='{0:dd.MM.yyyy}'}" 
+                                   LineBreakMode="TailTruncation" 
+                                   TextColor="White" 
+                                   FontAttributes="Bold" 
+                                   FontSize="Medium" 
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="End"/>
+                            <Label Text="{Binding DatumVrijeme, StringFormat='{0:hh:mm}'}" 
+                                   LineBreakMode="TailTruncation" 
+                                   TextColor="White" 
+                                   FontAttributes="Bold" 
+                                   FontSize="Medium" 
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="End"/>
+                            <Label Text="{Binding Predstava.Naziv}" 
                                    LineBreakMode="TailTruncation" 
                                    TextColor="White" 
                                    FontAttributes="Bold" 
@@ -55,55 +69,7 @@
                                    HorizontalTextAlignment="Center"
                                    VerticalTextAlignment="End"/>
                         </StackLayout>
-                        <Button Command="{Binding Path=BindingContext.SelectedPredstavaCommand, Source={x:Reference Name=Home}}" CommandParameter="{Binding Id }"/>
-                    </Grid>
-                </ContentPage>
-            </DataTemplate>
-        </CarouselPage.ItemTemplate>
-    </CarouselPage>
-
-    <CarouselPage Title="Preporuceno" ItemsSource="{Binding Preporucene}">
-        <CarouselPage.ItemTemplate>
-            <DataTemplate>
-                <ContentPage Padding="0">
-                    <Grid Margin="0">
-
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-
-                        <Image Grid.Column="0" 
-                               Grid.Row="0" 
-                               Source="{Binding Slika, Converter={StaticResource ImgConvert}}"
-                               Aspect="AspectFill"/>
-                        <Image Grid.Column="0" 
-                               Grid.Row="0" 
-                               Source="gradient.png" 
-                               Aspect="Fill" />
-                        <StackLayout Grid.Column="0" 
-                                     Grid.Row="0" 
-                                     VerticalOptions="End">
-                            <Frame CornerRadius="12"
-                                   BackgroundColor="White"
-                                   Padding="0"
-                                   Margin="45,0,45,50">
-                                <Label Text="{Binding Ocjena, Converter={StaticResource Key='RatingToStars'}, ConverterParameter='N/A'}" 
-                                       TextColor="Black"  FontSize="Large"
-                                       HorizontalOptions="CenterAndExpand"/>
-                            </Frame>
-
-                            <Label Text="{Binding Naziv}" 
-                                   LineBreakMode="TailTruncation" 
-                                   TextColor="White" 
-                                   FontAttributes="Bold" 
-                                   FontSize="Large" 
-                                   HorizontalTextAlignment="Center"
-                                   VerticalTextAlignment="End"/>
-                        </StackLayout>
-                        <Button Command="{Binding Path=BindingContext.SelectedPredstavaCommand, Source={x:Reference Name=Home}}" CommandParameter="{Binding Id }"/>
+                        <Button Command="{Binding Path=BindingContext.SelectedPredstavaCommand, Source={x:Reference Name=Home}}" CommandParameter="{Binding Predstava.Id }"/>
                     </Grid>
                 </ContentPage>
             </DataTemplate>
