@@ -48,7 +48,7 @@ namespace WebAPI.Services
             var obj = Repository.GetById(id);
             Mapper.Map(request, obj);
             obj.Uloge = null;
-            obj.Termini = null;
+            //obj.Termini = null;
             return Mapper.Map<DataTransferObjects.Predstava>(Repository.Update(obj));
         }
 
