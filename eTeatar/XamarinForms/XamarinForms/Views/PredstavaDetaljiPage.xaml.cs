@@ -17,12 +17,9 @@ namespace XamarinForms.Views
         private readonly APIService _predstavaService;
         private PredstavaDetaljiViewModel _model;
 
-        private readonly string _predstavaId;
-        
         public PredstavaDetaljiPage(string id)
         {
             _predstavaService = new APIService("Predstava");
-            _predstavaId = id;
             InitializeComponent();
             InitCommand = new Command(async () => await Init(id));
             InitCommand.Execute(null);
@@ -45,6 +42,12 @@ namespace XamarinForms.Views
             {
                 // ignored
             }
+        }
+
+        private void PredstavaDetalji(object sender, SelectedItemChangedEventArgs e)
+        {
+            var predstava = (Predstava)e.SelectedItem;
+            Navigation.PushModalAsync(new PredstavaDetaljiPage(predstava.Id));
         }
     }
 }

@@ -8,147 +8,101 @@
              x:Class="XamarinForms.Views.HomePage"
             Padding="0"
             x:Name="Home"
-            Title="Pocetna">
-    <TabbedPage.Resources>
-        <convertor:ImageConverter x:Key="ImgConvert"/>
-        <convertor:RatingToStarsConverter x:Key="RatingToStars"/>
-    </TabbedPage.Resources>
+            Title="Početna">
+  <TabbedPage.Resources>
+    <convertor:ImageConverter x:Key="ImgConvert"/>
+    <convertor:RatingToStarsConverter x:Key="RatingToStars"/>
+  </TabbedPage.Resources>
 
-    <CarouselPage Title="Igraju uskoro" ItemsSource="{Binding IgrajuUskoro}" Padding="0">
-        <CarouselPage.ItemTemplate>
-            <DataTemplate>
-                <ContentPage Padding="0">
-                    <Grid Margin="0">
+  <!-- Igraju uskoro-->
+  <CarouselPage Title="Igraju uskoro" ItemsSource="{Binding IgrajuUskoro}" Padding="0">
+    <CarouselPage.ItemTemplate>
+      <DataTemplate>
+        <ContentPage Padding="0">
+          <Grid Margin="0">
 
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+              <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
-                        <Image Grid.Column="0" 
-                               Grid.Row="0" 
-                               Source="{Binding Slika, Converter={StaticResource ImgConvert}}"
-                               Aspect="AspectFill"/>
-                        <Image Grid.Column="0" 
-                               Grid.Row="0" 
-                               Source="gradient.png" 
-                               Aspect="Fill" />
-                        <StackLayout Grid.Column="0" 
-                                     Grid.Row="0" 
-                                     VerticalOptions="End">
-                            <Frame CornerRadius="12"
-                                   BackgroundColor="White"
-                                   Padding="0"
-                                   Margin="45,0,45,50">
-                                <Label Text="{Binding Ocjena, Converter={StaticResource Key='RatingToStars'}, ConverterParameter='N/A'}" 
-                                       TextColor="Black"  FontSize="Large"
-                                       HorizontalOptions="CenterAndExpand"/>
-                            </Frame>
+            <Image Grid.Column="0"
+                   Grid.Row="0"
+                   Source="{Binding Slika, Converter={StaticResource ImgConvert}}"
+                   Aspect="AspectFill"/>
+            <Image Grid.Column="0"
+                   Grid.Row="0"
+                   Source="gradient.png"
+                   Aspect="Fill" />
+            <StackLayout Grid.Column="0"
+                         Grid.Row="0"
+                         VerticalOptions="End">
+              <Frame CornerRadius="12"
+                     BackgroundColor="White"
+                     Padding="0"
+                     Margin="45,0,45,50">
+                <Label Text="{Binding Ocjena, Converter={StaticResource Key='RatingToStars'}, ConverterParameter='N/A'}"
+                       TextColor="Black"  FontSize="Large"
+                       HorizontalOptions="CenterAndExpand"/>
+              </Frame>
 
-                            <Label Text="{Binding Naziv}" 
-                                   LineBreakMode="TailTruncation" 
-                                   TextColor="White" 
-                                   FontAttributes="Bold" 
-                                   FontSize="Large" 
-                                   HorizontalTextAlignment="Center"
-                                   VerticalTextAlignment="End"/>
-                        </StackLayout>
-                        <Button Command="{Binding Path=BindingContext.SelectedPredstavaCommand, Source={x:Reference Name=Home}}" CommandParameter="{Binding Id }"/>
-                    </Grid>
-                </ContentPage>
-            </DataTemplate>
-        </CarouselPage.ItemTemplate>
-    </CarouselPage>
+              <Label Text="{Binding Naziv}"
+                     LineBreakMode="TailTruncation"
+                     TextColor="White"
+                     FontAttributes="Bold"
+                     FontSize="Large"
+                     HorizontalTextAlignment="Center"
+                     VerticalTextAlignment="End"/>
+            </StackLayout>
+            <Button Command="{Binding Path=BindingContext.SelectedPredstavaCommand, Source={x:Reference Name=Home}}" CommandParameter="{Binding Id }"/>
+          </Grid>
+        </ContentPage>
+      </DataTemplate>
+    </CarouselPage.ItemTemplate>
+  </CarouselPage>
 
-    <CarouselPage Title="Preporuceno" ItemsSource="{Binding Preporucene}">
-        <CarouselPage.ItemTemplate>
-            <DataTemplate>
-                <ContentPage Padding="0">
-                    <Grid Margin="0">
+  <!-- Obavijesti -->
+  <CarouselPage Title="Obavijesti" ItemsSource="{Binding Obavijesti}">
+    <CarouselPage.ItemTemplate>
+      <DataTemplate>
+        <ContentPage Padding="0">
+          <Grid Margin="0">
 
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+              <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
-                        <Image Grid.Column="0" 
-                               Grid.Row="0" 
-                               Source="{Binding Slika, Converter={StaticResource ImgConvert}}"
-                               Aspect="AspectFill"/>
-                        <Image Grid.Column="0" 
-                               Grid.Row="0" 
-                               Source="gradient.png" 
-                               Aspect="Fill" />
-                        <StackLayout Grid.Column="0" 
-                                     Grid.Row="0" 
-                                     VerticalOptions="End">
-                            <Frame CornerRadius="12"
-                                   BackgroundColor="White"
-                                   Padding="0"
-                                   Margin="45,0,45,50">
-                                <Label Text="{Binding Ocjena, Converter={StaticResource Key='RatingToStars'}, ConverterParameter='N/A'}" 
-                                       TextColor="Black"  FontSize="Large"
-                                       HorizontalOptions="CenterAndExpand"/>
-                            </Frame>
+            <Image Grid.Column="0"
+                   Grid.Row="0"
+                   Source="{Binding Slika, Converter={StaticResource ImgConvert}}"
+                   Aspect="AspectFill"/>
+            <Image Grid.Column="0"
+                   Grid.Row="0"
+                   Source="gradient.png"
+                   Aspect="Fill" />
+            <StackLayout Grid.Column="0"
+                         Grid.Row="0"
+                         VerticalOptions="End">
 
-                            <Label Text="{Binding Naziv}" 
-                                   LineBreakMode="TailTruncation" 
-                                   TextColor="White" 
-                                   FontAttributes="Bold" 
-                                   FontSize="Large" 
-                                   HorizontalTextAlignment="Center"
-                                   VerticalTextAlignment="End"/>
-                        </StackLayout>
-                        <Button Command="{Binding Path=BindingContext.SelectedPredstavaCommand, Source={x:Reference Name=Home}}" CommandParameter="{Binding Id }"/>
-                    </Grid>
-                </ContentPage>
-            </DataTemplate>
-        </CarouselPage.ItemTemplate>
-    </CarouselPage>
-
-    <CarouselPage Title="Obavijesti" ItemsSource="{Binding Obavijesti}">
-        <CarouselPage.ItemTemplate>
-            <DataTemplate>
-                <ContentPage Padding="0">
-                    <Grid Margin="0">
-
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-
-                        <Image Grid.Column="0" 
-                               Grid.Row="0" 
-                               Source="{Binding Slika, Converter={StaticResource ImgConvert}}"
-                               Aspect="AspectFill"/>
-                        <Image Grid.Column="0" 
-                               Grid.Row="0" 
-                               Source="gradient.png" 
-                               Aspect="Fill" />
-                        <StackLayout Grid.Column="0" 
-                                     Grid.Row="0" 
-                                     VerticalOptions="End">
-
-                            <Label Text="{Binding Naslov}" 
-                                   LineBreakMode="TailTruncation" 
-                                   TextColor="White" 
-                                   FontAttributes="Bold" 
-                                   FontSize="Large" 
-                                   HorizontalTextAlignment="Center"
-                                   VerticalTextAlignment="End"
-                                   Margin="0,0,0,20"/>
-                        </StackLayout>
-                        <Button Command="{Binding Path=BindingContext.SelectedObavijestCommand, Source={x:Reference Name=Home}}" CommandParameter="{Binding Id }"/>
-                    </Grid>
-                </ContentPage>
-            </DataTemplate>
-        </CarouselPage.ItemTemplate>
-    </CarouselPage>
+              <Label Text="{Binding Naslov}"
+                     LineBreakMode="TailTruncation"
+                     TextColor="White"
+                     FontAttributes="Bold"
+                     FontSize="Large"
+                     HorizontalTextAlignment="Center"
+                     VerticalTextAlignment="End"
+                     Margin="0,0,0,20"/>
+            </StackLayout>
+            <Button Command="{Binding Path=BindingContext.SelectedObavijestCommand, Source={x:Reference Name=Home}}" CommandParameter="{Binding Id }"/>
+          </Grid>
+        </ContentPage>
+      </DataTemplate>
+    </CarouselPage.ItemTemplate>
+  </CarouselPage>
 
 </TabbedPage>

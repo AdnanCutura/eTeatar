@@ -194,14 +194,14 @@ namespace Repository
 
             #region Predstave
 
-            Predstava Predstava1 = new Predstava { Naziv = "Waitress", Trajanje = "120min", ReziserImePrezime = "ReziserIme ReziserPrezime", NazivIzvornogDjela = "Naziv Izvornog Djela", PisacIzvornogDjela = "Pisac1", Slika = predstavaSlikaByte1 };
-            Predstava Predstava2 = new Predstava { Naziv = "Wicked", Trajanje = "130min", ReziserImePrezime = "ReziserIme ReziserPrezime", NazivIzvornogDjela = "Naziv Izvornog Djela", PisacIzvornogDjela = "Pisac1", Slika = predstavaSlikaByte2 };
-            Predstava Predstava3 = new Predstava { Naziv = "Aint Too Proud", Trajanje = "115min", ReziserImePrezime = "ReziserIme ReziserPrezime", NazivIzvornogDjela = "Naziv Izvornog Djela", PisacIzvornogDjela = "Pisac1", Slika = predstavaSlikaByte1 };
-            Predstava Predstava4 = new Predstava { Naziv = "Be More Chill", Trajanje = "100min", ReziserImePrezime = "ReziserIme ReziserPrezime", NazivIzvornogDjela = "Naziv Izvornog Djela", PisacIzvornogDjela = "Pisac1", Slika = predstavaSlikaByte2 };
-            Predstava Predstava5 = new Predstava { Naziv = "The Lion King", Trajanje = "145min", ReziserImePrezime = "ReziserIme ReziserPrezime", NazivIzvornogDjela = "Naziv Izvornog Djela", PisacIzvornogDjela = "Pisac1", Slika = predstavaSlikaByte3 };
-            Predstava Predstava6 = new Predstava { Naziv = "Pretty Woman", Trajanje = "120min", ReziserImePrezime = "ReziserIme ReziserPrezime", NazivIzvornogDjela = "Naziv Izvornog Djela", PisacIzvornogDjela = "Pisac1", Slika = predstavaSlikaByte3 };
-            Predstava Predstava7 = new Predstava { Naziv = "Little Mermaid", Trajanje = "100min", ReziserImePrezime = "ReziserIme ReziserPrezime", NazivIzvornogDjela = "Naziv Izvornog Djela", PisacIzvornogDjela = "Pisac1", Slika = predstavaSlikaByte2 };
-            Predstava Predstava8 = new Predstava { Naziv = "The Wizard of OZ", Trajanje = "100min", ReziserImePrezime = "ReziserIme ReziserPrezime", NazivIzvornogDjela = "Naziv Izvornog Djela", PisacIzvornogDjela = "Pisac1", Slika = predstavaSlikaByte1 };
+            Predstava Predstava1 = new Predstava { Naziv = "Waitress", Trajanje = "120min", ReziserImePrezime = "Pjer Žalica", NazivIzvornogDjela = "Djelo1", PisacIzvornogDjela = "Pisac1", Slika = predstavaSlikaByte1 };
+            Predstava Predstava2 = new Predstava { Naziv = "Wicked", Trajanje = "130min", ReziserImePrezime = "Ademir Kenović", NazivIzvornogDjela = "Djelo2", PisacIzvornogDjela = "Pisac1", Slika = predstavaSlikaByte2 };
+            Predstava Predstava3 = new Predstava { Naziv = "Aint Too Proud", Trajanje = "115min", ReziserImePrezime = "Danis Tanović", NazivIzvornogDjela = "Djelo3", PisacIzvornogDjela = "Pisac1", Slika = predstavaSlikaByte1 };
+            Predstava Predstava4 = new Predstava { Naziv = "Be More Chill", Trajanje = "100min", ReziserImePrezime = "Pjer Žalica", NazivIzvornogDjela = "Djelo4", PisacIzvornogDjela = "Pisac1", Slika = predstavaSlikaByte2 };
+            Predstava Predstava5 = new Predstava { Naziv = "The Lion King", Trajanje = "145min", ReziserImePrezime = "Ademir Kenović", NazivIzvornogDjela = "Djelo5", PisacIzvornogDjela = "Pisac1", Slika = predstavaSlikaByte3 };
+            Predstava Predstava6 = new Predstava { Naziv = "Pretty Woman", Trajanje = "120min", ReziserImePrezime = "Pjer Žalica", NazivIzvornogDjela = "Djelo6", PisacIzvornogDjela = "Pisac1", Slika = predstavaSlikaByte3 };
+            Predstava Predstava7 = new Predstava { Naziv = "Little Mermaid", Trajanje = "100min", ReziserImePrezime = "Danis Tanović", NazivIzvornogDjela = "Djelo7", PisacIzvornogDjela = "Pisac1", Slika = predstavaSlikaByte2 };
+            Predstava Predstava8 = new Predstava { Naziv = "The Wizard of OZ", Trajanje = "100min", ReziserImePrezime = "Jasmila Žbanić", NazivIzvornogDjela = "Djelo8", PisacIzvornogDjela = "Pisac1", Slika = predstavaSlikaByte1 };
 
             Predstava1.Opis = Predstava2.Opis = Predstava3.Opis = Predstava4.Opis = Predstava5.Opis = Predstava6.Opis = Predstava7.Opis = Predstava8.Opis =
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " +
@@ -253,16 +253,16 @@ namespace Repository
 
             #region Glumci
 
-            Glumac Glumac1 = new Glumac { Ime = "GlumacIme1", Prezime = "GlumacPrezime1", Biografija = "Opako dobra biografija", Spol = Musko, Slika = korisnikSlikaByte3 };
-            Glumac Glumac2 = new Glumac { Ime = "GlumacIme2", Prezime = "GlumacPrezime2", Biografija = "Opako dobra biografija", Spol = Musko, Slika = korisnikSlikaByte2 };
-            Glumac Glumac3 = new Glumac { Ime = "GlumacIme3", Prezime = "GlumacPrezime3", Biografija = "Opako dobra biografija", Spol = Musko, Slika = korisnikSlikaByte1 };
-            Glumac Glumac4 = new Glumac { Ime = "GlumacIme4", Prezime = "GlumacPrezime4", Biografija = "Opako dobra biografija", Spol = Musko, Slika = korisnikSlikaByte3 };
-            Glumac Glumac5 = new Glumac { Ime = "GlumacIme5", Prezime = "GlumacPrezime5", Biografija = "Opako dobra biografija", Spol = Zensko, Slika = korisnikSlikaByte1 };
-            Glumac Glumac6 = new Glumac { Ime = "GlumacIme6", Prezime = "GlumacPrezime6", Biografija = "Opako dobra biografija", Spol = Zensko, Slika = korisnikSlikaByte2 };
-            Glumac Glumac7 = new Glumac { Ime = "GlumacIme7", Prezime = "GlumacPrezime7", Biografija = "Opako dobra biografija", Spol = Zensko, Slika = korisnikSlikaByte1 };
-            Glumac Glumac8 = new Glumac { Ime = "GlumacIme8", Prezime = "GlumacPrezime8", Biografija = "Opako dobra biografija", Spol = Zensko, Slika = korisnikSlikaByte3 };
-            Glumac Glumac9 = new Glumac { Ime = "GlumacIme9", Prezime = "GlumacPrezime8", Biografija = "Opako dobra biografija", Spol = Zensko, Slika = korisnikSlikaByte2 };
-            Glumac Glumac10 = new Glumac { Ime = "GlumacIme10", Prezime = "GlumacPrezime10", Biografija = "Opako dobra biografija", Spol = Musko };
+            Glumac Glumac1 = new Glumac { Ime = "Aida", Prezime = "Bukva", Biografija = "Opako dobra biografija", Spol = Zensko, Slika = korisnikSlikaByte3 };
+            Glumac Glumac2 = new Glumac { Ime = "Branko", Prezime = "Đurić", Biografija = "Opako dobra biografija", Spol = Musko, Slika = korisnikSlikaByte2 };
+            Glumac Glumac3 = new Glumac { Ime = "Enis", Prezime = "Bešlagić", Biografija = "Opako dobra biografija", Spol = Musko, Slika = korisnikSlikaByte1 };
+            Glumac Glumac4 = new Glumac { Ime = "Izudin", Prezime = "Bajrović", Biografija = "Opako dobra biografija", Spol = Musko, Slika = korisnikSlikaByte3 };
+            Glumac Glumac5 = new Glumac { Ime = "Mario", Prezime = "Drmać", Biografija = "Opako dobra biografija", Spol = Musko, Slika = korisnikSlikaByte1 };
+            Glumac Glumac6 = new Glumac { Ime = "Josip", Prezime = "Pejaković", Biografija = "Opako dobra biografija", Spol = Musko, Slika = korisnikSlikaByte2 };
+            Glumac Glumac7 = new Glumac { Ime = "Admir", Prezime = "Glamočak", Biografija = "Opako dobra biografija", Spol = Musko, Slika = korisnikSlikaByte1 };
+            Glumac Glumac8 = new Glumac { Ime = "Mirvad", Prezime = "Kurić", Biografija = "Opako dobra biografija", Spol = Musko, Slika = korisnikSlikaByte3 };
+            Glumac Glumac9 = new Glumac { Ime = "Mirela", Prezime = "Lambić", Biografija = "Opako dobra biografija", Spol = Zensko, Slika = korisnikSlikaByte2 };
+            Glumac Glumac10 = new Glumac { Ime = "Jasna", Prezime = "Diklić", Biografija = "Opako dobra biografija", Spol = Zensko };
 
             context.Glumac.AddRange(Glumac1, Glumac2, Glumac3, Glumac4, Glumac5, Glumac6, Glumac7, Glumac8, Glumac9, Glumac10);
             context.SaveChanges();
@@ -428,15 +428,18 @@ namespace Repository
 
             #region Obavijesti
 
-            Obavijest Obavijest1 = new Obavijest { Naslov = "Obavijest1", Sadrzaj = "LoremIpsum", Administrator = Administrator1, DatumVrijeme = Danas.AddDays(-1).AddHours(9), Slika = pozoristeSlikaByte1 };
-            Obavijest Obavijest2 = new Obavijest { Naslov = "Obavijest2", Sadrzaj = "LoremIpsum", Administrator = Administrator1, DatumVrijeme = Danas.AddDays(-1).AddHours(8), Slika = pozoristeSlikaByte2 };
-            Obavijest Obavijest3 = new Obavijest { Naslov = "Obavijest3", Sadrzaj = "LoremIpsum", Administrator = Administrator2, DatumVrijeme = Danas.AddDays(-1).AddHours(7), Slika = pozoristeSlikaByte1 };
-            Obavijest Obavijest4 = new Obavijest { Naslov = "Obavijest4", Sadrzaj = "LoremIpsum", Administrator = Administrator2, DatumVrijeme = Danas.AddDays(-1).AddHours(6), Slika = pozoristeSlikaByte2 };
-            Obavijest Obavijest5 = new Obavijest { Naslov = "Obavijest5", Sadrzaj = "LoremIpsum", Administrator = Administrator2, DatumVrijeme = Danas.AddDays(-1).AddHours(5), Slika = pozoristeSlikaByte1 };
-            Obavijest Obavijest6 = new Obavijest { Naslov = "Obavijest6", Sadrzaj = "LoremIpsum", Administrator = Administrator2, DatumVrijeme = Danas.AddDays(-1).AddHours(4), Slika = pozoristeSlikaByte2 };
-            Obavijest Obavijest7 = new Obavijest { Naslov = "Obavijest7", Sadrzaj = "LoremIpsum", Administrator = Administrator2, DatumVrijeme = Danas.AddDays(-1).AddHours(3), Slika = pozoristeSlikaByte1 };
-            Obavijest Obavijest8 = new Obavijest { Naslov = "Obavijest8", Sadrzaj = "LoremIpsum", Administrator = Administrator2, DatumVrijeme = Danas.AddDays(-1).AddHours(2), Slika = pozoristeSlikaByte2 };
-            Obavijest Obavijest9 = new Obavijest { Naslov = "Obavijest9", Sadrzaj = "LoremIpsum", Administrator = Administrator2, DatumVrijeme = Danas.AddDays(-1).AddHours(1), Slika = pozoristeSlikaByte1 };
+            const string obavijestSadrzaj =
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl condimentum id venenatis a condimentum. Nulla pellentesque dignissim enim sit amet venenatis urna cursus eget.";
+
+            Obavijest Obavijest1 = new Obavijest { Naslov = "Otvaranje pozorišta", Sadrzaj = obavijestSadrzaj, Administrator = Administrator1, DatumVrijeme = Danas.AddDays(-1).AddHours(9), Slika = pozoristeSlikaByte1 };
+            Obavijest Obavijest2 = new Obavijest { Naslov = "Festival", Sadrzaj = obavijestSadrzaj, Administrator = Administrator1, DatumVrijeme = Danas.AddDays(-1).AddHours(8), Slika = pozoristeSlikaByte2 };
+            Obavijest Obavijest3 = new Obavijest { Naslov = "Pozorište", Sadrzaj = obavijestSadrzaj, Administrator = Administrator2, DatumVrijeme = Danas.AddDays(-1).AddHours(7), Slika = pozoristeSlikaByte1 };
+            Obavijest Obavijest4 = new Obavijest { Naslov = "Festival 2019", Sadrzaj = obavijestSadrzaj, Administrator = Administrator2, DatumVrijeme = Danas.AddDays(-1).AddHours(6), Slika = pozoristeSlikaByte2 };
+            Obavijest Obavijest5 = new Obavijest { Naslov = "Otvaranje festivala", Sadrzaj = obavijestSadrzaj, Administrator = Administrator2, DatumVrijeme = Danas.AddDays(-1).AddHours(5), Slika = pozoristeSlikaByte1 };
+            Obavijest Obavijest6 = new Obavijest { Naslov = "Nova predstava", Sadrzaj = obavijestSadrzaj, Administrator = Administrator2, DatumVrijeme = Danas.AddDays(-1).AddHours(4), Slika = pozoristeSlikaByte2 };
+            Obavijest Obavijest7 = new Obavijest { Naslov = "Festival", Sadrzaj = obavijestSadrzaj, Administrator = Administrator2, DatumVrijeme = Danas.AddDays(-1).AddHours(3), Slika = pozoristeSlikaByte1 };
+            Obavijest Obavijest8 = new Obavijest { Naslov = "Zatvaranje festivala", Sadrzaj = obavijestSadrzaj, Administrator = Administrator2, DatumVrijeme = Danas.AddDays(-1).AddHours(2), Slika = pozoristeSlikaByte2 };
+            Obavijest Obavijest9 = new Obavijest { Naslov = "Predstava", Sadrzaj = obavijestSadrzaj, Administrator = Administrator2, DatumVrijeme = Danas.AddDays(-1).AddHours(1), Slika = pozoristeSlikaByte1 };
 
             context.Obavijest.AddRange(Obavijest1, Obavijest2, Obavijest3, Obavijest4, Obavijest5, Obavijest6, Obavijest7, Obavijest8, Obavijest9);
             context.SaveChanges();
@@ -444,8 +447,8 @@ namespace Repository
             #endregion
 
             #region Komentari
-            Komentar Komentar1 = new Komentar { Sadrzaj = "Sadrzaj prvog komentara", Kupac = Kupac1, Obavijest = Obavijest1, DatumVrijeme = Danas.AddDays(-1).AddHours(14) };
-            Komentar Komentar2 = new Komentar { Sadrzaj = "Sadrzaj drugog komentara", Kupac = Kupac2, Obavijest = Obavijest1, DatumVrijeme = Danas.AddDays(-1).AddHours(15) };
+            Komentar Komentar1 = new Komentar { Sadrzaj = "Sviđa mi se.", Kupac = Kupac1, Obavijest = Obavijest1, DatumVrijeme = Danas.AddDays(-1).AddHours(14) };
+            Komentar Komentar2 = new Komentar { Sadrzaj = "Ovo je super!", Kupac = Kupac2, Obavijest = Obavijest1, DatumVrijeme = Danas.AddDays(-1).AddHours(15) };
 
             context.Komentar.AddRange(Komentar1, Komentar2);
             context.SaveChanges();
@@ -453,17 +456,59 @@ namespace Repository
 
             #region Narudžbe
 
-            Narudzba Narudzba1 = new Narudzba { Kupac = Kupac1, Termin = Termin1, CijenaKarte = 10f, TipSjedista = TipSjedista1, DatumKupovine = DateTime.Now, Kolicina = 5 };
-            Narudzba Narudzba2 = new Narudzba { Kupac = Kupac1, Termin = Termin2, CijenaKarte = 15f, TipSjedista = TipSjedista4, DatumKupovine = DateTime.Now, Kolicina = 5 };
-            Narudzba Narudzba3 = new Narudzba { Kupac = Kupac2, Termin = Termin1, CijenaKarte = 10f, TipSjedista = TipSjedista1, DatumKupovine = DateTime.Now, Kolicina = 5 };
+            Narudzba Narudzba1 = new Narudzba { Kupac = Kupac1, Termin = Termin1, CijenaKarte = 10f, TipSjedista = TipSjedista1, DatumKupovine = DateTime.Now, Kolicina = 2 };
+            Narudzba Narudzba2 = new Narudzba { Kupac = Kupac1, Termin = Termin2, CijenaKarte = 15f, TipSjedista = TipSjedista4, DatumKupovine = DateTime.Now.AddDays(-3), Kolicina = 3 };
+
+            Narudzba Narudzba3 = new Narudzba { Kupac = Kupac2, Termin = Termin2, CijenaKarte = 10f, TipSjedista = TipSjedista1, DatumKupovine = DateTime.Now, Kolicina = 5 };
+            Narudzba Narudzba4 = new Narudzba { Kupac = Kupac2, Termin = Termin1, CijenaKarte = 10f, TipSjedista = TipSjedista2, DatumKupovine = DateTime.Now.AddDays(-4), Kolicina = 5 };
+
+            Narudzba Narudzba5 = new Narudzba { Kupac = Kupac3, Termin = Termin2, CijenaKarte = 10f, TipSjedista = TipSjedista2, DatumKupovine = DateTime.Now.AddDays(-1), Kolicina = 5 };
+            Narudzba Narudzba6 = new Narudzba { Kupac = Kupac3, Termin = Termin1, CijenaKarte = 10f, TipSjedista = TipSjedista1, DatumKupovine = DateTime.Now.AddDays(-5), Kolicina = 1 };
+
+            Narudzba Narudzba7 = new Narudzba { Kupac = Kupac4, Termin = Termin2, CijenaKarte = 10f, TipSjedista = TipSjedista3, DatumKupovine = DateTime.Now.AddDays(-1), Kolicina = 5 };
+            Narudzba Narudzba8 = new Narudzba { Kupac = Kupac4, Termin = Termin1, CijenaKarte = 10f, TipSjedista = TipSjedista1, DatumKupovine = DateTime.Now, Kolicina = 2 };
+
+            Narudzba Narudzba9 = new Narudzba { Kupac = Kupac1, Termin = Termin3, CijenaKarte = 10f, TipSjedista = TipSjedista1, DatumKupovine = DateTime.Now, Kolicina = 2 };
+            Narudzba Narudzba10 = new Narudzba { Kupac = Kupac1, Termin = Termin4, CijenaKarte = 15f, TipSjedista = TipSjedista4, DatumKupovine = DateTime.Now.AddDays(-3), Kolicina = 3 };
+
+            Narudzba Narudzba11 = new Narudzba { Kupac = Kupac2, Termin = Termin4, CijenaKarte = 10f, TipSjedista = TipSjedista1, DatumKupovine = DateTime.Now, Kolicina = 5 };
+            Narudzba Narudzba12 = new Narudzba { Kupac = Kupac2, Termin = Termin3, CijenaKarte = 10f, TipSjedista = TipSjedista2, DatumKupovine = DateTime.Now.AddDays(-4), Kolicina = 5 };
+
+            Narudzba Narudzba13 = new Narudzba { Kupac = Kupac3, Termin = Termin4, CijenaKarte = 10f, TipSjedista = TipSjedista2, DatumKupovine = DateTime.Now.AddDays(-1), Kolicina = 5 };
+            Narudzba Narudzba14 = new Narudzba { Kupac = Kupac3, Termin = Termin3, CijenaKarte = 10f, TipSjedista = TipSjedista1, DatumKupovine = DateTime.Now.AddDays(-5), Kolicina = 1 };
+
+            Narudzba Narudzba15 = new Narudzba { Kupac = Kupac4, Termin = Termin4, CijenaKarte = 10f, TipSjedista = TipSjedista3, DatumKupovine = DateTime.Now.AddDays(-1), Kolicina = 5 };
+            Narudzba Narudzba16 = new Narudzba { Kupac = Kupac4, Termin = Termin3, CijenaKarte = 10f, TipSjedista = TipSjedista1, DatumKupovine = DateTime.Now, Kolicina = 2 };
 
             #region Ocjene
 
-            Ocjena Ocjena1 = new Ocjena { Narudzba = Narudzba1, Vrijednost = 5, Review = "Review1" };
-            Ocjena Ocjena2 = new Ocjena { Narudzba = Narudzba2, Vrijednost = 5, Review = "Review2" };
-            Ocjena Ocjena3 = new Ocjena { Narudzba = Narudzba3, Vrijednost = 4, Review = "Review3" };
+            Ocjena Ocjena1 = new Ocjena { Narudzba = Narudzba1, Vrijednost = 5, Review = "Odlična!" };
+            Ocjena Ocjena2 = new Ocjena { Narudzba = Narudzba2, Vrijednost = 5, Review = "Odlična!" };
 
-            context.Ocjena.AddRange(Ocjena1, Ocjena2, Ocjena3);
+            Ocjena Ocjena3 = new Ocjena { Narudzba = Narudzba3, Vrijednost = 4, Review = "Super!" };
+            Ocjena Ocjena4 = new Ocjena { Narudzba = Narudzba4, Vrijednost = 3, Review = "Ok." };
+
+            Ocjena Ocjena5 = new Ocjena { Narudzba = Narudzba5, Vrijednost = 5, Review = "Odlična!" };
+            Ocjena Ocjena6 = new Ocjena { Narudzba = Narudzba6, Vrijednost = 3, Review = "Ok." };
+
+            Ocjena Ocjena7 = new Ocjena { Narudzba = Narudzba7, Vrijednost = 2, Review = "Ne sviđa mi se." };
+            Ocjena Ocjena8 = new Ocjena { Narudzba = Narudzba8, Vrijednost = 3, Review = "Ok." };
+
+
+            Ocjena Ocjena9 = new Ocjena { Narudzba = Narudzba1, Vrijednost = 3, Review = "Ok!" };
+            Ocjena Ocjena10 = new Ocjena { Narudzba = Narudzba2, Vrijednost = 4, Review = "Odlična!" };
+
+            Ocjena Ocjena11 = new Ocjena { Narudzba = Narudzba3, Vrijednost = 5, Review = "Super!" };
+            Ocjena Ocjena12 = new Ocjena { Narudzba = Narudzba4, Vrijednost = 5, Review = "Ok." };
+
+            Ocjena Ocjena13 = new Ocjena { Narudzba = Narudzba5, Vrijednost = 5, Review = "Odlična!" };
+            Ocjena Ocjena14 = new Ocjena { Narudzba = Narudzba6, Vrijednost = 4, Review = "Ok." };
+
+            Ocjena Ocjena15 = new Ocjena { Narudzba = Narudzba7, Vrijednost = 5, Review = "Odlična!" };
+            Ocjena Ocjena16 = new Ocjena { Narudzba = Narudzba8, Vrijednost = 3, Review = "Ok." };
+
+            context.Ocjena.AddRange(Ocjena1, Ocjena2, Ocjena3, Ocjena4, Ocjena5, Ocjena6, Ocjena7, Ocjena8,
+            Ocjena9, Ocjena10, Ocjena11, Ocjena12, Ocjena13, Ocjena14, Ocjena15, Ocjena16);
             context.SaveChanges();
 
             #endregion
@@ -471,8 +516,14 @@ namespace Repository
             Narudzba1.OcjenaId = Ocjena1.Id;
             Narudzba2.OcjenaId = Ocjena2.Id;
             Narudzba3.OcjenaId = Ocjena3.Id;
+            Narudzba4.OcjenaId = Ocjena4.Id;
+            Narudzba5.OcjenaId = Ocjena5.Id;
+            Narudzba6.OcjenaId = Ocjena6.Id;
+            Narudzba7.OcjenaId = Ocjena7.Id;
+            Narudzba8.OcjenaId = Ocjena8.Id;
 
-            context.Narudzba.AddRange(Narudzba1, Narudzba2, Narudzba3);
+            context.Narudzba.AddRange(Narudzba1, Narudzba2, Narudzba3, Narudzba4, Narudzba5, Narudzba6, Narudzba7, Narudzba8,
+            Narudzba9, Narudzba10, Narudzba11, Narudzba12, Narudzba13, Narudzba14, Narudzba15, Narudzba16);
             context.SaveChanges();
 
             #endregion

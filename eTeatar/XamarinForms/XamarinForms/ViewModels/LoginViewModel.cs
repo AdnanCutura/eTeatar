@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Input;
 using Xamarin.Forms;
 using XamarinForms.Helpers;
 using XamarinForms.Views;
@@ -36,13 +33,10 @@ namespace XamarinForms.ViewModels
         }
 
         public Command RegistracijaCommand { get; set; }
-
-        private void Registracija()
-        {
-            Application.Current.MainPage = new RegistracijaPage();
-        }
-
         public Command LoginCommand { get; set; }
+
+        private void Registracija() => Application.Current.MainPage = new RegistracijaPage();
+
         private async Task Login()
         {
             IsBusy = true;

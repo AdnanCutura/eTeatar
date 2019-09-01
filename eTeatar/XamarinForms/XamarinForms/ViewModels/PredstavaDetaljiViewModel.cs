@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using DataTransferObjects;
+using DataTransferObjects.Requests;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using DataTransferObjects;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using DataTransferObjects.Requests;
 using Xamarin.Forms;
 
 namespace XamarinForms.ViewModels
@@ -13,6 +13,7 @@ namespace XamarinForms.ViewModels
     {
         private readonly APIService _serviceUloga = new APIService("Uloga");
         private readonly APIService _serviceNarudzba = new APIService("Narudzba");
+        private readonly APIService _servicePreporucenePredstave = new APIService("Predstava/GetPreporucene");
 
         private string _zanrovi;
         public string Zanrovi {
@@ -30,36 +31,44 @@ namespace XamarinForms.ViewModels
         }
 
         public ObservableCollection<Uloga> Uloge { get; set; }
+        public ObservableCollection<Predstava> PreporucenePredstave { get; set; }
         public Predstava Predstava { get; set; }
 
         public PredstavaDetaljiViewModel()
         {
             Uloge = new ObservableCollection<Uloga>();
+            PreporucenePredstave = new ObservableCollection<Predstava>();
             InitCommand = new Command(async () => await Init());
             IsVisible = false;
         }
 
         public ICommand InitCommand { get; set; }
-        
+
         private async Task Init()
         {
             Zanrovi = string.Join(", ", Predstava.Zanrovi.Select(z => z.Naziv).ToList());
             try
             {
-                var list = await _serviceUloga.Get<List<Uloga>>(new UlogaSearchRequest
-                {
-                    PredstavaId = Predstava.Id
-                });
+                // Uloge
+                var uloge = await _serviceUloga.Get<List<Uloga>>(new UlogaSearchRequest { PredstavaId = Predstava.Id });
 
-                foreach (var item in list)
+                foreach (var item in uloge)
                     Uloge.Add(item);
 
-                //Broj ocjena
-                var narudzbe = await _serviceNarudzba.Get<List<Narudzba>>(new NarudzbaSearchRequest
-                {
-                    NazivPredstave = Predstava.Naziv
-                });
-                BrojOcjena = narudzbe.Where(n => n.Ocjena != null && n.Termin.Predstava.Id == Predstava.Id).Select(n => n.Ocjena).Count();
+                // Broj ocjena
+                var narudzbe = await _serviceNarudzba
+                    .Get<List<Narudzba>>(new NarudzbaSearchRequest { NazivPredstave = Predstava.Naziv });
+
+                BrojOcjena = narudzbe.Where(n => n.Ocjena != null && n.Termin.Predstava.Id == Predstava.Id)
+                    .Select(n => n.Ocjena)
+                    .Count();
+                
+                //Preporucene predstave
+                var preporucene = await _servicePreporucenePredstave.GetById<List<Predstava>>(Predstava.Id);
+
+                foreach (var item in preporucene)
+                    PreporucenePredstave.Add(item);
+
             }
             catch
             {
