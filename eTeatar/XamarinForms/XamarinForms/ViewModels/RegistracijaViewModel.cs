@@ -1,15 +1,11 @@
-﻿using System;
-using DataTransferObjects;
+﻿using DataTransferObjects;
 using DataTransferObjects.Requests;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Plugin.Media;
-using Plugin.Media.Abstractions;
 using Xamarin.Forms;
-using XamarinForms.Convertor;
 using XamarinForms.Helpers;
 using XamarinForms.Views;
 
@@ -37,11 +33,11 @@ namespace XamarinForms.ViewModels
             _kupacService = new APIService("Kupac");
             _serviceKupacKorisnickiNalog = new APIService("Kupac");
 
-            InsertKupacCommand = new Command(async () => await InsertKupac());
-            UploadPictureCommand = new Command(async () => await UploadPicture());
+            InsertKupacCommand = new Command(async () => await InsertKupac(), () => !IsBusy);
+            UploadPictureCommand = new Command(async () => Picture = await UploadPicture.UploadingPicture(Picture));
         }
 
-        public ICommand InsertKupacCommand { get; set; }
+        public Command InsertKupacCommand { get; set; }
         public ICommand UploadPictureCommand { get; set; }
 
         /// <summary>
@@ -49,6 +45,9 @@ namespace XamarinForms.ViewModels
         /// </summary>
         public async Task InsertKupac()
         {
+            IsBusy = true;
+            InsertKupacCommand.ChangeCanExecute();
+
             var request = new KupacKorisnickiNalogUpsertRequest
             {
                 Ime = Kupac.Ime,
@@ -68,48 +67,22 @@ namespace XamarinForms.ViewModels
                 APIService.Username = request.KorisnickoIme;
                 APIService.Password = request.Password;
 
-                if (response != null)
-                    try
-                    {
-                        var list = await _kupacService.Get<List<DataTransferObjects.Kupac>>(null);
-                        KupacData.Set(list.FirstOrDefault(w => w.KorisnickoIme == Kupac.KorisnickoIme));
-                        Application.Current.MainPage = new MainPage();
-                        await Application.Current.MainPage.DisplayAlert("Informacija", "Uspješno ste se registrovali", "OK");
-                    }
-                    catch
-                    {
-                        // ignored
-                    }
+                var list = await _kupacService.Get<List<DataTransferObjects.Kupac>>(null);
+                KupacData.Set(list.FirstOrDefault(w => w.KorisnickoIme == Kupac.KorisnickoIme));
+                Application.Current.MainPage = new MainPage();
 
+                await Application.Current.MainPage.DisplayAlert("Informacija", "Uspješno ste se registrovali", "OK");
+
+                IsBusy = false;
+                InsertKupacCommand.ChangeCanExecute();
             }
             catch
             {
-                await Application.Current.MainPage.DisplayAlert("Greška", "Provjerite podatke i pokušajte ponovo", "OK");
+                IsBusy = false;
+                InsertKupacCommand.ChangeCanExecute();
+               // await Application.Current.MainPage.DisplayAlert("Greška", "Provjerite podatke i pokušajte ponovo", "OK");
             }
         }
 
-        /// <summary>
-        /// Metoda za dodavanje slike iz datoteke
-        /// </summary>
-        public async Task UploadPicture()
-        {
-            await CrossMedia.Current.Initialize();
-
-            if (!CrossMedia.Current.IsPickPhotoSupported)
-                await Application.Current.MainPage.DisplayAlert("Nije podržano", "Ova funkcionalnost nije podržana na vašem uređaju", "Ok");
-
-            var mediaOptions = new PickMediaOptions()
-            {
-                PhotoSize = PhotoSize.Medium
-            };
-
-            var selectedImageFile = await CrossMedia.Current.PickPhotoAsync(mediaOptions);
-
-            if (selectedImageFile == null)
-                await Application.Current.MainPage.DisplayAlert("Greška", "Slika nije učitana, pokušajte ponovo", "Ok");
-            else
-                Picture = new ImageConverter().StreamToBytes(selectedImageFile.GetStream());
-
-        }
     }
 }

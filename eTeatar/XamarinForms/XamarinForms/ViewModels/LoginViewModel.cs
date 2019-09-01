@@ -63,6 +63,7 @@ namespace XamarinForms.ViewModels
             {
                 IsBusy = false;
                 LoginCommand.ChangeCanExecute();
+                await Application.Current.MainPage.DisplayAlert("Greška", "Provjerite podatke i pokušajte ponovo", "OK");
             }
         }
 

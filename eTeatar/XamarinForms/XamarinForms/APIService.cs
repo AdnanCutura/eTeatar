@@ -40,9 +40,9 @@ namespace XamarinForms
             {
                 switch (err.Call.HttpStatus)
                 {
-                    case System.Net.HttpStatusCode.Unauthorized:
-                        await Application.Current.MainPage.DisplayAlert("Greška", "Niste autentificirani", "OK");
-                        break;
+                    //case System.Net.HttpStatusCode.Unauthorized:
+                    //    await Application.Current.MainPage.DisplayAlert("Greška", "Niste autentificirani", "OK");
+                    //    break;
                     case System.Net.HttpStatusCode.Forbidden:
                         await Application.Current.MainPage.DisplayAlert("Greška", "Niste autorizirani", "OK");
                         break;

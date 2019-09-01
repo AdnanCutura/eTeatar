@@ -31,11 +31,11 @@
                 <Setter Property="BarTextColor" Value="#ffffff" />
             </Style>
 
-            <!-- Button style -->
+            <!-- Button styles -->
             <Style x:Key="ETeatarBtnSecondary" TargetType="Button">
                 <Setter Property="BackgroundColor" Value="#ffffff"/>
                 <Setter Property="BorderColor" Value="{StaticResource ETeatarDarkPurple}"/>
-                <Setter Property="BorderWidth" Value="3"/>
+                <Setter Property="BorderWidth" Value="2"/>
                 <Setter Property="TextColor" Value="{StaticResource ETeatarDarkPurple}"/>
             </Style>
 
