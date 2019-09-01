@@ -19,7 +19,8 @@ namespace XamarinForms.ViewModels
         private readonly INavigation _navigation;
         public PredstavaSearchRequest _search;
 
-        public ObservableCollection<Predstava> PredstavaList { get; set; }
+        private ObservableCollection<Predstava> _predstavaList;
+        public ObservableCollection<Predstava> PredstavaList { get { return _predstavaList; } set { SetProperty(ref _predstavaList, value); } }
 
         public PredstavaViewModel(PredstavaSearchRequest search, INavigation Navigation)
         {
@@ -44,9 +45,15 @@ namespace XamarinForms.ViewModels
             {
                 var list = await _predstaveService.Get<List<Predstava>>(_search);
                 foreach (var item in list)
+                {
                     PredstavaList.Add(item);
+                }
             }
             catch { }
+
+            await Task.Delay(1000);
+            await _navigation.PushAsync(new Workaround());
+            await _navigation.PopAsync();
         }
 
     }
