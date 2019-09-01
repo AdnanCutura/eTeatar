@@ -45,9 +45,9 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Raleway", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(48, 212);
+            this.label4.Location = new System.Drawing.Point(35, 204);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(183, 25);
@@ -57,9 +57,9 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Raleway", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(48, 113);
+            this.label3.Location = new System.Drawing.Point(35, 105);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(86, 25);
@@ -69,9 +69,9 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Raleway", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(476, 113);
+            this.label2.Location = new System.Drawing.Point(463, 105);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(145, 25);
@@ -81,9 +81,9 @@
             // lblHeading
             // 
             this.lblHeading.AutoSize = true;
-            this.lblHeading.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHeading.Font = new System.Drawing.Font("Raleway", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHeading.ForeColor = System.Drawing.Color.White;
-            this.lblHeading.Location = new System.Drawing.Point(45, 52);
+            this.lblHeading.Location = new System.Drawing.Point(32, 44);
             this.lblHeading.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblHeading.Name = "lblHeading";
             this.lblHeading.Size = new System.Drawing.Size(262, 36);
@@ -92,10 +92,10 @@
             // 
             // cmbDvorana
             // 
-            this.cmbDvorana.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbDvorana.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbDvorana.FormattingEnabled = true;
-            this.cmbDvorana.Location = new System.Drawing.Point(52, 146);
-            this.cmbDvorana.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbDvorana.Location = new System.Drawing.Point(39, 138);
+            this.cmbDvorana.Margin = new System.Windows.Forms.Padding(4);
             this.cmbDvorana.Name = "cmbDvorana";
             this.cmbDvorana.Size = new System.Drawing.Size(253, 32);
             this.cmbDvorana.TabIndex = 77;
@@ -104,10 +104,10 @@
             // dtpTermin
             // 
             this.dtpTermin.CustomFormat = "dd.MM.yyyy HH:mm";
-            this.dtpTermin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.dtpTermin.Font = new System.Drawing.Font("Raleway", 12F);
             this.dtpTermin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpTermin.Location = new System.Drawing.Point(481, 146);
-            this.dtpTermin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpTermin.Location = new System.Drawing.Point(468, 138);
+            this.dtpTermin.Margin = new System.Windows.Forms.Padding(4);
             this.dtpTermin.MaxDate = new System.DateTime(9998, 6, 14, 0, 0, 0, 0);
             this.dtpTermin.MinDate = new System.DateTime(2019, 6, 14, 0, 0, 0, 0);
             this.dtpTermin.Name = "dtpTermin";
@@ -120,10 +120,10 @@
             // 
             this.btnSacuvaj.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(69)))), ((int)(((byte)(64)))));
             this.btnSacuvaj.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSacuvaj.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSacuvaj.Font = new System.Drawing.Font("Raleway", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSacuvaj.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnSacuvaj.Location = new System.Drawing.Point(53, 305);
-            this.btnSacuvaj.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSacuvaj.Location = new System.Drawing.Point(40, 297);
+            this.btnSacuvaj.Margin = new System.Windows.Forms.Padding(4);
             this.btnSacuvaj.Name = "btnSacuvaj";
             this.btnSacuvaj.Size = new System.Drawing.Size(263, 47);
             this.btnSacuvaj.TabIndex = 79;
@@ -134,9 +134,9 @@
             // mtxbBaznaCijenaKarte
             // 
             this.mtxbBaznaCijenaKarte.BeepOnError = true;
-            this.mtxbBaznaCijenaKarte.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.mtxbBaznaCijenaKarte.Location = new System.Drawing.Point(53, 241);
-            this.mtxbBaznaCijenaKarte.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mtxbBaznaCijenaKarte.Font = new System.Drawing.Font("Raleway", 12F);
+            this.mtxbBaznaCijenaKarte.Location = new System.Drawing.Point(40, 233);
+            this.mtxbBaznaCijenaKarte.Margin = new System.Windows.Forms.Padding(4);
             this.mtxbBaznaCijenaKarte.Mask = "00.00 KM";
             this.mtxbBaznaCijenaKarte.Name = "mtxbBaznaCijenaKarte";
             this.mtxbBaznaCijenaKarte.Size = new System.Drawing.Size(132, 30);
@@ -148,10 +148,10 @@
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(69)))), ((int)(((byte)(64)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Font = new System.Drawing.Font("Raleway", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(481, 305);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Location = new System.Drawing.Point(468, 297);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(263, 47);
             this.button1.TabIndex = 81;
@@ -177,7 +177,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblHeading);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "uctDodajTermin";
             this.Size = new System.Drawing.Size(1217, 692);
             this.Load += new System.EventHandler(this.UctDodajTermin_Load);

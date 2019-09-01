@@ -1,12 +1,8 @@
 ﻿using DataTransferObjects;
 using DataTransferObjects.Requests;
-using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Plugin.Media;
-using Plugin.Media.Abstractions;
 using Xamarin.Forms;
-using XamarinForms.Convertor;
 using XamarinForms.Helpers;
 
 namespace XamarinForms.ViewModels

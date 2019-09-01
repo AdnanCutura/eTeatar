@@ -34,11 +34,11 @@
             this.pnlSidebarMenu = new System.Windows.Forms.Panel();
             this.btnNarudzbe = new System.Windows.Forms.Button();
             this.btnPredstave = new System.Windows.Forms.Button();
+            this.btnGlumac = new System.Windows.Forms.Button();
             this.btnDvorane = new System.Windows.Forms.Button();
             this.btnObavijesti = new System.Windows.Forms.Button();
             this.btnKorisnici = new System.Windows.Forms.Button();
             this.btnPostavke = new System.Windows.Forms.Button();
-            this.btnGlumac = new System.Windows.Forms.Button();
             this.btnTeatarMeni = new System.Windows.Forms.Button();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.lblWinDown = new System.Windows.Forms.Label();
@@ -57,18 +57,20 @@
             this.pnlSidebarTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(10)))), ((int)(((byte)(50)))));
             this.pnlSidebarTop.Controls.Add(this.lblImePrezime);
             this.pnlSidebarTop.Controls.Add(this.imgAvatar);
-            this.pnlSidebarTop.Location = new System.Drawing.Point(-2, 0);
+            this.pnlSidebarTop.Location = new System.Drawing.Point(-3, 0);
+            this.pnlSidebarTop.Margin = new System.Windows.Forms.Padding(4);
             this.pnlSidebarTop.Name = "pnlSidebarTop";
-            this.pnlSidebarTop.Size = new System.Drawing.Size(197, 223);
+            this.pnlSidebarTop.Size = new System.Drawing.Size(263, 274);
             this.pnlSidebarTop.TabIndex = 3;
             // 
             // lblImePrezime
             // 
-            this.lblImePrezime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblImePrezime.Font = new System.Drawing.Font("Raleway", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblImePrezime.ForeColor = System.Drawing.Color.White;
-            this.lblImePrezime.Location = new System.Drawing.Point(14, 157);
+            this.lblImePrezime.Location = new System.Drawing.Point(19, 193);
+            this.lblImePrezime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblImePrezime.Name = "lblImePrezime";
-            this.lblImePrezime.Size = new System.Drawing.Size(165, 59);
+            this.lblImePrezime.Size = new System.Drawing.Size(220, 73);
             this.lblImePrezime.TabIndex = 4;
             this.lblImePrezime.Text = "Ime prezime";
             this.lblImePrezime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -76,9 +78,10 @@
             // imgAvatar
             // 
             this.imgAvatar.Image = global::WinForms.Properties.Resources.avatar_1577909_640;
-            this.imgAvatar.Location = new System.Drawing.Point(27, 19);
+            this.imgAvatar.Location = new System.Drawing.Point(36, 23);
+            this.imgAvatar.Margin = new System.Windows.Forms.Padding(4);
             this.imgAvatar.Name = "imgAvatar";
-            this.imgAvatar.Size = new System.Drawing.Size(139, 125);
+            this.imgAvatar.Size = new System.Drawing.Size(185, 166);
             this.imgAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imgAvatar.TabIndex = 25;
             this.imgAvatar.TabStop = false;
@@ -94,22 +97,24 @@
             this.pnlSidebarMenu.Controls.Add(this.btnKorisnici);
             this.pnlSidebarMenu.Controls.Add(this.btnPostavke);
             this.pnlSidebarMenu.Controls.Add(this.btnTeatarMeni);
-            this.pnlSidebarMenu.Location = new System.Drawing.Point(-2, 219);
+            this.pnlSidebarMenu.Location = new System.Drawing.Point(-3, 270);
+            this.pnlSidebarMenu.Margin = new System.Windows.Forms.Padding(4);
             this.pnlSidebarMenu.Name = "pnlSidebarMenu";
-            this.pnlSidebarMenu.Size = new System.Drawing.Size(197, 599);
+            this.pnlSidebarMenu.Size = new System.Drawing.Size(263, 737);
             this.pnlSidebarMenu.TabIndex = 4;
             // 
             // btnNarudzbe
             // 
             this.btnNarudzbe.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(10)))), ((int)(((byte)(50)))));
             this.btnNarudzbe.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnNarudzbe.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNarudzbe.Font = new System.Drawing.Font("Raleway", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNarudzbe.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnNarudzbe.Location = new System.Drawing.Point(0, 254);
+            this.btnNarudzbe.Location = new System.Drawing.Point(0, 308);
+            this.btnNarudzbe.Margin = new System.Windows.Forms.Padding(4);
             this.btnNarudzbe.Name = "btnNarudzbe";
-            this.btnNarudzbe.Size = new System.Drawing.Size(197, 38);
+            this.btnNarudzbe.Size = new System.Drawing.Size(263, 47);
             this.btnNarudzbe.TabIndex = 27;
-            this.btnNarudzbe.Text = "Narudzbe";
+            this.btnNarudzbe.Text = "Narudžbe";
             this.btnNarudzbe.UseVisualStyleBackColor = false;
             this.btnNarudzbe.Click += new System.EventHandler(this.BtnNarudzbe_Click);
             // 
@@ -117,25 +122,42 @@
             // 
             this.btnPredstave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(10)))), ((int)(((byte)(50)))));
             this.btnPredstave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnPredstave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPredstave.Font = new System.Drawing.Font("Raleway", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPredstave.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnPredstave.Location = new System.Drawing.Point(0, 140);
+            this.btnPredstave.Location = new System.Drawing.Point(0, 170);
+            this.btnPredstave.Margin = new System.Windows.Forms.Padding(4);
             this.btnPredstave.Name = "btnPredstave";
-            this.btnPredstave.Size = new System.Drawing.Size(197, 38);
+            this.btnPredstave.Size = new System.Drawing.Size(263, 47);
             this.btnPredstave.TabIndex = 26;
             this.btnPredstave.Text = "Predstave";
             this.btnPredstave.UseVisualStyleBackColor = false;
             this.btnPredstave.Click += new System.EventHandler(this.BtnPredstave_Click);
             // 
+            // btnGlumac
+            // 
+            this.btnGlumac.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(10)))), ((int)(((byte)(50)))));
+            this.btnGlumac.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnGlumac.Font = new System.Drawing.Font("Raleway", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGlumac.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnGlumac.Location = new System.Drawing.Point(-1, 78);
+            this.btnGlumac.Margin = new System.Windows.Forms.Padding(4);
+            this.btnGlumac.Name = "btnGlumac";
+            this.btnGlumac.Size = new System.Drawing.Size(264, 47);
+            this.btnGlumac.TabIndex = 23;
+            this.btnGlumac.Text = "Glumci";
+            this.btnGlumac.UseVisualStyleBackColor = false;
+            this.btnGlumac.Click += new System.EventHandler(this.BtnGlumac_Click);
+            // 
             // btnDvorane
             // 
             this.btnDvorane.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(10)))), ((int)(((byte)(50)))));
             this.btnDvorane.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnDvorane.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDvorane.Font = new System.Drawing.Font("Raleway", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDvorane.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnDvorane.Location = new System.Drawing.Point(2, 64);
+            this.btnDvorane.Location = new System.Drawing.Point(-1, 124);
+            this.btnDvorane.Margin = new System.Windows.Forms.Padding(4);
             this.btnDvorane.Name = "btnDvorane";
-            this.btnDvorane.Size = new System.Drawing.Size(197, 38);
+            this.btnDvorane.Size = new System.Drawing.Size(263, 47);
             this.btnDvorane.TabIndex = 26;
             this.btnDvorane.Text = "Dvorane";
             this.btnDvorane.UseVisualStyleBackColor = false;
@@ -145,11 +167,12 @@
             // 
             this.btnObavijesti.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(10)))), ((int)(((byte)(50)))));
             this.btnObavijesti.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnObavijesti.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnObavijesti.Font = new System.Drawing.Font("Raleway", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnObavijesti.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnObavijesti.Location = new System.Drawing.Point(1, 178);
+            this.btnObavijesti.Location = new System.Drawing.Point(1, 216);
+            this.btnObavijesti.Margin = new System.Windows.Forms.Padding(4);
             this.btnObavijesti.Name = "btnObavijesti";
-            this.btnObavijesti.Size = new System.Drawing.Size(197, 38);
+            this.btnObavijesti.Size = new System.Drawing.Size(263, 47);
             this.btnObavijesti.TabIndex = 23;
             this.btnObavijesti.Text = "Obavijesti";
             this.btnObavijesti.UseVisualStyleBackColor = false;
@@ -159,11 +182,12 @@
             // 
             this.btnKorisnici.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(10)))), ((int)(((byte)(50)))));
             this.btnKorisnici.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnKorisnici.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnKorisnici.Font = new System.Drawing.Font("Raleway", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnKorisnici.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnKorisnici.Location = new System.Drawing.Point(0, 216);
+            this.btnKorisnici.Location = new System.Drawing.Point(0, 262);
+            this.btnKorisnici.Margin = new System.Windows.Forms.Padding(4);
             this.btnKorisnici.Name = "btnKorisnici";
-            this.btnKorisnici.Size = new System.Drawing.Size(197, 38);
+            this.btnKorisnici.Size = new System.Drawing.Size(263, 47);
             this.btnKorisnici.TabIndex = 25;
             this.btnKorisnici.Text = "Korisnici";
             this.btnKorisnici.UseVisualStyleBackColor = false;
@@ -173,39 +197,27 @@
             // 
             this.btnPostavke.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(10)))), ((int)(((byte)(50)))));
             this.btnPostavke.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnPostavke.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPostavke.Font = new System.Drawing.Font("Raleway", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPostavke.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnPostavke.Location = new System.Drawing.Point(1, 292);
+            this.btnPostavke.Location = new System.Drawing.Point(1, 354);
+            this.btnPostavke.Margin = new System.Windows.Forms.Padding(4);
             this.btnPostavke.Name = "btnPostavke";
-            this.btnPostavke.Size = new System.Drawing.Size(197, 38);
+            this.btnPostavke.Size = new System.Drawing.Size(263, 47);
             this.btnPostavke.TabIndex = 24;
             this.btnPostavke.Text = "Postavke";
             this.btnPostavke.UseVisualStyleBackColor = false;
             this.btnPostavke.Click += new System.EventHandler(this.BtnPostavke_Click);
             // 
-            // btnGlumac
-            // 
-            this.btnGlumac.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(10)))), ((int)(((byte)(50)))));
-            this.btnGlumac.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnGlumac.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGlumac.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnGlumac.Location = new System.Drawing.Point(1, 102);
-            this.btnGlumac.Name = "btnGlumac";
-            this.btnGlumac.Size = new System.Drawing.Size(197, 38);
-            this.btnGlumac.TabIndex = 23;
-            this.btnGlumac.Text = "Glumci";
-            this.btnGlumac.UseVisualStyleBackColor = false;
-            this.btnGlumac.Click += new System.EventHandler(this.BtnGlumac_Click);
-            // 
             // btnTeatarMeni
             // 
             this.btnTeatarMeni.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(10)))), ((int)(((byte)(50)))));
             this.btnTeatarMeni.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnTeatarMeni.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTeatarMeni.Font = new System.Drawing.Font("Raleway", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTeatarMeni.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnTeatarMeni.Location = new System.Drawing.Point(0, 26);
+            this.btnTeatarMeni.Location = new System.Drawing.Point(1, 32);
+            this.btnTeatarMeni.Margin = new System.Windows.Forms.Padding(4);
             this.btnTeatarMeni.Name = "btnTeatarMeni";
-            this.btnTeatarMeni.Size = new System.Drawing.Size(197, 38);
+            this.btnTeatarMeni.Size = new System.Drawing.Size(263, 47);
             this.btnTeatarMeni.TabIndex = 22;
             this.btnTeatarMeni.Text = "Teatar";
             this.btnTeatarMeni.UseVisualStyleBackColor = false;
@@ -217,9 +229,10 @@
             this.pnlHeader.Controls.Add(this.lblWinDown);
             this.pnlHeader.Controls.Add(this.lblClose);
             this.pnlHeader.Controls.Add(this.label1);
-            this.pnlHeader.Location = new System.Drawing.Point(194, 0);
+            this.pnlHeader.Location = new System.Drawing.Point(259, 0);
+            this.pnlHeader.Margin = new System.Windows.Forms.Padding(4);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(1127, 62);
+            this.pnlHeader.Size = new System.Drawing.Size(1503, 76);
             this.pnlHeader.TabIndex = 24;
             this.pnlHeader.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PnlHeader_MouseDown);
             // 
@@ -227,12 +240,11 @@
             // 
             this.lblWinDown.AutoSize = true;
             this.lblWinDown.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblWinDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 19F);
+            this.lblWinDown.Font = new System.Drawing.Font("Raleway", 19F);
             this.lblWinDown.ForeColor = System.Drawing.Color.White;
-            this.lblWinDown.Location = new System.Drawing.Point(1050, 13);
-            this.lblWinDown.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblWinDown.Location = new System.Drawing.Point(1393, 16);
             this.lblWinDown.Name = "lblWinDown";
-            this.lblWinDown.Size = new System.Drawing.Size(30, 32);
+            this.lblWinDown.Size = new System.Drawing.Size(48, 39);
             this.lblWinDown.TabIndex = 28;
             this.lblWinDown.Text = "—";
             this.lblWinDown.Click += new System.EventHandler(this.LblWinDown_Click);
@@ -242,12 +254,11 @@
             this.lblClose.AutoSize = true;
             this.lblClose.BackColor = System.Drawing.Color.Transparent;
             this.lblClose.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 19F);
+            this.lblClose.Font = new System.Drawing.Font("Raleway", 19F);
             this.lblClose.ForeColor = System.Drawing.Color.White;
-            this.lblClose.Location = new System.Drawing.Point(1082, 13);
-            this.lblClose.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblClose.Location = new System.Drawing.Point(1443, 16);
             this.lblClose.Name = "lblClose";
-            this.lblClose.Size = new System.Drawing.Size(32, 32);
+            this.lblClose.Size = new System.Drawing.Size(39, 39);
             this.lblClose.TabIndex = 27;
             this.lblClose.Text = "X";
             this.lblClose.Click += new System.EventHandler(this.LblClose_Click);
@@ -255,11 +266,12 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Raleway", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(30, 19);
+            this.label1.Location = new System.Drawing.Point(40, 23);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(97, 29);
+            this.label1.Size = new System.Drawing.Size(116, 35);
             this.label1.TabIndex = 26;
             this.label1.Text = "eTeatar";
             // 
@@ -267,22 +279,23 @@
             // 
             this.pnlUserControl.AutoScrollMargin = new System.Drawing.Size(2000, 2000);
             this.pnlUserControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(19)))), ((int)(((byte)(54)))));
-            this.pnlUserControl.Location = new System.Drawing.Point(194, 62);
-            this.pnlUserControl.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlUserControl.Location = new System.Drawing.Point(259, 76);
+            this.pnlUserControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlUserControl.Name = "pnlUserControl";
-            this.pnlUserControl.Size = new System.Drawing.Size(1127, 756);
+            this.pnlUserControl.Size = new System.Drawing.Size(1503, 930);
             this.pnlUserControl.TabIndex = 25;
             // 
             // frmETeatar
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1321, 818);
+            this.ClientSize = new System.Drawing.Size(1761, 1007);
             this.Controls.Add(this.pnlUserControl);
             this.Controls.Add(this.pnlHeader);
             this.Controls.Add(this.pnlSidebarMenu);
             this.Controls.Add(this.pnlSidebarTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmETeatar";
             this.Text = "frmETeatar";
             this.Load += new System.EventHandler(this.FrmTeatar_Load);

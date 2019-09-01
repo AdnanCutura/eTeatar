@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DataTransferObjects;
+﻿using DataTransferObjects;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using XamarinForms.ViewModels;
@@ -14,7 +9,6 @@ namespace XamarinForms.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class KartaPage : ContentPage
     {
-        private ZXingBarcodeImageView qrCode;
         private readonly KartaViewModel _model;
 
         public KartaPage(Narudzba narudzba)
@@ -25,7 +19,7 @@ namespace XamarinForms.Views
                 Narudzba = narudzba
             };
 
-            qrCode = new ZXingBarcodeImageView
+            var qrCode = new ZXingBarcodeImageView
             {
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 VerticalOptions = LayoutOptions.FillAndExpand,

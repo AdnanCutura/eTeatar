@@ -34,6 +34,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnDodajTeatar = new System.Windows.Forms.Button();
             this.dgvGlumac = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.imeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prezimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.biografijaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Spol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Izbrisi = new System.Windows.Forms.DataGridViewButtonColumn();
             this.glumacBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.txbIme = new System.Windows.Forms.TextBox();
@@ -41,12 +47,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.Search = new System.Windows.Forms.Button();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.imeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prezimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.biografijaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Spol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Izbrisi = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGlumac)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.glumacBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -55,11 +55,12 @@
             // 
             this.btnDodajTeatar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(69)))), ((int)(((byte)(64)))));
             this.btnDodajTeatar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnDodajTeatar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDodajTeatar.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDodajTeatar.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnDodajTeatar.Location = new System.Drawing.Point(28, 476);
+            this.btnDodajTeatar.Location = new System.Drawing.Point(37, 586);
+            this.btnDodajTeatar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDodajTeatar.Name = "btnDodajTeatar";
-            this.btnDodajTeatar.Size = new System.Drawing.Size(197, 38);
+            this.btnDodajTeatar.Size = new System.Drawing.Size(263, 47);
             this.btnDodajTeatar.TabIndex = 25;
             this.btnDodajTeatar.Text = "Dodaj novog glumca";
             this.btnDodajTeatar.UseVisualStyleBackColor = false;
@@ -73,7 +74,7 @@
             this.dgvGlumac.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Raleway", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -90,93 +91,21 @@
             this.dgvGlumac.DataSource = this.glumacBindingSource;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Raleway", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvGlumac.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvGlumac.GridColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dgvGlumac.Location = new System.Drawing.Point(28, 77);
+            this.dgvGlumac.Location = new System.Drawing.Point(37, 145);
+            this.dgvGlumac.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvGlumac.Name = "dgvGlumac";
             this.dgvGlumac.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvGlumac.RowHeadersWidth = 51;
-            this.dgvGlumac.Size = new System.Drawing.Size(849, 393);
+            this.dgvGlumac.Size = new System.Drawing.Size(1132, 434);
             this.dgvGlumac.TabIndex = 24;
             this.dgvGlumac.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvGlumac_CellContentClick_1);
-            // 
-            // glumacBindingSource
-            // 
-            this.glumacBindingSource.DataSource = typeof(DataTransferObjects.Glumac);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(23, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(224, 29);
-            this.label1.TabIndex = 26;
-            this.label1.Text = "Prikaz svih glumaca";
-            // 
-            // txbIme
-            // 
-            this.txbIme.BackColor = System.Drawing.Color.White;
-            this.txbIme.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txbIme.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbIme.Location = new System.Drawing.Point(922, 109);
-            this.txbIme.MaxLength = 100;
-            this.txbIme.Name = "txbIme";
-            this.txbIme.Size = new System.Drawing.Size(191, 24);
-            this.txbIme.TabIndex = 27;
-            // 
-            // txbPrezime
-            // 
-            this.txbPrezime.BackColor = System.Drawing.Color.White;
-            this.txbPrezime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txbPrezime.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbPrezime.Location = new System.Drawing.Point(922, 191);
-            this.txbPrezime.MaxLength = 100;
-            this.txbPrezime.Name = "txbPrezime";
-            this.txbPrezime.Size = new System.Drawing.Size(191, 24);
-            this.txbPrezime.TabIndex = 27;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(919, 88);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(32, 18);
-            this.label2.TabIndex = 28;
-            this.label2.Text = "Ime";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(919, 170);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 18);
-            this.label3.TabIndex = 29;
-            this.label3.Text = "Prezime";
-            // 
-            // Search
-            // 
-            this.Search.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(69)))), ((int)(((byte)(64)))));
-            this.Search.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Search.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Search.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.Search.Location = new System.Drawing.Point(916, 259);
-            this.Search.Name = "Search";
-            this.Search.Size = new System.Drawing.Size(197, 38);
-            this.Search.TabIndex = 30;
-            this.Search.Text = "Pretraga";
-            this.Search.UseVisualStyleBackColor = false;
-            this.Search.Click += new System.EventHandler(this.Search_Click);
             // 
             // Id
             // 
@@ -229,9 +158,88 @@
             this.Izbrisi.UseColumnTextForButtonValue = true;
             this.Izbrisi.Width = 125;
             // 
+            // glumacBindingSource
+            // 
+            this.glumacBindingSource.DataSource = typeof(DataTransferObjects.Glumac);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Raleway", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(32, 42);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(279, 36);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "Prikaz svih glumaca";
+            // 
+            // txbIme
+            // 
+            this.txbIme.BackColor = System.Drawing.Color.White;
+            this.txbIme.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txbIme.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbIme.Location = new System.Drawing.Point(344, 94);
+            this.txbIme.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txbIme.MaxLength = 100;
+            this.txbIme.Name = "txbIme";
+            this.txbIme.Size = new System.Drawing.Size(254, 29);
+            this.txbIme.TabIndex = 27;
+            // 
+            // txbPrezime
+            // 
+            this.txbPrezime.BackColor = System.Drawing.Color.White;
+            this.txbPrezime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txbPrezime.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbPrezime.Location = new System.Drawing.Point(625, 94);
+            this.txbPrezime.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txbPrezime.MaxLength = 100;
+            this.txbPrezime.Name = "txbPrezime";
+            this.txbPrezime.Size = new System.Drawing.Size(254, 29);
+            this.txbPrezime.TabIndex = 27;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(340, 68);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 24);
+            this.label2.TabIndex = 28;
+            this.label2.Text = "Ime";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(621, 68);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(79, 24);
+            this.label3.TabIndex = 29;
+            this.label3.Text = "Prezime";
+            // 
+            // Search
+            // 
+            this.Search.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(69)))), ((int)(((byte)(64)))));
+            this.Search.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Search.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Search.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.Search.Location = new System.Drawing.Point(906, 76);
+            this.Search.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Search.Name = "Search";
+            this.Search.Size = new System.Drawing.Size(263, 47);
+            this.Search.TabIndex = 30;
+            this.Search.Text = "Pretraga";
+            this.Search.UseVisualStyleBackColor = false;
+            this.Search.Click += new System.EventHandler(this.Search_Click);
+            // 
             // uctGlumac
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.Search);
             this.Controls.Add(this.label3);
@@ -241,8 +249,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnDodajTeatar);
             this.Controls.Add(this.dgvGlumac);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "uctGlumac";
-            this.Size = new System.Drawing.Size(1191, 562);
+            this.Size = new System.Drawing.Size(1202, 692);
             this.Load += new System.EventHandler(this.UctGlumac_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvGlumac)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.glumacBindingSource)).EndInit();

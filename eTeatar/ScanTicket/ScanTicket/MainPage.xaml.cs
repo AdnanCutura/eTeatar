@@ -18,6 +18,9 @@ namespace ScanTicket
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Event za skeniranje karte
+        /// </summary>
         private async void Skeniraj_kartu(object sender, EventArgs e)
         {
             var scan = new ZXingScannerPage();
