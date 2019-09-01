@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -13,12 +14,14 @@ namespace XamarinForms.ViewModels
     {
         private readonly APIService _obavijestService = new APIService("Obavijest");
         private readonly INavigation _navigation;
-        public ObservableCollection<DataTransferObjects.Obavijest> ObavijestList { get; set; } = new ObservableCollection<DataTransferObjects.Obavijest>();
+        private ObservableCollection<DataTransferObjects.Obavijest> _obavijestList;
+        public ObservableCollection<DataTransferObjects.Obavijest> ObavijestList { get { return _obavijestList; } set {SetProperty(ref _obavijestList, value); } }
         public ICommand Init { get; private set; }
         public ICommand SelectedCommand { get; private set; }
 
         public ObavijestViewModel(INavigation Navigation)
         {
+            ObavijestList = new ObservableCollection<DataTransferObjects.Obavijest>();
             Init = new Command(async () => await Initialize());
             SelectedCommand = new Command<object>(async (o) => await Selected(o));
             Init.Execute(null);
@@ -37,10 +40,16 @@ namespace XamarinForms.ViewModels
             {
                 var list = await _obavijestService.Get<List<DataTransferObjects.Obavijest>>(null);
 
+                list.OrderBy(o => o.DatumVrijeme);
+
                 foreach (var item in list)
                     ObavijestList.Add(item);
             }
             catch {}
+
+            await Task.Delay(1000);
+            await _navigation.PushAsync(new Workaround());
+            await _navigation.PopAsync();
         }
 
 

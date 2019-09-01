@@ -21,7 +21,6 @@ namespace XamarinForms.Views
             BindingContext = model = new PredstavaViewModel(search, Navigation);
             model.InitCommand.Execute(null);
             InitializeComponent();
-            base.OnAppearing();
         }
 
         private async void Search(object sender, EventArgs e)
