@@ -90,7 +90,7 @@
 
         <!-- Termini -->
         <Label Margin="15" Text="Termini" Style="{StaticResource ETeatarHeader3}"></Label>
-        <ListView ItemTemplate="{StaticResource terminTemplate}" ItemsSource="{Binding Predstava.Termini}"></ListView>
+        <ListView ItemTemplate="{StaticResource terminTemplate}" ItemsSource="{Binding Predstava.Termini}" ItemSelected="ListView_ItemSelected"></ListView>
 
         <!-- Preporučene predstave -->
         <Label Margin="15" Text="Slične predstave" Style="{StaticResource ETeatarHeader3}"></Label>

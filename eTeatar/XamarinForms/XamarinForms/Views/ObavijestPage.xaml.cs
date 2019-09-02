@@ -19,5 +19,11 @@ namespace XamarinForms.Views
             BindingContext = model = new ObavijestViewModel(Navigation);
             InitializeComponent();
         }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            model.WorkAround.Execute(null);
+        }
     }
 }

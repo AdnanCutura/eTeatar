@@ -67,6 +67,10 @@ namespace XamarinForms.ViewModels
         {
             Predstava = await _servicePredstava.GetById<Predstava>(_predstavaId);
 
+            //Label kupi kartu
+            foreach (var termin in Predstava.Termini)
+                termin.Predstava = new Predstava { Naziv = "Kupi kartu" };
+
             Zanrovi = string.Join(", ", Predstava.Zanrovi.Select(z => z.Naziv).ToList());
             try
             {
