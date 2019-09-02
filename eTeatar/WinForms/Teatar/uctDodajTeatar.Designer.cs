@@ -50,6 +50,7 @@ namespace WinForms.Teatar
             this.label2 = new System.Windows.Forms.Label();
             this.txbNaziv = new System.Windows.Forms.TextBox();
             this.lblHeading = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,10 +62,10 @@ namespace WinForms.Teatar
             // 
             this.txbVrijemeZatvaranja.Font = new System.Drawing.Font("Raleway", 11.25F);
             this.txbVrijemeZatvaranja.Location = new System.Drawing.Point(600, 306);
-            this.txbVrijemeZatvaranja.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txbVrijemeZatvaranja.Margin = new System.Windows.Forms.Padding(4);
             this.txbVrijemeZatvaranja.Mask = "00:00";
             this.txbVrijemeZatvaranja.Name = "txbVrijemeZatvaranja";
-            this.txbVrijemeZatvaranja.Size = new System.Drawing.Size(68, 29);
+            this.txbVrijemeZatvaranja.Size = new System.Drawing.Size(68, 30);
             this.txbVrijemeZatvaranja.TabIndex = 41;
             this.txbVrijemeZatvaranja.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txbVrijemeZatvaranja.ValidatingType = typeof(System.DateTime);
@@ -74,10 +75,10 @@ namespace WinForms.Teatar
             // 
             this.txbVrijemeOtvaranja.Font = new System.Drawing.Font("Raleway", 11.25F);
             this.txbVrijemeOtvaranja.Location = new System.Drawing.Point(232, 302);
-            this.txbVrijemeOtvaranja.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txbVrijemeOtvaranja.Margin = new System.Windows.Forms.Padding(4);
             this.txbVrijemeOtvaranja.Mask = "00:00";
             this.txbVrijemeOtvaranja.Name = "txbVrijemeOtvaranja";
-            this.txbVrijemeOtvaranja.Size = new System.Drawing.Size(68, 29);
+            this.txbVrijemeOtvaranja.Size = new System.Drawing.Size(68, 30);
             this.txbVrijemeOtvaranja.TabIndex = 40;
             this.txbVrijemeOtvaranja.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txbVrijemeOtvaranja.ValidatingType = typeof(System.DateTime);
@@ -90,7 +91,7 @@ namespace WinForms.Teatar
             this.btnSacuvaj.Font = new System.Drawing.Font("Raleway", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSacuvaj.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnSacuvaj.Location = new System.Drawing.Point(40, 399);
-            this.btnSacuvaj.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSacuvaj.Margin = new System.Windows.Forms.Padding(4);
             this.btnSacuvaj.Name = "btnSacuvaj";
             this.btnSacuvaj.Size = new System.Drawing.Size(255, 47);
             this.btnSacuvaj.TabIndex = 39;
@@ -103,7 +104,7 @@ namespace WinForms.Teatar
             this.cmbGrad.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbGrad.FormattingEnabled = true;
             this.cmbGrad.Location = new System.Drawing.Point(415, 228);
-            this.cmbGrad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbGrad.Margin = new System.Windows.Forms.Padding(4);
             this.cmbGrad.Name = "cmbGrad";
             this.cmbGrad.Size = new System.Drawing.Size(253, 30);
             this.cmbGrad.TabIndex = 38;
@@ -115,7 +116,7 @@ namespace WinForms.Teatar
             this.cmbDrzava.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbDrzava.FormattingEnabled = true;
             this.cmbDrzava.Location = new System.Drawing.Point(415, 144);
-            this.cmbDrzava.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbDrzava.Margin = new System.Windows.Forms.Padding(4);
             this.cmbDrzava.Name = "cmbDrzava";
             this.cmbDrzava.Size = new System.Drawing.Size(253, 30);
             this.cmbDrzava.TabIndex = 37;
@@ -152,7 +153,7 @@ namespace WinForms.Teatar
             this.txbEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txbEmail.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbEmail.Location = new System.Drawing.Point(784, 228);
-            this.txbEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txbEmail.Margin = new System.Windows.Forms.Padding(4);
             this.txbEmail.MaxLength = 100;
             this.txbEmail.Name = "txbEmail";
             this.txbEmail.Size = new System.Drawing.Size(254, 30);
@@ -213,7 +214,7 @@ namespace WinForms.Teatar
             this.txbBrojTelefona.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txbBrojTelefona.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbBrojTelefona.Location = new System.Drawing.Point(784, 144);
-            this.txbBrojTelefona.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txbBrojTelefona.Margin = new System.Windows.Forms.Padding(4);
             this.txbBrojTelefona.MaxLength = 100;
             this.txbBrojTelefona.Name = "txbBrojTelefona";
             this.txbBrojTelefona.Size = new System.Drawing.Size(254, 30);
@@ -238,7 +239,7 @@ namespace WinForms.Teatar
             this.txbAdresa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txbAdresa.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbAdresa.Location = new System.Drawing.Point(40, 227);
-            this.txbAdresa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txbAdresa.Margin = new System.Windows.Forms.Padding(4);
             this.txbAdresa.MaxLength = 100;
             this.txbAdresa.Name = "txbAdresa";
             this.txbAdresa.Size = new System.Drawing.Size(254, 30);
@@ -263,7 +264,7 @@ namespace WinForms.Teatar
             this.txbNaziv.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txbNaziv.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbNaziv.Location = new System.Drawing.Point(40, 143);
-            this.txbNaziv.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txbNaziv.Margin = new System.Windows.Forms.Padding(4);
             this.txbNaziv.MaxLength = 100;
             this.txbNaziv.Name = "txbNaziv";
             this.txbNaziv.Size = new System.Drawing.Size(254, 30);
@@ -282,11 +283,27 @@ namespace WinForms.Teatar
             this.lblHeading.TabIndex = 24;
             this.lblHeading.Text = "Dodavanje teatra";
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(69)))), ((int)(((byte)(64)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("Raleway", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button1.Location = new System.Drawing.Point(415, 399);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(263, 47);
+            this.button1.TabIndex = 82;
+            this.button1.Text = "Odustani";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            // 
             // uctDodajTeatar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(19)))), ((int)(((byte)(54)))));
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.txbVrijemeZatvaranja);
             this.Controls.Add(this.txbVrijemeOtvaranja);
             this.Controls.Add(this.btnSacuvaj);
@@ -306,7 +323,7 @@ namespace WinForms.Teatar
             this.Controls.Add(this.txbNaziv);
             this.Controls.Add(this.lblHeading);
             this.ForeColor = System.Drawing.Color.White;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "uctDodajTeatar";
             this.Size = new System.Drawing.Size(1217, 692);
             this.Load += new System.EventHandler(this.UctDodajTeatar_Load);
@@ -337,5 +354,6 @@ namespace WinForms.Teatar
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txbNaziv;
         private System.Windows.Forms.Label lblHeading;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -106,5 +106,10 @@ namespace WinForms.KorisnickiNalog
             }
         }
 
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            PanelSwitcher.setToTop(new uctKorisnickiNalog());
+            PanelSwitcher.RemoveControl(this);
+        }
     }
 }

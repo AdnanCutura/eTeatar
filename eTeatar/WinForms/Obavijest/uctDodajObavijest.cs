@@ -93,5 +93,10 @@ namespace WinForms.Obavijest
         }
         #endregion
 
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            PanelSwitcher.setToTop(new uctObavijest());
+            PanelSwitcher.RemoveControl(this);
+        }
     }
 }

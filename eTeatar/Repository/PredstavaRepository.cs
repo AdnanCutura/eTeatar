@@ -94,64 +94,70 @@ namespace Repository
 
             return query.FirstOrDefault();
         }
-
-     
-        private readonly Dictionary<string, List<Ocjena>> predstave = new Dictionary<string, List<Ocjena>>();
-
-        public List<Predstava> GetPreporucene(string currentPredstavaId)
+        
+        /// <summary>
+        /// Metoda za dobavljanje sličnih/preporučenih
+        /// </summary>
+        /// <param name="predstavaId">Trenutna predstava</param>
+        /// <returns>Predstave koje imaju sličnost veći od 0.6</returns>
+        public List<Predstava> GetPreporucene(string predstavaId)
         {
-            GetProductsData(currentPredstavaId);
+            Dictionary<string, List<Ocjena>> _predstave = GetPredstave(predstavaId);
 
-            List<Ocjena> currentProductRatings = Context.Ocjena
+            List<Ocjena> predstavaOcjene = Context.Ocjena
                 .Include(i => i.Narudzba)
                 .ThenInclude(n => n.Termin)
-                .Where(x => x.Narudzba.Termin.PredstavaId == currentPredstavaId)
+                .Where(x => x.Narudzba.Termin.PredstavaId == predstavaId)
                 .OrderBy(x => x.Narudzba.KupacId)
                 .ToList();
 
-            List<Ocjena> commonRatings1 = new List<Ocjena>();
-            List<Ocjena> commonRatings2 = new List<Ocjena>();
+            List<Ocjena> zajednickeOcjene1 = new List<Ocjena>();
+            List<Ocjena> zajednickeOcjene2 = new List<Ocjena>();
 
 
-            List<Predstava> similarProducts = new List<Predstava>();
+            List<Predstava> zajednickiProizvodi = new List<Predstava>();
 
-            foreach (var p in predstave)
+            foreach (var p in _predstave)
             {
-                foreach (var r in currentProductRatings)
+                foreach (var r in predstavaOcjene)
                 {
-                    if (p.Value.Count(x => x.Narudzba.KupacId == r.Narudzba.KupacId) > 0)
-                    {
-                        commonRatings1.Add(r);
-                        commonRatings2.Add(p.Value.First(x => x.Narudzba.KupacId == r.Narudzba.KupacId));
-                    }
+                    if (p.Value.All(x => x.Narudzba.KupacId != r.Narudzba.KupacId)) continue;
+
+                    zajednickeOcjene1.Add(r);
+                    zajednickeOcjene2.Add(p.Value.First(x => x.Narudzba.KupacId == r.Narudzba.KupacId));
                 }
 
-                double sim = CalculateSimilarity(commonRatings1, commonRatings2);
+                double slicnost = IzracunavanjeSlicnosti(zajednickeOcjene1, zajednickeOcjene2);
 
-                if (sim > 0.6)
-                {
-                    similarProducts.Add(base.GetById(p.Key));
-                }
+                if (slicnost > 0.6)
+                    zajednickiProizvodi.Add(base.GetById(p.Key));
 
-                commonRatings1.Clear();
-                commonRatings2.Clear();
+                zajednickeOcjene1.Clear();
+                zajednickeOcjene2.Clear();
             }
 
-            return similarProducts;
+            return zajednickiProizvodi;
         }
 
-        private double CalculateSimilarity(List<Ocjena> commonRatings1, List<Ocjena> commonRatings2)
+
+        /// <summary>
+        /// Izračunavanje sličnosti pomoću formule vektorske udaljenosti
+        /// </summary>
+        /// <param name="zajednickeOcjene1">Ocjene korisnika1</param>
+        /// <param name="zajednickeOcjene2">Ocjene korisnika2</param>
+        /// <returns>Slicnost izmedju predstava</returns>
+        private static double IzracunavanjeSlicnosti(IReadOnlyList<Ocjena> zajednickeOcjene1, IReadOnlyList<Ocjena> zajednickeOcjene2)
         {
-            if (commonRatings1.Count != commonRatings2.Count)
+            if (zajednickeOcjene1.Count != zajednickeOcjene2.Count)
                 return 0;
 
             double numerator = 0, int1 = 0, int2 = 0;
 
-            for (int i = 0; i < commonRatings1.Count; i++)
+            for (int i = 0; i < zajednickeOcjene1.Count; i++)
             {
-                numerator += commonRatings1[i].Vrijednost * commonRatings2[i].Vrijednost;
-                int1 += Math.Pow(commonRatings1[i].Vrijednost, 2);
-                int2 += Math.Pow(commonRatings2[i].Vrijednost, 2);
+                numerator += zajednickeOcjene1[i].Vrijednost * zajednickeOcjene2[i].Vrijednost;
+                int1 += Math.Pow(zajednickeOcjene1[i].Vrijednost, 2);
+                int2 += Math.Pow(zajednickeOcjene2[i].Vrijednost, 2);
 
             }
 
@@ -165,21 +171,31 @@ namespace Repository
 
         }
 
-        private void GetProductsData(string currentProductId)
+
+        /// <summary>
+        /// Sve predstave koje nisu trenutna, a imaju ocjenu, se dodaju u dictionarz (id i lista ocjena)
+        /// </summary>
+        /// <param name="predstavaId">Id trentne predstave</param>
+        /// /// <returns>Dictionary id predstava i njihovih ocjena</returns>
+        private Dictionary<string, List<Ocjena>> GetPredstave(string predstavaId)
         {
-            //List<Predstava> activeProducts = Context.Predstava.Where(x => x.Id != currentProductId && x.Termini.Any(t => t.DatumVrijeme > DateTime.Now)).ToList();
-            List<Predstava> trenutnePredstave = Context.Predstava.Where(x => x.Id != currentProductId).ToList();
+            var predstaveDictionary = new Dictionary<string, List<Ocjena>>();
+            List<Predstava> predstave = Context.Predstava.Where(x => x.Id != predstavaId).ToList();
 
-            foreach (var item in trenutnePredstave)
+            foreach (var item in predstave)
             {
-                List<Ocjena> ratings = Context.Ocjena.Include(i => i.Narudzba)
+                List<Ocjena> ocjene = Context.Ocjena.Include(i => i.Narudzba)
                     .ThenInclude(n => n.Termin)
-                    .Where(x => x.Narudzba.Termin.PredstavaId == item.Id).OrderBy(x => x.Narudzba.KupacId).ToList();
+                    .Where(x => x.Narudzba.Termin.PredstavaId == item.Id)
+                    .OrderBy(x => x.Narudzba.KupacId)
+                    .ToList();
 
-                if (ratings.Count > 0)
-                    predstave.Add(item.Id, ratings);
+                if (ocjene.Any())
+                    predstaveDictionary.Add(item.Id, ocjene);
 
             }
+
+            return predstaveDictionary;
         }
     }
 }

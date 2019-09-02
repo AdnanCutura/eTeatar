@@ -86,6 +86,7 @@ namespace WinForms.Predstava
         private void Button1_Click(object sender, EventArgs e)
         {
             PanelSwitcher.setToTop(new uctTerminiPredstave(_predstavaId));
+            PanelSwitcher.RemoveControl(this);
         }
 
         private void CmbDvorana_Validating(object sender, CancelEventArgs e)

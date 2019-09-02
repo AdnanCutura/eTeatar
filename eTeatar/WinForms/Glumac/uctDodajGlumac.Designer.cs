@@ -45,6 +45,7 @@ namespace WinForms.Glumac
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnDodajSliku = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -60,7 +61,7 @@ namespace WinForms.Glumac
             this.btnSacuvaj.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSacuvaj.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnSacuvaj.Location = new System.Drawing.Point(40, 595);
-            this.btnSacuvaj.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSacuvaj.Margin = new System.Windows.Forms.Padding(4);
             this.btnSacuvaj.Name = "btnSacuvaj";
             this.btnSacuvaj.Size = new System.Drawing.Size(255, 47);
             this.btnSacuvaj.TabIndex = 39;
@@ -73,9 +74,9 @@ namespace WinForms.Glumac
             this.cmbSpol.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbSpol.FormattingEnabled = true;
             this.cmbSpol.Location = new System.Drawing.Point(327, 142);
-            this.cmbSpol.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbSpol.Margin = new System.Windows.Forms.Padding(4);
             this.cmbSpol.Name = "cmbSpol";
-            this.cmbSpol.Size = new System.Drawing.Size(253, 32);
+            this.cmbSpol.Size = new System.Drawing.Size(253, 30);
             this.cmbSpol.TabIndex = 37;
             this.cmbSpol.Validating += new System.ComponentModel.CancelEventHandler(this.CmbSpol_Validating);
             // 
@@ -87,7 +88,7 @@ namespace WinForms.Glumac
             this.label9.Location = new System.Drawing.Point(36, 186);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(79, 24);
+            this.label9.Size = new System.Drawing.Size(81, 22);
             this.label9.TabIndex = 32;
             this.label9.Text = "Prezime";
             // 
@@ -99,7 +100,7 @@ namespace WinForms.Glumac
             this.label3.Location = new System.Drawing.Point(36, 259);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(86, 24);
+            this.label3.Size = new System.Drawing.Size(91, 22);
             this.label3.TabIndex = 28;
             this.label3.Text = "Biografija";
             // 
@@ -109,7 +110,7 @@ namespace WinForms.Glumac
             this.txbBiografija.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txbBiografija.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbBiografija.Location = new System.Drawing.Point(40, 286);
-            this.txbBiografija.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txbBiografija.Margin = new System.Windows.Forms.Padding(4);
             this.txbBiografija.MaxLength = 1000;
             this.txbBiografija.Multiline = true;
             this.txbBiografija.Name = "txbBiografija";
@@ -125,7 +126,7 @@ namespace WinForms.Glumac
             this.label2.Location = new System.Drawing.Point(36, 116);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 24);
+            this.label2.Size = new System.Drawing.Size(43, 22);
             this.label2.TabIndex = 26;
             this.label2.Text = "Ime";
             // 
@@ -135,10 +136,10 @@ namespace WinForms.Glumac
             this.txbIme.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txbIme.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbIme.Location = new System.Drawing.Point(40, 142);
-            this.txbIme.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txbIme.Margin = new System.Windows.Forms.Padding(4);
             this.txbIme.MaxLength = 100;
             this.txbIme.Name = "txbIme";
-            this.txbIme.Size = new System.Drawing.Size(254, 29);
+            this.txbIme.Size = new System.Drawing.Size(254, 30);
             this.txbIme.TabIndex = 25;
             this.txbIme.Validating += new System.ComponentModel.CancelEventHandler(this.TxbIme_Validating);
             // 
@@ -150,7 +151,7 @@ namespace WinForms.Glumac
             this.label1.Location = new System.Drawing.Point(33, 44);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(260, 36);
+            this.label1.Size = new System.Drawing.Size(276, 35);
             this.label1.TabIndex = 24;
             this.label1.Text = "Dodavanje glumca";
             // 
@@ -160,10 +161,10 @@ namespace WinForms.Glumac
             this.txbPrezime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txbPrezime.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbPrezime.Location = new System.Drawing.Point(39, 214);
-            this.txbPrezime.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txbPrezime.Margin = new System.Windows.Forms.Padding(4);
             this.txbPrezime.MaxLength = 100;
             this.txbPrezime.Name = "txbPrezime";
-            this.txbPrezime.Size = new System.Drawing.Size(254, 29);
+            this.txbPrezime.Size = new System.Drawing.Size(254, 30);
             this.txbPrezime.TabIndex = 40;
             this.txbPrezime.Validating += new System.ComponentModel.CancelEventHandler(this.TxbPrezime_Validating);
             // 
@@ -175,7 +176,7 @@ namespace WinForms.Glumac
             this.label4.Location = new System.Drawing.Point(323, 116);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(48, 24);
+            this.label4.Size = new System.Drawing.Size(50, 22);
             this.label4.TabIndex = 41;
             this.label4.Text = "Spol";
             // 
@@ -197,7 +198,7 @@ namespace WinForms.Glumac
             this.btnDodajSliku.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDodajSliku.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnDodajSliku.Location = new System.Drawing.Point(641, 232);
-            this.btnDodajSliku.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDodajSliku.Margin = new System.Windows.Forms.Padding(4);
             this.btnDodajSliku.Name = "btnDodajSliku";
             this.btnDodajSliku.Size = new System.Drawing.Size(255, 47);
             this.btnDodajSliku.TabIndex = 43;
@@ -209,11 +210,27 @@ namespace WinForms.Glumac
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(69)))), ((int)(((byte)(64)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("Raleway", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button1.Location = new System.Drawing.Point(878, 595);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(263, 47);
+            this.button1.TabIndex = 86;
+            this.button1.Text = "Odustani";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            // 
             // uctDodajGlumac
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(19)))), ((int)(((byte)(54)))));
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnDodajSliku);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label4);
@@ -227,7 +244,7 @@ namespace WinForms.Glumac
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.ForeColor = System.Drawing.Color.White;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "uctDodajGlumac";
             this.Size = new System.Drawing.Size(1217, 692);
             this.Load += new System.EventHandler(this.UctDodajGlumac_Load);
@@ -254,5 +271,6 @@ namespace WinForms.Glumac
         private System.Windows.Forms.Button btnDodajSliku;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Button button1;
     }
 }

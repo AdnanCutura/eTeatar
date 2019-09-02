@@ -257,13 +257,13 @@ namespace Repository
             Glumac Glumac1 = new Glumac { Ime = "Aida", Prezime = "Bukva", Biografija = "Opako dobra biografija", Spol = Zensko, Slika = korisnikSlikaByte3 };
             Glumac Glumac2 = new Glumac { Ime = "Branko", Prezime = "Đurić", Biografija = "Opako dobra biografija", Spol = Musko, Slika = korisnikSlikaByte2 };
             Glumac Glumac3 = new Glumac { Ime = "Enis", Prezime = "Bešlagić", Biografija = "Opako dobra biografija", Spol = Musko, Slika = korisnikSlikaByte1 };
-            Glumac Glumac4 = new Glumac { Ime = "Izudin", Prezime = "Bajrović", Biografija = "Opako dobra biografija", Spol = Musko, Slika = korisnikSlikaByte3 };
+            Glumac Glumac4 = new Glumac { Ime = "Izudin", Prezime = "Bajrović", Biografija = "Opako dobra biografija", Spol = Musko, Slika = korisnikSlikaByte2 };
             Glumac Glumac5 = new Glumac { Ime = "Mario", Prezime = "Drmać", Biografija = "Opako dobra biografija", Spol = Musko, Slika = korisnikSlikaByte1 };
             Glumac Glumac6 = new Glumac { Ime = "Josip", Prezime = "Pejaković", Biografija = "Opako dobra biografija", Spol = Musko, Slika = korisnikSlikaByte2 };
             Glumac Glumac7 = new Glumac { Ime = "Admir", Prezime = "Glamočak", Biografija = "Opako dobra biografija", Spol = Musko, Slika = korisnikSlikaByte1 };
-            Glumac Glumac8 = new Glumac { Ime = "Mirvad", Prezime = "Kurić", Biografija = "Opako dobra biografija", Spol = Musko, Slika = korisnikSlikaByte3 };
-            Glumac Glumac9 = new Glumac { Ime = "Mirela", Prezime = "Lambić", Biografija = "Opako dobra biografija", Spol = Zensko, Slika = korisnikSlikaByte2 };
-            Glumac Glumac10 = new Glumac { Ime = "Jasna", Prezime = "Diklić", Biografija = "Opako dobra biografija", Spol = Zensko };
+            Glumac Glumac8 = new Glumac { Ime = "Mirvad", Prezime = "Kurić", Biografija = "Opako dobra biografija", Spol = Musko, Slika = korisnikSlikaByte1 };
+            Glumac Glumac9 = new Glumac { Ime = "Mirela", Prezime = "Lambić", Biografija = "Opako dobra biografija", Spol = Zensko, Slika = korisnikSlikaByte3 };
+            Glumac Glumac10 = new Glumac { Ime = "Jasna", Prezime = "Diklić", Biografija = "Opako dobra biografija", Spol = Zensko, Slika = korisnikSlikaByte3 };
 
             context.Glumac.AddRange(Glumac1, Glumac2, Glumac3, Glumac4, Glumac5, Glumac6, Glumac7, Glumac8, Glumac9, Glumac10);
             context.SaveChanges();

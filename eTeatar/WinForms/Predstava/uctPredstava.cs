@@ -34,7 +34,7 @@ namespace WinForms.Predstava
         {
             var id = dgvPredstava.Rows[e.RowIndex].Cells["id"].Value.ToString();
             var predstava = await _predstavaService.GetById<DataTransferObjects.Predstava>(id);
-            //Todo: ako postoje termini nije moguce obrisati
+           
             if (dgvPredstava.Columns[e.ColumnIndex].Name == "Izbrisi")
             {
                 if (predstava.Termini.Any())

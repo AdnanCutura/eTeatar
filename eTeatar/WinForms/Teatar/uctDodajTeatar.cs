@@ -185,8 +185,13 @@ namespace WinForms.Teatar
             _dataValidation.TimeRegexCheck(txbVrijemeZatvaranja, e);
         }
 
+
         #endregion
 
-
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            PanelSwitcher.setToTop(new uctTeatar());
+            PanelSwitcher.RemoveControl(this);
+        }
     }
 }

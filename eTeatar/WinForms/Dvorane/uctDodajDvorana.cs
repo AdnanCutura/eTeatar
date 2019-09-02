@@ -132,6 +132,11 @@ namespace WinForms.Dvorane
         {
             _validator.NullCheck(cmbTeatar, e);
         }
-     
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            PanelSwitcher.setToTop(new uctDvorana());
+            PanelSwitcher.RemoveControl(this);
+        }
     }
 }

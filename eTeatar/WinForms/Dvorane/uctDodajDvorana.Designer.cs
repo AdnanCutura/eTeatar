@@ -41,6 +41,7 @@
             this.BrojSjedista = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tipSjedistaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTipSjedista)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tipSjedistaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -54,7 +55,7 @@
             this.lblTeatar.Location = new System.Drawing.Point(322, 114);
             this.lblTeatar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTeatar.Name = "lblTeatar";
-            this.lblTeatar.Size = new System.Drawing.Size(63, 24);
+            this.lblTeatar.Size = new System.Drawing.Size(64, 22);
             this.lblTeatar.TabIndex = 47;
             this.lblTeatar.Text = "Teatar";
             // 
@@ -80,7 +81,7 @@
             this.cmbTeatar.Location = new System.Drawing.Point(326, 140);
             this.cmbTeatar.Margin = new System.Windows.Forms.Padding(4);
             this.cmbTeatar.Name = "cmbTeatar";
-            this.cmbTeatar.Size = new System.Drawing.Size(396, 32);
+            this.cmbTeatar.Size = new System.Drawing.Size(396, 30);
             this.cmbTeatar.TabIndex = 45;
             this.cmbTeatar.Validating += new System.ComponentModel.CancelEventHandler(this.CmbTeatar_Validating);
             // 
@@ -93,7 +94,7 @@
             this.txbNaziv.Margin = new System.Windows.Forms.Padding(4);
             this.txbNaziv.MaxLength = 100;
             this.txbNaziv.Name = "txbNaziv";
-            this.txbNaziv.Size = new System.Drawing.Size(254, 29);
+            this.txbNaziv.Size = new System.Drawing.Size(254, 30);
             this.txbNaziv.TabIndex = 43;
             this.txbNaziv.Validating += new System.ComponentModel.CancelEventHandler(this.TxbNaziv_Validating);
             // 
@@ -105,7 +106,7 @@
             this.label1.Location = new System.Drawing.Point(32, 43);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(273, 36);
+            this.label1.Size = new System.Drawing.Size(285, 35);
             this.label1.TabIndex = 42;
             this.label1.Text = "Dodavanje dvorane";
             // 
@@ -117,7 +118,7 @@
             this.lblNaziv.Location = new System.Drawing.Point(35, 114);
             this.lblNaziv.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNaziv.Name = "lblNaziv";
-            this.lblNaziv.Size = new System.Drawing.Size(56, 24);
+            this.lblNaziv.Size = new System.Drawing.Size(58, 22);
             this.lblNaziv.TabIndex = 44;
             this.lblNaziv.Text = "Naziv";
             // 
@@ -172,10 +173,26 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(69)))), ((int)(((byte)(64)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("Raleway", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button1.Location = new System.Drawing.Point(459, 593);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(263, 47);
+            this.button1.TabIndex = 87;
+            this.button1.Text = "Odustani";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            // 
             // uctDodajDvorana
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.dgvTipSjedista);
             this.Controls.Add(this.lblTeatar);
             this.Controls.Add(this.btnSacuvaj);
@@ -209,5 +226,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nazivDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn BrojSjedista;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Button button1;
     }
 }

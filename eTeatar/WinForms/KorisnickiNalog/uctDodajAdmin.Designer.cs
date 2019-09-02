@@ -49,6 +49,7 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.label3 = new System.Windows.Forms.Label();
             this.txbKorisnickoIme = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.imgAvatar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -61,7 +62,7 @@
             this.lblHeading.Location = new System.Drawing.Point(35, 43);
             this.lblHeading.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblHeading.Name = "lblHeading";
-            this.lblHeading.Size = new System.Drawing.Size(288, 36);
+            this.lblHeading.Size = new System.Drawing.Size(301, 35);
             this.lblHeading.TabIndex = 25;
             this.lblHeading.Text = "Dodaj novog admina";
             // 
@@ -73,7 +74,7 @@
             this.lblIme.Location = new System.Drawing.Point(38, 187);
             this.lblIme.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblIme.Name = "lblIme";
-            this.lblIme.Size = new System.Drawing.Size(44, 25);
+            this.lblIme.Size = new System.Drawing.Size(45, 24);
             this.lblIme.TabIndex = 28;
             this.lblIme.Text = "Ime";
             // 
@@ -83,10 +84,10 @@
             this.txbIme.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txbIme.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbIme.Location = new System.Drawing.Point(42, 213);
-            this.txbIme.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txbIme.Margin = new System.Windows.Forms.Padding(4);
             this.txbIme.MaxLength = 100;
             this.txbIme.Name = "txbIme";
-            this.txbIme.Size = new System.Drawing.Size(254, 29);
+            this.txbIme.Size = new System.Drawing.Size(254, 30);
             this.txbIme.TabIndex = 27;
             this.txbIme.Validating += new System.ComponentModel.CancelEventHandler(this.TxbIme_Validating);
             // 
@@ -98,7 +99,7 @@
             this.lblPrezime.Location = new System.Drawing.Point(39, 268);
             this.lblPrezime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPrezime.Name = "lblPrezime";
-            this.lblPrezime.Size = new System.Drawing.Size(83, 25);
+            this.lblPrezime.Size = new System.Drawing.Size(84, 24);
             this.lblPrezime.TabIndex = 30;
             this.lblPrezime.Text = "Prezime";
             // 
@@ -108,10 +109,10 @@
             this.txbPrezime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txbPrezime.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbPrezime.Location = new System.Drawing.Point(43, 294);
-            this.txbPrezime.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txbPrezime.Margin = new System.Windows.Forms.Padding(4);
             this.txbPrezime.MaxLength = 100;
             this.txbPrezime.Name = "txbPrezime";
-            this.txbPrezime.Size = new System.Drawing.Size(254, 29);
+            this.txbPrezime.Size = new System.Drawing.Size(254, 30);
             this.txbPrezime.TabIndex = 29;
             this.txbPrezime.Validating += new System.ComponentModel.CancelEventHandler(this.TxbPrezime_Validating);
             // 
@@ -121,10 +122,10 @@
             this.txbEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txbEmail.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbEmail.Location = new System.Drawing.Point(474, 502);
-            this.txbEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txbEmail.Margin = new System.Windows.Forms.Padding(4);
             this.txbEmail.MaxLength = 100;
             this.txbEmail.Name = "txbEmail";
-            this.txbEmail.Size = new System.Drawing.Size(254, 29);
+            this.txbEmail.Size = new System.Drawing.Size(254, 30);
             this.txbEmail.TabIndex = 27;
             this.txbEmail.Validating += new System.ComponentModel.CancelEventHandler(this.TxbEmail_Validating);
             // 
@@ -136,7 +137,7 @@
             this.label1.Location = new System.Drawing.Point(470, 476);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 25);
+            this.label1.Size = new System.Drawing.Size(60, 24);
             this.label1.TabIndex = 28;
             this.label1.Text = "Email";
             // 
@@ -146,10 +147,10 @@
             this.txbBrojTelefona.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txbBrojTelefona.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbBrojTelefona.Location = new System.Drawing.Point(475, 416);
-            this.txbBrojTelefona.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txbBrojTelefona.Margin = new System.Windows.Forms.Padding(4);
             this.txbBrojTelefona.MaxLength = 100;
             this.txbBrojTelefona.Name = "txbBrojTelefona";
-            this.txbBrojTelefona.Size = new System.Drawing.Size(254, 29);
+            this.txbBrojTelefona.Size = new System.Drawing.Size(254, 30);
             this.txbBrojTelefona.TabIndex = 29;
             this.txbBrojTelefona.Validating += new System.ComponentModel.CancelEventHandler(this.TxbBrojTelefona_Validating);
             // 
@@ -161,7 +162,7 @@
             this.label2.Location = new System.Drawing.Point(471, 390);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(120, 25);
+            this.label2.Size = new System.Drawing.Size(128, 24);
             this.label2.TabIndex = 30;
             this.label2.Text = "Broj telefona";
             // 
@@ -172,11 +173,11 @@
             this.txbSifra.CausesValidation = false;
             this.txbSifra.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbSifra.Location = new System.Drawing.Point(42, 416);
-            this.txbSifra.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txbSifra.Margin = new System.Windows.Forms.Padding(4);
             this.txbSifra.MaxLength = 100;
             this.txbSifra.Name = "txbSifra";
             this.txbSifra.PasswordChar = '*';
-            this.txbSifra.Size = new System.Drawing.Size(254, 29);
+            this.txbSifra.Size = new System.Drawing.Size(254, 30);
             this.txbSifra.TabIndex = 29;
             this.txbSifra.Validating += new System.ComponentModel.CancelEventHandler(this.TxbNovaSifra_Validating);
             // 
@@ -186,11 +187,11 @@
             this.txbSifraPotvrda.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txbSifraPotvrda.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbSifraPotvrda.Location = new System.Drawing.Point(42, 501);
-            this.txbSifraPotvrda.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txbSifraPotvrda.Margin = new System.Windows.Forms.Padding(4);
             this.txbSifraPotvrda.MaxLength = 100;
             this.txbSifraPotvrda.Name = "txbSifraPotvrda";
             this.txbSifraPotvrda.PasswordChar = '*';
-            this.txbSifraPotvrda.Size = new System.Drawing.Size(254, 29);
+            this.txbSifraPotvrda.Size = new System.Drawing.Size(254, 30);
             this.txbSifraPotvrda.TabIndex = 29;
             this.txbSifraPotvrda.Validating += new System.ComponentModel.CancelEventHandler(this.TxbNovaSifraPotvrda_Validating);
             // 
@@ -202,7 +203,7 @@
             this.lblSifa.Location = new System.Drawing.Point(38, 390);
             this.lblSifa.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSifa.Name = "lblSifa";
-            this.lblSifa.Size = new System.Drawing.Size(46, 25);
+            this.lblSifa.Size = new System.Drawing.Size(44, 24);
             this.lblSifa.TabIndex = 30;
             this.lblSifa.Text = "Sifa";
             // 
@@ -214,7 +215,7 @@
             this.lblSifraPotvrda.Location = new System.Drawing.Point(38, 475);
             this.lblSifraPotvrda.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSifraPotvrda.Name = "lblSifraPotvrda";
-            this.lblSifraPotvrda.Size = new System.Drawing.Size(120, 25);
+            this.lblSifraPotvrda.Size = new System.Drawing.Size(125, 24);
             this.lblSifraPotvrda.TabIndex = 30;
             this.lblSifraPotvrda.Text = "Potvrda sifre";
             // 
@@ -225,7 +226,7 @@
             this.btnSacuvaj.Font = new System.Drawing.Font("Raleway", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSacuvaj.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnSacuvaj.Location = new System.Drawing.Point(43, 600);
-            this.btnSacuvaj.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSacuvaj.Margin = new System.Windows.Forms.Padding(4);
             this.btnSacuvaj.Name = "btnSacuvaj";
             this.btnSacuvaj.Size = new System.Drawing.Size(255, 47);
             this.btnSacuvaj.TabIndex = 40;
@@ -240,7 +241,7 @@
             this.btnDodajSliku.Font = new System.Drawing.Font("Raleway", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDodajSliku.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnDodajSliku.Location = new System.Drawing.Point(478, 295);
-            this.btnDodajSliku.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDodajSliku.Margin = new System.Windows.Forms.Padding(4);
             this.btnDodajSliku.Name = "btnDodajSliku";
             this.btnDodajSliku.Size = new System.Drawing.Size(255, 47);
             this.btnDodajSliku.TabIndex = 41;
@@ -252,7 +253,7 @@
             // 
             this.imgAvatar.Image = global::WinForms.Properties.Resources.avatar_1577909_640;
             this.imgAvatar.Location = new System.Drawing.Point(509, 112);
-            this.imgAvatar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.imgAvatar.Margin = new System.Windows.Forms.Padding(4);
             this.imgAvatar.Name = "imgAvatar";
             this.imgAvatar.Size = new System.Drawing.Size(185, 154);
             this.imgAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -275,7 +276,7 @@
             this.label3.Location = new System.Drawing.Point(38, 112);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(140, 25);
+            this.label3.Size = new System.Drawing.Size(144, 24);
             this.label3.TabIndex = 44;
             this.label3.Text = "Korisnicko Ime";
             // 
@@ -285,18 +286,34 @@
             this.txbKorisnickoIme.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txbKorisnickoIme.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbKorisnickoIme.Location = new System.Drawing.Point(42, 138);
-            this.txbKorisnickoIme.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txbKorisnickoIme.Margin = new System.Windows.Forms.Padding(4);
             this.txbKorisnickoIme.MaxLength = 100;
             this.txbKorisnickoIme.Name = "txbKorisnickoIme";
-            this.txbKorisnickoIme.Size = new System.Drawing.Size(254, 29);
+            this.txbKorisnickoIme.Size = new System.Drawing.Size(254, 30);
             this.txbKorisnickoIme.TabIndex = 43;
             this.txbKorisnickoIme.Validating += new System.ComponentModel.CancelEventHandler(this.TxbKorisnickoIme_Validating_1);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(69)))), ((int)(((byte)(64)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("Raleway", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button1.Location = new System.Drawing.Point(465, 600);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(263, 47);
+            this.button1.TabIndex = 85;
+            this.button1.Text = "Odustani";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // uctDodajAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(19)))), ((int)(((byte)(54)))));
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txbKorisnickoIme);
             this.Controls.Add(this.imgAvatar);
@@ -315,7 +332,7 @@
             this.Controls.Add(this.lblIme);
             this.Controls.Add(this.txbIme);
             this.Controls.Add(this.lblHeading);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "uctDodajAdmin";
             this.Size = new System.Drawing.Size(1503, 697);
             this.Load += new System.EventHandler(this.UctPostavke_Load);
@@ -348,5 +365,6 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txbKorisnickoIme;
+        private System.Windows.Forms.Button button1;
     }
 }

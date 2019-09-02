@@ -191,5 +191,11 @@ namespace WinForms.Predstava
         {
             LoadUloge();
         }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            PanelSwitcher.setToTop(new uctPredstava());
+            PanelSwitcher.RemoveControl(this);
+        }
     }
 }

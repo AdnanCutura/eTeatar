@@ -39,6 +39,7 @@
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.btnDodajSliku = new System.Windows.Forms.Button();
             this.imgSlika = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgSlika)).BeginInit();
             this.SuspendLayout();
@@ -50,7 +51,7 @@
             this.btnSacuvaj.Font = new System.Drawing.Font("Raleway", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSacuvaj.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnSacuvaj.Location = new System.Drawing.Point(39, 606);
-            this.btnSacuvaj.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSacuvaj.Margin = new System.Windows.Forms.Padding(4);
             this.btnSacuvaj.Name = "btnSacuvaj";
             this.btnSacuvaj.Size = new System.Drawing.Size(255, 47);
             this.btnSacuvaj.TabIndex = 59;
@@ -76,7 +77,7 @@
             this.txbNaziv.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txbNaziv.Font = new System.Drawing.Font("Raleway", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbNaziv.Location = new System.Drawing.Point(39, 141);
-            this.txbNaziv.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txbNaziv.Margin = new System.Windows.Forms.Padding(4);
             this.txbNaziv.MaxLength = 100;
             this.txbNaziv.Name = "txbNaziv";
             this.txbNaziv.Size = new System.Drawing.Size(254, 30);
@@ -116,7 +117,7 @@
             this.rtxbSadrzaj.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtxbSadrzaj.Font = new System.Drawing.Font("Raleway", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtxbSadrzaj.Location = new System.Drawing.Point(39, 324);
-            this.rtxbSadrzaj.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rtxbSadrzaj.Margin = new System.Windows.Forms.Padding(4);
             this.rtxbSadrzaj.Name = "rtxbSadrzaj";
             this.rtxbSadrzaj.Size = new System.Drawing.Size(1108, 242);
             this.rtxbSadrzaj.TabIndex = 65;
@@ -134,7 +135,7 @@
             this.btnDodajSliku.Font = new System.Drawing.Font("Raleway", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDodajSliku.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnDodajSliku.Location = new System.Drawing.Point(39, 217);
-            this.btnDodajSliku.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDodajSliku.Margin = new System.Windows.Forms.Padding(4);
             this.btnDodajSliku.Name = "btnDodajSliku";
             this.btnDodajSliku.Size = new System.Drawing.Size(255, 47);
             this.btnDodajSliku.TabIndex = 63;
@@ -153,11 +154,27 @@
             this.imgSlika.TabIndex = 62;
             this.imgSlika.TabStop = false;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(69)))), ((int)(((byte)(64)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("Raleway", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button1.Location = new System.Drawing.Point(884, 606);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(263, 47);
+            this.button1.TabIndex = 84;
+            this.button1.Text = "Odustani";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            // 
             // uctDodajObavijest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(19)))), ((int)(((byte)(54)))));
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.rtxbSadrzaj);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnDodajSliku);
@@ -166,7 +183,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txbNaziv);
             this.Controls.Add(this.lblHeading);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "uctDodajObavijest";
             this.Size = new System.Drawing.Size(1217, 692);
             this.Load += new System.EventHandler(this.UctDodajObavijest_Load);
@@ -189,5 +206,6 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.Button btnDodajSliku;
         private System.Windows.Forms.PictureBox imgSlika;
+        private System.Windows.Forms.Button button1;
     }
 }

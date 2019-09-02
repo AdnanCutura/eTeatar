@@ -116,6 +116,10 @@ namespace WinForms.Glumac
             _dataValidation.NullCheck(txbBiografija, e);
         }
 
-        //TODO: Slika validation
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            PanelSwitcher.setToTop(new uctGlumac());
+            PanelSwitcher.RemoveControl(this);
+        }
     }
 }
